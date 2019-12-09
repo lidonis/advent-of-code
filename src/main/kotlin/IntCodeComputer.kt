@@ -4,16 +4,12 @@ import java.util.*
 class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<Long> = mutableListOf()) :
     Iterator<List<Long>> {
 
-    private var memory: ArrayList<Long>
-    private var instructionPointer = 0
+    private var memory = Memory(program)
+    private var instructionPointer = 0L
     private var currentInput = 0
     private var relativeBase = 0L
 
     var outputs = mutableListOf<Long>()
-
-    init {
-        memory = program.toMutableList() as ArrayList<Long>
-    }
 
     private fun computeStep() {
         val nbInstruction: Int
@@ -39,30 +35,22 @@ class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<L
             }
             5 -> {
                 if (firstParameter(code) != 0L) {
-                    instructionPointer = secondParameter(code).toInt()
+                    instructionPointer = secondParameter(code)
                 }
                 nbInstruction = 3
             }
             6 -> {
                 if (firstParameter(code) == 0L) {
-                    instructionPointer = secondParameter(code).toInt()
+                    instructionPointer = secondParameter(code)
                 }
                 nbInstruction = 3
             }
             7 -> {
-                if (firstParameter(code) < secondParameter(code)) {
-                    write(3, 1, parameterMode(code, 5))
-                } else {
-                    write(3, 0, parameterMode(code, 5))
-                }
+                write(3, (firstParameter(code) < secondParameter(code)).toLong(), parameterMode(code, 5))
                 nbInstruction = 4
             }
             8 -> {
-                if (firstParameter(code) == secondParameter(code)) {
-                    write(3, 1, parameterMode(code, 5))
-                } else {
-                    write(3, 0, parameterMode(code, 5))
-                }
+                write(3, (firstParameter(code) == secondParameter(code)).toLong(), parameterMode(code, 5))
                 nbInstruction = 4
             }
             9 -> {
@@ -86,20 +74,18 @@ class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<L
     private fun parameterMode(code: String, index: Int) = code.getOrElse(code.length - index) { '0' }
 
     private fun read(position: Int, parameterMode: Char) =
-        readMemory(readPosition(position, parameterMode))
+        memory[readPosition(position, parameterMode)]
 
     private fun readPosition(position: Int, parameterMode: Char) = when (parameterMode) {
-        '0' -> readMemory(instructionPointer + position).toInt()
+        '0' -> memory[instructionPointer + position]
         '1' -> instructionPointer + position
-        '2' -> (readMemory(instructionPointer + position).toInt() + relativeBase).toInt()
+        '2' -> memory[instructionPointer + position] + relativeBase
         else -> throw IllegalArgumentException("Parameter mode unknown")
     }
 
-    private fun readMemory(index: Int) = memory.getOrElse(index) { 0L }
 
     private fun write(index: Int, value: Long, parameterMode: Char) {
         val position = readPosition(index, parameterMode)
-        memory.ensureSize(position + 1)
         memory[position] = value
     }
 
@@ -107,7 +93,7 @@ class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<L
 
     override fun next(): List<Long> {
         computeStep()
-        return memory
+        return memory.memory
     }
 
     fun input(noun: Long, verb: Long) {
@@ -116,14 +102,27 @@ class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<L
     }
 
     fun reset() {
-        memory = program.toMutableList() as ArrayList<Long>
+        memory = Memory(program)
         instructionPointer = 0
         currentInput = 0
         relativeBase = 0
         outputs = mutableListOf()
     }
 
+    class Memory(program: List<Long>) {
+        internal var memory: ArrayList<Long> = program.toMutableList() as ArrayList<Long>
+
+        operator fun set(index: Long, value: Long) {
+            memory.ensureSize((index + 1).toInt())
+            memory[index.toInt()] = value
+        }
+
+        operator fun get(index: Long) = memory.getOrElse(index.toInt()) { 0L }
+    }
+
 }
+
+fun Boolean.toLong() = if (this) 1L else 0L
 
 fun ArrayList<Long>.ensureSize(size: Int) {
     this.ensureCapacity(size)
