@@ -11,53 +11,90 @@ class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<L
     var outputs = mutableListOf<Long>()
 
     private fun computeStep() {
+        getActions().forEach { it() }
+    }
+
+    private fun getActions(): MutableList<() -> Unit> {
         val code = memory[instructionPointer].toString()
+        val actions = mutableListOf<() -> Unit>()
         when (opcode(code)) {
             1 -> {
-                write(3, firstParameter(code) + secondParameter(code), parameterMode(code, 5))
-                instructionPointer +=  4
+                actions.add { write(3, firstParameter(code) + secondParameter(code), parameterMode(code, 5)) }
+                actions.add { instructionPointer += 4 }
             }
             2 -> {
-                write(3, firstParameter(code) * secondParameter(code), parameterMode(code, 5))
-                instructionPointer +=  4
+                actions.add { write(3, firstParameter(code) * secondParameter(code), parameterMode(code, 5)) }
+                actions.add { instructionPointer += 4 }
             }
             3 -> {
-                write(1, inputs[currentInput++], parameterMode(code, 3))
-                instructionPointer +=  2
+                actions.add { write(1, inputs[currentInput++], parameterMode(code, 3)) }
+                actions.add { instructionPointer += 2 }
             }
             4 -> {
-                outputs.add(read(1, parameterMode(code, 3)))
-                instructionPointer +=  2
+                actions.add {
+                    outputs.add(read(1, parameterMode(code, 3)))
+                }
+
+                actions.add {
+                    instructionPointer += 2
+                }
             }
             5 -> {
                 if (firstParameter(code) != 0L) {
-                    instructionPointer = secondParameter(code)
+                    actions.add {
+                        instructionPointer = secondParameter(code)
+                    }
                 } else {
-                    instructionPointer +=  3
+                    actions.add {
+                        instructionPointer += 3
+                    }
                 }
             }
             6 -> {
                 if (firstParameter(code) == 0L) {
-                    instructionPointer = secondParameter(code)
+                    actions.add {
+                        instructionPointer = secondParameter(code)
+                    }
                 } else {
-                    instructionPointer += 3
+                    actions.add {
+                        instructionPointer += 3
+                    }
                 }
             }
             7 -> {
-                write(3, (firstParameter(code) < secondParameter(code)).toLong(), parameterMode(code, 5))
-                instructionPointer +=  4
+                actions.add {
+                    write(
+                        3,
+                        (firstParameter(code) < secondParameter(code)).toLong(),
+                        parameterMode(code, 5)
+                    )
+                }
+                actions.add {
+                    instructionPointer += 4
+                }
             }
             8 -> {
-                write(3, (firstParameter(code) == secondParameter(code)).toLong(), parameterMode(code, 5))
-                instructionPointer +=  4
+                actions.add {
+                    write(
+                        3,
+                        (firstParameter(code) == secondParameter(code)).toLong(),
+                        parameterMode(code, 5)
+                    )
+                }
+                actions.add {
+                    instructionPointer += 4
+                }
             }
             9 -> {
-                relativeBase += firstParameter(code)
-                instructionPointer += 2
+                actions.add { relativeBase += firstParameter(code) }
+                actions.add {
+                    instructionPointer += 2
+                }
             }
             99 -> throw IllegalStateException("Program halted")
             else -> throw IllegalArgumentException("Opcode unknown")
         }
+        return actions
     }
 
     private fun firstParameter(code: String) = read(1, parameterMode(code, 3))
@@ -66,17 +103,19 @@ class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<L
 
     private fun opcode(code: String) = code.takeLast(2).toInt()
 
-    private fun parameterMode(code: String, index: Int) = code.getOrElse(code.length - index) { '0' }
+    private fun parameterMode(code: String, index: Int) =
+        code.getOrElse(code.length - index) { '0' }
 
     private fun read(position: Int, parameterMode: Char) =
         memory[readPosition(position, parameterMode)]
 
-    private fun readPosition(position: Int, parameterMode: Char) = when (parameterMode) {
-        '0' -> memory[instructionPointer + position]
-        '1' -> instructionPointer + position
-        '2' -> memory[instructionPointer + position] + relativeBase
-        else -> throw IllegalArgumentException("Parameter mode unknown")
-    }
+    private fun readPosition(position: Int, parameterMode: Char) =
+        when (parameterMode) {
+            '0' -> memory[instructionPointer + position]
+            '1' -> instructionPointer + position
+            '2' -> memory[instructionPointer + position] + relativeBase
+            else -> throw IllegalArgumentException("Parameter mode unknown")
+        }
 
 
     private fun write(index: Int, value: Long, parameterMode: Char) {
@@ -86,7 +125,8 @@ class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<L
 
     override fun hasNext() = memory[instructionPointer] != 99L
 
-    override fun next(): List<Long> {
+    override fun next()
+            : List<Long> {
         computeStep()
         return memory.memory
     }
@@ -104,8 +144,11 @@ class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<L
         outputs = mutableListOf()
     }
 
-    class Memory(program: List<Long>) {
-        internal var memory: ArrayList<Long> = program.toMutableList() as ArrayList<Long>
+    class Memory(
+        program: List<Long>
+    ) {
+        internal var memory: ArrayList<Long> =
+            program.toMutableList() as ArrayList<Long>
 
         operator fun set(index: Long, value: Long) {
             memory.ensureSize((index + 1).toInt())
