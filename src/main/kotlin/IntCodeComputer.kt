@@ -1,7 +1,7 @@
 import java.util.*
 
 
-class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<Long> = mutableListOf(0)) :
+class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<Long> = mutableListOf()) :
     Iterator<List<Long>> {
 
     private var memory: ArrayList<Long>
