@@ -127,6 +127,6 @@ fun Boolean.toLong() = if (this) 1L else 0L
 fun ArrayList<Long>.ensureSize(size: Int) {
     this.ensureCapacity(size)
     while (this.size < size) {
-        this.add(0)
+        this.add(0L)
     }
 }
