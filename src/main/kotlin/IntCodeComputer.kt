@@ -12,9 +12,8 @@ class IntCodeComputer(private val program: List<Int>, val inputs: MutableList<In
     private fun computeStep() {
         val nbInstruction: Int
         val code = memory[instructionPointer].toString()
-        val opcode = opcode(code)
         val currentPointer = instructionPointer
-        when (opcode) {
+        when (opcode(code)) {
             1 -> {
                 memory[memory[instructionPointer + 3]] = firstParameter(code) + secondParameter(code)
                 nbInstruction = 4
