@@ -1,5 +1,5 @@
 fun main() {
-    val inputs = InputReader("day5.txt").asLinesOfInts()
+    val inputs = InputReader("day5.txt").asLinesOfLongs()
     val computer2 = IntCodeComputer(
         inputs[0] , mutableListOf(5)
     )

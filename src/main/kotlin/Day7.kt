@@ -1,5 +1,5 @@
 fun main() {
-    val program = InputReader("day7.txt").asLinesOfInts()[0]
+    val program = InputReader("day7.txt").asLinesOfLongs()[0]
     val max1 = (0..4).toList().permute().map {
         Amplifiers(
             program, it
@@ -18,12 +18,12 @@ fun main() {
 }
 
 
-class Amplifiers(private val program: List<Int>, private val phaseSettings: List<Int>) {
+class Amplifiers(private val program: List<Long>, private val phaseSettings: List<Int>) {
 
-    private val amplifiers = phaseSettings.map { IntCodeComputer(program, mutableListOf(it)) }
+    private val amplifiers = phaseSettings.map { IntCodeComputer(program, mutableListOf(it.toLong())) }
 
-    fun run(): Int {
-        var signal = 0
+    fun run(): Long {
+        var signal = 0L
         var currentAmplifier = 0
         var loop = 0
         try {
@@ -45,8 +45,8 @@ class Amplifiers(private val program: List<Int>, private val phaseSettings: List
     }
 }
 
-private fun runAmplifier(amplifier: IntCodeComputer, loop: Int): Int {
-    var signal: Int? = null
+private fun runAmplifier(amplifier: IntCodeComputer, loop: Int): Long {
+    var signal: Long? = null
     while (signal == null) {
         amplifier.next()
         signal = amplifier.outputs.getOrNull(loop)
