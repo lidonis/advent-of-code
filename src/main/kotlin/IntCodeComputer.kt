@@ -1,6 +1,5 @@
 import java.util.*
 
-
 class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<Long> = mutableListOf()) :
     Iterator<List<Long>> {
 
@@ -12,56 +11,52 @@ class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<L
     var outputs = mutableListOf<Long>()
 
     private fun computeStep() {
-        val nbInstruction: Int
         val code = memory[instructionPointer].toString()
-        val currentPointer = instructionPointer
         when (opcode(code)) {
             1 -> {
                 write(3, firstParameter(code) + secondParameter(code), parameterMode(code, 5))
-                nbInstruction = 4
+                instructionPointer +=  4
             }
             2 -> {
                 write(3, firstParameter(code) * secondParameter(code), parameterMode(code, 5))
-                nbInstruction = 4
+                instructionPointer +=  4
             }
             3 -> {
                 write(1, inputs[currentInput++], parameterMode(code, 3))
-                nbInstruction = 2
+                instructionPointer +=  2
             }
             4 -> {
-                val output = read(1, parameterMode(code, 3))
-                outputs.add(output)
-                nbInstruction = 2
+                outputs.add(read(1, parameterMode(code, 3)))
+                instructionPointer +=  2
             }
             5 -> {
                 if (firstParameter(code) != 0L) {
                     instructionPointer = secondParameter(code)
+                } else {
+                    instructionPointer +=  3
                 }
-                nbInstruction = 3
             }
             6 -> {
                 if (firstParameter(code) == 0L) {
                     instructionPointer = secondParameter(code)
+                } else {
+                    instructionPointer += 3
                 }
-                nbInstruction = 3
             }
             7 -> {
                 write(3, (firstParameter(code) < secondParameter(code)).toLong(), parameterMode(code, 5))
-                nbInstruction = 4
+                instructionPointer +=  4
             }
             8 -> {
                 write(3, (firstParameter(code) == secondParameter(code)).toLong(), parameterMode(code, 5))
-                nbInstruction = 4
+                instructionPointer +=  4
             }
             9 -> {
                 relativeBase += firstParameter(code)
-                nbInstruction = 2
+                instructionPointer += 2
             }
             99 -> throw IllegalStateException("Program halted")
             else -> throw IllegalArgumentException("Opcode unknown")
-        }
-        if (instructionPointer == currentPointer && opcode(memory[instructionPointer].toString()) != 99) {
-            instructionPointer += nbInstruction
         }
     }
 
