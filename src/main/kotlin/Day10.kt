@@ -1,23 +1,22 @@
-import java.awt.Graphics
+class AsteroidMap(val asteroids: List<Coordinate>) {
 
-
-class AsteroidMap(input: List<String>) {
-    private val asteroids = input.mapIndexed { i, line ->
+    constructor(input: String): this(input.split("\n").mapIndexed { i, line ->
         line.mapIndexedNotNull { j, c ->
             if (c == '#') Coordinate(i, j) else null
         }
-    }.flatten()
-
-    private val maxX = input[0].length
-    private val maxY = input.size
+    }.flatten())
 
     fun bestMonitoringStation() =
-        asteroids.map {
-            monitor(it)
-        }.max()
+        monitorings().maxBy { it.second }
 
-    private fun monitor(station: Coordinate) =
-        asteroids.filter { canSee(station, it, asteroids - station) }.count()
+    fun monitorings(): List<Pair<Coordinate, Int>> {
+        return asteroids.map {
+            it to monitor(it).count()
+        }
+    }
+
+    fun monitor(station: Coordinate) =
+        asteroids.filter { canSee(station, it, asteroids - station) }
 
 
     private fun canSee(
@@ -28,7 +27,9 @@ class AsteroidMap(input: List<String>) {
         return if (station == target) {
             true
         }
-        else drawLine(station.x, station.y, target.x, target.y, list)
+        else {
+            drawLine(station.x, station.y, target.x, target.y, list)
+        }
     }
 
     private fun drawLine(
@@ -50,7 +51,7 @@ class AsteroidMap(input: List<String>) {
         if (dx >= dy) {
             while (true) {
                 if(x == x2 && y == y2) return true
-                if(list.contains(Coordinate(x, y))) return true
+                if(list.contains(Coordinate(x, y))) break
                 if (x == x2) break
                 x += ix
                 d += dy2
@@ -62,7 +63,7 @@ class AsteroidMap(input: List<String>) {
         } else {
             while (true) {
                 if(x == x2 && y == y2) return true
-                if(list.contains(Coordinate(x, y))) return false
+                if(list.contains(Coordinate(x, y))) break
                 if (y == y2) break
                 y += iy
                 d += dx2
