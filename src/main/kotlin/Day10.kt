@@ -1,6 +1,8 @@
+import kotlin.math.abs
+
 class AsteroidMap(val asteroids: List<Coordinate>) {
 
-    constructor(input: String): this(input.split("\n").mapIndexed { i, line ->
+    constructor(input: String) : this(input.split("\n").mapIndexed { i, line ->
         line.mapIndexedNotNull { j, c ->
             if (c == '#') Coordinate(i, j) else null
         }
@@ -26,9 +28,11 @@ class AsteroidMap(val asteroids: List<Coordinate>) {
     ): Boolean {
         return if (station == target) {
             true
-        }
-        else {
-            drawLine(station.x, station.y, target.x, target.y, list)
+        } else if (station.x == target.x || station.y == target.y || abs(station.x - station.y) == abs(target.x - target.y)) {
+            // TODO If diagonal or strait line, search obstacles
+            return drawLine(station.x, station.y, target.x, target.y, list)
+        } else {
+            true
         }
     }
 
@@ -40,8 +44,8 @@ class AsteroidMap(val asteroids: List<Coordinate>) {
         list: List<Coordinate>
     ): Boolean { // delta of exact value and rounded value of the dependent variable
         var d = 0
-        val dx = Math.abs(x2 - x1)
-        val dy = Math.abs(y2 - y1)
+        val dx = abs(x2 - x1)
+        val dy = abs(y2 - y1)
         val dx2 = 2 * dx // slope scaling factors to
         val dy2 = 2 * dy // avoid floating point
         val ix = if (x1 < x2) 1 else -1 // increment direction
@@ -50,8 +54,8 @@ class AsteroidMap(val asteroids: List<Coordinate>) {
         var y = y1
         if (dx >= dy) {
             while (true) {
-                if(x == x2 && y == y2) return true
-                if(list.contains(Coordinate(x, y))) break
+                if (x == x2 && y == y2) return true
+                if (list.contains(Coordinate(x, y))) break
                 if (x == x2) break
                 x += ix
                 d += dy2
@@ -62,8 +66,8 @@ class AsteroidMap(val asteroids: List<Coordinate>) {
             }
         } else {
             while (true) {
-                if(x == x2 && y == y2) return true
-                if(list.contains(Coordinate(x, y))) break
+                if (x == x2 && y == y2) return true
+                if (list.contains(Coordinate(x, y))) break
                 if (y == y2) break
                 y += iy
                 d += dx2
