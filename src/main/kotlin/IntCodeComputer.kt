@@ -20,22 +20,22 @@ class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<L
         when (opcode(code)) {
             1 -> {
                 actions.add { write(3, firstParameter(code) + secondParameter(code), parameterMode(code, 5)) }
-                actions.add(moveInstructionPointer(instructionPointer + 4))
+                actions.add(incrementInstructionPointer(4))
             }
             2 -> {
                 actions.add { write(3, firstParameter(code) * secondParameter(code), parameterMode(code, 5)) }
-                actions.add(moveInstructionPointer(instructionPointer + 4))
+                actions.add(incrementInstructionPointer(4))
             }
             3 -> {
                 actions.add { write(1, inputs[currentInput++], parameterMode(code, 3)) }
-                actions.add(moveInstructionPointer(instructionPointer + 2))
+                actions.add(incrementInstructionPointer(2))
             }
             4 -> {
                 actions.add {
                     outputs.add(read(1, parameterMode(code, 3)))
                 }
 
-                actions.add(moveInstructionPointer(instructionPointer + 2))
+                actions.add(incrementInstructionPointer(2))
             }
             5 -> {
                 instructionPointer = if (firstParameter(code) != 0L) {
@@ -60,7 +60,7 @@ class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<L
                         parameterMode(code, 5)
                     )
                 }
-                actions.add(moveInstructionPointer(instructionPointer + 4))
+                actions.add(incrementInstructionPointer(4))
             }
             8 -> {
                 actions.add {
@@ -70,11 +70,11 @@ class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<L
                         parameterMode(code, 5)
                     )
                 }
-                actions.add(moveInstructionPointer(instructionPointer + 4))
+                actions.add(incrementInstructionPointer(4))
             }
             9 -> {
                 actions.add { relativeBase += firstParameter(code) }
-                actions.add(moveInstructionPointer(instructionPointer + 2))
+                actions.add(incrementInstructionPointer(2))
             }
             99 -> throw IllegalStateException("Program halted")
             else -> throw IllegalArgumentException("Opcode unknown")
@@ -82,9 +82,9 @@ class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<L
         return actions
     }
 
-    private fun moveInstructionPointer(value: Long): () -> Unit {
+    private fun incrementInstructionPointer(value: Long): () -> Unit {
         return {
-            instructionPointer = value
+            instructionPointer+= value
         }
     }
 
