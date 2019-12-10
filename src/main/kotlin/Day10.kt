@@ -20,7 +20,6 @@ class AsteroidMap(val asteroids: List<Coordinate>) {
     fun monitor(station: Coordinate) =
         asteroids.filter { canSee(station, it, asteroids - station) }
 
-
     private fun canSee(
         station: Coordinate,
         target: Coordinate,
