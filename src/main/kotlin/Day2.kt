@@ -14,7 +14,7 @@ fun findInputs(computer: IntCodeComputer): Pair<Long, Long> {
         for (verb in 0..99L) {
             computer.input(noun, verb)
             if (computer.asSequence().last()[0] == 19690720L) {
-                return Pair(noun, verb)
+                return noun to verb
             }
             computer.reset()
         }
