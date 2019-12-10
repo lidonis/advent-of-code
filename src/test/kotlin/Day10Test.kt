@@ -12,7 +12,7 @@ internal class Day10Test {
                 "....#\n" +
                 "...##"
         val map = AsteroidMap(input)
-        Assert.assertEquals(8, map.bestMonitoringStation())
+        Assert.assertEquals(8, map.station()?.second)
     }
 
     @Test
@@ -28,7 +28,7 @@ internal class Day10Test {
                 "##...#..#.\n" +
                 ".#....####"
         val map = AsteroidMap(input)
-        Assert.assertEquals(33, map.bestMonitoringStation())
+        Assert.assertEquals(33, map.station()?.second)
     }
 
     @Test
@@ -44,7 +44,7 @@ internal class Day10Test {
                 "......#...\n" +
                 ".####.###."
         val map = AsteroidMap(input)
-        Assert.assertEquals(35, map.bestMonitoringStation())
+        Assert.assertEquals(35, map.station()?.second)
     }
 
     @Test
@@ -60,7 +60,7 @@ internal class Day10Test {
                 ".##...##.#\n" +
                 ".....#.#.."
         val map = AsteroidMap(input)
-        Assert.assertEquals(41, map.bestMonitoringStation())
+        Assert.assertEquals(41, map.station()?.second)
     }
 
     @Test
@@ -86,7 +86,7 @@ internal class Day10Test {
                 "#.#.#.#####.####.###\n" +
                 "###.##.####.##.#..##"
         val map = AsteroidMap(input)
-        Assert.assertEquals(210, map.bestMonitoringStation())
+        Assert.assertEquals(210, map.station()?.second)
     }
 
 
