@@ -45,7 +45,7 @@ class Amplifiers(private val program: List<Long>, private val phaseSettings: Lis
     }
 }
 
-private fun runAmplifier(amplifier: IntCodeComputer, loop: Int): Long {
+fun runAmplifier(amplifier: IntCodeComputer, loop: Int): Long {
     var signal: Long? = null
     while (signal == null) {
         amplifier.next()

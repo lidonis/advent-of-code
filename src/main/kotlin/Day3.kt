@@ -12,8 +12,12 @@ fun main() {
     print("Fewest combined steps the wires must take to reach an intersection: $steps")
 }
 
-data class Vector(val direction: Direction, val length: Int)
-enum class Direction { R, D, L, U }
+enum class Direction {
+    R, D, L, U;
+
+    operator fun inc() = values()[Math.floorMod(this.ordinal + 1, values().size - 1)]
+    operator fun dec() = values()[Math.floorMod(this.ordinal - 1, values().size - 1)]
+}
 
 
 class Grid(input1: List<String>, input2: List<String>) {
@@ -22,7 +26,7 @@ class Grid(input1: List<String>, input2: List<String>) {
     private var wire1 = Wire(startingPosition, input1)
     private var wire2 = Wire(startingPosition, input2)
 
-    constructor(input1: String, input2: String): this(input1.split(","), input2.split(","))
+    constructor(input1: String, input2: String) : this(input1.split(","), input2.split(","))
 
     fun minDistance() = wire1.drop(1).intersect(wire2.drop(1)).map { startingPosition.manhattanDistance(it) }.min()
 
@@ -66,5 +70,4 @@ data class Position(val x: Int, val y: Int) {
         }
 
     fun manhattanDistance(other: Position) = (x - other.x).absoluteValue + (y - other.y).absoluteValue
-
 }
