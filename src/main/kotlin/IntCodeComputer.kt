@@ -6,9 +6,17 @@ class IntCodeComputer(private val program: List<Long>) :
 
     private var instructionPointer = 0L
     private var relativeBase = 0L
-    private var inputs: Queue<Long> = ArrayDeque()
-    var memory = Memory(program.toMutableList() as ArrayList<Long>)
+    private var inputs = ArrayDeque<Long>()
     var outputs = ArrayDeque<Long>()
+    var memory = Memory(program.toMutableList())
+
+    fun reset() {
+        instructionPointer = 0
+        relativeBase = 0
+        inputs = ArrayDeque()
+        outputs = ArrayDeque()
+        memory = Memory(program.toMutableList())
+    }
 
     private fun computeStep() {
         getActions().forEach { it() }
@@ -142,14 +150,6 @@ class IntCodeComputer(private val program: List<Long>) :
         return this
     }
 
-    fun reset() {
-        memory = Memory(program.toMutableList() as ArrayList<Long>)
-        instructionPointer = 0
-        relativeBase = 0
-        inputs = ArrayDeque()
-        outputs = ArrayDeque()
-    }
-
     fun input(value: Long) {
         inputs.add(value)
     }
@@ -167,10 +167,9 @@ class IntCodeComputer(private val program: List<Long>) :
         return signal
     }
 
-    class Memory(private val list: ArrayList<Long>): MutableList<Long> by list {
+    class Memory(private val list: MutableList<Long>): MutableList<Long> by list {
         operator fun set(index: Long, value: Long) {
             val size = (index + 1).toInt()
-            list.ensureCapacity(size)
             while (list.size < size) {
                 list.add(0L)
             }
