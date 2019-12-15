@@ -13,9 +13,9 @@ fun main() {
 }
 
 enum class Direction {
-    R, D, L, U;
+    U, R, D, L;
 
-    operator fun inc() = values()[Math.floorMod(this.ordinal + 1, values().size - 1)]
+    operator fun inc() = values()[Math.floorMod(this.ordinal + 1, values().size)]
     operator fun dec() = values()[Math.floorMod(this.ordinal - 1, values().size - 1)]
 }
 
