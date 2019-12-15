@@ -1,14 +1,13 @@
 import java.util.*
 
-class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<Long> = mutableListOf()) :
-    Iterator<List<Long>> {
+class IntCodeComputer(private val program: List<Long>) :
+    Iterator<IntCodeComputer.Memory> {
 
-    private var memory = Memory(program)
     private var instructionPointer = 0L
-    private var currentInput = 0
     private var relativeBase = 0L
-
-    var outputs = mutableListOf<Long>()
+    private var inputs: Queue<Long> = ArrayDeque()
+    private var memory = Memory(program)
+    var outputs = ArrayDeque<Long>()
 
     private fun computeStep() {
         getActions().forEach { it() }
@@ -47,7 +46,7 @@ class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<L
             3 -> {
                 actions.addAll(
                     listOf(
-                        { write(1, inputs[currentInput++], parameterMode(3)) },
+                        { write(1, inputs.poll(), parameterMode(3)) },
                         incrementInstructionPointer(2)
                     )
                 )
@@ -137,33 +136,40 @@ class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<L
     override fun hasNext() = memory[instructionPointer] != 99L
 
     override fun next()
-            : List<Long> {
+            : Memory {
         computeStep()
-        return memory.memory
-    }
-
-    fun input(value: Long) {
-        memory[1] = value
-    }
-
-
-    fun input2(noun: Long, verb: Long) {
-        memory[1] = noun
-        memory[2] = verb
+        return memory
     }
 
     fun reset() {
         memory = Memory(program)
         instructionPointer = 0
-        currentInput = 0
         relativeBase = 0
-        outputs = mutableListOf()
+        inputs = ArrayDeque()
+        outputs = ArrayDeque()
+    }
+
+    fun input(value: Long) {
+        inputs.add(value)
+    }
+
+    operator fun set(i: Long, value: Long) {
+        memory[i] = value
+    }
+
+    fun nextOutput(): Long {
+        var signal: Long? = null
+        while (signal == null) {
+            next()
+            signal = outputs.poll()
+        }
+        return signal
     }
 
     class Memory(
         program: List<Long>
     ) {
-        internal var memory: ArrayList<Long> =
+        var memory: ArrayList<Long> =
             program.toMutableList() as ArrayList<Long>
 
         operator fun set(index: Long, value: Long) {

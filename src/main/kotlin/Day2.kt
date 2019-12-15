@@ -2,7 +2,8 @@ fun main() {
     val computer = IntCodeComputer(
         InputReader("day2.txt").asLinesOfLongs()[0]
     )
-    computer.input2(12, 2)
+    computer[1] = 12
+    computer[2] = 2
     println(computer.asSequence().last()[0])
     computer.reset()
     val inputs = findInputs(computer)
@@ -12,7 +13,8 @@ fun main() {
 fun findInputs(computer: IntCodeComputer): Pair<Long, Long> {
     for (noun in 0..99L) {
         for (verb in 0..99L) {
-            computer.input2(noun, verb)
+            computer[1] = noun
+            computer[2] = verb
             if (computer.asSequence().last()[0] == 19690720L) {
                 return noun to verb
             }

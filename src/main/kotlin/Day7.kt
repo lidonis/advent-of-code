@@ -20,21 +20,22 @@ fun main() {
 
 class Amplifiers(private val program: List<Long>, private val phaseSettings: List<Int>) {
 
-    private val amplifiers = phaseSettings.map { IntCodeComputer(program, mutableListOf(it.toLong())) }
+    private val amplifiers = phaseSettings.map {
+        val computer = IntCodeComputer(program)
+        computer.input(it.toLong())
+        computer
+    }
 
     fun run(): Long {
         var signal = 0L
         var currentAmplifier = 0
-        var loop = 0
         try {
-
             while (true) {
                 val amplifier = amplifiers[currentAmplifier]
-                amplifier.inputs.add(signal);
-                signal = runAmplifier(amplifier, loop)
+                amplifier.input(signal);
+                signal = amplifier.nextOutput()
                 if (amplifier == amplifiers.last()) {
                     currentAmplifier = 0;
-                    loop++
                 } else {
                     currentAmplifier++
                 }
@@ -43,15 +44,6 @@ class Amplifiers(private val program: List<Long>, private val phaseSettings: Lis
             return signal
         }
     }
-}
-
-fun runAmplifier(amplifier: IntCodeComputer, loop: Int): Long {
-    var signal: Long? = null
-    while (signal == null) {
-        amplifier.next()
-        signal = amplifier.outputs.getOrNull(loop)
-    }
-    return signal
 }
 
 fun <T> List<T>.permute(): List<List<T>> {

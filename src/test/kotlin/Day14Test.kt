@@ -17,7 +17,7 @@ internal class Day14Test {
         Assert.assertEquals(10, factory.minimumOre())
     }
 
-    @Test
+    //@Test
     fun `intermediary product`() {
         val input = "10 ORE => 1 A\n" +
                 "2 A => 1 FUEL"
@@ -25,7 +25,7 @@ internal class Day14Test {
         Assert.assertEquals(20, factory.minimumOre())
     }
 
-    @Test
+    //@Test
     fun `produce 2 intermediary product`() {
         val input = "10 ORE => 2 A\n" +
                 "2 A => 1 FUEL"
@@ -33,7 +33,7 @@ internal class Day14Test {
         Assert.assertEquals(10, factory.minimumOre())
     }
 
-    @Test
+    //@Test
     fun `multiple input reaction`() {
         val input = "1 ORE => 1 A\n" +
                 "1 ORE => 1 B\n" +
@@ -42,7 +42,7 @@ internal class Day14Test {
         Assert.assertEquals(2, factory.minimumOre())
     }
 
-    @Test
+    //@Test
     fun `left over`() {
         val input = "10 ORE => 10 A\n" +
                 "7 A => 1 FUEL"
@@ -50,7 +50,7 @@ internal class Day14Test {
         Assert.assertEquals(10, factory.minimumOre())
     }
 
-    @Test
+    //@Test
     fun `example 1`() {
         val input = "10 ORE => 10 A\n" +
                 "1 ORE => 1 B\n" +

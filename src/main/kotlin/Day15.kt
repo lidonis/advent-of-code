@@ -14,12 +14,10 @@ class Drone(program: List<Long>) {
     private val shipMap = ShipMap()
 
     fun explore(): Position {
-        var loop = 0
-        loop@ while (loop < 5000) {
-            computer.inputs.add(direction.ordinal + 1L)
-            val status = runDroid(computer, loop++)
+        loop@ while (true) {
+            computer.input(direction.ordinal + 1L)
             //println("input $direction $status $position")
-            when (status) {
+            when (computer.nextOutput()) {
                 0L -> {
                     shipMap.add(position.move(direction))
                     //println("wall")
@@ -35,15 +33,6 @@ class Drone(program: List<Long>) {
         }
         shipMap.display(position)
         return position
-    }
-
-    private fun runDroid(amplifier: IntCodeComputer, loop: Int): Long {
-        var signal: Long? = null
-        while (signal == null) {
-            amplifier.next()
-            signal = amplifier.outputs.getOrNull(loop)
-        }
-        return signal
     }
 }
 

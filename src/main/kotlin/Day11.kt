@@ -1,5 +1,3 @@
-import java.lang.IllegalArgumentException
-
 fun main() {
     val program = InputReader("day11.txt").asLinesOfLongs()[0]
     val robot = EmergencyHullPaintingRobot(program)
@@ -14,15 +12,11 @@ class EmergencyHullPaintingRobot(program: List<Long>) {
 
     fun compute() {
         while (computer.hasNext()) {
-            computer.inputs.add(panels.getValue(position).value)
-            while (computer.hasNext() && computer.outputs.size < 2) {
-                computer.next()
-            }
-            paint(computer.outputs[0])
-            computer.inputs.add(panels.getValue(position).value)
-            rotate(computer.outputs[1])
+            computer.input(panels.getValue(position).value)
+            paint(computer.nextOutput())
+            computer.input(panels.getValue(position).value)
+            rotate(computer.nextOutput())
             position = position.move(direction)
-            computer.outputs = mutableListOf()
         }
     }
 

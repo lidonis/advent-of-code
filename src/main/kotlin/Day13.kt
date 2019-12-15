@@ -15,7 +15,6 @@ class ArcadeCabinet(program: List<Long>) {
     }
 
     fun play(): Int {
-        intCodeComputer.input(2)
         intCodeComputer.asSequence().last();
         return 0
     }
