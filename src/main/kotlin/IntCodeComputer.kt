@@ -1,5 +1,4 @@
 import java.util.*
-import kotlin.collections.ArrayList
 
 class IntCodeComputer(private val program: List<Long>) :
     Iterator<IntCodeComputer> {
