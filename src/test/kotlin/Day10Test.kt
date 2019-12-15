@@ -101,13 +101,6 @@ internal class Day10Test {
     fun `part 2`() {
         val input = InputReader("day10.txt").text
         val map = AsteroidMap(input)
-        Assert.assertEquals(Coordinate(3,5), map.shootingSequence().elementAt(199))
-    }
-
-    @Test
-    fun `correct shoot looping`() {
-        val input = InputReader("day10.txt").text
-        val map = AsteroidMap(input)
-        Assert.assertEquals(Coordinate(1,14), map.shootingSequence().last())
+        Assert.assertEquals(305, map.part2())
     }
 }

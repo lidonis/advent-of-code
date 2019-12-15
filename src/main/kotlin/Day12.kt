@@ -32,7 +32,6 @@ class Day12(lines: List<String>) {
     }
 
     fun part2(): Long = axes.fold(1L) { acc, axis ->
-        println(acc)
         lcm(
             acc,
             simulate(axis).indexOfFirst { pairs ->
@@ -57,7 +56,6 @@ class Day12(lines: List<String>) {
         private fun simulate(start: Iterable<Int>): Sequence<List<Pair<Int, Int>>> = sequence {
             val points = start.toMutableList()
             val velocities = MutableList(points.size) { 0 }
-            var i =0
             while (true) {
                 for ((i, point) in points.withIndex()) {
                     velocities[i] += points.sumBy { (it - point).sign }
