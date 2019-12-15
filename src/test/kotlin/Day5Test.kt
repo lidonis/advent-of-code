@@ -7,7 +7,7 @@ internal class Day5Test {
     fun testInput() {
         val computer = IntCodeComputer(listOf(3,1))
         computer.input(10)
-        Assert.assertEquals(listOf(3L,10), computer.next().memory.memory)
+        Assert.assertEquals(listOf(3L,10), computer.next().memory)
     }
 
     @Test

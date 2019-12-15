@@ -1,4 +1,5 @@
 import java.util.*
+import kotlin.collections.ArrayList
 
 class IntCodeComputer(private val program: List<Long>) :
     Iterator<IntCodeComputer> {
@@ -6,7 +7,7 @@ class IntCodeComputer(private val program: List<Long>) :
     private var instructionPointer = 0L
     private var relativeBase = 0L
     private var inputs: Queue<Long> = ArrayDeque()
-    var memory = Memory(program)
+    var memory = Memory(program.toMutableList() as ArrayList<Long>)
     var outputs = ArrayDeque<Long>()
 
     private fun computeStep() {
@@ -77,7 +78,7 @@ class IntCodeComputer(private val program: List<Long>) :
                 actions.add {
                     write(
                         3,
-                        (firstParameter() < secondParameter()).toLong(),
+                        if ((firstParameter() < secondParameter())) 1L else 0L,
                         parameterMode(5)
                     )
                 }
@@ -87,7 +88,7 @@ class IntCodeComputer(private val program: List<Long>) :
                 actions.add {
                     write(
                         3,
-                        (firstParameter() == secondParameter()).toLong(),
+                        if ((firstParameter() == secondParameter())) 1L else 0L,
                         parameterMode(5)
                     )
                 }
@@ -142,7 +143,7 @@ class IntCodeComputer(private val program: List<Long>) :
     }
 
     fun reset() {
-        memory = Memory(program)
+        memory = Memory(program.toMutableList() as ArrayList<Long>)
         instructionPointer = 0
         relativeBase = 0
         inputs = ArrayDeque()
@@ -166,27 +167,17 @@ class IntCodeComputer(private val program: List<Long>) :
         return signal
     }
 
-    class Memory(
-        program: List<Long>
-    ) {
-        var memory: ArrayList<Long> =
-            program.toMutableList() as ArrayList<Long>
-
+    class Memory(private val list: ArrayList<Long>): MutableList<Long> by list {
         operator fun set(index: Long, value: Long) {
-            memory.ensureSize((index + 1).toInt())
-            memory[index.toInt()] = value
+            val size = (index + 1).toInt()
+            list.ensureCapacity(size)
+            while (list.size < size) {
+                list.add(0L)
+            }
+            list[index.toInt()] = value
         }
-
-        operator fun get(index: Long) = memory.getOrElse(index.toInt()) { 0L }
+        operator fun get(index: Long) = list.getOrElse(index.toInt()) { 0L }
     }
 
 }
 
-fun Boolean.toLong() = if (this) 1L else 0L
-
-fun ArrayList<Long>.ensureSize(size: Int) {
-    this.ensureCapacity(size)
-    while (this.size < size) {
-        this.add(0L)
-    }
-}
