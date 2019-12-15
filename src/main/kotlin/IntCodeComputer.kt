@@ -142,7 +142,12 @@ class IntCodeComputer(private val program: List<Long>, var inputs: MutableList<L
         return memory.memory
     }
 
-    fun input(noun: Long, verb: Long) {
+    fun input(value: Long) {
+        memory[1] = value
+    }
+
+
+    fun input2(noun: Long, verb: Long) {
         memory[1] = noun
         memory[2] = verb
     }
