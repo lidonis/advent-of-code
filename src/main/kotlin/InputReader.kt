@@ -5,6 +5,7 @@ class InputReader(fileName: String) {
     val text: String
         get() = reader.readText()
 
+    fun asLinesOfInt() = lines.map { it.toInt() }
     fun asLinesOfLongs() = lines.map { line -> line.split(",").map { it.toLong() } }
     fun asLinesOfStrings() = lines.map { line -> line.split(",") }
     fun asIntRange() : IntRange {
