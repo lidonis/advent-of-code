@@ -4,7 +4,7 @@ fun main() {
     )
     computer[1] = 12
     computer[2] = 2
-    println(computer.asSequence().last()[0])
+    println(computer.asSequence().last().memory[0])
     computer.reset()
     val inputs = findInputs(computer)
     println(100 * inputs.first + inputs.second)
@@ -15,7 +15,7 @@ fun findInputs(computer: IntCodeComputer): Pair<Long, Long> {
         for (verb in 0..99L) {
             computer[1] = noun
             computer[2] = verb
-            if (computer.asSequence().last()[0] == 19690720L) {
+            if (computer.asSequence().last().memory[0] == 19690720L) {
                 return noun to verb
             }
             computer.reset()

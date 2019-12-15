@@ -1,12 +1,12 @@
 import java.util.*
 
 class IntCodeComputer(private val program: List<Long>) :
-    Iterator<IntCodeComputer.Memory> {
+    Iterator<IntCodeComputer> {
 
     private var instructionPointer = 0L
     private var relativeBase = 0L
     private var inputs: Queue<Long> = ArrayDeque()
-    private var memory = Memory(program)
+    var memory = Memory(program)
     var outputs = ArrayDeque<Long>()
 
     private fun computeStep() {
@@ -136,9 +136,9 @@ class IntCodeComputer(private val program: List<Long>) :
     override fun hasNext() = memory[instructionPointer] != 99L
 
     override fun next()
-            : Memory {
+            : IntCodeComputer {
         computeStep()
-        return memory
+        return this
     }
 
     fun reset() {
