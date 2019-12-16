@@ -1,7 +1,5 @@
-import com.sun.jmx.remote.internal.ArrayQueue
 import org.junit.Assert
 import org.junit.Test
-import java.util.*
 
 internal class Day9Test {
 
