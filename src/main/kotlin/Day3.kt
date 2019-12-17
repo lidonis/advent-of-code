@@ -1,5 +1,3 @@
-import kotlin.math.absoluteValue
-
 fun main() {
     val inputs = InputReader("day3.txt").asLinesOfStrings()
     val day3 = Grid(
@@ -11,14 +9,6 @@ fun main() {
     val steps = day3.steps()
     print("Fewest combined steps the wires must take to reach an intersection: $steps")
 }
-
-enum class Direction {
-    U, R, D, L;
-
-    operator fun inc() = values()[Math.floorMod(this.ordinal + 1, values().size)]
-    operator fun dec() = values()[Math.floorMod(this.ordinal - 1, values().size - 1)]
-}
-
 
 class Grid(input1: List<String>, input2: List<String>) {
     private val startingPosition = Position(1, 1)
@@ -58,16 +48,4 @@ data class Move(val direction: Direction, val size: Int) {
 
     fun moves(startingPosition: Position) =
         (0 until size).fold(listOf(startingPosition), { acc, _ -> acc + acc.last().move(direction) }).drop(1)
-}
-
-data class Position(val x: Int, val y: Int) {
-    fun move(direction: Direction) =
-        when (direction) {
-            Direction.R -> Position(x + 1, y)
-            Direction.D -> Position(x, y - 1)
-            Direction.L -> Position(x - 1, y)
-            Direction.U -> Position(x, y + 1)
-        }
-
-    fun manhattanDistance(other: Position) = (x - other.x).absoluteValue + (y - other.y).absoluteValue
 }
