@@ -33,7 +33,7 @@ class Amplifiers(private val program: List<Long>, private val phaseSettings: Lis
             while (true) {
                 val amplifier = amplifiers[currentAmplifier]
                 amplifier.input(signal);
-                signal = amplifier.nextOutput()
+                signal = amplifier.nextOutput()!!
                 if (amplifier == amplifiers.last()) {
                     currentAmplifier = 0;
                 } else {

@@ -157,9 +157,9 @@ class IntCodeComputer(private val program: List<Long>) :
         memory[i] = value
     }
 
-    fun nextOutput(): Long {
+    fun nextOutput(): Long? {
         var signal: Long? = null
-        while (signal == null) {
+        while (signal == null && hasNext()) {
             next()
             signal = outputs.poll()
         }

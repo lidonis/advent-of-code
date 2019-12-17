@@ -13,9 +13,13 @@ class EmergencyHullPaintingRobot(program: List<Long>) {
     fun compute() {
         while (computer.hasNext()) {
             computer.input(panels.getValue(position).value)
-            paint(computer.nextOutput())
+            val paint = computer.nextOutput()
+            requireNotNull(paint) { "No paint value" }
+            paint(paint)
             computer.input(panels.getValue(position).value)
-            rotate(computer.nextOutput())
+            val rotate = computer.nextOutput()
+            requireNotNull(rotate) { "No rotate value" }
+            rotate(rotate)
             position = position.move(direction)
         }
     }
