@@ -1,6 +1,6 @@
 fun main() {
     val computer = IntCodeComputer(
-        InputReader("day2.txt").asLinesOfLongs()[0]
+        InputReader("day2.txt").asLineOfLongs()
     )
     computer[1] = 12
     computer[2] = 2

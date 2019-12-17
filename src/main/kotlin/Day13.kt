@@ -1,5 +1,5 @@
 fun main() {
-    val program = InputReader("day13.txt").asLinesOfLongs()[0]
+    val program = InputReader("day13.txt").asLineOfLongs()
     val arcadeCabinet = ArcadeCabinet(program)
     //println(arcadeCabinet.countBlock())
     println(arcadeCabinet.play())

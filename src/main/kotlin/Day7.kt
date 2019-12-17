@@ -1,5 +1,5 @@
 fun main() {
-    val program = InputReader("day7.txt").asLinesOfLongs()[0]
+    val program = InputReader("day7.txt").asLineOfLongs()
     val max1 = (0..4).toList().permute().map {
         Amplifiers(
             program, it

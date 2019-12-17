@@ -1,5 +1,5 @@
 fun main() {
-    val program = InputReader("day9.txt").asLinesOfLongs()[0]
+    val program = InputReader("day9.txt").asLineOfLongs()
     val computer = IntCodeComputer(program)
     computer.input(1)
     println(computer.nextOutput())

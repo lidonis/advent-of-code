@@ -1,5 +1,5 @@
 fun main() {
-    val program = InputReader("day11.txt").asLinesOfLongs()[0]
+    val program = InputReader("day11.txt").asLineOfLongs()
     val robot = EmergencyHullPaintingRobot(program)
     robot.compute();
 }

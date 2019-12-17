@@ -9,6 +9,7 @@ class InputReader(fileName: String) {
         get() = reader.readText()
 
     fun asLinesOfInt() = lines.map { it.toInt() }
+    fun asLineOfLongs() = asLinesOfLongs()[0]
     fun asLinesOfLongs() = lines.map { line -> line.split(",").map { it.toLong() } }
     fun asLinesOfStrings() = lines.map { line -> line.split(",") }
     fun asLineOfInt() = lines[0].map { Character.digit(it, 10) }

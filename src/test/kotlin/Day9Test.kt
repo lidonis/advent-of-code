@@ -25,7 +25,7 @@ internal class Day9Test {
 
     @Test
     fun `day 9`() {
-        val program = InputReader("day9.txt").asLinesOfLongs()[0]
+        val program = InputReader("day9.txt").asLineOfLongs()
         val computer = IntCodeComputer(program)
         computer.input(1)
         Assert.assertEquals(3601950151, computer.nextOutput())
