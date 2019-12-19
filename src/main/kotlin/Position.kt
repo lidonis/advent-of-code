@@ -18,6 +18,8 @@ data class Position(val x: Int, val y: Int) {
             CardinalPoint.WEST -> Position(x - 1, y)
         }
 
+    fun neighbours() = CardinalPoint.values().map { this.move(it) }
+
     fun manhattanDistance(other: Position) = (x - other.x).absoluteValue + (y - other.y).absoluteValue
 }
 
