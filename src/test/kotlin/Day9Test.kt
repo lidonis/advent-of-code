@@ -31,6 +31,6 @@ internal class Day9Test {
         Assert.assertEquals(3601950151, computer.nextOutput())
         computer.reset()
         computer.input(2)
-        Assert.assertEquals(64236, computer.nextOutput())
+        Assert.assertEquals(64236L, computer.nextOutput())
     }
 }

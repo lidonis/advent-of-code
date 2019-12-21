@@ -29,20 +29,17 @@ class Amplifiers(private val program: List<Long>, private val phaseSettings: Lis
     fun run(): Long {
         var signal = 0L
         var currentAmplifier = 0
-        try {
-            while (true) {
-                val amplifier = amplifiers[currentAmplifier]
-                amplifier.input(signal);
-                signal = amplifier.nextOutput()!!
-                if (amplifier == amplifiers.last()) {
-                    currentAmplifier = 0;
-                } else {
-                    currentAmplifier++
-                }
+        while (amplifiers[currentAmplifier].hasNext()) {
+            val amplifier = amplifiers[currentAmplifier]
+            amplifier.input(signal);
+            signal = amplifier.nextOutput()?: signal
+            if (amplifier == amplifiers.last()) {
+                currentAmplifier = 0;
+            } else {
+                currentAmplifier++
             }
-        } catch (e: IllegalStateException) {
-            return signal
         }
+        return signal
     }
 }
 
