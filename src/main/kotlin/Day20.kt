@@ -22,20 +22,7 @@ class SpaceWarpingMaze(input: String) {
     private val end = portals.first { it.label == "ZZ" }.exit
 
     fun shortestPathDonut(): Int? {
-        var steps = 0
-        var neighbours = setOf(start)
-        val visited = mutableSetOf<Position>()
-        var found = false
-        while (visited.addAll(neighbours) && !found) {
-            if (neighbours.any { it == end }) {
-                found = true
-                break
-            }
-            steps++
-            neighbours = neighbours.map { getNeighbours(it, visited) }.flatten().toSet()
-            println("$steps ${visited.size}")
-        }
-        return if (found) steps else null
+        return BreadthFirstSearch.search(start, { it == end }, ::getNeighbours)
     }
 
     private fun getNeighbours(position: Position, visited: Set<Position>): List<Position> =
@@ -77,22 +64,11 @@ class SpaceWarpingMaze(input: String) {
     private fun isOuter(position: Position) = position.neighbours().any { mazeMap[it] == null }
 
     fun shortestPathInception(): Int? {
-        var steps = 0
-        var neighbours = setOf(Node(start))
-        val visited = mutableSetOf<Node>()
-        var found = false
-        val recursiveEnd = Node(end)
-        while (visited.addAll(neighbours) && !found) {
-            if (neighbours.any { it == recursiveEnd }) {
-                found = true
-                break
-            }
-            steps++
-            neighbours = neighbours.map { getNeighboursInception(it, visited) }.flatten().toSet()
-            println("$steps ${visited.size}")
-        }
-        return if (found) steps else null
+        val nodeStart = Node(start)
+        val endNode = Node(end)
+        return BreadthFirstSearch.search(nodeStart, { it == endNode }, ::getNeighboursInception)
     }
+
 
     private fun getNeighboursInception(currentNode: Node, visited: Set<Node>): List<Node> =
         currentNode.position.neighbours()

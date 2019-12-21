@@ -26,25 +26,12 @@ class Vault(input: String) {
             }
     }
 
-    fun shortestPathStepCount(): Int {
-        val start = entrances.first()
-        var steps = 1
-        val nodeStart = Node(start)
-        val visited = mutableSetOf(nodeStart)
-        var neighbours = getNeighbours(nodeStart, visited)
-        while (true) {
-            if (neighbours.any { it.keys.size == keys.size }) {
-                break
-            }
-            visited.addAll(neighbours)
-            steps++
-            println("$steps ${visited.size}")
-            neighbours = neighbours.map { getNeighbours(it, visited) }.flatten().toSet()
-        }
-        return steps
+    fun shortestPathStepCount(): Int? {
+        val nodeStart = Node(entrances.first())        
+        return BreadthFirstSearch.search(nodeStart, { it.keys.size == keys.size }, ::getNeighbours)
     }
 
-    private fun getNeighbours(node: Node, visited: Set<Node>): Set<Node> {
+    private fun getNeighbours(node: Node, visited: Set<Node>): List<Node> {
         return node.position.neighbours()
             .filter { vaultMap[it]?.access(node.keys) ?: false }
             .mapNotNull {
@@ -58,7 +45,7 @@ class Vault(input: String) {
                 } else {
                     neighbour
                 }
-            }.toSet()
+            }.toList()
     }
 }
 
