@@ -4,7 +4,7 @@ import org.junit.Test
 internal class Day20Test {
 
     @Test
-    fun `example 1`() {
+    fun `donut example 1`() {
         val maze = SpaceWarpingMaze(
             input = "         A           \n" +
                     "         A           \n" +
@@ -26,11 +26,11 @@ internal class Day20Test {
                     "             Z       \n" +
                     "             Z       "
         )
-        assertThat(maze.shortestPath()).isEqualTo(23)
+        assertThat(maze.shortestPathDonut()).isEqualTo(23)
     }
 
     @Test
-    fun `example 2`() {
+    fun `donut example 2`() {
         val maze = SpaceWarpingMaze(
             input = "                   A               \n" +
                     "                   A               \n" +
@@ -70,6 +70,76 @@ internal class Day20Test {
                     "           B   J   C               \n" +
                     "           U   P   P               "
         )
-        assertThat(maze.shortestPath()).isEqualTo(58)
+        assertThat(maze.shortestPathDonut()).isEqualTo(58)
+    }
+
+    @Test
+    fun `inception example 1`() {
+        val maze = SpaceWarpingMaze(
+            input = "         A           \n" +
+                    "         A           \n" +
+                    "  #######.#########  \n" +
+                    "  #######.........#  \n" +
+                    "  #######.#######.#  \n" +
+                    "  #######.#######.#  \n" +
+                    "  #######.#######.#  \n" +
+                    "  #####  B    ###.#  \n" +
+                    "BC...##  C    ###.#  \n" +
+                    "  ##.##       ###.#  \n" +
+                    "  ##...DE  F  ###.#  \n" +
+                    "  #####    G  ###.#  \n" +
+                    "  #########.#####.#  \n" +
+                    "DE..#######...###.#  \n" +
+                    "  #.#########.###.#  \n" +
+                    "FG..#########.....#  \n" +
+                    "  ###########.#####  \n" +
+                    "             Z       \n" +
+                    "             Z       "
+        )
+        assertThat(maze.shortestPathInception()).isEqualTo(26)
+    }
+
+    @Test
+    fun `inception example 3`() {
+        val maze = SpaceWarpingMaze(
+            input = "             Z L X W       C                 \n" +
+                    "             Z P Q B       K                 \n" +
+                    "  ###########.#.#.#.#######.###############  \n" +
+                    "  #...#.......#.#.......#.#.......#.#.#...#  \n" +
+                    "  ###.#.#.#.#.#.#.#.###.#.#.#######.#.#.###  \n" +
+                    "  #.#...#.#.#...#.#.#...#...#...#.#.......#  \n" +
+                    "  #.###.#######.###.###.#.###.###.#.#######  \n" +
+                    "  #...#.......#.#...#...#.............#...#  \n" +
+                    "  #.#########.#######.#.#######.#######.###  \n" +
+                    "  #...#.#    F       R I       Z    #.#.#.#  \n" +
+                    "  #.###.#    D       E C       H    #.#.#.#  \n" +
+                    "  #.#...#                           #...#.#  \n" +
+                    "  #.###.#                           #.###.#  \n" +
+                    "  #.#....OA                       WB..#.#..ZH\n" +
+                    "  #.###.#                           #.#.#.#  \n" +
+                    "CJ......#                           #.....#  \n" +
+                    "  #######                           #######  \n" +
+                    "  #.#....CK                         #......IC\n" +
+                    "  #.###.#                           #.###.#  \n" +
+                    "  #.....#                           #...#.#  \n" +
+                    "  ###.###                           #.#.#.#  \n" +
+                    "XF....#.#                         RF..#.#.#  \n" +
+                    "  #####.#                           #######  \n" +
+                    "  #......CJ                       NM..#...#  \n" +
+                    "  ###.#.#                           #.###.#  \n" +
+                    "RE....#.#                           #......RF\n" +
+                    "  ###.###        X   X       L      #.#.#.#  \n" +
+                    "  #.....#        F   Q       P      #.#.#.#  \n" +
+                    "  ###.###########.###.#######.#########.###  \n" +
+                    "  #.....#...#.....#.......#...#.....#.#...#  \n" +
+                    "  #####.#.###.#######.#######.###.###.#.#.#  \n" +
+                    "  #.......#.......#.#.#.#.#...#...#...#.#.#  \n" +
+                    "  #####.###.#####.#.#.#.#.###.###.#.###.###  \n" +
+                    "  #.......#.....#.#...#...............#...#  \n" +
+                    "  #############.#.#.###.###################  \n" +
+                    "               A O F   N                     \n" +
+                    "               A A D   M                     "
+        )
+        assertThat(maze.shortestPathInception()).isEqualTo(396)
     }
 }
