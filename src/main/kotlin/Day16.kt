@@ -29,8 +29,7 @@ class FlawedFrequencyTransmission(private val input: List<Int>) {
 
     private fun repeatingPattern(i: Int) = sequence {
         while (true) {
-            yieldAll(basePattern.map { generateSequence { it }.take(i + 1).toList() }
-                .flatten())
+            yieldAll(basePattern.flatMap { generateSequence { it }.take(i + 1).toList() })
         }
     }
 

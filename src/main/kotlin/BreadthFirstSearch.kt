@@ -15,7 +15,7 @@ object BreadthFirstSearch {
                 break
             }
             steps++
-            neighbours = neighbours.map { getNeighbours(it, visited) }.flatten().toSet()
+            neighbours = neighbours.flatMap { getNeighbours(it, visited) }.toSet()
             println("$steps ${visited.size}")
         }
         return if (found) steps else null

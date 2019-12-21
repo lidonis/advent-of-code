@@ -12,9 +12,9 @@ class NanoFactory(input: String) {
     fun minimumOre(): Int {
         var currentChemicals = listOf(Chemical(1, "FUEL"))
         while (isFinished(currentChemicals)) {
-            val react = currentChemicals.map { product ->
+            val react = currentChemicals.flatMap { product ->
                 val reaction = findReaction(product.name)
-                reaction.first.map {
+                reaction.first.flatMap {
                     if(it.leftOver){
                         emptyList()
                     }else {
@@ -32,7 +32,7 @@ class NanoFactory(input: String) {
                     }
                 }
             }
-            currentChemicals = react.flatten().flatten().fold(mutableListOf()) { acc, c ->
+            currentChemicals = react.fold(mutableListOf()) { acc, c ->
                 val index = acc.indexOfFirst { it.name == c.name }
                 if (index != -1) {
                     acc[index] = Chemical(acc[index].quantity + c.quantity, c.name)

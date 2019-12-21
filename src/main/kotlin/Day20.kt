@@ -38,7 +38,7 @@ class SpaceWarpingMaze(input: String) {
 
 
     private fun searchPortals() =
-        mazeMap.map { entry ->
+        mazeMap.flatMap { entry ->
             CardinalPoint.values().mapNotNull { cardinalPoint ->
                 val firstMove = entry.key.move(cardinalPoint)
                 val second = mazeMap.getOrDefault(firstMove, ' ')
@@ -59,7 +59,7 @@ class SpaceWarpingMaze(input: String) {
                     null
                 }
             }
-        }.flatten()
+        }
 
     private fun isOuter(position: Position) = position.neighbours().any { mazeMap[it] == null }
 
