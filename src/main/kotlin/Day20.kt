@@ -88,13 +88,13 @@ class SpaceWarpingMaze(input: String) {
                 break
             }
             steps++
-            neighbours = neighbours.map { getNeighboursRecursive(it, visited) }.flatten().toSet()
+            neighbours = neighbours.map { getNeighboursInception(it, visited) }.flatten().toSet()
             println("$steps ${visited.size}")
         }
         return if (found) steps else null
     }
 
-    private fun getNeighboursRecursive(currentNode: Node, visited: Set<Node>): List<Node> =
+    private fun getNeighboursInception(currentNode: Node, visited: Set<Node>): List<Node> =
         currentNode.position.neighbours()
             .filter { !visited.contains(Node(it, currentNode.level)) && openPassages.contains(it) }
             .mapNotNull {
