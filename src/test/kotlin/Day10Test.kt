@@ -1,6 +1,5 @@
-import AsteroidMap.*
-import org.junit.Assert
-import org.junit.Test
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Test
 
 internal class Day10Test {
 
@@ -12,7 +11,7 @@ internal class Day10Test {
                 "....#\n" +
                 "...##"
         val map = AsteroidMap(input)
-        Assert.assertEquals(8, map.station()?.second)
+        Assertions.assertEquals(8, map.station()?.second)
     }
 
     @Test
@@ -28,7 +27,7 @@ internal class Day10Test {
                 "##...#..#.\n" +
                 ".#....####"
         val map = AsteroidMap(input)
-        Assert.assertEquals(33, map.station()?.second)
+        Assertions.assertEquals(33, map.station()?.second)
     }
 
     @Test
@@ -44,7 +43,7 @@ internal class Day10Test {
                 "......#...\n" +
                 ".####.###."
         val map = AsteroidMap(input)
-        Assert.assertEquals(35, map.station()?.second)
+        Assertions.assertEquals(35, map.station()?.second)
     }
 
     @Test
@@ -60,7 +59,7 @@ internal class Day10Test {
                 ".##...##.#\n" +
                 ".....#.#.."
         val map = AsteroidMap(input)
-        Assert.assertEquals(41, map.station()?.second)
+        Assertions.assertEquals(41, map.station()?.second)
     }
 
     @Test
@@ -86,7 +85,7 @@ internal class Day10Test {
                 "#.#.#.#####.####.###\n" +
                 "###.##.####.##.#..##"
         val map = AsteroidMap(input)
-        Assert.assertEquals(210, map.station()?.second)
+        Assertions.assertEquals(210, map.station()?.second)
     }
 
 
@@ -94,13 +93,13 @@ internal class Day10Test {
     fun `part 1`() {
         val input = InputReader("day10.txt").text
         val map = AsteroidMap(input)
-        Assert.assertEquals(274, map.station()?.second)
+        Assertions.assertEquals(274, map.station()?.second)
     }
 
     @Test
     fun `part 2`() {
         val input = InputReader("day10.txt").text
         val map = AsteroidMap(input)
-        Assert.assertEquals(305, map.part2())
+        Assertions.assertEquals(305, map.part2())
     }
 }

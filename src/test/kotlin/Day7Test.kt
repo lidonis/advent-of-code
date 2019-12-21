@@ -1,11 +1,11 @@
-import org.junit.Assert
-import org.junit.Test
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Test
 
 internal class Day7Test {
 
     @Test
     fun `Max thruster 43210`() {
-        Assert.assertEquals(
+        Assertions.assertEquals(
             43210,
             Amplifiers(
                 listOf(3, 15, 3, 16, 1002, 16, 10, 16, 1, 16, 15, 15, 4, 15, 99, 0, 0),
@@ -16,7 +16,7 @@ internal class Day7Test {
 
     @Test
     fun `Max thruster 54321`() {
-        Assert.assertEquals(
+        Assertions.assertEquals(
             54321,
             Amplifiers(
                 listOf(
@@ -30,7 +30,7 @@ internal class Day7Test {
 
     @Test
     fun `Max thruster 65210`() {
-        Assert.assertEquals(
+        Assertions.assertEquals(
             65210, Amplifiers(
                 listOf(
                     3, 31, 3, 32, 1002, 32, 10, 32, 1001, 31, -2, 31, 1007, 31, 0, 33,
@@ -42,7 +42,7 @@ internal class Day7Test {
 
     @Test
     fun `Max thruster 139629729`() {
-        Assert.assertEquals(
+        Assertions.assertEquals(
             139629729, Amplifiers(
                 listOf(
                     3, 26, 1001, 26, -4, 26, 3, 27, 1002, 27, 2, 27, 1, 27, 26,
@@ -54,7 +54,7 @@ internal class Day7Test {
 
     @Test
     fun `Max thruster 18216`() {
-        Assert.assertEquals(
+        Assertions.assertEquals(
             18216, Amplifiers(
                 listOf(
                     3, 52, 1001, 52, -5, 52, 3, 53, 1, 52, 56, 54, 1007, 54, 5, 55, 1005, 55, 26, 1001, 54,
