@@ -44,7 +44,7 @@ class Vault(input: String) {
         return steps
     }
 
-    private fun getNeighbours(node: Node, visited: MutableSet<Node>): Set<Node> {
+    private fun getNeighbours(node: Node, visited: Set<Node>): Set<Node> {
         return node.position.neighbours()
             .filter { vaultMap[it]?.access(node.keys) ?: false }
             .mapNotNull {
