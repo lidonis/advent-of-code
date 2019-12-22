@@ -4,7 +4,7 @@ class NanoFactory(input: String) {
 
     private val reactions =
         input
-            .split("\n")
+            .lines()
             .map { it.split(" => ") }
             .map { it[0].split(", ").map { c -> Chemical(c) } to Chemical(it[1]) }
 

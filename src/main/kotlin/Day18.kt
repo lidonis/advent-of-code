@@ -12,7 +12,7 @@ class Vault(input: String) {
 
     init {
         input
-            .split("\n")
+            .lines()
             .forEachIndexed { j, s ->
                 s.forEachIndexed { i, c ->
                     val tile = TileFactory.from(c)

@@ -8,7 +8,7 @@ fun main() {
 class SpaceWarpingMaze(input: String) {
 
     private val mazeMap = input
-        .split("\n")
+        .lines()
         .mapIndexed { j, s ->
             s.mapIndexedNotNull { i, c ->
                 Position(i, j) to c

@@ -10,7 +10,7 @@ fun main() {
 }
 
 class AsteroidMap(private val asteroids: List<Coordinate>) {
-    constructor(input: String) : this(input.split("\n").mapIndexed { i, line ->
+    constructor(input: String) : this(input.lines().mapIndexed { i, line ->
         line.mapIndexedNotNull { j, c ->
             if (c == '#') Coordinate(j, i) else null
         }
