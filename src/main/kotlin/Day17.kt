@@ -72,9 +72,6 @@ class AftScaffoldingControlAndInformationInterface(private val program: List<Lon
         Direction.values().map { intersection.move(it) }.count { scaffolds.contains(it) }
 
     fun amountOfDustCollected(videoFeed: Boolean = false): Long? {
-        val path = findPath()
-
-
         computer[0] = 2
         computer.input("A,C,A,C,B,C,B,A,C,B")
         computer.input("R,4,R,10,R,8,R,4")
@@ -90,7 +87,7 @@ class AftScaffoldingControlAndInformationInterface(private val program: List<Lon
         return result
     }
 
-    fun findPath(): MutableList<String> {
+    private fun findPath(): MutableList<String> {
         val path = mutableListOf<String>()
         var forwardCount = 0
         while (true) {
@@ -124,8 +121,4 @@ class AftScaffoldingControlAndInformationInterface(private val program: List<Lon
         return 0
     }
 
-}
-
-fun IntCodeComputer.input(value: String) {
-    (value + "\n").chars().forEach { input(it.toLong()) }
 }

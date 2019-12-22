@@ -153,6 +153,10 @@ class IntCodeComputer(private val program: List<Long>) :
         inputs.add(value)
     }
 
+    fun input(value: String) {
+        (value + "\n").chars().forEach { input(it.toLong()) }
+    }
+
     operator fun set(i: Long, value: Long) {
         memory[i] = value
     }
