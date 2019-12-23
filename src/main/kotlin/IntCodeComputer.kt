@@ -1,19 +1,20 @@
-import java.util.*
+import java.util.concurrent.ArrayBlockingQueue
+import java.util.concurrent.TimeUnit
 
 class IntCodeComputer(private val program: List<Long>) :
     Iterator<IntCodeComputer> {
 
     private var instructionPointer = 0L
     private var relativeBase = 0L
-    private var inputs = ArrayDeque<Long>()
-    var outputs = ArrayDeque<Long>()
+    var inputs = ArrayBlockingQueue<Long>(1000)
+    var outputs = ArrayBlockingQueue<Long>(1000)
     var memory = Memory(program.toMutableList())
 
     fun reset() {
         instructionPointer = 0
         relativeBase = 0
-        inputs = ArrayDeque()
-        outputs = ArrayDeque()
+        inputs = ArrayBlockingQueue(1000)
+        outputs = ArrayBlockingQueue(1000)
         memory = Memory(program.toMutableList())
     }
 
@@ -54,7 +55,7 @@ class IntCodeComputer(private val program: List<Long>) :
             3 -> {
                 actions.addAll(
                     listOf(
-                        { write(1, inputs.poll(), parameterMode(3)) },
+                        { write(1, inputs.poll(50, TimeUnit.MILLISECONDS) ?: -1, parameterMode(3)) },
                         incrementInstructionPointer(2)
                     )
                 )
@@ -170,7 +171,19 @@ class IntCodeComputer(private val program: List<Long>) :
         return signal
     }
 
-    class Memory(private val list: MutableList<Long>): MutableList<Long> by list {
+    fun tryNextOutput(maxTries: Int): Long? {
+        for (i in 0 until maxTries) {
+            next()
+            val output = outputs.poll()
+            if (output != null) {
+                return output
+            }
+        }
+        return null
+    }
+
+
+    class Memory(private val list: MutableList<Long>) : MutableList<Long> by list {
         operator fun set(index: Long, value: Long) {
             val size = (index + 1).toInt()
             while (list.size < size) {
@@ -178,6 +191,7 @@ class IntCodeComputer(private val program: List<Long>) :
             }
             list[index.toInt()] = value
         }
+
         operator fun get(index: Long) = list.getOrElse(index.toInt()) { 0L }
     }
 

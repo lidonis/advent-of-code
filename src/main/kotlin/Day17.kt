@@ -80,8 +80,7 @@ class AftScaffoldingControlAndInformationInterface(private val program: List<Lon
         computer.input(if (videoFeed) "y" else "n")
         computer.asSequence().last()
 
-
-        val result = computer.outputs.pollLast()
+        val result = computer.outputs.last()
 
         computer.outputs.forEach { print(it.toChar()) }
         return result
