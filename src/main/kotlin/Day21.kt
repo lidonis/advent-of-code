@@ -48,7 +48,7 @@ class SpringDroid(program: List<Long>) {
         computer.reset()
         computer.input(walkProgram)
         computer.asSequence().last()
-        val result = computer.outputs.last()
+        val result = computer.outputs.pollLast()
         if (printOutput) {
             computer.outputs.forEach { print(it.toChar()) }
         }

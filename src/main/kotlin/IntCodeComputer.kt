@@ -1,3 +1,4 @@
+import java.util.*
 import java.util.concurrent.ArrayBlockingQueue
 import java.util.concurrent.TimeUnit
 
@@ -7,14 +8,14 @@ class IntCodeComputer(private val program: List<Long>) :
     private var instructionPointer = 0L
     private var relativeBase = 0L
     var inputs = ArrayBlockingQueue<Long>(1000)
-    var outputs = ArrayBlockingQueue<Long>(1000)
+    var outputs = ArrayDeque<Long>(1000)
     var memory = Memory(program.toMutableList())
 
     fun reset() {
         instructionPointer = 0
         relativeBase = 0
         inputs = ArrayBlockingQueue(1000)
-        outputs = ArrayBlockingQueue(1000)
+        outputs = ArrayDeque()
         memory = Memory(program.toMutableList())
     }
 
@@ -55,7 +56,7 @@ class IntCodeComputer(private val program: List<Long>) :
             3 -> {
                 actions.addAll(
                     listOf(
-                        { write(1, inputs.poll(50, TimeUnit.MILLISECONDS) ?: -1, parameterMode(3)) },
+                        { write(1, inputs.poll(10, TimeUnit.MILLISECONDS) ?: -1, parameterMode(3)) },
                         incrementInstructionPointer(2)
                     )
                 )
