@@ -152,4 +152,4 @@ object SpringScriptGenerator {
     }
 }
 
-private fun Int.pow(i: Int) = this.toDouble().pow(i).toInt()
+fun Int.pow(i: Int) = this.toDouble().pow(i).toInt()
