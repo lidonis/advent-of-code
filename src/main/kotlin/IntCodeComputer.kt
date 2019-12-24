@@ -7,14 +7,14 @@ class IntCodeComputer(private val program: List<Long>) :
 
     private var instructionPointer = 0L
     private var relativeBase = 0L
-    var inputs = ArrayBlockingQueue<Long>(1000)
-    var outputs = ArrayDeque<Long>(1000)
+    var inputs = ArrayBlockingQueue<Long>(100000)
+    var outputs = ArrayDeque<Long>()
     var memory = Memory(program.toMutableList())
 
     fun reset() {
         instructionPointer = 0
         relativeBase = 0
-        inputs = ArrayBlockingQueue(1000)
+        inputs = ArrayBlockingQueue(100000)
         outputs = ArrayDeque()
         memory = Memory(program.toMutableList())
     }

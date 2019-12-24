@@ -1,141 +1,196 @@
 import kotlinx.coroutines.*
+import kotlinx.coroutines.channels.ActorScope
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.channels.produce
+import kotlinx.coroutines.channels.SendChannel
+import kotlinx.coroutines.channels.actor
 
-data class NetworkPacket(val source: Int, val destination: Int, val x: Long, val y: Long)
-
+@ObsoleteCoroutinesApi
 fun main() {
-    NetworkInterfaceCoroutine.main()
+    NetworkInterfaceControllerActor.main()
 }
 
-object NetworkInterfaceCoroutine {
+sealed class NetworkMessage
+data class Packet(val source: Int, val destination: Int, val x: Long, val y: Long) : NetworkMessage()
+object Done : NetworkMessage()
+abstract class Activity : NetworkMessage() {
+    abstract val address: Int
+}
 
-    fun main() {
-        val program = InputReader("day23.txt").asLineOfLongs()
-        val outputChannel = Channel<NetworkPacket>(capacity = Channel.UNLIMITED)
-        val computers = (0 until 50).map {
-            NetworkInterfaceComputer(program, it, outputChannel)
-        }
-        val nat = NotAlwaysTransmitting(computers, outputChannel)
-        val router = Router(computers, nat, outputChannel)
-        runBlocking {
-            launch(newSingleThreadContext("RouterThread")) {
-                log("run router")
-                router.run()
-            }
-            launch(newSingleThreadContext("NatThread")) {
-                log("run nat")
-                nat.run()
-            }
-            for (computer in computers) {
-                launch(newSingleThreadContext("Computer${computer.address}Thread")) {
-                    computer.run()
-                }
-            }
+data class Idle(override val address: Int) : Activity()
+data class Active(override val address: Int) : Activity()
+
+object NetworkInterfaceControllerActor {
+
+    @ObsoleteCoroutinesApi
+    fun main() = runBlocking {
+        actor<NetworkMessage>(capacity = Channel.UNLIMITED) {
+            Router(this).dispatch()
         }
     }
 
-    fun log(text: String) {
-        println("${Thread.currentThread().name} $text")
-    }
+    @ObsoleteCoroutinesApi
+    private class Router(private val actor: ActorScope<NetworkMessage>) {
+        private val scope = CoroutineScope(actor.coroutineContext)
+        private val program = InputReader("day23.txt").asLineOfLongs()
+        private val computerChannels = mutableListOf<SendChannel<Packet>>()
+        private var monitor: SendChannel<NetworkMessage>
+        private var nat: SendChannel<NetworkMessage>
 
-    class Router(
-        private val computers: List<NetworkInterfaceComputer>,
-        private val nat: NotAlwaysTransmitting,
-        private val outputChannel: Channel<NetworkPacket>
-    ) {
-        private val monitor = NetWorkMonitor()
+        init {
+            monitor = scope.actor(capacity = Channel.UNLIMITED) {
+                MonitorActor(this, actor.channel).watch()
+            }
+            nat = scope.actor(capacity = Channel.UNLIMITED) {
+                NotAlwaysTransmittingActor(this, actor.channel).nat()
+            }
+            computerChannels.addAll((0 until 50).map {
+                scope.actor<Packet>(capacity = Channel.UNLIMITED) {
+                    ComputerActor(this, actor.channel, program, it).compute()
+                }
+            })
+        }
 
-        suspend fun run() {
-            while (true) {
-                outputChannel.receive().let {
-                    monitor.monitor(it)
-                    when (it.destination) {
-                        in computers.indices -> {
-                            computers[it.destination].inputChannel.send(it)
-                        }
-                        255 -> nat.send(it)
-                    }
+        suspend fun dispatch() {
+            routeMessage()
+        }
+
+        private suspend fun routeMessage() {
+            for (networkMessage in actor.channel) {
+                monitor.send(networkMessage)
+                when (networkMessage) {
+                    is Packet -> routePacket(networkMessage)
+                    is Activity -> if (networkMessage.address == 255) nat.send(networkMessage)
+                    is Done -> actor.cancel()
                 }
             }
         }
 
-        class NetWorkMonitor {
-            private val ysReceivedByComputer0FromNat = mutableSetOf<Long>()
-
-            fun monitor(packet: NetworkPacket) {
-                log("Monitor $packet")
-                if (packet.destination == 255) {
-                    if (ysReceivedByComputer0FromNat.isEmpty()) {
-                        log("First Y sent to address 255: ${packet.y}")
-                    }
-                }
-                if (packet.source == 255 && packet.destination == 0) {
-                    if (!ysReceivedByComputer0FromNat.add(packet.y)) {
-                        log("First Y value delivered by the NAT to the computer at address 0 twice in a row: ${packet.y}")
-                    }
+        private suspend fun routePacket(packet: Packet) {
+            when (packet.destination) {
+                in computerChannels.indices -> computerChannels[packet.destination].send(packet)
+                255 -> nat.send(packet)
+                else -> {
+                    error("Dead letter $packet")
                 }
             }
         }
+
     }
 
-
-    class NetworkInterfaceComputer(
+    @ObsoleteCoroutinesApi
+    private class ComputerActor(
+        private val actor: ActorScope<Packet>,
+        private val network: Channel<NetworkMessage>,
         program: List<Long>,
-        val address: Int,
-        private val outputChannel: Channel<NetworkPacket>
+        private val address: Int
     ) {
         private val computer = IntCodeComputer(program)
-        val inputChannel = Channel<NetworkPacket>(capacity = Channel.UNLIMITED)
-        var idle = false
 
         init {
             computer.input(address.toLong())
         }
 
-        suspend fun run() {
+        suspend fun compute() {
             while (true) {
-                inputChannel.poll()?.let {
-                    computer.input(it.x)
-                    computer.input(it.y)
+                withContext(Dispatchers.IO) {
+                    activate()
                 }
-                val packet = computer.tryNextOutput(10)?.let {
-                    NetworkPacket(
-                        address, it.toInt(),
-                        computer.nextOutput()!!,
-                        computer.nextOutput()!!
-                    )
+            }
+        }
+
+        private suspend fun activate() {
+            var count = 0
+            while (count < 20) {
+                actor.channel.poll()?.run {
+                    computer.input(x)
+                    computer.input(y)
+                    network.send(Active(address))
+                    count = 0
                 }
-                if (packet != null) {
-                    idle = false
-                    outputChannel.send(packet)
-                } else {
-                    idle = true
+                nextPacket()?.run { network.send(this) }
+                count++
+            }
+            network.send(Idle(address))
+        }
+
+        private fun nextPacket() =
+            computer.tryNextOutput(10)?.let { destination ->
+                computer.tryNextOutput(10)?.let { x ->
+                    computer.tryNextOutput(10)?.let { y ->
+                        Packet(address, destination.toInt(), x, y)
+                    }
                 }
+            }
+    }
+
+    @ObsoleteCoroutinesApi
+    private class MonitorActor(
+        private val actor: ActorScope<NetworkMessage>,
+        private val network: Channel<NetworkMessage>
+    ) {
+        private val ysReceivedByComputer0FromNat = mutableSetOf<Long>()
+        private val computerStates = MutableList(50) { true }
+
+        suspend fun watch() {
+            for (networkMessage in actor.channel) {
+                if (networkMessage is Packet) {
+                    checkFirstY(networkMessage)
+                    checkYTwiceInRow(networkMessage)
+                } else if (networkMessage is Activity) {
+                    checkActivity(networkMessage)
+                }
+            }
+        }
+
+        private suspend fun checkActivity(networkMessage: Activity) {
+            if (networkMessage.address in computerStates.indices) {
+                when (networkMessage) {
+                    is Active -> {
+                        computerStates[networkMessage.address] = true
+                        network.send(Active(255))
+                    }
+                    is Idle -> {
+                        computerStates[networkMessage.address] = false
+                        if (computerStates.all { !it }) {
+                            network.send(Idle(255))
+                        }
+                    }
+                }
+            }
+        }
+
+        private fun checkFirstY(networkMessage: Packet) {
+            if (networkMessage.destination == 255 && ysReceivedByComputer0FromNat.isEmpty()) {
+                println("Y value of the first packet sent to address 255: ${networkMessage.y}")
+            }
+        }
+
+        private suspend fun checkYTwiceInRow(networkMessage: Packet) {
+            if (networkMessage.source == 255 && networkMessage.destination == 0
+                && !ysReceivedByComputer0FromNat.add(networkMessage.y)
+            ) {
+                println("First Y value delivered by the NAT to the computer at address 0 twice in a row: ${networkMessage.y}")
+                network.send(Done)
             }
         }
     }
 
-    class NotAlwaysTransmitting(
-        private val computers: List<NetworkInterfaceComputer>,
-        private val outputChannel: Channel<NetworkPacket>
+    @ObsoleteCoroutinesApi
+    private class NotAlwaysTransmittingActor(
+        private val actor: ActorScope<NetworkMessage>,
+        private val network: Channel<NetworkMessage>
     ) {
-        private var packet: NetworkPacket? = null
+        private var lastPacket: Packet? = null
 
-        fun send(nextPacket: NetworkPacket) {
-            packet = nextPacket
-        }
-
-        suspend fun run() {
-            while (true) {
-                if (packet != null && computers.all { it.idle }) {
-                    packet?.let {
-                        val outputPacket = NetworkPacket(255, 0, it.x, it.y)
-                        outputChannel.send(outputPacket)
-                        packet = null
+        suspend fun nat() {
+            for (networkMessage in actor.channel) {
+                when {
+                    networkMessage is Packet -> lastPacket = networkMessage
+                    networkMessage is Idle && networkMessage.address == 255 -> lastPacket?.run {
+                        network.send(Packet(255, 0, x, y))
+                        lastPacket = null
                     }
                 }
-                delay(50)
             }
         }
     }
