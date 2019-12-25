@@ -7,17 +7,13 @@ fun main() {
     println("the sum of the fuel requirements for all of the modules on your spacecraft when also taking into account the mass of the added fuel is ${part2()}")
 }
 
-fun part1(): Int {
-    val input = InputReader("day1.txt").lines.map { it.toInt() }
-    return Spacecraft(input).fuelRequirements()
-}
+fun part1(): Int = Spacecraft().fuelRequirements()
 
-fun part2(): Int {
-    val input = InputReader("day1.txt").lines.map { it.toInt() }
-    return Spacecraft(input).fullFuelRequirements()
-}
+fun part2(): Int = Spacecraft().fullFuelRequirements()
 
 class Spacecraft(private val moduleMasses: List<Int>) {
+
+    constructor(): this(InputReader("day1.txt").lines.map { it.toInt() })
 
     fun fuelRequirements() = moduleMasses.map(::moduleFuel).sum()
     fun fullFuelRequirements() = moduleMasses.map(::recursiveFuel).sum()
