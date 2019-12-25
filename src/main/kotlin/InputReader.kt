@@ -1,6 +1,3 @@
-import kotlin.streams.asSequence
-import kotlin.streams.toList
-
 class InputReader(fileName: String) {
     private val reader = this::class.java.getResourceAsStream(fileName).bufferedReader()
     val lines: List<String>
