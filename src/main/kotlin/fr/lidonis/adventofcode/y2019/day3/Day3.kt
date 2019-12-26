@@ -1,13 +1,27 @@
+package fr.lidonis.adventofcode.y2019.day3
+
+import Direction
+import InputReader
+import Position
+
 fun main() {
-    val inputs = InputReader("day3.txt").asLinesOfStrings()
-    val day3 = Grid(
-        inputs[0],
-        inputs[1]
-    )
-    val minDistance = day3.minDistance()
-    println("Manhattan distance from the central port to the closest intersection: $minDistance")
-    val steps = day3.steps()
-    print("Fewest combined steps the wires must take to reach an intersection: $steps")
+    println("Manhattan distance from the central port to the closest intersection: ${Day3.part1()}")
+    println("Fewest combined steps the wires must take to reach an intersection: ${Day3.part2()}")
+}
+
+object Day3 {
+
+    fun part1(): Int? {
+        val inputs = inputs()
+        return Grid(inputs[0], inputs[1]).minDistance()
+    }
+
+    fun part2(): Int? {
+        val inputs = inputs()
+        return Grid(inputs[0], inputs[1]).fewestSteps()
+    }
+
+    private fun inputs() = InputReader("day3.txt").asLinesOfStrings()
 }
 
 class Grid(input1: List<String>, input2: List<String>) {
@@ -20,7 +34,7 @@ class Grid(input1: List<String>, input2: List<String>) {
 
     fun minDistance() = wire1.drop(1).intersect(wire2.drop(1)).map { startingPosition.manhattanDistance(it) }.min()
 
-    fun steps(): Int? {
+    fun fewestSteps(): Int? {
         return wire1.drop(1).intersect(wire2.drop(1)).map {
             wire1.indexOf(it) + wire2.indexOf(it)
         }.min()
@@ -42,7 +56,10 @@ data class Move(val direction: Direction, val size: Int) {
 
     companion object MoveInterpreter {
         fun read(input: String): Move {
-            return Move(Direction.valueOf(input[0].toString()), input.substring(1).toInt())
+            return Move(
+                Direction.valueOf(input[0].toString()),
+                input.substring(1).toInt()
+            )
         }
     }
 

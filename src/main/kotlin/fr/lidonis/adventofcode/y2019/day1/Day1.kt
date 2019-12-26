@@ -8,14 +8,14 @@ fun main() {
 }
 
 object Day1 {
-    fun part1(): Int = Spacecraft().fuelRequirements()
+    fun part1(): Int = Spacecraft(input()).fuelRequirements()
 
-    fun part2(): Int = Spacecraft().fullFuelRequirements()
+    fun part2(): Int = Spacecraft(input()).fullFuelRequirements()
+
+    fun input() = InputReader("day1.txt").lines.map { it.toInt() }
 }
 
 class Spacecraft(private val moduleMasses: List<Int>) {
-
-    constructor(): this(InputReader("day1.txt").lines.map { it.toInt() })
 
     fun fuelRequirements() = moduleMasses.map(::moduleFuel).sum()
     fun fullFuelRequirements() = moduleMasses.map(::recursiveFuel).sum()
