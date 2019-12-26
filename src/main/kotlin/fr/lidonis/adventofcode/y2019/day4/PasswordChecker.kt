@@ -6,12 +6,12 @@ object PasswordChecker {
 
     fun check1(password: Int): Boolean {
         val decomposed = password.decompose()
-        return decomposed.neverDecrease() && decomposed.containsFollowingDuplicate()
+        return decomposed.neverDecrease() && decomposed.containsAtLeastOneFollowingDuplicate()
     }
 
     fun check2(password: Int): Boolean {
         val decomposed = password.decompose()
-        return decomposed.neverDecrease() && decomposed.atLeastOneCouple()
+        return decomposed.neverDecrease() && decomposed.containsAtLeastOneCouple()
     }
 
 }
@@ -26,8 +26,8 @@ fun Int.decompose(): List<Int> {
     return digits.reversed()
 }
 
-fun <T> List<T>.atLeastOneCouple() = this.groupingBy { it }.eachCount().any { (_, it) -> it == 2 }
-
 fun <T : Comparable<T>> List<T>.neverDecrease() = this.zipWithNext().all { it.first <= it.second }
 
-fun <T> List<T>.containsFollowingDuplicate() = this.zipWithNext().any { it.first == it.second }
+fun <T> List<T>.containsAtLeastOneFollowingDuplicate() = this.zipWithNext().any { it.first == it.second }
+
+fun <T> List<T>.containsAtLeastOneCouple() = this.groupingBy { it }.eachCount().any { (_, it) -> it == 2 }
