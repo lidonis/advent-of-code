@@ -44,12 +44,12 @@ class Day1Test {
 
     @Test
     fun `part 1`() {
-        assertThat(part1()).isEqualTo(3305301)
+        assertThat(Day1.part1()).isEqualTo(3305301)
     }
 
     @Test
     fun `part 2`() {
-        assertThat(part2()).isEqualTo(4955106)
+        assertThat(Day1.part2()).isEqualTo(4955106)
     }
 
     @Test

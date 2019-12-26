@@ -1,3 +1,5 @@
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
+
 fun main() {
     val program = InputReader("day11.txt").asLineOfLongs()
     val robot = EmergencyHullPaintingRobot(program)

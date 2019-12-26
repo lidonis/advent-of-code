@@ -1,3 +1,4 @@
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking

@@ -1,3 +1,4 @@
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
@@ -13,13 +14,30 @@ internal class Day9Test {
 
     @Test
     fun `example 2`() {
-        val computer = IntCodeComputer(listOf(1102,34915192,34915192,7,4,7,99,0))
+        val computer = IntCodeComputer(
+            listOf(
+                1102,
+                34915192,
+                34915192,
+                7,
+                4,
+                7,
+                99,
+                0
+            )
+        )
         Assertions.assertEquals(34915192L * 34915192, computer.nextOutput())
     }
 
     @Test
     fun `example 3`() {
-        val computer = IntCodeComputer(listOf(104,1125899906842624,99))
+        val computer = IntCodeComputer(
+            listOf(
+                104,
+                1125899906842624,
+                99
+            )
+        )
         Assertions.assertEquals(1125899906842624, computer.nextOutput())
     }
 

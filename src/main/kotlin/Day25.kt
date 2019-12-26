@@ -1,3 +1,5 @@
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
+
 fun main() {
     val program = InputReader("day25.txt").asLineOfLongs()
     val computer = IntCodeComputer(program)

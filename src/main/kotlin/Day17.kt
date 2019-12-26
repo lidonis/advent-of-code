@@ -1,3 +1,4 @@
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
 import java.lang.IllegalStateException
 
 fun main() {

@@ -1,3 +1,5 @@
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
+
 fun main() {
     val program = InputReader("day7.txt").asLineOfLongs()
     val max1 = (0..4).toList().permute().map {

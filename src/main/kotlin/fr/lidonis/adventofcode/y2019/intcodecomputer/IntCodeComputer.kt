@@ -1,3 +1,5 @@
+package fr.lidonis.adventofcode.y2019.intcodecomputer
+
 import java.util.*
 import java.util.concurrent.ArrayBlockingQueue
 import java.util.concurrent.TimeUnit
@@ -9,14 +11,16 @@ class IntCodeComputer(private val program: List<Long>) :
     private var relativeBase = 0L
     var inputs = ArrayBlockingQueue<Long>(100000)
     var outputs = ArrayDeque<Long>()
-    var memory = Memory(program.toMutableList())
+    var memory =
+        Memory(program.toMutableList())
 
     fun reset() {
         instructionPointer = 0
         relativeBase = 0
         inputs = ArrayBlockingQueue(100000)
         outputs = ArrayDeque()
-        memory = Memory(program.toMutableList())
+        memory =
+            Memory(program.toMutableList())
     }
 
     private fun computeStep() {
@@ -159,6 +163,8 @@ class IntCodeComputer(private val program: List<Long>) :
         (value + "\n").chars().forEach { input(it.toLong()) }
     }
 
+    operator fun get(i: Int) = memory[i]
+
     operator fun set(i: Long, value: Long) {
         memory[i] = value
     }
@@ -182,6 +188,8 @@ class IntCodeComputer(private val program: List<Long>) :
         }
         return null
     }
+
+    fun run() = asSequence().last()
 
 
     class Memory(private val list: MutableList<Long>) : MutableList<Long> by list {

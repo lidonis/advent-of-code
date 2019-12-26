@@ -1,3 +1,5 @@
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
+
 fun main() {
     val input = InputReader("day19.txt").asLineOfLongs()
     val tractorBeam = TractorBeam(input)
