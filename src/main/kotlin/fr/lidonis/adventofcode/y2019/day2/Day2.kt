@@ -10,8 +10,7 @@ fun main() {
 
 object Day2 {
     fun part1(): Long {
-        val computer =
-            IntCodeComputer(InputReader("day2.txt").asLineOfLongs())
+        val computer = computer()
         return runNounVerb(computer, 12, 2)
     }
 
@@ -22,8 +21,7 @@ object Day2 {
     }
 
     fun part2(): Long {
-        val computer =
-            IntCodeComputer(InputReader("day2.txt").asLineOfLongs())
+        val computer = computer()
         for (noun in 0..99L) {
             for (verb in 0..99L) {
                 if (runNounVerb(computer, noun, verb) == 19690720L) return 100 * noun + verb
@@ -32,6 +30,8 @@ object Day2 {
         }
         throw IllegalArgumentException("No inputs found")
     }
+
+    private fun computer() = IntCodeComputer(InputReader("day2.txt").asLineOfLongs())
 
 }
 

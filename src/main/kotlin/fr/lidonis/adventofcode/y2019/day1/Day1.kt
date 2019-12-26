@@ -14,4 +14,3 @@ object Day1 {
 
     fun input() = InputReader("day1.txt").lines.map { it.toInt() }
 }
-

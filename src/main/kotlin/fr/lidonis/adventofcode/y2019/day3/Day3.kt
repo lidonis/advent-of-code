@@ -10,14 +10,14 @@ fun main() {
 object Day3 {
 
     fun part1(): Int? {
-        val inputs = inputs()
-        return CrossedWires(inputs[0], inputs[1]).minDistance()
+        return wires(inputs()).minDistance()
     }
 
     fun part2(): Int? {
-        val inputs = inputs()
-        return CrossedWires(inputs[0], inputs[1]).fewestSteps()
+        return wires(inputs()).fewestSteps()
     }
+
+    private fun wires(inputs: List<List<String>>) = CrossedWires(inputs[0], inputs[1])
 
     private fun inputs() = InputReader("day3.txt").asLinesOfStrings()
 }
