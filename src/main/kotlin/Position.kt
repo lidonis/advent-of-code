@@ -1,4 +1,6 @@
 import kotlin.math.absoluteValue
+import kotlin.math.atan2
+import kotlin.math.sqrt
 
 data class Position(val x: Int, val y: Int) {
 
@@ -21,6 +23,16 @@ data class Position(val x: Int, val y: Int) {
     fun neighbours() = CardinalPoint.values().map { this.move(it) }
 
     fun manhattanDistance(other: Position) = (x - other.x).absoluteValue + (y - other.y).absoluteValue
+
+    fun angle(target: Position) =
+        atan2((target.x - x).toDouble(), (target.y - y).toDouble())
+
+    fun distance(target: Position) = distance(this, target)
+
+    companion object {
+        fun distance(a: Position, b: Position) =
+            sqrt(((b.y - a.y) * (b.y - a.y) + (b.x - a.x) * (b.x - a.x)).toDouble())
+    }
 }
 
 enum class Direction {
