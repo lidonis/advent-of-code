@@ -41,11 +41,11 @@ class SpaceCardDeck(private val cards: List<Int>) : Iterable<Int> by cards {
 
 class SpaceCardMathShuffler(private val size: Long) {
 
-    fun dealIntoNewStack() = Coefficient(-1, size - 1, size)
+    fun dealIntoNewStack() = ModularCoefficient(-1, size - 1, size)
 
-    fun cut(n: Long) = Coefficient(1, n, size)
+    fun cut(n: Long) = ModularCoefficient(1, n, size)
 
-    fun dealWithIncrement(n: Long) = Coefficient(n.modInverse(size).toLong(), 0, size)
+    fun dealWithIncrement(n: Long) = ModularCoefficient(n.modInverse(size), BigInteger.ZERO, BigInteger.valueOf(size))
 
     fun shuffle(instructions: String) = instructions.lines().map {
         when {
@@ -56,7 +56,7 @@ class SpaceCardMathShuffler(private val size: Long) {
         }
     }.reduce { acc, coefficient -> acc * coefficient }
 
-    data class Coefficient(val increment: BigInteger, val offset: BigInteger, val size: BigInteger) {
+    data class ModularCoefficient(val increment: BigInteger, val offset: BigInteger, val size: BigInteger) {
 
         constructor(a: Long, b: Long, size: Long) : this(
             BigInteger.valueOf(a),
@@ -64,19 +64,19 @@ class SpaceCardMathShuffler(private val size: Long) {
             BigInteger.valueOf(size)
         )
 
-        operator fun times(other: Coefficient) =
-            Coefficient(modMult(increment, other.increment), modAdd(modMult(increment, other.offset) + offset), size)
+        operator fun times(other: ModularCoefficient) =
+            ModularCoefficient(modMult(increment, other.increment), modAdd(modMult(increment, other.offset) + offset), size)
 
-        fun pow(n: Long): Coefficient {
+        fun pow(n: Long): ModularCoefficient {
             val newIncrement = increment.modPow(BigInteger.valueOf(n), size)
-            return Coefficient(
+            return ModularCoefficient(
                 newIncrement,
                 offset * (BigInteger.ONE - newIncrement) * (BigInteger.ONE - increment).modInverse(size),
                 size
             )
         }
 
-        private fun modAdd(n: BigInteger) = (n % size + size) % size
+        private fun modAdd(n: BigInteger) = n.mod(size)
 
         private fun modMult(i: BigInteger, j: BigInteger) = modAdd(i * j)
 
