@@ -13,12 +13,12 @@ class ArcadeCabinet(program: List<Long>) {
         IntCodeComputer(program)
 
     fun countBlock(): Int {
-        intCodeComputer.asSequence().last();
+        intCodeComputer.asSequence().last()
         return intCodeComputer.outputs.filterIndexed { i, v -> (i % 3 == 2) && (v == 2L) }.count()
     }
 
     fun play(): Int {
-        intCodeComputer.asSequence().last();
+        intCodeComputer.asSequence().last()
         return 0
     }
 }
