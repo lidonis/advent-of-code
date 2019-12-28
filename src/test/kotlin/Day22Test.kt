@@ -109,7 +109,7 @@ class Day22Test {
 
         private fun apply(
             size: Int,
-            function: (SpaceCardMathShuffler) -> SpaceCardMathShuffler.ModularCoefficient
+            function: (SpaceCardMathShuffler) -> SpaceCardMathShuffler.ModularFunction
         ) = (0L until size).map { i ->
             function(SpaceCardMathShuffler(size.toLong())).compute(i).toInt()
         }
