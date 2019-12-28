@@ -8,7 +8,7 @@ class Amplifiers(private val program: List<Long>, phaseSettings: List<Long>) {
         val computer = IntCodeComputer(program)
         computer.input(it)
         computer
-    }.asSequence().cycle()
+    }.asSequence()
 
     fun run() = amplifiers.fold(0L) { signal, amplifier ->
         amplifier.input(signal)
