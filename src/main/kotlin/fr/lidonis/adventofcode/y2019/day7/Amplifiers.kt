@@ -15,6 +15,3 @@ class Amplifiers(private val program: List<Long>, phaseSettings: List<Long>) {
         amplifier.nextOutput() ?: signal
     }
 }
-
-fun <T> Sequence<T>.cycle(): Sequence<T> =
-        generateSequence { this }.flatten()
