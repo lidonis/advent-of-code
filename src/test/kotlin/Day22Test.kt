@@ -83,7 +83,6 @@ class Day22Test {
         @ValueSource(ints = [1, 3, 7, 9])
         fun `deal with increment N`(n: Long) {
             val deck = apply(startDeck.size) { deck -> deck.dealWithIncrement(n) }
-            println(deck)
             assertThat(deck).containsExactlyElementsOf(startDeck.dealWithIncrement(n.toInt()))
         }
 
@@ -99,6 +98,13 @@ class Day22Test {
             val deck = SpaceCardMathShuffler(119315717514047)
             val shuffledDeck = deck.shuffle(InputReader("day22.txt").text).pow(101741582076661)
             assertThat(shuffledDeck.compute(2020)).isEqualTo(73394009116480)
+        }
+
+        @Test
+        fun `part 1`() {
+            val deck = SpaceCardMathShuffler(10007)
+            val shuffledDeck = deck.shuffle(InputReader("day22.txt").text)
+            assertThat(shuffledDeck.pow(-1).compute(2019)).isEqualTo(7171)
         }
 
         private fun apply(
