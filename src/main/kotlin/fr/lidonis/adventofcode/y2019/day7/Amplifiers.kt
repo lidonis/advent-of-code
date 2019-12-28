@@ -10,15 +10,11 @@ class Amplifiers(private val program: List<Long>, phaseSettings: List<Long>) {
         computer
     }.asSequence().cycle()
 
-    fun run(): Long {
-        var signal = 0L
-        for(amplifier in amplifiers.iterator()){
-            amplifier.input(signal)
-            signal = amplifier.nextOutput()?: signal
-        }
-        return signal
+    fun run() = amplifiers.fold(0L) { signal, amplifier ->
+        amplifier.input(signal)
+        amplifier.nextOutput() ?: signal
     }
 }
 
 fun <T> Sequence<T>.cycle(): Sequence<T> =
-        generateSequence(this) { this }.flatten()
+        generateSequence { this }.flatten()
