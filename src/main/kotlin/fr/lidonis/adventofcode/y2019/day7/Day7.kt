@@ -9,20 +9,13 @@ fun main() {
 
 object Day7 {
 
-    fun part1() = largestSignal(program())
-    fun part2() = highestSignal(program())
+    fun part1() = largestSignal(program(), (0L..4))
+    fun part2() = largestSignal(program(), (5L..9))
 
-    private fun largestSignal(program: List<Long>) = (0L..4).toList().permute().map {
-        Amplifiers(
-                program, it
-        ).run()
+    private fun largestSignal(program: List<Long>, range: LongRange) = range.toList().permute().map {
+        Amplifiers(program, it).run()
     }.max()
 
-    private fun highestSignal(program: List<Long>) = (5L..9).toList().permute().map {
-        Amplifiers(
-                program, it
-        ).run()
-    }.max()
     private fun program() = InputReader("day7.txt").asLineOfLongs()
 
 }
