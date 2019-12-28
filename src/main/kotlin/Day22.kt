@@ -35,8 +35,6 @@ class SpaceCardDeck(private val cards: List<Int>) : Iterable<Int> by cards {
         return "SpaceCardDeck(cards=$cards)"
     }
 
-    operator fun get(i: Int) = cards[i]
-
 }
 
 class SpaceCardMathShuffler(private val size: Long) {
@@ -45,7 +43,7 @@ class SpaceCardMathShuffler(private val size: Long) {
 
     fun cut(n: Long) = ModularCoefficient(1, n, size)
 
-    fun dealWithIncrement(n: Long) = ModularCoefficient(n.modInverse(size), BigInteger.ZERO, BigInteger.valueOf(size))
+    fun dealWithIncrement(n: Long) = ModularCoefficient(n.modInverse(size), 0, size)
 
     fun shuffle(instructions: String) = instructions.lines().map {
         when {
@@ -65,8 +63,13 @@ class SpaceCardMathShuffler(private val size: Long) {
         )
 
         operator fun times(other: ModularCoefficient) =
-            ModularCoefficient(modMult(increment, other.increment), modAdd(modMult(increment, other.offset) + offset), size)
+            ModularCoefficient(
+                (increment * other.increment).mod(size),
+                (increment * other.offset + offset).mod(size),
+                size
+            )
 
+        // power using geometric series
         fun pow(n: Long): ModularCoefficient {
             val newIncrement = increment.modPow(BigInteger.valueOf(n), size)
             return ModularCoefficient(
@@ -76,12 +79,8 @@ class SpaceCardMathShuffler(private val size: Long) {
             )
         }
 
-        private fun modAdd(n: BigInteger) = n.mod(size)
-
-        private fun modMult(i: BigInteger, j: BigInteger) = modAdd(i * j)
-
-        fun compute(index: Long) = modAdd(modMult(increment, BigInteger.valueOf(index)) + offset)
+        fun compute(index: Long): BigInteger = (increment * BigInteger.valueOf(index) + offset).mod(size)
     }
 }
 
-fun Long.modInverse(m: Long): BigInteger = BigInteger.valueOf(this).modInverse(BigInteger.valueOf(m))
+fun Long.modInverse(m: Long) = BigInteger.valueOf(this).modInverse(BigInteger.valueOf(m)).toLong()
