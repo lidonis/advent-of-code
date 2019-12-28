@@ -3,7 +3,7 @@ object BreadthFirstSearch {
     fun <T> search(
         start: T,
         isFound: (T) -> Boolean,
-        findNeighbours: (T, Set<T>) -> List<T>
+        findNeighbours: (T) -> Iterable<T>
     ): Int? {
         var steps = 0
         var neighbours = setOf(start)
@@ -15,7 +15,7 @@ object BreadthFirstSearch {
                 break
             }
             steps++
-            neighbours = neighbours.flatMap { findNeighbours(it, visited) }.toSet()
+            neighbours = neighbours.flatMap { findNeighbours(it) }.toSet().subtract(visited)
         }
         return if (found) steps else null
     }

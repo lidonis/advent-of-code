@@ -31,22 +31,15 @@ class Vault(input: String) {
         return BreadthFirstSearch.search(nodeStart, { it.keys.size == keys.size }, ::getNeighbours)
     }
 
-    private fun getNeighbours(node: Node, visited: Set<Node>): List<Node> {
-        return node.position.neighbours()
-            .filter { vaultMap[it]?.access(node.keys) ?: false }
-            .mapNotNull {
-                val keys = node.keys.toMutableSet()
-                val tile = vaultMap[it]!!
-                if (tile is Key)
-                    keys += tile
-                val neighbour = Node(it, keys)
-                if (neighbour in visited) {
-                    null
-                } else {
-                    neighbour
-                }
-            }.toList()
-    }
+    private fun getNeighbours(node: Node) = node.position.neighbours()
+        .filter { vaultMap[it]?.access(node.keys) ?: false }
+        .map {
+            val keys = node.keys.toMutableSet()
+            val tile = vaultMap[it]!!
+            if (tile is Key)
+                keys += tile
+            Node(it, keys)
+        }
 }
 
 data class Node(val position: Position, val keys: Set<Key> = emptySet())

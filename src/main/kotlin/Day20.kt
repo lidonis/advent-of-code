@@ -25,8 +25,8 @@ class SpaceWarpingMaze(input: String) {
         return BreadthFirstSearch.search(start, { it == end }, ::getNeighbours)
     }
 
-    private fun getNeighbours(position: Position, visited: Set<Position>): List<Position> =
-        position.neighbours().filter { !visited.contains(it) && openPassages.contains(it) }
+    private fun getNeighbours(position: Position) =
+        position.neighbours().filter { openPassages.contains(it) }
             .map { searchExitPortal(it)?.exit ?: it }
 
     private fun searchExitPortal(position: Position) =
@@ -70,9 +70,9 @@ class SpaceWarpingMaze(input: String) {
     }
 
 
-    private fun getNeighboursInception(currentNode: Node, visited: Set<Node>): List<Node> =
+    private fun getNeighboursInception(currentNode: Node) =
         currentNode.position.neighbours()
-            .filter { !visited.contains(Node(it, currentNode.level)) && openPassages.contains(it) }
+            .filter { openPassages.contains(it) }
             .mapNotNull {
                 val exitPortal = searchExitPortal(it)
                 when {
