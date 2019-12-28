@@ -4,16 +4,18 @@ import java.util.*
 class SpaceCardDeck(private val cards: List<Int>) : Iterable<Int> by cards {
     constructor(size: Int) : this((0 until size).toList())
 
+    val size: Int get() = cards.size
+
     fun dealIntoNewStack() = SpaceCardDeck(cards.reversed())
 
     fun cut(n: Int) = SpaceCardDeck(cards.toMutableList().also { Collections.rotate(it, -n) })
 
     fun dealWithIncrement(n: Int): SpaceCardDeck {
-        val newCards = IntArray(cards.size)
+        val newCards = IntArray(size)
         var i = 0
         for (card in cards) {
             newCards[i] = card
-            i = (i + n) % cards.size
+            i = (i + n) % size
         }
         return SpaceCardDeck(newCards.toList())
     }
@@ -33,59 +35,53 @@ class SpaceCardDeck(private val cards: List<Int>) : Iterable<Int> by cards {
         return "SpaceCardDeck(cards=$cards)"
     }
 
+    operator fun get(i: Int) = cards[i]
+
 }
 
-data class SpaceCardInverseShuffler(private val size: Int, val index: Int, val value: Int) {
-    fun dealIntoNewStack() = SpaceCardInverseShuffler(size, index, size - 1 - value)
-    fun cut(n: Int) = SpaceCardInverseShuffler(size, Math.floorMod(index + n, size), value)
-    fun dealWithIncrement(n: Int) =
-        SpaceCardInverseShuffler(
-            size, when {
-                (index == 0) -> 0
-                n == size - 1 -> n * index % size
-                else -> size - n * index % size
-            }, value
-        )
+class SpaceCardMathShuffler(private val size: Long) {
+
+    fun dealIntoNewStack() = Coefficient(-1, size - 1, size)
+
+    fun cut(n: Long) = Coefficient(1, n, size)
+
+    fun dealWithIncrement(n: Long) = Coefficient(n.modInverse(size).toLong(), 0, size)
 
     fun shuffle(instructions: String) = instructions.lines().map {
         when {
-            it == "deal into new stack" -> { deck: SpaceCardInverseShuffler ->
-                deck.dealIntoNewStack()
-            }
-            it.startsWith("cut") -> { deck: SpaceCardInverseShuffler ->
-                deck.cut(it.split(" ").last().toInt())
-            }
-            it.startsWith("deal with increment") -> { deck: SpaceCardInverseShuffler ->
-                deck.dealWithIncrement(it.split(" ").last().toInt())
-            }
-            else -> { _ -> error("Unknown technique") }
+            it == "deal into new stack" -> dealIntoNewStack()
+            it.startsWith("cut") -> cut(it.split(" ").last().toLong())
+            it.startsWith("deal with increment") -> dealWithIncrement(it.split(" ").last().toLong())
+            else -> error("Unknown technique")
         }
-    }.foldRight(this) { function, acc -> function(acc) }
+    }.reduce { acc, coefficient -> acc * coefficient }
+
+    data class Coefficient(val increment: BigInteger, val offset: BigInteger, val size: BigInteger) {
+
+        constructor(a: Long, b: Long, size: Long) : this(
+            BigInteger.valueOf(a),
+            BigInteger.valueOf(b),
+            BigInteger.valueOf(size)
+        )
+
+        operator fun times(other: Coefficient) =
+            Coefficient(modMult(increment, other.increment), modAdd(modMult(increment, other.offset) + offset), size)
+
+        fun pow(n: Long): Coefficient {
+            val newIncrement = increment.modPow(BigInteger.valueOf(n), size)
+            return Coefficient(
+                newIncrement,
+                offset * (BigInteger.ONE - newIncrement) * (BigInteger.ONE - increment).modInverse(size),
+                size
+            )
+        }
+
+        private fun modAdd(n: BigInteger) = (n % size + size) % size
+
+        private fun modMult(i: BigInteger, j: BigInteger) = modAdd(i * j)
+
+        fun compute(index: Long) = modAdd(modMult(increment, BigInteger.valueOf(index)) + offset)
+    }
 }
 
-class SpaceCardMathShuffler(private val size: Int, private val index: Int, private val value: Int) {
-
-    fun dealIntoNewStack() = compute(-1, size - 1)
-
-    fun cut(n: Int) = compute(1, loop(n))
-
-    fun dealWithIncrement(n: Int) = compute(n, 0)
-
-    private fun compute(a: Int, b: Int) = loop(loop(a * index) + b)
-
-    private fun loop(n: Int) = (n % size + size) % size
-
-}
-
-
-
-
-operator fun BigInteger.rem(m: Long): BigInteger = this.mod(BigInteger.valueOf(m))
-operator fun BigInteger.times(other: Long): BigInteger = this.times(BigInteger.valueOf(other))
-operator fun BigInteger.times(other: Int): BigInteger = this.times(BigInteger.valueOf(other.toLong()))
-operator fun BigInteger.plus(other: Int): BigInteger = this.plus(BigInteger.valueOf(other.toLong()))
-operator fun Int.minus(other: BigInteger): BigInteger = BigInteger.valueOf(this.toLong()).minus(other)
-fun BigInteger.modPow(e: Long, m: Long): BigInteger = this.modPow(BigInteger.valueOf(e), BigInteger.valueOf(m))
-fun BigInteger.modInverse(m: Long): BigInteger = this.modInverse(BigInteger.valueOf(m))
 fun Long.modInverse(m: Long): BigInteger = BigInteger.valueOf(this).modInverse(BigInteger.valueOf(m))
-fun Int.modInverse(m: Long): BigInteger = BigInteger.valueOf(this.toLong()).modInverse(BigInteger.valueOf(m))
