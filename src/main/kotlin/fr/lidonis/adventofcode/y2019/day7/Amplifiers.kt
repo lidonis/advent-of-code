@@ -5,9 +5,9 @@ import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
 class Amplifiers(private val program: List<Long>, phaseSettings: List<Long>) {
 
     private val amplifiers = phaseSettings.map {
-        val computer = IntCodeComputer(program)
-        computer.input(it)
-        computer
+        IntCodeComputer(program).apply {
+            input(it)
+        }
     }.asSequence().cycle()
 
     fun run() = amplifiers.fold(0L) { signal, amplifier ->
@@ -17,10 +17,10 @@ class Amplifiers(private val program: List<Long>, phaseSettings: List<Long>) {
 }
 
 fun <T : Iterator<T>> Sequence<T>.cycle(): Sequence<T> =
-        generateSequence {
-            if (this.all { it.hasNext() })  {
-                this
-            } else {
-                null
-            }
-        }.flatten()
+    generateSequence {
+        if (this.all { it.hasNext() }) {
+            this
+        } else {
+            null
+        }
+    }.flatten()

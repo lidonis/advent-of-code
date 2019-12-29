@@ -14,11 +14,13 @@ object Day2 {
         return runNounVerb(computer, 12, 2)
     }
 
-    private fun runNounVerb(computer: IntCodeComputer, noun: Long, verb: Long): Long {
-        computer[1] = noun
-        computer[2] = verb
-        return computer.run()[0]
-    }
+    private fun runNounVerb(computer: IntCodeComputer, noun: Long, verb: Long) =
+        computer.run {
+            this[1] = noun
+            this[2] = verb
+            run()[0]
+        }
+
 
     fun part2(): Long {
         val computer = computer()

@@ -17,9 +17,8 @@ class OrbitMap(input: String) {
     private fun countOrbit(key: String): Int = orbitMap[key]?.map { 1 + countOrbit(it) }?.sum() ?: 0
 
     fun minimumOrbitalTransfers(start: String, end: String) = -2 + (
-        BreadthFirstSearch.search(start, { it == end }, ::findNeighbours)?: error("Can't find orbital transfer"))
+            BreadthFirstSearch.search(start, { it == end }, ::findNeighbours) ?: error("Can't find orbital transfer"))
 
-    private fun findNeighbours(node: String): Set<String> {
-        return orbitMap.filterValues { it.contains(node) }.keys + (orbitMap[node] ?: emptySet())
-    }
+    private fun findNeighbours(node: String) =
+        orbitMap.filterValues { it.contains(node) }.keys + (orbitMap[node] ?: emptySet())
 }

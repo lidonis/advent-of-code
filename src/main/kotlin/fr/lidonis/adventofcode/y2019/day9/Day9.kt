@@ -14,11 +14,9 @@ object Day9 {
 
     fun part2() = compute(2)
 
-    private fun compute(input: Long): Long? {
-        return computer().run {
-            this.input(input)
-            nextOutput()
-        }
+    private fun compute(input: Long) = computer().run {
+        input(input)
+        nextOutput()
     }
 
     private fun computer() = IntCodeComputer(InputReader("day9.txt").asLineOfLongs())

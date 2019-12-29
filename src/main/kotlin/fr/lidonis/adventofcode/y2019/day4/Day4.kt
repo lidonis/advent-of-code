@@ -13,10 +13,11 @@ object Day4 {
     fun part1() = input().filter(PasswordChecker::check1).count()
     fun part2() = input().filter(PasswordChecker::check2).count()
 
-    private fun input(): IntRange {
-        val values = InputReader("day4.txt").text.split("-").map { it.toInt() }
-        return values[0]..values[1]
-    }
+    private fun input() = InputReader("day4.txt").text
+        .split("-")
+        .map(String::toInt).run {
+            this[0]..this[1]
+        }
 
 }
 

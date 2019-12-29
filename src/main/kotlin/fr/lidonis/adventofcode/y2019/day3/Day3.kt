@@ -9,13 +9,9 @@ fun main() {
 
 object Day3 {
 
-    fun part1(): Int? {
-        return wires(inputs()).minDistance()
-    }
+    fun part1() = wires(inputs()).minDistance()
 
-    fun part2(): Int? {
-        return wires(inputs()).fewestSteps()
-    }
+    fun part2() = wires(inputs()).fewestSteps()
 
     private fun wires(inputs: List<List<String>>) = CrossedWires(inputs[0], inputs[1])
 

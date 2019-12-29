@@ -10,19 +10,17 @@ fun main() {
 
 object Day5 {
 
-    fun part1(): Long {
-        val computer = computer()
-        computer.input(1)
-        computer.run()
-        val diagnosticCode = computer.outputs.pollLast()
-        check(computer.outputs.all { it == 0L })
-        return diagnosticCode
+    fun part1(): Long = computer().run {
+        input(1)
+        run()
+        val diagnosticCode = outputs.pollLast()
+        check(outputs.all { it == 0L })
+        diagnosticCode
     }
 
-    fun part2(): Long? {
-        val computer = computer()
-        computer.input(5)
-        return computer.nextOutput()
+    fun part2() = computer().run {
+        input(5)
+        nextOutput()
     }
 
     private fun computer() = IntCodeComputer(InputReader("day5.txt").asLineOfLongs())
