@@ -39,7 +39,7 @@ enum class Direction {
     U, R, D, L;
 
     operator fun inc() = values()[Math.floorMod(this.ordinal + 1, values().size)]
-    operator fun dec() = values()[Math.floorMod(this.ordinal - 1, values().size - 1)]
+    operator fun dec() = values()[Math.floorMod(this.ordinal - 1, values().size)]
 }
 
 enum class CardinalPoint {

@@ -14,6 +14,7 @@ class OrbitMap(input: String) {
 
     fun countTotalOrbits() = orbitMap.values.map(::countOrbits).sum()
     private fun countOrbits(orbits: Set<String>): Int = orbits.map { 1 + countOrbit(it) }.sum()
+    //TODO memoize
     private fun countOrbit(key: String): Int = orbitMap[key]?.map { 1 + countOrbit(it) }?.sum() ?: 0
 
     fun minimumOrbitalTransfers(start: String, end: String) = -2 + (
