@@ -14,9 +14,9 @@ object Day9 {
 
     fun part2() = compute(2)
 
-    private fun compute(l: Long): Long? {
+    private fun compute(input: Long): Long? {
         return computer().run {
-            input(l)
+            this.input(input)
             nextOutput()
         }
     }
