@@ -1,7 +1,7 @@
 package fr.lidonis.adventofcode.y2019.day11
 
 import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color.BLACK
-import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IOCodeComputer
 import io.mockk.*
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
@@ -10,7 +10,7 @@ class EmergencyHullPaintingRobotTest {
 
     @Test
     fun `example 1`() {
-        val computer = mockk<IntCodeComputer>()
+        val computer = mockk<IOCodeComputer>()
         val robot = EmergencyHullPaintingRobot(computer, BLACK)
 
         every { computer.hasNext() } returnsMany List(7) { true } + listOf(false)

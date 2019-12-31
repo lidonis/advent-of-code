@@ -1,11 +1,12 @@
 package fr.lidonis.adventofcode.y2019.day7
 
-import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IOCodeComputer
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 class Amplifiers(private val program: List<Long>, phaseSettings: List<Long>) {
 
-    private val amplifiers = phaseSettings.map {
-        IntCodeComputer(program).apply {
+    private val amplifiers: Sequence<IOCodeComputer> = phaseSettings.map {
+        IntCodeComputerFactory.buildIOComputer(program).apply {
             input(it)
         }
     }.asSequence().cycle()

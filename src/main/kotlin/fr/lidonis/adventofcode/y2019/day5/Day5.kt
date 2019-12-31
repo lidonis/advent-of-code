@@ -1,7 +1,7 @@
 package fr.lidonis.adventofcode.y2019.day5
 
 import InputReader
-import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 fun main() {
     println("Diagnostic code for the program is ${Day5.part1()}")
@@ -23,5 +23,5 @@ object Day5 {
         nextOutput()
     }
 
-    private fun computer() = IntCodeComputer(InputReader("day5.txt").asLineOfLongs())
+    private fun computer() = IntCodeComputerFactory.buildIOComputer(InputReader("day5.txt").asLineOfLongs())
 }

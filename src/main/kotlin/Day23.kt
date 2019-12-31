@@ -1,4 +1,4 @@
-import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.ActorScope
 import kotlinx.coroutines.channels.Channel
@@ -85,7 +85,7 @@ object NetworkInterfaceControllerActor {
         program: List<Long>,
         private val address: Int
     ) {
-        private val computer = IntCodeComputer(program)
+        private val computer = IntCodeComputerFactory.buildIOComputer(program)
 
         init {
             computer.input(address.toLong())

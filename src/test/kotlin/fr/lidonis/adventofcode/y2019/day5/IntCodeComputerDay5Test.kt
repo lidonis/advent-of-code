@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day5
 
-import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
@@ -10,20 +10,20 @@ class IntCodeComputerDay5Test {
 
     @Test
     fun `test input`() {
-        val computer = IntCodeComputer(listOf(3, 1))
+        val computer = IntCodeComputerFactory.buildIOComputer(listOf(3, 1))
         computer.input(10)
         Assertions.assertEquals(listOf(3L, 10), computer.next().memory)
     }
 
     @Test
     fun `test output`() {
-        val computer = IntCodeComputer(listOf(4, 1))
+        val computer = IntCodeComputerFactory.buildIOComputer(listOf(4, 1))
         Assertions.assertEquals(1L, computer.nextOutput())
     }
 
     @Test
     fun `test not equal 8 with position mode`() {
-        val computer = IntCodeComputer(
+        val computer = IntCodeComputerFactory.buildIOComputer(
             listOf(
                 3,
                 9,
@@ -44,7 +44,7 @@ class IntCodeComputerDay5Test {
 
     @Test
     fun `test equals 8 with position mode`() {
-        val computer = IntCodeComputer(
+        val computer = IntCodeComputerFactory.buildIOComputer(
             listOf(
                 3,
                 9,
@@ -65,7 +65,7 @@ class IntCodeComputerDay5Test {
 
     @Test
     fun `test less than 8 with position mode`() {
-        val computer = IntCodeComputer(
+        val computer = IntCodeComputerFactory.buildIOComputer(
             listOf(
                 3,
                 9,
@@ -86,7 +86,7 @@ class IntCodeComputerDay5Test {
 
     @Test
     fun `test not less than 8 with position mode`() {
-        val computer = IntCodeComputer(
+        val computer = IntCodeComputerFactory.buildIOComputer(
             listOf(
                 3,
                 9,
@@ -108,7 +108,7 @@ class IntCodeComputerDay5Test {
 
     @Test
     fun `test not equal 8 with  immediate mode`() {
-        val computer = IntCodeComputer(
+        val computer = IntCodeComputerFactory.buildIOComputer(
             listOf(
                 3,
                 3,
@@ -127,7 +127,7 @@ class IntCodeComputerDay5Test {
 
     @Test
     fun `test equals 8 with immediate mode`() {
-        val computer = IntCodeComputer(
+        val computer = IntCodeComputerFactory.buildIOComputer(
             listOf(
                 3,
                 3,
@@ -146,7 +146,7 @@ class IntCodeComputerDay5Test {
 
     @Test
     fun `test less than 8 with immediate mode`() {
-        val computer = IntCodeComputer(
+        val computer = IntCodeComputerFactory.buildIOComputer(
             listOf(
                 3,
                 3,
@@ -165,7 +165,7 @@ class IntCodeComputerDay5Test {
 
     @Test
     fun `test not less than 8 with immediate mode`() {
-        val computer = IntCodeComputer(
+        val computer = IntCodeComputerFactory.buildIOComputer(
             listOf(
                 3,
                 3,
@@ -184,7 +184,7 @@ class IntCodeComputerDay5Test {
 
     @Test
     fun `test jump with zero position mode`() {
-        val computer = IntCodeComputer(
+        val computer = IntCodeComputerFactory.buildIOComputer(
             listOf(
                 3,
                 12,
@@ -210,7 +210,7 @@ class IntCodeComputerDay5Test {
 
     @Test
     fun `test jump with non zero position mode`() {
-        val computer = IntCodeComputer(
+        val computer = IntCodeComputerFactory.buildIOComputer(
             listOf(
                 3,
                 12,

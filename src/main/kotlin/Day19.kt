@@ -1,4 +1,4 @@
-import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 fun main() {
     val input = InputReader("day19.txt").asLineOfLongs()
@@ -36,7 +36,7 @@ class TractorBeam(program: List<Long>) {
 
     class BeamMap(program: List<Long>) {
 
-        private val computer = IntCodeComputer(program)
+        private val computer = IntCodeComputerFactory.buildIOComputer(program)
         private val map = mutableMapOf<Position, Long>()
 
         operator fun get(position: Position) =

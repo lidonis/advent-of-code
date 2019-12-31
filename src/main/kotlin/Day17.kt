@@ -1,5 +1,4 @@
-import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
-import java.lang.IllegalStateException
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 fun main() {
     val input = InputReader("day17.txt").asLineOfLongs()
@@ -9,9 +8,9 @@ fun main() {
     // TODO Algorithm to split path
 }
 
-class AftScaffoldingControlAndInformationInterface(private val program: List<Long>) {
+class AftScaffoldingControlAndInformationInterface(program: List<Long>) {
 
-    private val computer = IntCodeComputer(program)
+    private val computer = IntCodeComputerFactory.buildASCIIComputer(program)
 
     private val scaffolds = mutableListOf<Position>()
     private lateinit var vacuumRobotPosition: Position
@@ -20,7 +19,7 @@ class AftScaffoldingControlAndInformationInterface(private val program: List<Lon
     init {
         var i = 0
         var j = 0
-        computer.asSequence().last()
+        computer.run()
 
         computer.outputs.forEach {
             when (it.toChar()) {
@@ -73,13 +72,13 @@ class AftScaffoldingControlAndInformationInterface(private val program: List<Lon
         Direction.values().map { intersection.move(it) }.count { scaffolds.contains(it) }
 
     fun amountOfDustCollected(videoFeed: Boolean = false): Long? {
-        computer[0] = 2
+        computer.memory[0] = 2
         computer.input("A,C,A,C,B,C,B,A,C,B")
         computer.input("R,4,R,10,R,8,R,4")
         computer.input("R,4,L,12,R,6,L,12")
         computer.input("R,10,R,6,R,4")
         computer.input(if (videoFeed) "y" else "n")
-        computer.asSequence().last()
+        computer.run()
 
         val result = computer.outputs.pollLast()
 

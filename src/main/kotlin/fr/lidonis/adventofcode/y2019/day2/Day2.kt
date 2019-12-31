@@ -1,7 +1,8 @@
 package fr.lidonis.adventofcode.y2019.day2
 
 import InputReader
-import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
+import fr.lidonis.adventofcode.y2019.intcodecomputer.CodeComputer
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 fun main() {
     println("The value at position 0 after the program halts is ${Day2.part1()}")
@@ -14,11 +15,12 @@ object Day2 {
         return runNounVerb(computer, 12, 2)
     }
 
-    private fun runNounVerb(computer: IntCodeComputer, noun: Long, verb: Long) =
+    private fun runNounVerb(computer: CodeComputer, noun: Long, verb: Long) =
         computer.run {
-            this[1] = noun
-            this[2] = verb
-            run()[0]
+            memory[1] = noun
+            memory[2] = verb
+            run()
+            memory[0]
         }
 
 
@@ -33,7 +35,7 @@ object Day2 {
         throw IllegalArgumentException("No inputs found")
     }
 
-    private fun computer() = IntCodeComputer(InputReader("day2.txt").asLineOfLongs())
+    private fun computer() = IntCodeComputerFactory.buildBasicComputer(InputReader("day2.txt").asLineOfLongs())
 
 }
 

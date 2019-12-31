@@ -5,7 +5,7 @@ import Position
 import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color
 import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color.BLACK
 import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color.WHITE
-import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 fun main() {
     println("${Day11.part1()} panels painted at least once")
@@ -47,5 +47,8 @@ object Day11 {
         }
 
     private fun robot(startingPanelColor: Color) =
-        EmergencyHullPaintingRobot(IntCodeComputer(InputReader("day11.txt").asLineOfLongs()), startingPanelColor)
+        EmergencyHullPaintingRobot(
+            IntCodeComputerFactory.buildIOComputer(InputReader("day11.txt").asLineOfLongs()),
+            startingPanelColor
+        )
 }

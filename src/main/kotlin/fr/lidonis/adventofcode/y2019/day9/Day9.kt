@@ -1,7 +1,7 @@
 package fr.lidonis.adventofcode.y2019.day9
 
 import InputReader
-import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 fun main() {
     println("The BOOST keycode is ${Day9.part1()}")
@@ -19,5 +19,5 @@ object Day9 {
         nextOutput()
     }
 
-    private fun computer() = IntCodeComputer(InputReader("day9.txt").asLineOfLongs())
+    private fun computer() = IntCodeComputerFactory.buildIOComputer(InputReader("day9.txt").asLineOfLongs())
 }

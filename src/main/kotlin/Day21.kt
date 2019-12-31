@@ -1,4 +1,4 @@
-import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -43,12 +43,12 @@ fun bruteForceDroid(sequence: Sequence<String>) {
 }
 
 class SpringDroid(program: List<Long>) {
-    private val computer = IntCodeComputer(program)
+    private val computer = IntCodeComputerFactory.buildASCIIComputer(program)
 
     fun executeSpringScript(walkProgram: String, printOutput: Boolean = false): Long? {
         computer.reset()
         computer.input(walkProgram)
-        computer.asSequence().last()
+        computer.run()
         val result = computer.outputs.pollLast()
         if (printOutput) {
             computer.outputs.forEach { print(it.toChar()) }

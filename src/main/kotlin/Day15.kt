@@ -1,4 +1,4 @@
-import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 import kotlin.math.max
 import kotlin.math.min
 
@@ -9,7 +9,7 @@ fun main() {
 }
 
 class Drone(program: List<Long>) {
-    private val computer = IntCodeComputer(program)
+    private val computer = IntCodeComputerFactory.buildIOComputer(program)
     private var direction = Direction.U
     private var position = Position(0, 0)
     private val shipMap = ShipMap()
