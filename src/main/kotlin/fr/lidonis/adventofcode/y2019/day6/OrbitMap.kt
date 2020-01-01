@@ -13,9 +13,11 @@ class OrbitMap(input: String) {
     }
 
     fun countTotalOrbits() = orbitMap.values.map(::countOrbits).sum()
-    private fun countOrbits(orbits: Set<String>): Int = orbits.map { 1 + countOrbit(it) }.sum()
-    //TODO memoize
-    private fun countOrbit(key: String): Int = orbitMap[key]?.map { 1 + countOrbit(it) }?.sum() ?: 0
+    private fun countOrbits(orbits: Set<String>): Int {
+        //TODO memoize
+        fun countOrbit(key: String): Int = orbitMap[key]?.map { 1 + countOrbit(it) }?.sum() ?: 0
+        return orbits.map { 1 + countOrbit(it) }.sum()
+    }
 
     fun minimumOrbitalTransfers(start: String, end: String) = -2 + (
             BreadthFirstSearch.search(start, { it == end }, ::findNeighbours) ?: error("Can't find orbital transfer"))
