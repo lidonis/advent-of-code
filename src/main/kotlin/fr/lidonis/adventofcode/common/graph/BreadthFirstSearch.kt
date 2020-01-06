@@ -1,3 +1,5 @@
+package fr.lidonis.adventofcode.common.graph
+
 object BreadthFirstSearch {
 
     fun <T> search(

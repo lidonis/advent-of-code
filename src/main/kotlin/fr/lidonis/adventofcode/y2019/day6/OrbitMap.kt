@@ -1,5 +1,7 @@
 package fr.lidonis.adventofcode.y2019.day6
 
+import fr.lidonis.adventofcode.common.graph.BreadthFirstSearch
+
 class OrbitMap(input: String) {
 
     private val orbitMap = mutableMapOf<String, MutableSet<String>>()

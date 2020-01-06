@@ -1,3 +1,5 @@
+import fr.lidonis.adventofcode.common.graph.BreadthFirstSearch
+
 fun main() {
     val input = InputReader("day20.txt").text
     val maze = SpaceWarpingMaze(input)
