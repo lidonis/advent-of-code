@@ -1,23 +1,24 @@
 package fr.lidonis.adventofcode.y2019.day4
 
-import InputReader
-
+import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
 fun main() {
     println("${Day4.part1()} different passwords with first check")
     print("${Day4.part2()} different passwords with second check")
 }
 
-object Day4 {
+object Day4 : AdventOfCode2019(4) {
 
-    fun part1() = input().filter(PasswordChecker::check1).count()
-    fun part2() = input().filter(PasswordChecker::check2).count()
+    override fun part1() = inputRange.filter(PasswordChecker::check1).count()
+    override fun part2() = inputRange.filter(PasswordChecker::check2).count()
 
-    private fun input() = InputReader("day4.txt").text
-        .split("-")
-        .map(String::toInt).run {
-            this[0]..this[1]
-        }
+    private val inputRange by lazy {
+        input.text
+            .split("-")
+            .map(String::toInt).run {
+                this[0]..this[1]
+            }
+    }
 
 }
 

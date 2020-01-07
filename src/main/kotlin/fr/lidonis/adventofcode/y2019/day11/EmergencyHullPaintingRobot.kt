@@ -16,6 +16,7 @@ class EmergencyHullPaintingRobot(private val computer: IOCodeComputer, startingP
     }
 
     fun compute() {
+        computer.reset()
         while (computer.hasNext()) {
             computer.input(panels.getValue(position).ordinal.toLong())
             val paint = computer.nextOutput()

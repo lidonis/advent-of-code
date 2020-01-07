@@ -16,6 +16,7 @@ class EmergencyHullPaintingRobotTest {
         every { computer.hasNext() } returnsMany List(7) { true } + listOf(false)
         every { computer.nextOutput() } returnsMany listOf(1L, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0)
         every { computer.input(ofType(Long::class)) } just Runs
+        every { computer.reset() } just Runs
 
         robot.compute()
 

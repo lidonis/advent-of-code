@@ -8,9 +8,13 @@ class BasicIntCodeComputer(override val program: Iterable<Long>) : CodeComputer 
         get() = memory[instructionPointer].toString()
 
     override fun reset() {
-        instructionPointer = 0
-        memory = program.toMutableList()
+        if (needReset()) {
+            instructionPointer = 0
+            memory = program.toMutableList()
+        }
     }
+
+    private fun needReset() = instructionPointer != 0 && memory != program
 
     override fun hasNext() = memory[instructionPointer] != 99L
 

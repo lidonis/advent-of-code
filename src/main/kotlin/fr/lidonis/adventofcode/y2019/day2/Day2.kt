@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day2
 
-import InputReader
+import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 import fr.lidonis.adventofcode.y2019.intcodecomputer.CodeComputer
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
@@ -9,23 +9,13 @@ fun main() {
     println("100 * noun + verb to produce 19690720 is ${Day2.part2()}")
 }
 
-object Day2 {
-    fun part1(): Long {
-        val computer = computer()
+object Day2 : AdventOfCode2019(2) {
+
+    override fun part1(): Long {
         return runNounVerb(computer, 12, 2)
     }
 
-    private fun runNounVerb(computer: CodeComputer, noun: Long, verb: Long) =
-        computer.run {
-            memory[1] = noun
-            memory[2] = verb
-            run()
-            memory[0]
-        }
-
-
-    fun part2(): Long {
-        val computer = computer()
+    override fun part2(): Long {
         for (noun in 0..99L) {
             for (verb in 0..99L) {
                 if (runNounVerb(computer, noun, verb) == 19690720L) return 100 * noun + verb
@@ -35,7 +25,19 @@ object Day2 {
         throw IllegalArgumentException("No inputs found")
     }
 
-    private fun computer() = IntCodeComputerFactory.buildBasicComputer(InputReader("day2.txt").asLineOfLongs())
+
+    private fun runNounVerb(computer: CodeComputer, noun: Long, verb: Long) =
+        computer.run {
+            reset()
+            memory[1] = noun
+            memory[2] = verb
+            run()
+            memory[0]
+        }
+
+    private val computer by lazy {
+        IntCodeComputerFactory.buildBasicComputer(input.asLineOfLongs())
+    }
 
 }
 

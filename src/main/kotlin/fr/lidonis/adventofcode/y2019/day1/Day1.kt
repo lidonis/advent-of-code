@@ -1,16 +1,17 @@
 package fr.lidonis.adventofcode.y2019.day1
 
-import InputReader
+import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
 fun main() {
     println("The sum of the fuel requirements for all of the modules on the spacecraft is ${Day1.part1()}")
     println("the sum of the fuel requirements for all of the modules on your spacecraft when also taking into account the mass of the added fuel is ${Day1.part2()}")
 }
 
-object Day1 {
-    fun part1(): Int = Spacecraft(input()).fuelRequirements()
+object Day1 : AdventOfCode2019(1) {
 
-    fun part2(): Int = Spacecraft(input()).fullFuelRequirements()
+    override fun part1(): Int = spacecraft.fuelRequirements()
+    override fun part2(): Int = spacecraft.fullFuelRequirements()
 
-    fun input() = InputReader("day1.txt").lines.map { it.toInt() }
+    private val spacecraft by lazy { Spacecraft(input.lines.map { it.toInt() }) }
+
 }

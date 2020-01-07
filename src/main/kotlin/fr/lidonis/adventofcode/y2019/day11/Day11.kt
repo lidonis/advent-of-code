@@ -1,7 +1,7 @@
 package fr.lidonis.adventofcode.y2019.day11
 
-import InputReader
 import Position
+import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color
 import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color.BLACK
 import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color.WHITE
@@ -13,15 +13,14 @@ fun main() {
     //TODO OCR from int array
 }
 
-object Day11 {
+object Day11 : AdventOfCode2019(11) {
 
-    fun part1(): Int {
-        val robot = robot(BLACK)
-        robot.compute()
-        return robot.panelsPaintedAtLeastOnce
+    override fun part1() = robot(BLACK).run {
+        compute()
+        panelsPaintedAtLeastOnce
     }
 
-    fun part2() =
+    override fun part2() =
         robot(WHITE).run {
             compute()
             panels.keys.run {
@@ -46,9 +45,9 @@ object Day11 {
             }
         }
 
-    private fun robot(startingPanelColor: Color) =
-        EmergencyHullPaintingRobot(
-            IntCodeComputerFactory.buildIOComputer(InputReader("day11.txt").asLineOfLongs()),
-            startingPanelColor
-        )
+    private fun robot(startingPanelColor: Color) = EmergencyHullPaintingRobot(computer, startingPanelColor)
+
+    private val computer by lazy {
+        IntCodeComputerFactory.buildIOComputer(input.asLineOfLongs())
+    }
 }

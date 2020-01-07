@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day5
 
-import InputReader
+import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 fun main() {
@@ -8,9 +8,10 @@ fun main() {
     println("Diagnostic code for system ID 5 is ${Day5.part2()}")
 }
 
-object Day5 {
+object Day5 : AdventOfCode2019(5) {
 
-    fun part1(): Long = computer().run {
+    override fun part1(): Long = computer.run {
+        reset()
         input(1)
         run()
         val diagnosticCode = outputs.pollLast()
@@ -18,10 +19,14 @@ object Day5 {
         diagnosticCode
     }
 
-    fun part2() = computer().run {
+    override fun part2() = computer.run {
+        reset()
         input(5)
-        nextOutput()
+        nextOutput() ?: error("No diagnostic code")
     }
 
-    private fun computer() = IntCodeComputerFactory.buildIOComputer(InputReader("day5.txt").asLineOfLongs())
+    private val computer by lazy {
+        IntCodeComputerFactory.buildIOComputer(input.asLineOfLongs())
+    }
+
 }
