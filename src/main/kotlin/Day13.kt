@@ -66,9 +66,9 @@ class ArcadeCabinet(program: List<Long>) {
                     when (it.value) {
                         EMPTY -> ' '
                         WALL -> '█'
-                        BLOCK -> 'Ξ'
-                        PADDLE -> '˽'
-                        BALL -> 'ʘ'
+                        BLOCK -> '▣'
+                        PADDLE -> '_'
+                        BALL -> '◍'
                     }
                 )
                 if (it.key.x == 42) {
