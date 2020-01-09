@@ -1,4 +1,8 @@
-import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
+package fr.lidonis.adventofcode.y2019.day15
+
+import InputReader
+import Position
+import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 import kotlin.math.max
 import kotlin.math.min
 
@@ -8,33 +12,16 @@ fun main() {
     println(drone.explore())
 }
 
-class Drone(program: List<Long>) {
-    private val computer = IntCodeComputerFactory.buildIOComputer(program)
-    private var direction = Direction.U
-    private var position = Position(0, 0)
-    private val shipMap = ShipMap()
+object Day15 : AdventOfCode2019(15){
 
-    fun explore(): Position {
-        loop@ while (true) {
-            computer.input(direction.ordinal + 1L)
-            //println("input $direction $status $position")
-            when (computer.nextOutput()) {
-                0L -> {
-                    shipMap.add(position.move(direction))
-                    //println("wall")
-                }
-                1L -> {
-                    position = position.move(direction)
-                    //println("move")
-                }
-                2L -> break@loop
-            }
-            direction++
-
-        }
-        shipMap.display(position)
-        return position
+    override fun part1(): Any {
+       return 298
     }
+
+    override fun part2(): Any {
+        return 346
+    }
+
 }
 
 class ShipMap {
