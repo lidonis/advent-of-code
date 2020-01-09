@@ -8,14 +8,9 @@ class NanoFactory(input: String) {
         input
             .lines()
             .map { it.split(" => ") }
-            .map {
-                it[0].split(", ").map { c ->
-                    Chemical(
-                        c
-                    )
-                } to Chemical(it[1])
+            .map { line ->
+                Reaction(line[0].split(", ").map { Chemical(it) }, Chemical(line[1]))
             }
-
 
     fun minimumOre(): Int {
         var currentChemicals = listOf(
@@ -27,17 +22,17 @@ class NanoFactory(input: String) {
         while (isFinished(currentChemicals)) {
             val react = currentChemicals.flatMap { product ->
                 val reaction = findReaction(product.name)
-                reaction.first.flatMap {
+                reaction.reagents.flatMap {
                     if (it.leftOver) {
                         emptyList()
                     } else {
                         listOf(
                             Chemical(
-                                (ceil((product.quantity.toDouble() / reaction.second.quantity)) * it.quantity).toInt(),
+                                (ceil((product.quantity.toDouble() / reaction.product.quantity)) * it.quantity).toInt(),
                                 it.name
                             ),
                             Chemical(
-                                product.quantity - (product.quantity % reaction.second.quantity),
+                                product.quantity - (product.quantity % reaction.product.quantity),
                                 product.name,
                                 leftOver = true
                             )
@@ -64,14 +59,12 @@ class NanoFactory(input: String) {
 
     private fun isFinished(currentChemicals: List<Chemical>) = !currentChemicals.all { it.name == "ORE" || it.leftOver }
 
-    private fun findReaction(name: String) = reactions.firstOrNull { it.second.name == name }
-        ?: listOf(
-            Chemical(
-                1,
-                name
-            )
-        ) to (Chemical(1, name))
+    private fun findReaction(name: String) =
+        reactions.firstOrNull { it.product.name == name } ?: Reaction(
+            listOf(Chemical(1, name)), (Chemical(1, name))
+        )
 
+    data class Reaction(val reagents: List<Chemical>, val product: Chemical)
 
     data class Chemical(val quantity: Int, val name: String, val leftOver: Boolean = false) {
         constructor(input: String) : this(input.split(" ")[0].toInt(), input.split(" ")[1])
