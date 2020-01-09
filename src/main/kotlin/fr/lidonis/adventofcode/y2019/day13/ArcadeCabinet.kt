@@ -1,13 +1,9 @@
-import ArcadeCabinet.Screen.Tile.*
+package fr.lidonis.adventofcode.y2019.day13
+
+import InputReader
+import Position
+import fr.lidonis.adventofcode.y2019.day13.ArcadeCabinet.Screen.Tile.*
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
-
-fun main() {
-    val program = InputReader("day13.txt").asLineOfLongs()
-    val arcadeCabinet = ArcadeCabinet(program)
-    //println(arcadeCabinet.countBlock())
-    arcadeCabinet.play()
-}
-
 
 class ArcadeCabinet(program: List<Long>) {
     private val computer = IntCodeComputerFactory.buildIOComputer(program)
@@ -18,7 +14,10 @@ class ArcadeCabinet(program: List<Long>) {
         computer.run()
         val screen = Screen()
         computer.outputs.chunked(3).forEach {
-            screen[Position(it[0].toInt(), it[1].toInt())] = Screen.Tile[it[2].toInt()]
+            screen[Position(
+                it[0].toInt(),
+                it[1].toInt()
+            )] = Screen.Tile[it[2].toInt()]
         }
         return screen.count(BLOCK)
     }
