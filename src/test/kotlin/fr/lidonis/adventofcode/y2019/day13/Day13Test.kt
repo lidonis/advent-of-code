@@ -12,6 +12,6 @@ internal class Day13Test {
 
     @Test
     fun part2() {
-        assertThat(Day13.part1()).isEqualTo(21415)
+        assertThat(Day13.part2()).isEqualTo(21415)
     }
 }
