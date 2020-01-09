@@ -7,8 +7,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 fun main() {
-    val inputs = InputReader("day15.txt").asLineOfLongs()
-    val drone = Drone(inputs)
+    val drone = Drone(InputReader("day15.txt").text())
     println(drone.explore())
 }
 

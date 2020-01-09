@@ -1,14 +1,13 @@
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 fun main() {
-    val input = InputReader("day17.txt").asLineOfLongs()
-    val ascii = AftScaffoldingControlAndInformationInterface(input)
+    val ascii = AftScaffoldingControlAndInformationInterface(InputReader("day17.txt").text())
     println(ascii.sumOfTheAlignmentParameters())
     println(ascii.amountOfDustCollected())
     // TODO Algorithm to split path
 }
 
-class AftScaffoldingControlAndInformationInterface(program: List<Long>) {
+class AftScaffoldingControlAndInformationInterface(program: String) {
 
     private val computer = IntCodeComputerFactory.buildASCIIComputer(program)
 

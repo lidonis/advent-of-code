@@ -4,7 +4,7 @@ import Direction
 import Position
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
-class Drone(program: List<Long>) {
+class Drone(program: String) {
     private val computer =
         IntCodeComputerFactory.buildIOComputer(program)
     private var direction = Direction.U

@@ -5,7 +5,7 @@ import kotlin.math.abs
 import kotlin.math.sign
 
 fun main() {
-    val input = InputReader("day12.txt").lines
+    val input = InputReader("day12.txt").lines()
     val day12 = Day12(input)
     println(day12.part1())
     println(day12.part2())

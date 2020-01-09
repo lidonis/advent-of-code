@@ -12,6 +12,6 @@ object Day1 : AdventOfCode2019(1) {
     override fun part1(): Int = spacecraft.fuelRequirements()
     override fun part2(): Int = spacecraft.fullFuelRequirements()
 
-    private val spacecraft by lazy { Spacecraft(input.lines.map { it.toInt() }) }
+    private val spacecraft = Spacecraft(input().lines().map(String::toInt))
 
 }

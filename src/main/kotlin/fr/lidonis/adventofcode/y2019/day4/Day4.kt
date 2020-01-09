@@ -12,13 +12,11 @@ object Day4 : AdventOfCode2019(4) {
     override fun part1() = inputRange.filter(PasswordChecker::check1).count()
     override fun part2() = inputRange.filter(PasswordChecker::check2).count()
 
-    private val inputRange by lazy {
-        input.text
-            .split("-")
-            .map(String::toInt).run {
-                this[0]..this[1]
-            }
-    }
+    private val inputRange = input().text()
+        .split("-")
+        .map(String::toInt).run {
+            this[0]..this[1]
+        }
 
 }
 

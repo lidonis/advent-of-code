@@ -3,7 +3,7 @@ import kotlin.math.pow
 
 fun main() {
     val input = InputReader("day16.txt")
-    val fft = FlawedFrequencyTransmission(input.asLineOfInt())
+    val fft = FlawedFrequencyTransmission(input.text().map { Character.digit(it, 10) })
     println(fft.phases())
     println(fft.embedded())
 }
@@ -20,7 +20,7 @@ class FlawedFrequencyTransmission(private val input: List<Int>) {
         return output.take(8).joinToString("")
     }
 
-    fun phase(input: List<Int>) =
+    private fun phase(input: List<Int>) =
         input.mapIndexed { i, _ ->
             abs(input.drop(i).zip(repeatingPattern(i).take(input.size).toList()).map {
                 it.first * it.second

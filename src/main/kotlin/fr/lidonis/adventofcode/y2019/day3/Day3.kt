@@ -12,10 +12,8 @@ object Day3 : AdventOfCode2019(3) {
     override fun part1() = wires.minimumDistance() ?: error("No intersection found")
     override fun part2() = wires.fewestSteps() ?: error("No intersection found")
 
-    private val wires by lazy {
-        input.asLinesOfStrings().run {
-            CrossedWires(this[0], this[1])
-        }
+    private val wires = input().lines().map { line -> line.split(",") }.run {
+        CrossedWires(this[0], this[1])
     }
 
 }

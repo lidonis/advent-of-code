@@ -2,7 +2,7 @@ import Vault.Tile.*
 import fr.lidonis.adventofcode.common.graph.BreadthFirstSearch
 
 fun main() {
-    val input = InputReader("day18.txt").text
+    val input = InputReader("day18.txt").text()
     val vault = Vault(input)
     println(vault.shortestPathStepCount())
 }

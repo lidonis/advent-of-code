@@ -2,16 +2,12 @@ package fr.lidonis.adventofcode.y2019.intcodecomputer
 
 object IntCodeComputerFactory {
 
-    fun buildBasicComputer(program: List<Long>): CodeComputer {
-        return BasicIntCodeComputer(program)
-    }
+    fun buildBasicComputer(program: String) = BasicIntCodeComputer(toLongs(program))
 
-    fun buildIOComputer(program: List<Long>): IOCodeComputer {
-        return IntCodeComputer(program)
-    }
+    fun buildIOComputer(program: String) = IntCodeComputer(toLongs(program))
 
-    fun buildASCIIComputer(program: List<Long>): ASCIICodeComputer {
-        return IntCodeComputer(program)
-    }
+    fun buildASCIIComputer(program: String) = IntCodeComputer(toLongs(program))
+
+    private fun toLongs(program: String) = program.split(",").map(String::toLong)
 
 }

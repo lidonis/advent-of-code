@@ -85,14 +85,14 @@ internal class Day16Test {
     @Test
     fun `test part 1`() {
         val input = InputReader("day16.txt")
-        val fft= FlawedFrequencyTransmission(input.asLineOfInt())
+        val fft = FlawedFrequencyTransmission(input.text().map { Character.digit(it, 10) })
         Assertions.assertEquals("84970726", fft.phases())
     }
 
     @Test
     fun `test part 2`() {
         val input = InputReader("day16.txt")
-        val fft= FlawedFrequencyTransmission(input.asLineOfInt())
+        val fft = FlawedFrequencyTransmission(input.text().map { Character.digit(it, 10) })
         Assertions.assertEquals("47664469", fft.embedded())
     }
 

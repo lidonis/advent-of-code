@@ -12,5 +12,5 @@ object Day6 : AdventOfCode2019(6) {
     override fun part1() = orbitMap.countTotalOrbits()
     override fun part2() = orbitMap.minimumOrbitalTransfers("YOU", "SAN")
 
-    private val orbitMap by lazy { OrbitMap(input.text) }
+    private val orbitMap = OrbitMap(input().text())
 }

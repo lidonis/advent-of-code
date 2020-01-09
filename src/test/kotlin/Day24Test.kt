@@ -94,7 +94,7 @@ class Day24Test {
             readErises("day24/part1.txt").zipWithNext()
 
         private fun readErises(fileName: String) =
-            InputReader(fileName).lines
+            InputReader(fileName).lines()
                 .asSequence()
                 .filterNot { it.isEmpty() || it[0].isLetter() }
                 .chunked(5)

@@ -25,8 +25,6 @@ object Day5 : AdventOfCode2019(5) {
         nextOutput() ?: error("No diagnostic code")
     }
 
-    private val computer by lazy {
-        IntCodeComputerFactory.buildIOComputer(input.asLineOfLongs())
-    }
+    private val computer = IntCodeComputerFactory.buildIOComputer(input().text())
 
 }

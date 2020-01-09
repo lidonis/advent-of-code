@@ -1,7 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day2
 
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
-import fr.lidonis.adventofcode.y2019.intcodecomputer.CodeComputer
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 fun main() {
@@ -12,13 +11,13 @@ fun main() {
 object Day2 : AdventOfCode2019(2) {
 
     override fun part1(): Long {
-        return runNounVerb(computer, 12, 2)
+        return runNounVerb(12, 2)
     }
 
     override fun part2(): Long {
         for (noun in 0..99L) {
             for (verb in 0..99L) {
-                if (runNounVerb(computer, noun, verb) == 19690720L) return 100 * noun + verb
+                if (runNounVerb(noun, verb) == 19690720L) return 100 * noun + verb
                 computer.reset()
             }
         }
@@ -26,7 +25,7 @@ object Day2 : AdventOfCode2019(2) {
     }
 
 
-    private fun runNounVerb(computer: CodeComputer, noun: Long, verb: Long) =
+    private fun runNounVerb(noun: Long, verb: Long) =
         computer.run {
             reset()
             memory[1] = noun
@@ -35,9 +34,7 @@ object Day2 : AdventOfCode2019(2) {
             memory[0]
         }
 
-    private val computer by lazy {
-        IntCodeComputerFactory.buildBasicComputer(input.asLineOfLongs())
-    }
+    private val computer = IntCodeComputerFactory.buildBasicComputer(input().text())
 
 }
 

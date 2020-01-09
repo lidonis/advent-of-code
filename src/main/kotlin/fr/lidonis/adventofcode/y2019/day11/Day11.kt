@@ -47,7 +47,5 @@ object Day11 : AdventOfCode2019(11) {
 
     private fun robot(startingPanelColor: Color) = EmergencyHullPaintingRobot(computer, startingPanelColor)
 
-    private val computer by lazy {
-        IntCodeComputerFactory.buildIOComputer(input.asLineOfLongs())
-    }
+    private val computer = IntCodeComputerFactory.buildIOComputer(input().text())
 }

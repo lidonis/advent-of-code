@@ -19,7 +19,6 @@ object Day9 : AdventOfCode2019(9) {
         nextOutput()
     }
 
-    private val computer by lazy {
-        IntCodeComputerFactory.buildIOComputer(input.asLineOfLongs())
-    }
+    private val computer = IntCodeComputerFactory.buildIOComputer(input().text())
+
 }

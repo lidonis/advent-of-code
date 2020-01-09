@@ -16,5 +16,5 @@ object Day13 : AdventOfCode2019(13) {
         return 21415
     }
 
-    private val arcadeCabinet = ArcadeCabinet(input.asLineOfLongs())
+    private val arcadeCabinet = ArcadeCabinet(input().text())
 }

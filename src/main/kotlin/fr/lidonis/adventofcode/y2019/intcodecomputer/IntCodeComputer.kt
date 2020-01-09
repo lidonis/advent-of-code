@@ -8,7 +8,7 @@ class IntCodeComputer(override val program: List<Long>) : ASCIICodeComputer {
 
     private var instructionPointer = 0L
     private var relativeBase = 0L
-    var inputs = ArrayBlockingQueue<Long>(100000)
+    private var inputs = ArrayBlockingQueue<Long>(100000)
     override var outputs = ArrayDeque<Long>()
     override var memory =
         Memory(program.toMutableList())

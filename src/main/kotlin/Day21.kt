@@ -5,8 +5,7 @@ import kotlinx.coroutines.runBlocking
 import kotlin.math.pow
 
 fun main() {
-    val program = InputReader("day21.txt").asLineOfLongs()
-    val droid = SpringDroid(program)
+    val droid = SpringDroid(InputReader("day21.txt").text())
     println(droid.walk())
     println(droid.run())
     bruteForceRun()
@@ -28,7 +27,7 @@ fun bruteForceRun() {
 }
 
 fun bruteForceDroid(sequence: Sequence<String>) {
-    val program = InputReader("day21.txt").asLineOfLongs()
+    val program = InputReader("day21.txt").text()
     runBlocking {
         for (springScript in sequence) {
             launch(Dispatchers.Default) {
@@ -42,7 +41,7 @@ fun bruteForceDroid(sequence: Sequence<String>) {
     }
 }
 
-class SpringDroid(program: List<Long>) {
+class SpringDroid(program: String) {
     private val computer = IntCodeComputerFactory.buildASCIIComputer(program)
 
     fun executeSpringScript(walkProgram: String, printOutput: Boolean = false): Long? {
@@ -137,7 +136,7 @@ object SpringScriptGenerator {
                 NOT J J
                 AND D J
                 """.trimIndent()
-                + currentInstruction + "RUN"
+                        + currentInstruction + "RUN"
             )
         }
     }

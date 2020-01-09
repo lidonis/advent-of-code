@@ -49,7 +49,7 @@ class Day22Test {
         @Test
         fun `part 1`() {
             val deck = SpaceCardDeck(10007)
-            val shuffledDeck = deck.shuffle(InputReader("day22.txt").text)
+            val shuffledDeck = deck.shuffle(InputReader("day22.txt").text())
             assertThat(shuffledDeck.cardPosition(2019)).isEqualTo(7171)
         }
     }
@@ -96,14 +96,14 @@ class Day22Test {
         @Test
         fun `part 2`() {
             val deck = SpaceCardMathShuffler(119315717514047)
-            val shuffledDeck = deck.shuffle(InputReader("day22.txt").text).pow(101741582076661)
+            val shuffledDeck = deck.shuffle(InputReader("day22.txt").text()).pow(101741582076661)
             assertThat(shuffledDeck.compute(2020)).isEqualTo(73394009116480)
         }
 
         @Test
         fun `part 1`() {
             val deck = SpaceCardMathShuffler(10007)
-            val shuffledDeck = deck.shuffle(InputReader("day22.txt").text)
+            val shuffledDeck = deck.shuffle(InputReader("day22.txt").text())
             assertThat(shuffledDeck.pow(-1).compute(2019)).isEqualTo(7171)
         }
 

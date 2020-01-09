@@ -1,4 +1,4 @@
-import Eris.*
+import Eris.EmptyRecursiveEris
 import Eris.State.*
 
 fun main() {
@@ -8,7 +8,7 @@ fun main() {
 
 private fun part1() {
     val evolutions = mutableSetOf<Int>()
-    var eris = Eris(InputReader("day24.txt").text)
+    var eris = Eris(InputReader("day24.txt").text())
     while (evolutions.add(eris.biodiversityRating)) {
         eris = eris.evolve()
     }
@@ -16,12 +16,12 @@ private fun part1() {
 }
 
 fun part2() {
-    val eris = RecursiveEris(listOf(Eris(InputReader("day24.txt").text).toRecursive()))
+    val eris = RecursiveEris(listOf(Eris(InputReader("day24.txt").text()).toRecursive()))
     val bugCount = eris.evolve(200).count()
     println("$bugCount bugs are present after 200 minutes")
 }
 
-open class Eris(val scan: List<Tile>) {
+open class Eris(private val scan: List<Tile>) {
     constructor(input: String) : this(input.lines().mapIndexed { i, line ->
         line.mapIndexed { j, c ->
             Tile(Position(j, i), State.valueOf(c) ?: error { "Unknown tile" })

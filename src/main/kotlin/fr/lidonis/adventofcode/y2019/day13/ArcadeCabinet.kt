@@ -1,11 +1,10 @@
 package fr.lidonis.adventofcode.y2019.day13
 
-import InputReader
 import Position
 import fr.lidonis.adventofcode.y2019.day13.ArcadeCabinet.Screen.Tile.*
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
-class ArcadeCabinet(program: List<Long>) {
+class ArcadeCabinet(program: String) {
     private val computer = IntCodeComputerFactory.buildIOComputer(program)
     private val screen = Screen()
     private var score = 0L

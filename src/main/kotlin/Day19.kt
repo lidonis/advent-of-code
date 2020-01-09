@@ -1,13 +1,12 @@
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 fun main() {
-    val input = InputReader("day19.txt").asLineOfLongs()
-    val tractorBeam = TractorBeam(input)
+    val tractorBeam = TractorBeam(InputReader("day19.txt").text())
     println(tractorBeam.countAffected(50))
     print(tractorBeam.fit(100))
 }
 
-class TractorBeam(program: List<Long>) {
+class TractorBeam(program: String) {
     private val beamMap = BeamMap(program)
 
     fun countAffected(size: Int): Int {
@@ -34,7 +33,7 @@ class TractorBeam(program: List<Long>) {
         beamMap[Position(position.x + size - 1, position.y)] == 1L &&
                 beamMap[Position(position.x, position.y + size - 1)] == 1L
 
-    class BeamMap(program: List<Long>) {
+    class BeamMap(program: String) {
 
         private val computer = IntCodeComputerFactory.buildIOComputer(program)
         private val map = mutableMapOf<Position, Long>()

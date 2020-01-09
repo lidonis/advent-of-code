@@ -9,13 +9,13 @@ class Day10Test {
 
     @Test
     fun `part 1`() {
-        val map = AsteroidMap(InputReader("day10.txt").text)
+        val map = AsteroidMap(InputReader("day10.txt").text())
         assertThat(map.bestStation()?.second).isEqualTo(274)
     }
 
     @Test
     fun `part 2`() {
-        val map = AsteroidMap(InputReader("day10.txt").text)
+        val map = AsteroidMap(InputReader("day10.txt").text())
         assertThat(map.vaporize(200)).isEqualTo(Position(3, 5))
     }
 }

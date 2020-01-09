@@ -12,11 +12,11 @@ object Day7 : AdventOfCode2019(7) {
     override fun part1() = largestSignal(program, (0L..4)) ?: error("No signal ...")
     override fun part2() = largestSignal(program, (5L..9)) ?: error("No signal ...")
 
-    private fun largestSignal(program: List<Long>, range: LongRange) = range.toList().permute().map {
+    private fun largestSignal(program: String, range: LongRange) = range.toList().permute().map {
         Amplifiers(program, it).run()
     }.max()
 
-    private val program by lazy { input.asLineOfLongs() }
+    private val program = input().text()
 }
 
 fun <T> List<T>.permute(): List<List<T>> {

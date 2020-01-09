@@ -32,7 +32,7 @@ object NetworkInterfaceControllerActor {
     @ObsoleteCoroutinesApi
     private class Router(private val actor: ActorScope<NetworkMessage>) {
         private val scope = CoroutineScope(actor.coroutineContext)
-        private val program = InputReader("day23.txt").asLineOfLongs()
+        private val program = InputReader("day23.txt").text()
         private val computerChannels = mutableListOf<SendChannel<Packet>>()
         private var monitor: SendChannel<NetworkMessage>
         private var nat: SendChannel<NetworkMessage>
@@ -82,7 +82,7 @@ object NetworkInterfaceControllerActor {
     private class ComputerActor(
         private val actor: ActorScope<Packet>,
         private val network: Channel<NetworkMessage>,
-        program: List<Long>,
+        program: String,
         private val address: Int
     ) {
         private val computer = IntCodeComputerFactory.buildIOComputer(program)
