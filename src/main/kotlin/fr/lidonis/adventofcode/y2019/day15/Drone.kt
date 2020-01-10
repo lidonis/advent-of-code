@@ -7,7 +7,7 @@ import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 class Drone(program: String) {
     private val computer =
         IntCodeComputerFactory.buildIOComputer(program)
-    private var direction = Direction.U
+    private var direction = Direction.UP
     private var position = Position(0, 0)
     private val shipMap = ShipMap()
 

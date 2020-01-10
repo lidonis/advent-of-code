@@ -32,7 +32,7 @@ class CrossedWires(input1: List<String>, input2: List<String>) {
 
         companion object MoveInterpreter {
             fun read(input: String) = Move(
-                Direction.valueOf(input[0].toString()),
+                Direction.fromChar(input[0]) ?: error("Invalid move"),
                 input.substring(1).toInt()
             )
         }

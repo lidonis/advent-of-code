@@ -41,15 +41,15 @@ class SpaceWarpingMaze(input: String) {
 
     private fun searchPortals() =
         mazeMap.flatMap { entry ->
-            CardinalPoint.values().mapNotNull { cardinalPoint ->
-                val firstMove = entry.key.move(cardinalPoint)
+            Direction.values().mapNotNull { direction ->
+                val firstMove = entry.key.move(direction)
                 val second = mazeMap.getOrDefault(firstMove, ' ')
-                val secondMove = firstMove.move(cardinalPoint)
+                val secondMove = firstMove.move(direction)
                 val third = mazeMap[secondMove]
                 if (second.isLetter() && third == '.') {
                     openPassages.add(firstMove)
-                    when (cardinalPoint) {
-                        CardinalPoint.SOUTH, CardinalPoint.EAST -> Portal(
+                    when (direction) {
+                        Direction.DOWN, Direction.LEFT -> Portal(
                             entry.value.toString() + second,
                             firstMove,
                             secondMove,

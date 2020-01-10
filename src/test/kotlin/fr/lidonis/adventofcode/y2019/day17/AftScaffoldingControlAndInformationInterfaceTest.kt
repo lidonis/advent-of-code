@@ -1,0 +1,3 @@
+package fr.lidonis.adventofcode.y2019.day17
+
+internal class AftScaffoldingControlAndInformationInterfaceTest

@@ -7,7 +7,7 @@ import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color.WHIT
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IOCodeComputer
 
 class EmergencyHullPaintingRobot(private val computer: IOCodeComputer, startingPanelColor: Color) {
-    private var direction = Direction.U
+    private var direction = Direction.UP
     private var position = Position(0, 0)
     val panels = mutableMapOf<Position, Color>().withDefault { BLACK }
 

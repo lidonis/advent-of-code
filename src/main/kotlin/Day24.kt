@@ -61,10 +61,10 @@ open class Eris(private val scan: List<Tile>) {
             if (position.y > 4) neighbourBugsCount += aboveEris.count(Position(2, 3))
             if (position.x == 2 && position.y == 2) {
                 when (tile.position) {
-                    Position(2, 1) -> neighbourBugsCount += belowEris.count(Direction.U)
-                    Position(3, 2) -> neighbourBugsCount += belowEris.count(Direction.R)
-                    Position(2, 3) -> neighbourBugsCount += belowEris.count(Direction.D)
-                    Position(1, 2) -> neighbourBugsCount += belowEris.count(Direction.L)
+                    Position(2, 1) -> neighbourBugsCount += belowEris.count(Direction.UP)
+                    Position(3, 2) -> neighbourBugsCount += belowEris.count(Direction.RIGHT)
+                    Position(2, 3) -> neighbourBugsCount += belowEris.count(Direction.DOWN)
+                    Position(1, 2) -> neighbourBugsCount += belowEris.count(Direction.LEFT)
                 }
             }
             if (scan.find { it.position == position }?.state == BUG) neighbourBugsCount++
@@ -77,10 +77,10 @@ open class Eris(private val scan: List<Tile>) {
     fun count() = scan.count { it.state == BUG }
 
     private fun count(direction: Direction) = when (direction) {
-        Direction.U -> scan.filter { it.position.y == 0 }
-        Direction.R -> scan.filter { it.position.x == 4 }
-        Direction.D -> scan.filter { it.position.y == 4 }
-        Direction.L -> scan.filter { it.position.x == 0 }
+        Direction.UP -> scan.filter { it.position.y == 0 }
+        Direction.RIGHT -> scan.filter { it.position.x == 4 }
+        Direction.DOWN -> scan.filter { it.position.y == 4 }
+        Direction.LEFT -> scan.filter { it.position.x == 0 }
     }.count { it.state == BUG }
 
     private fun count(position: Position) = if (scan.find { it.position == position }?.state == BUG) 1 else 0
