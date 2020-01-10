@@ -6,75 +6,26 @@ import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 class AftScaffoldingControlAndInformationInterface(program: String) {
 
-    private val computer =
-        IntCodeComputerFactory.buildASCIIComputer(
-            program
-        )
+    private val computer = IntCodeComputerFactory.buildASCIIComputer(program)
 
-    private val scaffolds = mutableListOf<Position>()
-    private lateinit var vacuumRobotPosition: Position
-    private lateinit var vacuumRobotDirection: Direction
-    private var scaffoldMap: ScaffoldMap
-
-    init {
-        var i = 0
-        var j = 0
-        computer.run()
-
-        computer.outputs.forEach {
-            when (it.toChar()) {
-                '#' -> {
-                    scaffolds.add(Position(i, j))
-                    i++
-                }
-                '^' -> {
-                    vacuumRobotPosition = Position(i, j)
-                    vacuumRobotDirection = Direction.UP
-                    i++
-                }
-                'v' -> {
-                    vacuumRobotPosition = Position(i, j)
-                    vacuumRobotDirection = Direction.DOWN
-                    i++
-                }
-                '<' -> {
-                    vacuumRobotPosition = Position(i, j)
-                    vacuumRobotDirection = Direction.LEFT
-                    i++
-                }
-                '>' -> {
-                    vacuumRobotPosition = Position(i, j)
-                    vacuumRobotDirection = Direction.RIGHT
-                    i++
-                }
-                'X' -> {
-                    throw IllegalStateException("Crashed")
-                }
-                '.' -> {
-                    i++
-                }
-                '\n' -> {
-                    j++
-                    i = 0
-                }
-                else -> throw IllegalStateException("Unknown map character")
-            }
-        }
-        computer.reset()
-        scaffoldMap = ScaffoldMap(scaffolds, VacuumRobot(vacuumRobotPosition, vacuumRobotDirection))
+    private var scaffoldMap = computer.run {
+        this.run()
+        val input = this.outputs.map { it.toChar() }.joinToString("")
+        this.reset()
+        ScaffoldMap.from(input)
     }
 
     fun sumOfTheAlignmentParameters() = scaffoldMap.sumOfTheAlignmentParameters()
 
-    fun amountOfDustCollected(videoFeed: Boolean = false): Long? {
+    fun amountOfDustCollected(): Long? {
+        println(scaffoldMap.findPath())
         computer.memory[0] = 2
         computer.input("A,C,A,C,B,C,B,A,C,B")
         computer.input("R,4,R,10,R,8,R,4")
         computer.input("R,4,L,12,R,6,L,12")
         computer.input("R,10,R,6,R,4")
-        computer.input(if (videoFeed) "y" else "n")
+        computer.input("n")
         computer.run()
-        println(scaffoldMap.findPath())
         return computer.outputs.pollLast()
     }
 
@@ -116,7 +67,6 @@ data class ScaffoldMap(val scaffolds: List<Position>, val vacuumRobot: VacuumRob
                 }
             }
         }
-
     }
 
     private fun addForwardCount(path: MutableList<String>, forwardCount: Int): Int {
