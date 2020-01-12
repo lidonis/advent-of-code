@@ -14,9 +14,7 @@ object Day4 : AdventOfCode2019(4) {
 
     private val inputRange = input().text()
         .split("-")
-        .map(String::toInt).run {
-            this[0]..this[1]
-        }
+        .run { this[0].toInt()..this[1].toInt() }
 
 }
 
