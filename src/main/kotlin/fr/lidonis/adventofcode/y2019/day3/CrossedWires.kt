@@ -1,7 +1,7 @@
 package fr.lidonis.adventofcode.y2019.day3
 
-import Direction
-import Position
+import fr.lidonis.adventofcode.common.Direction
+import fr.lidonis.adventofcode.common.Position
 
 class CrossedWires(input1: List<String>, input2: List<String>) {
     private val startingPosition = Position(1, 1)

@@ -1,7 +1,7 @@
 package fr.lidonis.adventofcode.y2019.day10
 
 import InputReader
-import Position
+import fr.lidonis.adventofcode.common.Position
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 

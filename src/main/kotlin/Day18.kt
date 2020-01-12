@@ -1,4 +1,5 @@
 import Vault.Tile.*
+import fr.lidonis.adventofcode.common.Position
 import fr.lidonis.adventofcode.common.graph.BreadthFirstSearch
 
 fun main() {

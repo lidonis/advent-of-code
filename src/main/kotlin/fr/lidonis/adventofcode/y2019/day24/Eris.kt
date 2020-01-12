@@ -1,7 +1,7 @@
 package fr.lidonis.adventofcode.y2019.day24
 
-import Direction
-import Position
+import fr.lidonis.adventofcode.common.Direction
+import fr.lidonis.adventofcode.common.Position
 import fr.lidonis.adventofcode.common.pow
 import fr.lidonis.adventofcode.y2019.day24.Eris.State.*
 
@@ -46,16 +46,44 @@ open class Eris(private val scan: List<Tile>) {
         Eris(scan.map { tile ->
             tile to tile.position.neighbours().map { position ->
                 var neighbourBugsCount = 0
-                if (position.x < 0) neighbourBugsCount += aboveEris.count(Position(1, 2))
-                if (position.x > 4) neighbourBugsCount += aboveEris.count(Position(3, 2))
-                if (position.y < 0) neighbourBugsCount += aboveEris.count(Position(2, 1))
-                if (position.y > 4) neighbourBugsCount += aboveEris.count(Position(2, 3))
+                if (position.x < 0) neighbourBugsCount += aboveEris.count(
+                    Position(
+                        1,
+                        2
+                    )
+                )
+                if (position.x > 4) neighbourBugsCount += aboveEris.count(
+                    Position(
+                        3,
+                        2
+                    )
+                )
+                if (position.y < 0) neighbourBugsCount += aboveEris.count(
+                    Position(
+                        2,
+                        1
+                    )
+                )
+                if (position.y > 4) neighbourBugsCount += aboveEris.count(
+                    Position(
+                        2,
+                        3
+                    )
+                )
                 if (position.x == 2 && position.y == 2) {
                     when (tile.position) {
-                        Position(2, 1) -> neighbourBugsCount += belowEris.count(Direction.UP)
-                        Position(3, 2) -> neighbourBugsCount += belowEris.count(Direction.RIGHT)
-                        Position(2, 3) -> neighbourBugsCount += belowEris.count(Direction.DOWN)
-                        Position(1, 2) -> neighbourBugsCount += belowEris.count(Direction.LEFT)
+                        Position(2, 1) -> neighbourBugsCount += belowEris.count(
+                            Direction.UP
+                        )
+                        Position(3, 2) -> neighbourBugsCount += belowEris.count(
+                            Direction.RIGHT
+                        )
+                        Position(2, 3) -> neighbourBugsCount += belowEris.count(
+                            Direction.DOWN
+                        )
+                        Position(1, 2) -> neighbourBugsCount += belowEris.count(
+                            Direction.LEFT
+                        )
                     }
                 }
                 if (scan.find { it.position == position }?.state == BUG) neighbourBugsCount++

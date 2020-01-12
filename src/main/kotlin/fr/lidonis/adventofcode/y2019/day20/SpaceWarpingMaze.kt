@@ -1,7 +1,7 @@
 package fr.lidonis.adventofcode.y2019.day20
 
-import Direction
-import Position
+import fr.lidonis.adventofcode.common.Direction
+import fr.lidonis.adventofcode.common.Position
 import fr.lidonis.adventofcode.common.graph.BreadthFirstSearch
 
 class SpaceWarpingMaze(input: String) {

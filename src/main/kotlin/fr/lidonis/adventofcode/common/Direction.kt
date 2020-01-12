@@ -1,3 +1,5 @@
+package fr.lidonis.adventofcode.common
+
 enum class Direction(val letter: Char) {
     UP('U'), RIGHT('R'), DOWN('D'), LEFT('L');
 

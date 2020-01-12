@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day11
 
-import Position
+import fr.lidonis.adventofcode.common.Position
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color
 import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color.BLACK

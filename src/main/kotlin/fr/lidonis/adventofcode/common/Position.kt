@@ -1,3 +1,5 @@
+package fr.lidonis.adventofcode.common
+
 import kotlin.math.absoluteValue
 import kotlin.math.atan2
 import kotlin.math.sqrt
@@ -19,7 +21,8 @@ data class Position(val x: Int, val y: Int) {
     fun angle(target: Position) =
         atan2((target.x - x).toDouble(), (target.y - y).toDouble())
 
-    fun distance(target: Position) = distance(this, target)
+    fun distance(target: Position) =
+        distance(this, target)
 
     companion object {
         fun distance(a: Position, b: Position) =

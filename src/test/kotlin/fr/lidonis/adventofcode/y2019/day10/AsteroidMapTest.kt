@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day10
 
-import Position
+import fr.lidonis.adventofcode.common.Position
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest

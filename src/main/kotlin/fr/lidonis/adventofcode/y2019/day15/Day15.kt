@@ -1,7 +1,7 @@
 package fr.lidonis.adventofcode.y2019.day15
 
 import InputReader
-import Position
+import fr.lidonis.adventofcode.common.Position
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 import kotlin.math.max
 import kotlin.math.min

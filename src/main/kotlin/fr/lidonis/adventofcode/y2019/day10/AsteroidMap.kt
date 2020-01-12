@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day10
 
-import Position
+import fr.lidonis.adventofcode.common.Position
 
 class AsteroidMap(private val asteroids: List<Position>) {
 

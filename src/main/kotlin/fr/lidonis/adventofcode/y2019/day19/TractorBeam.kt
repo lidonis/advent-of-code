@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day19
 
-import Position
+import fr.lidonis.adventofcode.common.Position
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 class TractorBeam(program: String) {
@@ -44,7 +44,7 @@ class TractorBeam(program: String) {
                     reset()
                     input(it.x.toLong())
                     input(it.y.toLong())
-                    nextOutput() ?: error { "Position not found $it" }
+                    nextOutput() ?: error { "fr.lidonis.adventofcode.common.Position not found $it" }
                 }
             }
 

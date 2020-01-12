@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day13
 
-import Position
+import fr.lidonis.adventofcode.common.Position
 import fr.lidonis.adventofcode.y2019.day13.ArcadeCabinet.Screen.Tile.*
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
@@ -36,7 +36,10 @@ class ArcadeCabinet(program: String) {
     }
 
     private fun getInstruction() =
-        Position(computer.nextOutput()?.toInt()!!, computer.nextOutput()?.toInt()!!) to computer.nextOutput()!!
+        Position(
+            computer.nextOutput()?.toInt()!!,
+            computer.nextOutput()?.toInt()!!
+        ) to computer.nextOutput()!!
 
 
     fun play(): Int {

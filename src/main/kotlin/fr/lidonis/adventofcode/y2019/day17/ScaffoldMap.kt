@@ -1,7 +1,7 @@
 package fr.lidonis.adventofcode.y2019.day17
 
-import Direction
-import Position
+import fr.lidonis.adventofcode.common.Direction
+import fr.lidonis.adventofcode.common.Position
 
 class VacuumRobot(var position: Position, var direction: Direction) {
     val forward get() = position.move(direction)
