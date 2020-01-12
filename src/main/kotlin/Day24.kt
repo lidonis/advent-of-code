@@ -1,6 +1,6 @@
 import Eris.EmptyRecursiveEris
 import Eris.State.*
-
+import fr.lidonis.adventofcode.common.pow
 fun main() {
     part1()
     part2()

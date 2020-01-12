@@ -1,3 +1,4 @@
+import fr.lidonis.adventofcode.common.modInverse
 import java.math.BigInteger
 import java.util.*
 
@@ -82,5 +83,3 @@ class SpaceCardMathShuffler(private val size: Long) {
         fun compute(index: Long): BigInteger = (increment * BigInteger.valueOf(index) + offset).mod(size)
     }
 }
-
-fun Long.modInverse(m: Long) = BigInteger.valueOf(this).modInverse(BigInteger.valueOf(m)).toLong()
