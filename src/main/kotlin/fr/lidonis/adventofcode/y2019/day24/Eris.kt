@@ -17,7 +17,7 @@ open class Eris(private val scan: List<Tile>) {
 
     val biodiversityRating by lazy {
         scan.mapIndexedNotNull { i, tile ->
-            if (tile.state == BUG) 2.pow(i) else null
+            if (tile.state == BUG) 2 pow i else null
         }.sum()
     }
 

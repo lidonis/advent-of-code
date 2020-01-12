@@ -26,7 +26,7 @@ data class Position(val x: Int, val y: Int) {
 
     companion object {
         fun distance(a: Position, b: Position) =
-            sqrt(((b.y - a.y) * (b.y - a.y) + (b.x - a.x) * (b.x - a.x)).toDouble())
+            sqrt(((b.y - a.y) pow 2 + (b.x - a.x) pow 2).toDouble())
     }
 }
 
