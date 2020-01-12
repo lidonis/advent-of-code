@@ -1,3 +1,5 @@
+package fr.lidonis.adventofcode.y2019.day22
+
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -5,14 +7,12 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import org.junit.jupiter.params.provider.ValueSource
 
+class SpaceCardDeckTest {
 
-class Day22Test {
-
+    private val startDeck = SpaceCardDeck(10)
 
     @Nested
     inner class SpaceCardDeckTest {
-
-        private val startDeck = SpaceCardDeck(10)
 
         @Test
         fun `space deck`() {
@@ -40,24 +40,16 @@ class Day22Test {
         }
 
         @ParameterizedTest
-        @MethodSource("Day22Test#examples")
+        @MethodSource("fr.lidonis.adventofcode.y2019.day22.SpaceCardDeckTest#examples")
         fun example(example: Pair<String, List<Int>>) {
             val shuffledDeck = startDeck.shuffle(example.first)
             assertThat(shuffledDeck).containsExactlyElementsOf(example.second)
         }
 
-        @Test
-        fun `part 1`() {
-            val deck = SpaceCardDeck(10007)
-            val shuffledDeck = deck.shuffle(InputReader("day22.txt").text())
-            assertThat(shuffledDeck.cardPosition(2019)).isEqualTo(7171)
-        }
     }
 
     @Nested
     inner class SpaceCardMathShufflerTest {
-
-        private val startDeck = SpaceCardDeck(10)
 
         @Test
         fun `deal into new stack`() {
@@ -66,14 +58,14 @@ class Day22Test {
         }
 
         @ParameterizedTest
-        @MethodSource("Day22Test#rangeProvider")
+        @MethodSource("fr.lidonis.adventofcode.y2019.day22.SpaceCardDeckTest#rangeProvider")
         fun `cut N`(n: Long) {
             val deck = apply(startDeck.size) { deck -> deck.cut(n) }
             assertThat(deck).containsExactlyElementsOf(startDeck.cut(n.toInt()))
         }
 
         @ParameterizedTest
-        @MethodSource("Day22Test#rangeProvider")
+        @MethodSource("fr.lidonis.adventofcode.y2019.day22.SpaceCardDeckTest#rangeProvider")
         fun `cut -N`(n: Long) {
             val deck = apply(startDeck.size) { deck -> deck.cut(-n) }
             assertThat(deck).containsExactlyElementsOf(startDeck.cut(-n.toInt()))
@@ -87,24 +79,10 @@ class Day22Test {
         }
 
         @ParameterizedTest
-        @MethodSource("Day22Test#examples")
+        @MethodSource("fr.lidonis.adventofcode.y2019.day22.SpaceCardDeckTest#examples")
         fun example(example: Pair<String, List<Int>>) {
             val shuffledDeck = apply(startDeck.size) { deck -> deck.shuffle(example.first) }
             assertThat(shuffledDeck).containsExactlyElementsOf(example.second)
-        }
-
-        @Test
-        fun `part 2`() {
-            val deck = SpaceCardMathShuffler(119315717514047)
-            val shuffledDeck = deck.shuffle(InputReader("day22.txt").text()).pow(101741582076661)
-            assertThat(shuffledDeck.compute(2020)).isEqualTo(73394009116480)
-        }
-
-        @Test
-        fun `part 1`() {
-            val deck = SpaceCardMathShuffler(10007)
-            val shuffledDeck = deck.shuffle(InputReader("day22.txt").text())
-            assertThat(shuffledDeck.pow(-1).compute(2019)).isEqualTo(7171)
         }
 
         private fun apply(
