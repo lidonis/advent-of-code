@@ -1,9 +1,6 @@
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 import kotlinx.coroutines.*
-import kotlinx.coroutines.channels.ActorScope
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.channels.SendChannel
-import kotlinx.coroutines.channels.actor
+import kotlinx.coroutines.channels.*
 
 @ObsoleteCoroutinesApi
 fun main() {
@@ -39,14 +36,14 @@ object NetworkInterfaceControllerActor {
 
         init {
             monitor = scope.actor(capacity = Channel.UNLIMITED) {
-                MonitorActor(this, actor.channel).watch()
+                Monitor(this, actor.channel).watch()
             }
             nat = scope.actor(capacity = Channel.UNLIMITED) {
-                NotAlwaysTransmittingActor(this, actor.channel).nat()
+                NotAlwaysTransmitting(this, actor.channel).nat()
             }
             computerChannels.addAll((0 until 50).map {
                 scope.actor<Packet>(capacity = Channel.UNLIMITED) {
-                    ComputerActor(this, actor.channel, program, it).compute()
+                    NetworkComputer(this, actor.channel, program, it).compute()
                 }
             })
         }
@@ -56,7 +53,7 @@ object NetworkInterfaceControllerActor {
         }
 
         private suspend fun routeMessage() {
-            for (networkMessage in actor.channel) {
+            for (networkMessage in actor) {
                 monitor.send(networkMessage)
                 when (networkMessage) {
                     is Packet -> routePacket(networkMessage)
@@ -78,10 +75,9 @@ object NetworkInterfaceControllerActor {
 
     }
 
-    @ObsoleteCoroutinesApi
-    private class ComputerActor(
-        private val actor: ActorScope<Packet>,
-        private val network: Channel<NetworkMessage>,
+    private class NetworkComputer(
+        private val inbox: ReceiveChannel<Packet>,
+        private val network: SendChannel<NetworkMessage>,
         program: String,
         private val address: Int
     ) {
@@ -102,7 +98,7 @@ object NetworkInterfaceControllerActor {
         private suspend fun activate() {
             var count = 0
             while (count < 20) {
-                actor.channel.poll()?.run {
+                inbox.poll()?.run {
                     computer.input(x)
                     computer.input(y)
                     network.send(Active(address))
@@ -124,16 +120,15 @@ object NetworkInterfaceControllerActor {
             }
     }
 
-    @ObsoleteCoroutinesApi
-    private class MonitorActor(
-        private val actor: ActorScope<NetworkMessage>,
-        private val network: Channel<NetworkMessage>
+    private class Monitor(
+        private val inbox: ReceiveChannel<NetworkMessage>,
+        private val network: SendChannel<NetworkMessage>
     ) {
         private val ysReceivedByComputer0FromNat = mutableSetOf<Long>()
         private val computerStates = MutableList(50) { true }
 
         suspend fun watch() {
-            for (networkMessage in actor.channel) {
+            for (networkMessage in inbox) {
                 if (networkMessage is Packet) {
                     checkFirstY(networkMessage)
                     checkYTwiceInRow(networkMessage)
@@ -176,15 +171,14 @@ object NetworkInterfaceControllerActor {
         }
     }
 
-    @ObsoleteCoroutinesApi
-    private class NotAlwaysTransmittingActor(
-        private val actor: ActorScope<NetworkMessage>,
-        private val network: Channel<NetworkMessage>
+    private class NotAlwaysTransmitting(
+        private val inbox: ReceiveChannel<NetworkMessage>,
+        private val network: SendChannel<NetworkMessage>
     ) {
         private var lastPacket: Packet? = null
 
         suspend fun nat() {
-            for (networkMessage in actor.channel) {
+            for (networkMessage in inbox) {
                 when {
                     networkMessage is Packet -> lastPacket = networkMessage
                     networkMessage is Idle && networkMessage.address == 255 -> lastPacket?.run {
