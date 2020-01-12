@@ -1,11 +1,8 @@
-import fr.lidonis.adventofcode.common.graph.BreadthFirstSearch
+package fr.lidonis.adventofcode.y2019.day20
 
-fun main() {
-    val input = InputReader("day20.txt").text()
-    val maze = SpaceWarpingMaze(input)
-    println(maze.shortestPathDonut())
-    println(maze.shortestPathInception())
-}
+import Direction
+import Position
+import fr.lidonis.adventofcode.common.graph.BreadthFirstSearch
 
 class SpaceWarpingMaze(input: String) {
 
@@ -23,9 +20,11 @@ class SpaceWarpingMaze(input: String) {
     private val start = portals.first { it.label == "AA" }.exit
     private val end = portals.first { it.label == "ZZ" }.exit
 
-    fun shortestPathDonut(): Int? {
-        return BreadthFirstSearch.search(start, { it == end }, ::getNeighbours)
-    }
+    fun shortestPathDonut() = BreadthFirstSearch.search(
+        start,
+        { it == end },
+        ::getNeighbours
+    )
 
     private fun getNeighbours(position: Position) =
         position.neighbours().filter { openPassages.contains(it) }
@@ -37,7 +36,6 @@ class SpaceWarpingMaze(input: String) {
                 it.label == p.label && it != p
             }
         }
-
 
     private fun searchPortals() =
         mazeMap.flatMap { entry ->
@@ -55,7 +53,12 @@ class SpaceWarpingMaze(input: String) {
                             secondMove,
                             isOuter(entry.key)
                         )
-                        else -> Portal(second + entry.value.toString(), firstMove, secondMove, isOuter(entry.key))
+                        else -> Portal(
+                            second + entry.value.toString(),
+                            firstMove,
+                            secondMove,
+                            isOuter(entry.key)
+                        )
                     }
                 } else {
                     null
@@ -68,7 +71,11 @@ class SpaceWarpingMaze(input: String) {
     fun shortestPathInception(): Int? {
         val nodeStart = Node(start)
         val endNode = Node(end)
-        return BreadthFirstSearch.search(nodeStart, { it == endNode }, ::getNeighboursInception)
+        return BreadthFirstSearch.search(
+            nodeStart,
+            { it == endNode },
+            ::getNeighboursInception
+        )
     }
 
 
@@ -78,10 +85,19 @@ class SpaceWarpingMaze(input: String) {
             .mapNotNull {
                 val exitPortal = searchExitPortal(it)
                 when {
-                    exitPortal == null -> Node(it, currentNode.level)
+                    exitPortal == null -> Node(
+                        it,
+                        currentNode.level
+                    )
                     exitPortal.inner && currentNode.level == 0 -> null
-                    exitPortal.inner -> Node(exitPortal.exit, currentNode.level - 1)
-                    exitPortal.outer -> Node(exitPortal.exit, currentNode.level + 1)
+                    exitPortal.inner -> Node(
+                        exitPortal.exit,
+                        currentNode.level - 1
+                    )
+                    exitPortal.outer -> Node(
+                        exitPortal.exit,
+                        currentNode.level + 1
+                    )
                     else -> null
                 }
             }
