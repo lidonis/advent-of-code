@@ -1,0 +1,36 @@
+= Roadmap
+
+[cols="10%,90%"]
+|===
+|Day |Header 2
+
+|1 | _Done_
+|2 | _Done_
+|3 | _Done_
+|4 | _Done_
+|5 | _Done_
+|6 | Compare cache version and non cache version speed and ram
+|7 | _Done_
+|8 | OCR from int array using hexadecimal value of letter
+|8 | compare decode tail rec with recursive
+|8 | add Day8 test
+|9 | compare decode tail rec with recursive
+|10 | _Done_
+|11 | OCR from int array using hexadecimal value of letter
+|11 | Bounding box calculation
+|11 | add Day11 test
+|12 | *TODO*
+|13 | Bot for part 2
+|14 | *TODO*
+|15 | *TODO*
+|16 | _Done_
+|17 | Cleaner compress code
+|18 | *TODO*
+|19 | TractorBeam test ?
+|20 | Cleaner code
+|21 | _Done_
+|22 | _Done_
+|23 | *TODO*
+|24 | Cleaner code
+|25 | *TODO*
+|===
