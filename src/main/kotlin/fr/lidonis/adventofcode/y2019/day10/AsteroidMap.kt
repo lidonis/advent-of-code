@@ -15,22 +15,27 @@ class AsteroidMap(private val asteroids: List<Position>) {
     private fun countDetections(station: Position) =
         asteroids.filterNot { it == station }.map { it.angle(station) }.distinct().size
 
-    fun vaporize(nth: Int): Position {
+    fun vaporize(nth: Int): Position? {
+        require(nth < asteroids.size) { "Can't vaporize $nth asteroid. Only ${asteroids.size - 1} available " }
         val laser = bestStation()?.first ?: Position(0, 0)
-        val rads = asteroids.filterNot { it == laser }
+        val shootingMap = asteroids.asSequence()
+            .filterNot { it == laser }
             .groupBy { laser.angle(it) }
             .map { e -> e.key to e.value.sortedBy { ast -> laser.distance(ast) }.toMutableList() }
             .sortedByDescending { it.first }
+            .toMutableList()
 
-        var asteroid = Position(0, 0)
+        var asteroid: Position? = null
 
         var i = 0
         var count = 0
         while (count < nth) {
-            val list = rads[i % rads.size].second
-            if (list.isNotEmpty()) {
-                asteroid = list.removeAt(0)
+            val targets = shootingMap[i % shootingMap.size]
+            if (targets.second.isNotEmpty()) {
+                asteroid = targets.second.removeAt(0)
                 count++
+            } else {
+                shootingMap.remove(targets)
             }
             i++
         }

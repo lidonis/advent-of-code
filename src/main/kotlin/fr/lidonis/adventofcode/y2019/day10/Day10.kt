@@ -10,7 +10,7 @@ fun main() {
 object Day10 : AdventOfCode2019(10) {
 
     override fun part1() = map.bestStation()?.second ?: error("No best station found")
-    override fun part2() = map.vaporize(200).run { x * 100 + y }
+    override fun part2() = map.vaporize(200)?.run { x * 100 + y } ?: error("No asteroid to vaporize")
 
     private val map = AsteroidMap(input().text())
 }
