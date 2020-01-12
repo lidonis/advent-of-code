@@ -44,7 +44,7 @@ class TractorBeam(program: String) {
                     reset()
                     input(it.x.toLong())
                     input(it.y.toLong())
-                    nextOutput() ?: error { "fr.lidonis.adventofcode.common.Position not found $it" }
+                    nextOutput() ?: error { "Position not found $it" }
                 }
             }
 

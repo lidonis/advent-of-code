@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 class ScaffoldMapTest {
 
     @Test
-    fun `test example alignement parameters`() {
+    fun `test example alignment parameters`() {
         val scaffoldMap = ScaffoldMap.from(
             """
             ..#..........
