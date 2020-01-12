@@ -1,10 +1,7 @@
-import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
+package fr.lidonis.adventofcode.y2019.day19
 
-fun main() {
-    val tractorBeam = TractorBeam(InputReader("day19.txt").text())
-    println(tractorBeam.countAffected(50))
-    print(tractorBeam.fit(100))
-}
+import Position
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 class TractorBeam(program: String) {
     private val beamMap = BeamMap(program)
@@ -35,15 +32,20 @@ class TractorBeam(program: String) {
 
     class BeamMap(program: String) {
 
-        private val computer = IntCodeComputerFactory.buildIOComputer(program)
+        private val computer =
+            IntCodeComputerFactory.buildIOComputer(
+                program
+            )
         private val map = mutableMapOf<Position, Long>()
 
         operator fun get(position: Position) =
             map.computeIfAbsent(position) {
-                computer.reset()
-                computer.input(it.x.toLong())
-                computer.input(it.y.toLong())
-                computer.nextOutput() ?: error { "Position not found $it" }
+                computer.run {
+                    reset()
+                    input(it.x.toLong())
+                    input(it.y.toLong())
+                    nextOutput() ?: error { "Position not found $it" }
+                }
             }
 
     }
