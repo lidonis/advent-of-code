@@ -4,11 +4,10 @@ class ImageDecoder(input: String, private val width: Int, private val height: In
 
     private val layers = input.chunked(width * height)
 
-    fun checksum() = layers
-        .minBy { f -> f.count { it == '0' } }
-        ?.run {
-            count { it == '1' } * count { it == '2' }
-        } ?: error { "Couldn't find min zero layer" }
+    fun checksum() = minZeroLayer()
+        .run { count { it == '1' } * count { it == '2' } }
+
+    private fun minZeroLayer() = layers.minBy { f -> f.count { it == '0' } } ?: error { "Couldn't find min zero layer" }
 
     fun decode() = (0 until width * height).map { decode(it) }.chunked(width).map { it.joinToString("") }
 
