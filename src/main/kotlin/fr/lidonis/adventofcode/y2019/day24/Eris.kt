@@ -1,30 +1,17 @@
-import Eris.EmptyRecursiveEris
-import Eris.State.*
+package fr.lidonis.adventofcode.y2019.day24
+
+import Direction
+import Position
 import fr.lidonis.adventofcode.common.pow
-fun main() {
-    part1()
-    part2()
-}
-
-private fun part1() {
-    val evolutions = mutableSetOf<Int>()
-    var eris = Eris(InputReader("day24.txt").text())
-    while (evolutions.add(eris.biodiversityRating)) {
-        eris = eris.evolve()
-    }
-    println("Biodiversity rating for the first layout that appears twice ${eris.biodiversityRating}")
-}
-
-fun part2() {
-    val eris = RecursiveEris(listOf(Eris(InputReader("day24.txt").text()).toRecursive()))
-    val bugCount = eris.evolve(200).count()
-    println("$bugCount bugs are present after 200 minutes")
-}
+import fr.lidonis.adventofcode.y2019.day24.Eris.State.*
 
 open class Eris(private val scan: List<Tile>) {
     constructor(input: String) : this(input.lines().mapIndexed { i, line ->
         line.mapIndexed { j, c ->
-            Tile(Position(j, i), State.valueOf(c) ?: error { "Unknown tile" })
+            Tile(
+                Position(j, i),
+                State.valueOf(c)
+                    ?: error { "Unknown tile" })
         }
     }.flatten())
 
@@ -49,30 +36,34 @@ open class Eris(private val scan: List<Tile>) {
         } else {
             pair.second == 1 || pair.second == 2
         }
-        return Tile(pair.first.position, if (bug) BUG else EMPTY)
+        return Tile(
+            pair.first.position,
+            if (bug) BUG else EMPTY
+        )
     }
 
-    fun recursiveEvolve(aboveEris: Eris, belowEris: Eris) = Eris(scan.map { tile ->
-        tile to tile.position.neighbours().map { position ->
-            var neighbourBugsCount = 0
-            if (position.x < 0) neighbourBugsCount += aboveEris.count(Position(1, 2))
-            if (position.x > 4) neighbourBugsCount += aboveEris.count(Position(3, 2))
-            if (position.y < 0) neighbourBugsCount += aboveEris.count(Position(2, 1))
-            if (position.y > 4) neighbourBugsCount += aboveEris.count(Position(2, 3))
-            if (position.x == 2 && position.y == 2) {
-                when (tile.position) {
-                    Position(2, 1) -> neighbourBugsCount += belowEris.count(Direction.UP)
-                    Position(3, 2) -> neighbourBugsCount += belowEris.count(Direction.RIGHT)
-                    Position(2, 3) -> neighbourBugsCount += belowEris.count(Direction.DOWN)
-                    Position(1, 2) -> neighbourBugsCount += belowEris.count(Direction.LEFT)
+    fun recursiveEvolve(aboveEris: Eris, belowEris: Eris) =
+        Eris(scan.map { tile ->
+            tile to tile.position.neighbours().map { position ->
+                var neighbourBugsCount = 0
+                if (position.x < 0) neighbourBugsCount += aboveEris.count(Position(1, 2))
+                if (position.x > 4) neighbourBugsCount += aboveEris.count(Position(3, 2))
+                if (position.y < 0) neighbourBugsCount += aboveEris.count(Position(2, 1))
+                if (position.y > 4) neighbourBugsCount += aboveEris.count(Position(2, 3))
+                if (position.x == 2 && position.y == 2) {
+                    when (tile.position) {
+                        Position(2, 1) -> neighbourBugsCount += belowEris.count(Direction.UP)
+                        Position(3, 2) -> neighbourBugsCount += belowEris.count(Direction.RIGHT)
+                        Position(2, 3) -> neighbourBugsCount += belowEris.count(Direction.DOWN)
+                        Position(1, 2) -> neighbourBugsCount += belowEris.count(Direction.LEFT)
+                    }
                 }
-            }
-            if (scan.find { it.position == position }?.state == BUG) neighbourBugsCount++
-            neighbourBugsCount
-        }.sum()
-    }.map {
-        evolve(it)
-    })
+                if (scan.find { it.position == position }?.state == BUG) neighbourBugsCount++
+                neighbourBugsCount
+            }.sum()
+        }.map {
+            evolve(it)
+        })
 
     fun count() = scan.count { it.state == BUG }
 
@@ -114,7 +105,12 @@ open class Eris(private val scan: List<Tile>) {
         }
     })
 
-    fun toRecursive() = Eris(scan - Tile(Position(2, 2), EMPTY) + Tile(Position(2, 2), ERIS))
+    fun toRecursive() = Eris(
+        scan - Tile(
+            Position(2, 2),
+            EMPTY
+        ) + Tile(Position(2, 2), ERIS)
+    )
 
     data class Tile(val position: Position, val state: State = EMPTY)
     enum class State(val c: Char) {
@@ -126,7 +122,6 @@ open class Eris(private val scan: List<Tile>) {
     }
 }
 
-
 data class RecursiveEris(val erises: List<Eris>) {
     fun evolve(minutes: Int): RecursiveEris {
         var rerises = this
@@ -136,24 +131,27 @@ data class RecursiveEris(val erises: List<Eris>) {
 
     private fun evolve(): RecursiveEris {
         val evolved =
-            (listOf(EmptyRecursiveEris.recursiveEvolve(EmptyRecursiveEris, erises.first())) +
-                    (listOf(EmptyRecursiveEris) + erises + EmptyRecursiveEris).windowed(3, partialWindows = true).map {
+            (listOf(Eris.EmptyRecursiveEris.recursiveEvolve(Eris.EmptyRecursiveEris, erises.first())) +
+                    (listOf(Eris.EmptyRecursiveEris) + erises + Eris.EmptyRecursiveEris).windowed(
+                        3,
+                        partialWindows = true
+                    ).map {
                         when (it.size) {
                             3 -> it[1].recursiveEvolve(it[0], it[2])
-                            2 -> it[1].recursiveEvolve(it[0], EmptyRecursiveEris)
-                            else -> EmptyRecursiveEris
+                            2 -> it[1].recursiveEvolve(it[0], Eris.EmptyRecursiveEris)
+                            else -> Eris.EmptyRecursiveEris
                         }
                     }).toMutableList()
-        if (evolved.first() == EmptyRecursiveEris) {
+        if (evolved.first() == Eris.EmptyRecursiveEris) {
             evolved.removeAt(0)
         }
-        if (evolved.first() == EmptyRecursiveEris) {
+        if (evolved.first() == Eris.EmptyRecursiveEris) {
             evolved.removeAt(0)
         }
-        if (evolved.last() == EmptyRecursiveEris) {
+        if (evolved.last() == Eris.EmptyRecursiveEris) {
             evolved.removeAt(evolved.size - 1)
         }
-        if (evolved.last() == EmptyRecursiveEris) {
+        if (evolved.last() == Eris.EmptyRecursiveEris) {
             evolved.removeAt(evolved.size - 1)
         }
         return RecursiveEris(evolved)

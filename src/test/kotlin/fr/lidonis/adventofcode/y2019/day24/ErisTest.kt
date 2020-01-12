@@ -1,19 +1,23 @@
+package fr.lidonis.adventofcode.y2019.day24
+
+import InputReader
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 
-
-class Day24Test {
+class ErisTest {
 
     @Test
     fun `biodiversity rating`() {
         val eris = Eris(
-            ".....\n" +
-                    ".....\n" +
-                    ".....\n" +
-                    "#....\n" +
-                    ".#..."
+            """
+            .....
+            .....
+            .....
+            #....
+            .#...
+            """.trimIndent()
         )
         assertThat(eris.biodiversityRating).isEqualTo(2129920)
     }
@@ -27,21 +31,29 @@ class Day24Test {
 
     @Test
     fun `evolve example recursively`() {
-        val erises = readErises("day24/part2.txt")
+        val erises =
+            readErises("day24/part2.txt")
         val recursiveEris = RecursiveEris(erises.subList(0, 1))
-        assertThat(recursiveEris.evolve(10)).isEqualTo(RecursiveEris(erises.drop(1)))
+        assertThat(recursiveEris.evolve(10)).isEqualTo(
+            RecursiveEris(
+                erises.drop(1)
+            )
+        )
     }
 
     @Test
-    internal fun `evolve recursively 1`() {
+    fun `evolve recursively 1`() {
         val recursiveEris = RecursiveEris(
             listOf(
                 Eris(
-                    input = "....#\n" +
-                            "#..#.\n" +
-                            "#.?##\n" +
-                            "..#..\n" +
-                            "#...."
+                    input =
+                    """
+                    ....#
+                    #..#.
+                    #.?##
+                    ..#..
+                    #....
+                    """.trimIndent()
                 )
             )
         )
@@ -49,25 +61,31 @@ class Day24Test {
             RecursiveEris(
                 listOf(
                     Eris(
-                        input = ".....\n" +
-                                "..#..\n" +
-                                "..?#.\n" +
-                                "..#..\n" +
-                                "....."
+                        input = """
+                        .....
+                        ..#..
+                        ..?#.
+                        ..#..
+                        .....
+                        """.trimIndent()
                     ),
                     Eris(
-                        input = "#..#.\n" +
-                                "####.\n" +
-                                "##?.#\n" +
-                                "##.##\n" +
-                                ".##.."
+                        input = """
+                        #..#.
+                        ####.
+                        ##?.#
+                        ##.##
+                        .##..
+                        """.trimIndent()
                     ),
                     Eris(
-                        input = "....#\n" +
-                                "....#\n" +
-                                "..?.#\n" +
-                                "....#\n" +
-                                "#####"
+                        input = """
+                        ....#
+                        ....#
+                        ..?.#
+                        ....#
+                        #####
+                        """.trimIndent()
                     )
 
                 )
@@ -77,21 +95,21 @@ class Day24Test {
 
     @Test
     fun `count bugs`() {
-        val erises = readErises("day24/part2.txt")
+        val erises =
+            readErises("day24/part2.txt")
         assertThat(RecursiveEris(erises.drop(1)).count()).isEqualTo(99)
     }
 
     @Test
     fun `evolve recursive and count bugs`() {
         val erises = readErises("day24/part2.txt")
-        assertThat(RecursiveEris(erises.subList(0,1)).evolve(10).count()).isEqualTo(99)
+        assertThat(RecursiveEris(erises.subList(0, 1)).evolve(10).count()).isEqualTo(99)
     }
 
     companion object {
 
         @JvmStatic
-        fun evolve() =
-            readErises("day24/part1.txt").zipWithNext()
+        fun evolve() = readErises("day24/part1.txt").zipWithNext()
 
         private fun readErises(fileName: String) =
             InputReader(fileName).lines()
