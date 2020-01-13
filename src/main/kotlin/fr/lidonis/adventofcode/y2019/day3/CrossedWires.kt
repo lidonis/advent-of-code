@@ -25,7 +25,6 @@ class CrossedWires(input1: List<String>, input2: List<String>) {
         ) : this(moves.fold(listOf(startingPosition)) { acc, move ->
             acc + Move.read(move).moves(acc.last())
         })
-
     }
 
     data class Move(val direction: Direction, val size: Int) {

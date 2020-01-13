@@ -27,5 +27,4 @@ class AftScaffoldingControlAndInformationInterface(program: String) {
             run()
             outputs.last
         }
-
 }

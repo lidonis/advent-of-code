@@ -5,13 +5,13 @@ import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 class Amplifiers(private val program: String, phaseSettings: List<Long>) {
 
-    private val amplifiers: Sequence<IOCodeComputer> = phaseSettings.map {
+    private val amplifierCycle: Sequence<IOCodeComputer> = phaseSettings.map {
         IntCodeComputerFactory.buildIOComputer(program).apply {
             input(it)
         }
     }.asSequence().cycle()
 
-    fun run() = amplifiers.fold(0L) { signal, amplifier ->
+    fun run() = amplifierCycle.fold(0L) { signal, amplifier ->
         amplifier.input(signal)
         amplifier.nextOutput() ?: signal
     }

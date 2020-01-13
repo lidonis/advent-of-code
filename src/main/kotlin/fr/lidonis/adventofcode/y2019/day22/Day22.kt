@@ -16,4 +16,3 @@ object Day22 : AdventOfCode2019(22) {
 
     private val instructions = input().text()
 }
-

@@ -14,4 +14,3 @@ object Day19 : AdventOfCode2019(19) {
 
     private val tractorBeam = TractorBeam(input().text())
 }
-

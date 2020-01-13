@@ -15,6 +15,4 @@ object Day3 : AdventOfCode2019(3) {
     private val wires = input().lines().map { line -> line.split(",") }.run {
         CrossedWires(this[0], this[1])
     }
-
 }
-

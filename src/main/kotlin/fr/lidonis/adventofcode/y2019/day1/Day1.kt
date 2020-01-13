@@ -4,7 +4,11 @@ import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
 fun main() {
     println("The sum of the fuel requirements for all of the modules on the spacecraft is ${Day1.part1()}")
-    println("the sum of the fuel requirements for all of the modules on your spacecraft when also taking into account the mass of the added fuel is ${Day1.part2()}")
+    println(
+        "the sum of the fuel requirements" +
+                " for all of the modules on your spacecraft when also taking into account the mass of the added fuel" +
+                " is ${Day1.part2()}"
+    )
 }
 
 object Day1 : AdventOfCode2019(1) {
@@ -13,5 +17,4 @@ object Day1 : AdventOfCode2019(1) {
     override fun part2(): Int = spacecraft.fullFuelRequirements()
 
     private val spacecraft = Spacecraft(input().lines().map(String::toInt))
-
 }

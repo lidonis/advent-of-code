@@ -5,7 +5,7 @@ internal class Day18Test {
 
     @Test
     fun `simple example`() {
-        val vault = Vault(
+        val vault = Day18(
             input = "#########\n" +
                     "#b.A.@.a#\n" +
                     "#########"
@@ -15,7 +15,7 @@ internal class Day18Test {
 
     @Test
     fun `larger example`() {
-        val vault = Vault(
+        val vault = Day18(
             input = "########################\n" +
                     "#f.D.E.e.C.b.A.@.a.B.c.#\n" +
                     "######################.#\n" +
@@ -27,7 +27,7 @@ internal class Day18Test {
 
     @Test
     fun `more example 1`() {
-        val vault = Vault(
+        val vault = Day18(
             input = "########################\n" +
                     "#...............b.C.D.f#\n" +
                     "#.######################\n" +
@@ -39,7 +39,7 @@ internal class Day18Test {
 
     @Test
     fun `more example 2`() {
-        val vault = Vault(
+        val vault = Day18(
             input = "#################\n" +
                     "#i.G..c...e..H.p#\n" +
                     "########.########\n" +
@@ -55,7 +55,7 @@ internal class Day18Test {
 
     @Test
     fun `more example 3`() {
-        val vault = Vault(
+        val vault = Day18(
             input = "########################\n" +
                     "#@..............ac.GI.b#\n" +
                     "###d#e#f################\n" +

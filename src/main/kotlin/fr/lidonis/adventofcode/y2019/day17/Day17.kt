@@ -14,5 +14,4 @@ object Day17 : AdventOfCode2019(17) {
     override fun part2() = ascii.amountOfDustCollected() ?: error("No dust collected")
 
     private val ascii = AftScaffoldingControlAndInformationInterface(input().text())
-
 }

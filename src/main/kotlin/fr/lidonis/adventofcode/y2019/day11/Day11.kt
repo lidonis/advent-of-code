@@ -10,7 +10,6 @@ import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 fun main() {
     println("${Day11.part1()} panels painted at least once")
     println("The registration identifier is: \n\n${Day11.part2()}")
-    //TODO OCR from int array
 }
 
 object Day11 : AdventOfCode2019(11) {

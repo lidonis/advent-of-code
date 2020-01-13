@@ -41,5 +41,4 @@ class FlawedFrequencyTransmission(private val input: List<Int>) {
     }
 
     private fun firstEightDigits(output: List<Int>) = output.take(8).joinToString("")
-
 }

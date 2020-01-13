@@ -1,7 +1,5 @@
 package fr.lidonis.adventofcode.y2019.day4
 
-import java.util.*
-
 object PasswordChecker {
 
     fun check1(password: Int) = password.decompose().run {
@@ -28,4 +26,3 @@ object PasswordChecker {
 
     private fun <T> List<T>.containsAtLeastOneCouple() = this.groupingBy { it }.eachCount().any { (_, it) -> it == 2 }
 }
-

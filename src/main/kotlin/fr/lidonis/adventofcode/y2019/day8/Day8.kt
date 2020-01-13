@@ -15,7 +15,4 @@ fun main() {
             }
         }.joinToString("")
     }.forEach { println(it) }
-
-    //TODO OCR from int array
 }
-

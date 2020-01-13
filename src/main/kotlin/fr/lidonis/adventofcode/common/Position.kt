@@ -29,4 +29,3 @@ data class Position(val x: Int, val y: Int) {
             sqrt(((b.y - a.y) pow 2 + (b.x - a.x) pow 2).toDouble())
     }
 }
-

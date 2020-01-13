@@ -200,6 +200,4 @@ class IntCodeComputer(override val program: List<Long>) : ASCIICodeComputer {
 
         operator fun get(index: Long) = list.getOrElse(index.toInt()) { 0L }
     }
-
 }
-

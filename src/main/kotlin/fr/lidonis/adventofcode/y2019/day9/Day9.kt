@@ -20,5 +20,4 @@ object Day9 : AdventOfCode2019(9) {
     }
 
     private val computer = IntCodeComputerFactory.buildIOComputer(input().text())
-
 }

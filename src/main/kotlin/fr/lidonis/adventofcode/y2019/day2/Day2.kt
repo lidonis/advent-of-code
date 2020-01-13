@@ -24,7 +24,6 @@ object Day2 : AdventOfCode2019(2) {
         throw IllegalArgumentException("No inputs found")
     }
 
-
     private fun runNounVerb(noun: Long, verb: Long) =
         computer.run {
             reset()
@@ -35,6 +34,5 @@ object Day2 : AdventOfCode2019(2) {
         }
 
     private val computer = IntCodeComputerFactory.buildBasicComputer(input().text())
-
 }
 

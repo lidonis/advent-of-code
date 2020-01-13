@@ -19,4 +19,3 @@ object Day7 : AdventOfCode2019(7) {
 
     private val program = input().text()
 }
-

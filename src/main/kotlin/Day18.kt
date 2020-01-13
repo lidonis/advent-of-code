@@ -1,14 +1,14 @@
-import Vault.Tile.*
+import Day18.Tile.*
 import fr.lidonis.adventofcode.common.Position
 import fr.lidonis.adventofcode.common.graph.BreadthFirstSearch
 
 fun main() {
     val input = InputReader("day18.txt").text()
-    val vault = Vault(input)
+    val vault = Day18(input)
     println(vault.shortestPathStepCount())
 }
 
-class Vault(input: String) {
+class Day18(input: String) {
 
     private val vaultMap = mutableMapOf<Position, Tile>()
     private val keys = mutableSetOf<Key>()

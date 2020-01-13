@@ -9,5 +9,4 @@ object IntCodeComputerFactory {
     fun buildASCIIComputer(program: String) = IntCodeComputer(toLongs(program))
 
     private fun toLongs(program: String) = program.split(",").map(String::toLong)
-
 }
