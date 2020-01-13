@@ -1,6 +1,7 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.kotlin.jvm' version '1.3.61'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.0'
+    id 'me.champeau.gradle.jmh' version '0.4.6'
 }
 
 group 'org.example'
@@ -19,6 +20,7 @@ dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter:5.5.2"
     testImplementation "org.junit.jupiter:junit-jupiter-params:5.4.2"
     testImplementation "io.mockk:mockk:1.9.3"
+    jmh "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
 test {
@@ -33,4 +35,18 @@ compileKotlin {
 }
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
+}
+
+jmh {
+    iterations = 3 // Number of measurement iterations to do.
+    benchmarkMode = ['thrpt']
+    // Benchmark mode. Available modes are: [Throughput/thrpt, AverageTime/avgt, SampleTime/sample, SingleShotTime/ss, All/all]
+    batchSize = 1
+    // Batch size: number of benchmark method calls per operation. (some benchmark modes can ignore this setting)
+    fork = 2 // How many times to forks a single benchmark. Use 0 to disable forking altogether
+    profilers = ["cl","gc"]
+    warmup = '1s' // Time to spend at each warmup iteration.
+    warmupBatchSize = 10 // Warmup batch size: number of benchmark method calls per operation.
+    warmupForks = 0 // How many warmup forks to make for a single benchmark. 0 to disable warmup forks.
+    warmupIterations = 1 // Number of warmup iterations to do.
 }
