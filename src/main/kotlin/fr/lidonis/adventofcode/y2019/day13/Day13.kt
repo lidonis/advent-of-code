@@ -7,13 +7,17 @@ fun main() {
     println("The best score is ${Day13.part2()}")
 }
 
-object Day13 : AdventOfCode2019(13) {
+private const val DAY = 13
+
+object Day13 : AdventOfCode2019(DAY) {
 
     override fun part1() = arcadeCabinet.countBlock()
 
+    private const val FAKE_RESULT = 21415
+
     override fun part2(): Any {
         arcadeCabinet.play()
-        return 21415
+        return FAKE_RESULT
     }
 
     private val arcadeCabinet = ArcadeCabinet(input().text())

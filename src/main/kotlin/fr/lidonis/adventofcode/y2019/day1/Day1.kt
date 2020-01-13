@@ -11,7 +11,9 @@ fun main() {
     )
 }
 
-object Day1 : AdventOfCode2019(1) {
+private const val DAY = 1
+
+object Day1 : AdventOfCode2019(DAY) {
 
     override fun part1(): Int = spacecraft.fuelRequirements()
     override fun part2(): Int = spacecraft.fullFuelRequirements()

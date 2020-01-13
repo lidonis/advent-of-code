@@ -11,16 +11,17 @@ fun main() {
     println(drone.explore())
 }
 
-object Day15 : AdventOfCode2019(15){
+private const val DAY = 15
+
+object Day15 : AdventOfCode2019(DAY) {
 
     override fun part1(): Any {
-       return 298
+        return 298
     }
 
     override fun part2(): Any {
         return 346
     }
-
 }
 
 class ShipMap {

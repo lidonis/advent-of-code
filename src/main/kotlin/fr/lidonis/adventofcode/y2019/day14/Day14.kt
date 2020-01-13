@@ -7,13 +7,15 @@ fun main() {
     println("The maximum amount of FUEL produced is ${Day14.part2()}")
 }
 
-object Day14 : AdventOfCode2019(14) {
+private const val DAY = 14
+
+object Day14 : AdventOfCode2019(DAY) {
 
     override fun part1(): Any {
         return 857266
     }
 
     override fun part2(): Any {
-       return 2144702
+        return 2144702
     }
 }

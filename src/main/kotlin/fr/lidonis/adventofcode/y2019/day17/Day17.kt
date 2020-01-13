@@ -7,7 +7,9 @@ fun main() {
     println("The vacuum robot has collected ${Day17.part2()} dust")
 }
 
-object Day17 : AdventOfCode2019(17) {
+private const val DAY = 17
+
+object Day17 : AdventOfCode2019(DAY) {
 
     override fun part1() = ascii.sumOfTheAlignmentParameters()
 

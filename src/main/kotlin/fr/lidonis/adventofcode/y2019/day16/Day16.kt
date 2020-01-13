@@ -7,13 +7,19 @@ fun main() {
     println("The eight-digit message embedded in the final output list are ${Day16.part2()}")
 }
 
-object Day16 : AdventOfCode2019(16) {
+private const val DAY = 16
 
-    override fun part1() = fft.phases(100)
-    override fun part2() = fft.embedded(100)
+object Day16 : AdventOfCode2019(DAY) {
+
+    private const val TIMES = 100
+
+    override fun part1() = fft.phases(TIMES)
+    override fun part2() = fft.embedded(TIMES)
+
+    private const val RADIX = 10
 
     private val fft =
         FlawedFrequencyTransmission(input().text().map {
-            Character.digit(it, 10)
+            Character.digit(it, RADIX)
         })
 }

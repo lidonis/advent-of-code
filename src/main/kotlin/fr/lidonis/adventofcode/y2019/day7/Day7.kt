@@ -8,7 +8,9 @@ fun main() {
     println("The highest signal that can be sent to the thrusters is ${Day7.part2()}")
 }
 
-object Day7 : AdventOfCode2019(7) {
+private const val DAY = 7
+
+object Day7 : AdventOfCode2019(DAY) {
 
     override fun part1() = largestSignal(0L..4) ?: error("No signal ...")
     override fun part2() = largestSignal(5L..9) ?: error("No signal ...")

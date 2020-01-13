@@ -7,7 +7,8 @@ fun main() {
     print("${Day4.part2()} different passwords with second check")
 }
 
-object Day4 : AdventOfCode2019(4) {
+private const val DAY = 4
+object Day4 : AdventOfCode2019(DAY) {
 
     override fun part1() = inputRange.filter(PasswordChecker::check1).count()
     override fun part2() = inputRange.filter(PasswordChecker::check2).count()

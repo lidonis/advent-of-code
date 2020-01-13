@@ -27,7 +27,8 @@ class SpaceCardDeck(private val cards: List<Int>) : Iterable<Int> by cards {
         when {
             it == "deal into new stack" -> { deck: SpaceCardDeck -> deck.dealIntoNewStack() }
             it.startsWith("cut") -> { deck: SpaceCardDeck -> deck.cut(it.split(" ").last().toInt()) }
-            it.startsWith("deal with increment") -> { deck: SpaceCardDeck -> deck.dealWithIncrement(it.split(" ").last().toInt()) }
+            it.startsWith("deal with increment") ->
+                { deck: SpaceCardDeck -> deck.dealWithIncrement(it.split(" ").last().toInt()) }
             else -> { _ -> error("Unknown technique") }
         }
     }.fold(this) { acc, function -> function(acc) }

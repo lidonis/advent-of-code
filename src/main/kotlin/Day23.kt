@@ -165,7 +165,10 @@ object NetworkInterfaceControllerActor {
             if (networkMessage.source == 255 && networkMessage.destination == 0
                 && !ysReceivedByComputer0FromNat.add(networkMessage.y)
             ) {
-                println("First Y value delivered by the NAT to the computer at address 0 twice in a row: ${networkMessage.y}")
+                println(
+                    "First Y value delivered by the NAT to the computer at address 0 twice in a row: " +
+                            "${networkMessage.y}"
+                )
                 network.send(Done)
             }
         }

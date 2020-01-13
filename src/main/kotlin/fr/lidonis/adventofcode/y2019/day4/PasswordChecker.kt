@@ -10,12 +10,13 @@ object PasswordChecker {
         neverDecrease() && containsAtLeastOneCouple()
     }
 
+    private const val BASE = 10
     private fun Int.decompose(): List<Int> {
         val digits = ArrayList<Int>()
         var n = this
         while (n > 0) {
-            digits.add(n % 10)
-            n /= 10
+            digits.add(n % BASE)
+            n /= BASE
         }
         return digits.reversed()
     }

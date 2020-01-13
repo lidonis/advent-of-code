@@ -12,7 +12,9 @@ fun main() {
     println("The registration identifier is: \n\n${Day11.part2()}")
 }
 
-object Day11 : AdventOfCode2019(11) {
+private const val DAY = 11
+
+object Day11 : AdventOfCode2019(DAY) {
 
     override fun part1() = robot(BLACK).run {
         compute()

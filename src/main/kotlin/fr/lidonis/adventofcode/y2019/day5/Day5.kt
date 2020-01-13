@@ -8,7 +8,9 @@ fun main() {
     println("Diagnostic code for system ID 5 is ${Day5.part2()}")
 }
 
-object Day5 : AdventOfCode2019(5) {
+private const val DAY = 5
+
+object Day5 : AdventOfCode2019(DAY) {
 
     override fun part1(): Long = computer.run {
         reset()

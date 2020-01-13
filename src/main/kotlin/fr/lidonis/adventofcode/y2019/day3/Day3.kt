@@ -7,7 +7,9 @@ fun main() {
     println("Fewest combined steps the wires must take to reach an intersection: ${Day3.part2()}")
 }
 
-object Day3 : AdventOfCode2019(3) {
+private const val DAY = 3
+
+object Day3 : AdventOfCode2019(DAY) {
 
     override fun part1() = wires.minimumDistance() ?: error("No intersection found")
     override fun part2() = wires.fewestSteps() ?: error("No intersection found")

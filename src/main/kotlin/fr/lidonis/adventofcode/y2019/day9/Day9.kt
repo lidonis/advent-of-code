@@ -8,7 +8,9 @@ fun main() {
     println("The coordinates of the distress signal are ${Day9.part2()}")
 }
 
-object Day9 : AdventOfCode2019(9) {
+private const val DAY = 9
+
+object Day9 : AdventOfCode2019(DAY) {
 
     override fun part1() = compute(1) ?: error("No boost code")
     override fun part2() = compute(2) ?: error("No distress signal")

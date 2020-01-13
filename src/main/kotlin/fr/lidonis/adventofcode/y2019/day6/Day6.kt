@@ -7,7 +7,9 @@ fun main() {
     println("The minimum number of orbital transfers required is ${Day6.part2()}")
 }
 
-object Day6 : AdventOfCode2019(6) {
+private const val DAY = 6
+
+object Day6 : AdventOfCode2019(DAY) {
 
     override fun part1() = orbitMap.countTotalOrbits()
     override fun part2() = orbitMap.minimumOrbitalTransfers("YOU", "SAN")

@@ -7,7 +7,9 @@ fun main() {
     println("${Day24.part2()} bugs are present after 200 minutes")
 }
 
-object Day24 : AdventOfCode2019(24) {
+private const val DAY = 24
+
+object Day24 : AdventOfCode2019(DAY) {
 
     override fun part1(): Int {
         val evolutions = mutableSetOf<Int>()
