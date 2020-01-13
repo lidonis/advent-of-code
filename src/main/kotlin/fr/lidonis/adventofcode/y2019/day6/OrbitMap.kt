@@ -1,11 +1,13 @@
 package fr.lidonis.adventofcode.y2019.day6
 
 import fr.lidonis.adventofcode.common.graph.BreadthFirstSearch
+import java.util.*
 
 class OrbitMap(input: String) {
 
     private val orbitMap = mutableMapOf<String, MutableSet<String>>()
     private val orbitCount = mutableMapOf<String, Int>()
+    private val neighbours = mutableMapOf<String, Set<String>>()
 
     init {
         input.lines().forEach {
@@ -27,5 +29,5 @@ class OrbitMap(input: String) {
             BreadthFirstSearch.search(start, { it == end }, ::findNeighbours) ?: error("Can't find orbital transfer"))
 
     private fun findNeighbours(node: String) =
-        orbitMap.filterValues { it.contains(node) }.keys + (orbitMap[node] ?: emptySet())
+        neighbours.getOrPut(node) { orbitMap.filterValues { it.contains(node) }.keys + (orbitMap[node] ?: emptySet()) }
 }
