@@ -5,9 +5,6 @@
     <ID>ComplexMethod:IntCodeComputer.kt$IntCodeComputer$getActions</ID>
     <ID>LongMethod:BasicIntCodeComputer.kt$BasicIntCodeComputer$getActions</ID>
     <ID>LongMethod:IntCodeComputer.kt$IntCodeComputer$getActions</ID>
-    <ID>MagicNumber:AdventOfCode2019.kt$AdventOfCode2019$2019</ID>
-    <ID>MagicNumber:ArcadeCabinet.kt$ArcadeCabinet$3</ID>
-    <ID>MagicNumber:ArcadeCabinet.kt$ArcadeCabinet.Screen$42</ID>
     <ID>MagicNumber:BasicIntCodeComputer.kt$BasicIntCodeComputer$3</ID>
     <ID>MagicNumber:BasicIntCodeComputer.kt$BasicIntCodeComputer$4</ID>
     <ID>MagicNumber:BasicIntCodeComputer.kt$BasicIntCodeComputer$5</ID>
@@ -26,15 +23,6 @@
     <ID>MagicNumber:Day24.kt$Day24$200</ID>
     <ID>MagicNumber:Day24.kt$Day24$24</ID>
     <ID>MagicNumber:Day25.kt$10</ID>
-    <ID>MagicNumber:Day5.kt$Day5$5</ID>
-    <ID>MagicNumber:Day6.kt$Day6$6</ID>
-    <ID>MagicNumber:Day7.kt$Day7$4</ID>
-    <ID>MagicNumber:Day7.kt$Day7$5L</ID>
-    <ID>MagicNumber:Day7.kt$Day7$7</ID>
-    <ID>MagicNumber:Day7.kt$Day7$9</ID>
-    <ID>MagicNumber:Day8.kt$25</ID>
-    <ID>MagicNumber:Day8.kt$6</ID>
-    <ID>MagicNumber:Day9.kt$Day9$9</ID>
     <ID>MagicNumber:Eris.kt$Eris$3</ID>
     <ID>MagicNumber:Eris.kt$Eris$4</ID>
     <ID>MagicNumber:Eris.kt$Eris$5</ID>
@@ -79,7 +67,6 @@
     <ID>NewLineAtEndOfFile:BreadthFirstSearch.kt$fr.lidonis.adventofcode.common.graph.BreadthFirstSearch.kt</ID>
     <ID>TooManyFunctions:BasicIntCodeComputer.kt$BasicIntCodeComputer$BasicIntCodeComputer</ID>
     <ID>TooManyFunctions:IntCodeComputer.kt$IntCodeComputer$IntCodeComputer</ID>
-    <ID>WildcardImport:ArcadeCabinet.kt$import fr.lidonis.adventofcode.y2019.day13.ArcadeCabinet.Screen.Tile.*</ID>
     <ID>WildcardImport:Day18.kt$import Day18.Tile.*</ID>
     <ID>WildcardImport:Day23.kt$import kotlinx.coroutines.*</ID>
     <ID>WildcardImport:Day23.kt$import kotlinx.coroutines.channels.*</ID>

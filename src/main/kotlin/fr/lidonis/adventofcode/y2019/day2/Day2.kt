@@ -13,7 +13,7 @@ private const val DAY = 2
 object Day2 : AdventOfCode2019(DAY) {
 
     private const val NOUN = 12L
-    private const val VERB = 12L
+    private const val VERB = 2L
 
     override fun part1() = runNounVerb(NOUN, VERB)
 

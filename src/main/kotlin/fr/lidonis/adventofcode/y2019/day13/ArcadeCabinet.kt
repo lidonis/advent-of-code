@@ -1,7 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day13
 
 import fr.lidonis.adventofcode.common.Position
-import fr.lidonis.adventofcode.y2019.day13.ArcadeCabinet.Screen.Tile.*
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 class ArcadeCabinet(program: String) {
@@ -12,13 +11,13 @@ class ArcadeCabinet(program: String) {
     fun countBlock(): Int {
         computer.run()
         val screen = Screen()
-        computer.outputs.chunked(3).forEach {
+        computer.outputs.chunked(GROUP_SIZE).forEach {
             screen[Position(
                 it[0].toInt(),
                 it[1].toInt()
             )] = Screen.Tile[it[2].toInt()]
         }
-        return screen.count(BLOCK)
+        return screen.count(Screen.Tile.BLOCK)
     }
 
     private val scorePosition = Position(-1, 0)
@@ -40,7 +39,6 @@ class ArcadeCabinet(program: String) {
             computer.nextOutput()?.toInt()!!,
             computer.nextOutput()?.toInt()!!
         ) to computer.nextOutput()!!
-
 
     fun play(): Int {
         computer.reset()
@@ -65,14 +63,14 @@ class ArcadeCabinet(program: String) {
             pixels.forEach {
                 print(
                     when (it.value) {
-                        EMPTY -> ' '
-                        WALL -> '█'
-                        BLOCK -> '▣'
-                        PADDLE -> '_'
-                        BALL -> '◍'
+                        Tile.EMPTY -> ' '
+                        Tile.WALL -> '█'
+                        Tile.BLOCK -> '▣'
+                        Tile.PADDLE -> '_'
+                        Tile.BALL -> '◍'
                     }
                 )
-                if (it.key.x == 42) {
+                if (it.key.x == SIZE) {
                     println()
                 }
             }
@@ -90,5 +88,12 @@ class ArcadeCabinet(program: String) {
             }
         }
 
+        companion object {
+            private const val SIZE = 42
+        }
+    }
+
+    companion object {
+        private const val GROUP_SIZE = 3
     }
 }

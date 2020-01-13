@@ -8,7 +8,6 @@ fun main() {
 }
 
 private const val DAY = 13
-
 object Day13 : AdventOfCode2019(DAY) {
 
     override fun part1() = arcadeCabinet.countBlock()

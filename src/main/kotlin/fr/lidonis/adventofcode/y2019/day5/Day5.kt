@@ -21,9 +21,11 @@ object Day5 : AdventOfCode2019(DAY) {
         diagnosticCode
     }
 
+    private const val DIAGNOSTIC_MODE = 5L
+
     override fun part2() = computer.run {
         reset()
-        input(5)
+        input(DIAGNOSTIC_MODE)
         nextOutput() ?: error("No diagnostic code")
     }
 
