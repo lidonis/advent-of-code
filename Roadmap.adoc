@@ -9,7 +9,7 @@
 |3 | _Done_
 |4 | _Done_
 |5 | _Done_
-|6 | Compare cache version and non cache version speed and ram
+|6 | _Done_
 |7 | _Done_
 |8 | OCR from int array using hexadecimal value of letter
 |8 | compare decode tail rec with recursive
