@@ -30,6 +30,8 @@ data class Position(val x: Int, val y: Int) {
 
     companion object {
 
+        val ORIGIN = Position(0, 0)
+
         fun add(a: Position, b: Position) =
             Position(a.x + b.x, a.y + b.y)
 

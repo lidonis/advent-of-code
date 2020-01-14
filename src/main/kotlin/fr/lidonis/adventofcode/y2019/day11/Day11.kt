@@ -1,6 +1,7 @@
 package fr.lidonis.adventofcode.y2019.day11
 
 import fr.lidonis.adventofcode.common.geo.plane.Position
+import fr.lidonis.adventofcode.common.geo.plane.PositionSet
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color
 import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color.BLACK
@@ -21,35 +22,35 @@ object Day11 : AdventOfCode2019(DAY) {
         panelsPaintedAtLeastOnce
     }
 
+    private const val LETTER_WIDTH = 4
+
     override fun part2() =
         robot(WHITE).run {
             compute()
-            panels.keys.run {
-                val xMin = minBy { it.x }?.x ?: 0
-                val xMax = maxBy { it.x }?.x ?: 0
-                val yMin = minBy { it.y }?.y ?: 0
-                val yMax = maxBy { it.y }?.y ?: 0
-                StringBuilder().run {
-                    for (y in yMax downTo yMin) {
-                        for (x in xMin..xMax) {
-                            append(
-                                when (panels.getValue(
-                                    Position(
-                                        x,
-                                        y
-                                    )
-                                )) {
-                                    BLACK -> ' '
-                                    WHITE -> '█'
-                                }
-                            )
-                        }
-                        append('\n')
-                    }
-                    toString()
+            panels
+        }.run {
+            val positionSets = PositionSet(this.filterValues { it == WHITE }.keys)
+                .mirrorY()
+                .chunked(LETTER_WIDTH + 1)
+
+            StringBuilder().apply {
+                for (positions in positionSets) {
+                    append(stringBuilder(positions.moveTo(Position.ORIGIN))).append("\n")
                 }
             }
         }
+
+    private fun stringBuilder(positions: PositionSet): StringBuilder {
+        val boundingBox = positions.boundingBox
+        return StringBuilder().apply {
+            for (y in boundingBox.start.y..boundingBox.end.y) {
+                for (x in boundingBox.start.x..boundingBox.end.x) {
+                    append(if (positions.contains(Position(x, y))) '█' else ' ')
+                }
+                append('\n')
+            }
+        }
+    }
 
     private fun robot(startingPanelColor: Color) = EmergencyHullPaintingRobot(computer, startingPanelColor)
 
