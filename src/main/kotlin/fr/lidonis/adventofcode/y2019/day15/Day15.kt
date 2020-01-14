@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day15
 
-import InputReader
+import fr.lidonis.adventofcode.common.InputReader
 import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 import kotlin.math.max

@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day8
 
-import InputReader
+import fr.lidonis.adventofcode.common.InputReader
 
 private const val IMAGE_WIDTH = 25
 private const val IMAGE_HEIGHT = 6

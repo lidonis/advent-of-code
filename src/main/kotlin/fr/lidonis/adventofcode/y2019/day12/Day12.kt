@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day12
 
-import InputReader
+import fr.lidonis.adventofcode.common.InputReader
 import kotlin.math.abs
 import kotlin.math.sign
 

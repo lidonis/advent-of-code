@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day21
 
-import InputReader
+import fr.lidonis.adventofcode.common.InputReader
 import fr.lidonis.adventofcode.common.pow
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

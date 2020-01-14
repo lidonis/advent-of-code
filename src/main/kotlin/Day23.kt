@@ -1,3 +1,4 @@
+import fr.lidonis.adventofcode.common.InputReader
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.*
