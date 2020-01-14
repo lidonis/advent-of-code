@@ -34,8 +34,8 @@ object Day11 : AdventOfCode2019(DAY) {
                 .chunked(LETTER_WIDTH + 1)
 
             StringBuilder().apply {
-                for (positions in positionSets) {
-                    append(stringBuilder(positions.moveTo(Position.ORIGIN))).append("\n")
+                for (positionSet in positionSets) {
+                    append(stringBuilder(positionSet.moveTo(Position.ORIGIN))).append("\n")
                 }
             }
         }
