@@ -47,7 +47,7 @@ class EmergencyHullPaintingRobot(private val computer: IOCodeComputer, startingP
     }
 
     private fun move() {
-        position = position.move(direction)
+        position += direction
     }
 
     enum class Color {

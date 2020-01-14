@@ -40,9 +40,9 @@ class SpaceWarpingMaze(input: String) {
     private fun searchPortals() =
         mazeMap.flatMap { entry ->
             Direction.values().mapNotNull { direction ->
-                val firstMove = entry.key.move(direction)
+                val firstMove = entry.key + direction
                 val second = mazeMap.getOrDefault(firstMove, ' ')
-                val secondMove = firstMove.move(direction)
+                val secondMove = firstMove + direction
                 val third = mazeMap[secondMove]
                 if (second.isLetter() && third == '.') {
                     openPassages.add(firstMove)

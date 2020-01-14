@@ -1,7 +1,10 @@
 package fr.lidonis.adventofcode.common
 
-enum class Direction(val letter: Char) {
-    UP('U'), RIGHT('R'), DOWN('D'), LEFT('L');
+enum class Direction(val letter: Char, val move: Position) {
+    UP('U', Position(0, 1)),
+    RIGHT('R', Position(1, 0)),
+    DOWN('D', Position(0, -1)),
+    LEFT('L', Position(-1, 0));
 
     operator fun inc() = turnRight()
     operator fun dec() = turnLeft()

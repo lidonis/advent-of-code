@@ -1,31 +1,27 @@
 package fr.lidonis.adventofcode.common
 
-import kotlin.math.absoluteValue
-import kotlin.math.atan2
+import kotlin.math.abs
 import kotlin.math.sqrt
 
 data class Position(val x: Int, val y: Int) {
 
-    fun move(direction: Direction) =
-        when (direction) {
-            Direction.RIGHT -> Position(x + 1, y)
-            Direction.DOWN -> Position(x, y - 1)
-            Direction.LEFT -> Position(x - 1, y)
-            Direction.UP -> Position(x, y + 1)
-        }
+    operator fun plus(move: Position) = add(this, move)
+    operator fun minus(move: Position) = this + Position(-move.x, -move.y)
 
-    fun neighbours() = Direction.values().map { this.move(it) }
+    operator fun plus(direction: Direction) = add(this, direction.move)
 
-    fun manhattanDistance(other: Position) = (x - other.x).absoluteValue + (y - other.y).absoluteValue
+    fun neighbours() = Direction.values().map { this + it }
 
-    fun angle(target: Position) =
-        atan2((target.x - x).toDouble(), (target.y - y).toDouble())
+    fun manhattanDistance(other: Position) = abs(x - other.x) + abs(y - other.y)
 
-    fun distance(target: Position) =
-        distance(this, target)
+    fun angle(target: Position) = atan2(target.x - x, target.y - y)
+
+    fun distance(target: Position) = distance(this, target)
 
     companion object {
-        fun distance(a: Position, b: Position) =
-            sqrt(((b.y - a.y) pow 2 + (b.x - a.x) pow 2).toDouble())
+
+        fun add(a: Position, b: Position) = Position(a.x + b.x, a.y + b.y)
+
+        fun distance(a: Position, b: Position) = sqrt(((b.y - a.y) pow 2 + (b.x - a.x) pow 2).toDouble())
     }
 }

@@ -17,11 +17,11 @@ class Drone(program: String) {
             //println("input $direction $status $position")
             when (computer.nextOutput()) {
                 0L -> {
-                    shipMap.add(position.move(direction))
+                    shipMap.add(position + direction)
                     //println("wall")
                 }
                 1L -> {
-                    position = position.move(direction)
+                    position += direction
                     //println("move")
                 }
                 2L -> break@loop

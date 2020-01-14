@@ -4,18 +4,18 @@ import fr.lidonis.adventofcode.common.Direction
 import fr.lidonis.adventofcode.common.Position
 
 class VacuumRobot(private var position: Position, private var direction: Direction) {
-    val forward get() = position.move(direction)
+    val forward get() = position + direction
 
     fun moveForward() {
         position = forward
     }
 
-    val left get() = position.move(direction.turnLeft())
+    val left get() = position + direction.turnLeft()
     fun turnLeft() {
         direction--
     }
 
-    val right get() = position.move(direction.turnRight())
+    val right get() = position + direction.turnRight()
     fun turnRight() {
         direction++
     }
