@@ -1,5 +1,7 @@
 package fr.lidonis.adventofcode.common.geo.plane
 
+import fr.lidonis.adventofcode.common.pow
+
 data class PositionSet(val positions: Set<Position>) : Set<Position> by positions {
 
     fun mirrorY() = PositionSet(map { Position(it.x, -it.y) }.toSet())
@@ -23,6 +25,8 @@ data class PositionSet(val positions: Set<Position>) : Set<Position> by position
             BoundingBox(Position(xMin, yMin), Position(xMax, yMax))
         }
     }
+
+    val score = map { 2.pow(it.x * boundingBox.end.x + it.y) }.sum()
 
     data class BoundingBox(val start: Position, var end: Position)
 }
