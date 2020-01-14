@@ -25,7 +25,6 @@ object Day2 : AdventOfCode2019(DAY) {
         for (noun in 0..MAX_INPUT) {
             for (verb in 0..MAX_INPUT) {
                 if (runNounVerb(noun, verb) == SEARCHED_OUTPUT) return MULTIPLIER * noun + verb
-                computer.reset()
             }
         }
         throw IllegalArgumentException("No inputs found")

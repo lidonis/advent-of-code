@@ -3,7 +3,6 @@ package fr.lidonis.adventofcode.y2019.day2
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-
 class Day2Test {
 
     @Test
