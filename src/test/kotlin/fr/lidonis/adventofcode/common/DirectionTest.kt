@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.common
 
-import fr.lidonis.adventofcode.common.Direction
+import fr.lidonis.adventofcode.common.geo.plane.Direction
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 

@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day11
 
-import fr.lidonis.adventofcode.common.Position
+import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color
 import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color.BLACK
@@ -33,7 +33,12 @@ object Day11 : AdventOfCode2019(DAY) {
                     for (y in yMax downTo yMin) {
                         for (x in xMin..xMax) {
                             append(
-                                when (panels.getValue(Position(x, y))) {
+                                when (panels.getValue(
+                                    Position(
+                                        x,
+                                        y
+                                    )
+                                )) {
                                     BLACK -> ' '
                                     WHITE -> '█'
                                 }

@@ -1,4 +1,4 @@
-package fr.lidonis.adventofcode.common
+package fr.lidonis.adventofcode.common.geo.plane
 
 enum class Direction(val letter: Char, val move: Position) {
     UP('U', Position(0, 1)),

@@ -1,5 +1,5 @@
 import Day18.Tile.*
-import fr.lidonis.adventofcode.common.Position
+import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.common.graph.BreadthFirstSearch
 
 fun main() {

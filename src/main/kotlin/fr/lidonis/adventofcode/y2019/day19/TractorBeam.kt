@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day19
 
-import fr.lidonis.adventofcode.common.Position
+import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 class TractorBeam(program: String) {
@@ -28,7 +28,10 @@ class TractorBeam(program: String) {
 
     private fun rightSize(position: Position, size: Int) =
         beamMap[Position(position.x + size - 1, position.y)] == 1L &&
-                beamMap[Position(position.x, position.y + size - 1)] == 1L
+                beamMap[Position(
+                    position.x,
+                    position.y + size - 1
+                )] == 1L
 
     class BeamMap(program: String) {
 

@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day10
 
-import fr.lidonis.adventofcode.common.Position
+import fr.lidonis.adventofcode.common.geo.plane.Position
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
@@ -19,7 +19,12 @@ class AsteroidMapTest {
             ...##
             """.trimIndent()
         )
-        assertThat(map.bestStation()).isEqualTo(Position(3, 4) to 8)
+        assertThat(map.bestStation()).isEqualTo(
+            Position(
+                3,
+                4
+            ) to 8
+        )
     }
 
     @Test
@@ -38,7 +43,12 @@ class AsteroidMapTest {
                 .#....####
             """.trimIndent()
         )
-        assertThat(map.bestStation()).isEqualTo(Position(5, 8) to 33)
+        assertThat(map.bestStation()).isEqualTo(
+            Position(
+                5,
+                8
+            ) to 33
+        )
     }
 
     @Test
@@ -57,7 +67,12 @@ class AsteroidMapTest {
                 .####.###.
             """.trimIndent()
         )
-        assertThat(map.bestStation()).isEqualTo(Position(1, 2) to 35)
+        assertThat(map.bestStation()).isEqualTo(
+            Position(
+                1,
+                2
+            ) to 35
+        )
     }
 
     @Test
@@ -76,7 +91,12 @@ class AsteroidMapTest {
                 .....#.#..
             """.trimIndent()
         )
-        assertThat(map.bestStation()).isEqualTo(Position(6, 3) to 41)
+        assertThat(map.bestStation()).isEqualTo(
+            Position(
+                6,
+                3
+            ) to 41
+        )
     }
 
     private val largeExample
@@ -106,7 +126,12 @@ class AsteroidMapTest {
     @Test
     fun `large example`() {
         val map = AsteroidMap(largeExample)
-        assertThat(map.bestStation()).isEqualTo(Position(11, 13) to 210)
+        assertThat(map.bestStation()).isEqualTo(
+            Position(
+                11,
+                13
+            ) to 210
+        )
     }
 
     @ParameterizedTest

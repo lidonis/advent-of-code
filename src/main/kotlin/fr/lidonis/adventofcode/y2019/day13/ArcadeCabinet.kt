@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day13
 
-import fr.lidonis.adventofcode.common.Position
+import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 class ArcadeCabinet(program: String) {

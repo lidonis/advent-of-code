@@ -1,7 +1,7 @@
 package fr.lidonis.adventofcode.y2019.day15
 
-import fr.lidonis.adventofcode.common.Direction
-import fr.lidonis.adventofcode.common.Position
+import fr.lidonis.adventofcode.common.geo.plane.Direction
+import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 class Drone(program: String) {
