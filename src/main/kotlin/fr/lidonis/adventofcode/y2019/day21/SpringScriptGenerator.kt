@@ -28,7 +28,7 @@ object SpringScriptGenerator {
     }
 
     private fun bruteForceDroid(sequence: Sequence<String>) {
-        val program = InputReader("day21.txt").text()
+        val program = InputReader("input/y2019/day21.txt").text()
         runBlocking {
             for (springScript in sequence) {
                 launch(Dispatchers.Default) {

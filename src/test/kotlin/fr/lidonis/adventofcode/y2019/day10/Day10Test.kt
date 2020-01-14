@@ -1,26 +1,17 @@
 package fr.lidonis.adventofcode.y2019.day10
 
-import InputReader
-import fr.lidonis.adventofcode.common.geo.plane.Position
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 class Day10Test {
 
     @Test
-    fun `part 1`() {
-        val map = AsteroidMap(InputReader("day10.txt").text())
-        assertThat(map.bestStation()?.second).isEqualTo(274)
+    fun part1() {
+        assertThat(Day10.part1()).isEqualTo(274)
     }
 
     @Test
-    fun `part 2`() {
-        val map = AsteroidMap(InputReader("day10.txt").text())
-        assertThat(map.vaporize(200)).isEqualTo(
-            Position(
-                3,
-                5
-            )
-        )
+    fun part2() {
+        assertThat(Day10.part2()).isEqualTo(305)
     }
 }
