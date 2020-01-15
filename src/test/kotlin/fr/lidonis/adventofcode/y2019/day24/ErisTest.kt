@@ -28,16 +28,13 @@ class ErisTest {
         assertThat(evolution.first.evolve()).isEqualTo(evolution.second)
     }
 
+    private val erisesPart2 = readErises("/day24/part2.txt")
 
     @Test
     fun `evolve example recursively`() {
-        val erises =
-            readErises("day24/part2.txt")
-        val recursiveEris = RecursiveEris(erises.subList(0, 1))
+        val recursiveEris = RecursiveEris(erisesPart2.subList(0, 1))
         assertThat(recursiveEris.evolve(10)).isEqualTo(
-            RecursiveEris(
-                erises.drop(1)
-            )
+            RecursiveEris(erisesPart2.drop(1))
         )
     }
 
@@ -95,21 +92,18 @@ class ErisTest {
 
     @Test
     fun `count bugs`() {
-        val erises =
-            readErises("day24/part2.txt")
-        assertThat(RecursiveEris(erises.drop(1)).count()).isEqualTo(99)
+        assertThat(RecursiveEris(erisesPart2.drop(1)).count()).isEqualTo(99)
     }
 
     @Test
     fun `evolve recursive and count bugs`() {
-        val erises = readErises("day24/part2.txt")
-        assertThat(RecursiveEris(erises.subList(0, 1)).evolve(10).count()).isEqualTo(99)
+        assertThat(RecursiveEris(erisesPart2.subList(0, 1)).evolve(10).count()).isEqualTo(99)
     }
 
     companion object {
 
         @JvmStatic
-        fun evolve() = readErises("day24/part1.txt").zipWithNext()
+        fun evolve() = readErises("/day24/part1.txt").zipWithNext()
 
         private fun readErises(fileName: String) =
             InputReader(fileName).lines()
@@ -120,5 +114,4 @@ class ErisTest {
                 .map(::Eris)
                 .toList()
     }
-
 }
