@@ -1,7 +1,7 @@
 package fr.lidonis.adventofcode.common.geo.plane
 
-import fr.lidonis.adventofcode.common.atan2
-import fr.lidonis.adventofcode.common.pow
+import fr.lidonis.adventofcode.common.math.atan2
+import fr.lidonis.adventofcode.common.math.pow
 import kotlin.math.abs
 import kotlin.math.sqrt
 
@@ -22,7 +22,8 @@ data class Position(val x: Int, val y: Int) {
 
     fun manhattanDistance(other: Position) = abs(x - other.x) + abs(y - other.y)
 
-    fun angle(target: Position) = atan2(target.x - x, target.y - y)
+    fun angle(target: Position) =
+        atan2(target.x - x, target.y - y)
 
     fun distance(target: Position) = distance(this, target)
 

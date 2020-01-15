@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day22
 
-import fr.lidonis.adventofcode.common.modInverse
+import fr.lidonis.adventofcode.common.math.modInverse
 import java.math.BigInteger
 
 class SpaceCardMathShuffler(private val size: Long) {

@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.common.geo.plane
 
-import fr.lidonis.adventofcode.common.pow
+import fr.lidonis.adventofcode.common.math.pow
 
 data class PositionSet(val positions: Set<Position>) : Set<Position> by positions {
 
