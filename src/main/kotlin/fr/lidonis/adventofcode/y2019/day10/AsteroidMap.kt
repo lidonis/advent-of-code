@@ -42,5 +42,4 @@ class AsteroidMap(private val asteroids: List<Position>) {
 
         return asteroid
     }
-
 }

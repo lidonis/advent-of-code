@@ -13,7 +13,7 @@
 |7 | _Done_
 |8 | compare decode tail rec with recursive
 |9 | _Done_
-|10 | Fix test
+|10 | _Done_
 |11 | _Done_
 |12 | *TODO*
 |13 | Bot for part 2

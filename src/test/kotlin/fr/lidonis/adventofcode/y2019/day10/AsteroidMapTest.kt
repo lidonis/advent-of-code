@@ -157,6 +157,5 @@ class AsteroidMapTest {
             201 to Position(10, 9),
             299 to Position(11, 1)
         )
-
     }
 }
