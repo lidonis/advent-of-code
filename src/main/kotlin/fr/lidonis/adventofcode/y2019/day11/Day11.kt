@@ -2,6 +2,7 @@ package fr.lidonis.adventofcode.y2019.day11
 
 import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.common.geo.plane.PositionSet
+import fr.lidonis.adventofcode.common.ocr.OCR
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color
 import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color.BLACK
@@ -10,7 +11,7 @@ import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 fun main() {
     println("${Day11.part1()} panels painted at least once")
-    println("The registration identifier is: \n\n${Day11.part2()}")
+    println("The registration identifier is: ${Day11.part2()}")
 }
 
 private const val DAY = 11
@@ -35,22 +36,10 @@ object Day11 : AdventOfCode2019(DAY) {
 
             StringBuilder().apply {
                 for (positionSet in positionSets) {
-                    append(stringBuilder(positionSet.moveTo(Position.ORIGIN))).append("\n")
+                    append(OCR.detect(positionSet.moveTo(Position.ORIGIN)))
                 }
-            }
+            }.toString()
         }
-
-    private fun stringBuilder(positions: PositionSet): StringBuilder {
-        val boundingBox = positions.boundingBox
-        return StringBuilder().apply {
-            for (y in boundingBox.start.y..boundingBox.end.y) {
-                for (x in boundingBox.start.x..boundingBox.end.x) {
-                    append(if (positions.contains(Position(x, y))) '█' else ' ')
-                }
-                append('\n')
-            }
-        }
-    }
 
     private fun robot(startingPanelColor: Color) = EmergencyHullPaintingRobot(computer, startingPanelColor)
 

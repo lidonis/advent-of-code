@@ -16,9 +16,7 @@
 |8 | add Day8 test
 |9 | compare decode tail rec with recursive
 |10 | _Done_
-|11 | OCR from int array using hexadecimal value of letter
-|11 | Bounding box calculation
-|11 | add Day11 test
+|11 | _Done_
 |12 | *TODO*
 |13 | Bot for part 2
 |14 | *TODO*
