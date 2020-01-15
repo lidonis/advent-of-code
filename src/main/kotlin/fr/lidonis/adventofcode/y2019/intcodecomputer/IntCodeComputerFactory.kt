@@ -2,7 +2,7 @@ package fr.lidonis.adventofcode.y2019.intcodecomputer
 
 object IntCodeComputerFactory {
 
-    fun buildBasicComputer(program: String) = BasicIntCodeComputer(toLongs(program))
+    fun buildBasicComputer(program: String) = IntCodeComputer(toLongs(program))
 
     fun buildIOComputer(program: String) = IntCodeComputer(toLongs(program))
 

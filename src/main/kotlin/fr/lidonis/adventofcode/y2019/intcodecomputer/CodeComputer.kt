@@ -21,7 +21,22 @@ interface IOCodeComputer : CodeComputer, Iterator<IOCodeComputer> {
 }
 
 interface ASCIICodeComputer : IOCodeComputer {
-    fun input(value: String)
-    fun tryNextOutputChar(maxTries: Int): Char?
 
+    fun input(value: String) {
+        (value + "\n").chars().forEach { input(it.toLong()) }
+    }
+
+    fun tryNextOutputChar(maxTries: Int) = tryNextOutput(maxTries)?.toChar()
+}
+
+interface OutputDevice {
+    val values: Deque<Long>
+    fun write(value: Long)
+    fun reset()
+}
+
+interface InputDevice {
+    fun read(): Long
+    fun add(value: Long)
+    fun reset()
 }

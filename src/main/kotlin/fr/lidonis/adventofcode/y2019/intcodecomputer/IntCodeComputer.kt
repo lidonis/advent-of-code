@@ -2,27 +2,32 @@ package fr.lidonis.adventofcode.y2019.intcodecomputer
 
 import java.util.*
 import java.util.concurrent.ArrayBlockingQueue
-import java.util.concurrent.TimeUnit
 
-class IntCodeComputer(override val program: List<Long>) : ASCIICodeComputer {
-
-    private var instructionPointer = 0L
+class IntCodeComputer(
+    override val program: Iterable<Long>,
+    private val output: OutputDevice = DequeOutputDevice(),
+    private val input: InputDevice = QueueInputDevice()
+) : ASCIICodeComputer {
+    override var memory = Memory(program.toMutableList())
+    private var instructionPointer = 0
     private var relativeBase = 0L
-    private var inputs = ArrayBlockingQueue<Long>(100000)
-    override var outputs = ArrayDeque<Long>()
-    override var memory =
-        Memory(program.toMutableList())
-
-    override fun reset() {
-        instructionPointer = 0
-        relativeBase = 0
-        inputs = ArrayBlockingQueue(100000)
-        outputs = ArrayDeque()
-        memory = Memory(program.toMutableList())
-    }
 
     private val currentCode: String
         get() = memory[instructionPointer].toString()
+
+    override fun reset() {
+        if (needReset()) {
+            instructionPointer = 0
+            memory = Memory(program.toMutableList())
+            relativeBase = 0L
+            input.reset()
+            output.reset()
+        }
+    }
+
+    private fun needReset() = instructionPointer != 0 && memory != program
+
+    override fun hasNext() = memory[instructionPointer] != 99L
 
     private fun getActions(): MutableList<() -> Unit> {
         val actions = mutableListOf<() -> Unit>()
@@ -54,28 +59,28 @@ class IntCodeComputer(override val program: List<Long>) : ASCIICodeComputer {
             3 -> {
                 actions.addAll(
                     listOf(
-                        { write(1, inputs.poll(10, TimeUnit.MILLISECONDS) ?: -1, parameterMode(3)) },
+                        { write(1, input.read(), parameterMode(3)) },
                         incrementInstructionPointer(2)
                     )
                 )
             }
             4 -> {
                 actions.add {
-                    outputs.add(read(1, parameterMode(3)))
+                    output.write(read(1, parameterMode(3)))
                 }
 
                 actions.add(incrementInstructionPointer(2))
             }
             5 -> {
                 instructionPointer = if (firstParameter() != 0L) {
-                    secondParameter()
+                    secondParameter().toInt()
                 } else {
                     instructionPointer + 3
                 }
             }
             6 -> {
                 instructionPointer = if (firstParameter() == 0L) {
-                    secondParameter()
+                    secondParameter().toInt()
                 } else {
                     instructionPointer + 3
                 }
@@ -111,7 +116,8 @@ class IntCodeComputer(override val program: List<Long>) : ASCIICodeComputer {
         return actions
     }
 
-    private fun incrementInstructionPointer(value: Long): () -> Unit = {
+
+    private fun incrementInstructionPointer(value: Int): () -> Unit = {
         instructionPointer += value
     }
 
@@ -129,37 +135,36 @@ class IntCodeComputer(override val program: List<Long>) : ASCIICodeComputer {
 
     private fun readPosition(position: Int, parameterMode: Char) =
         when (parameterMode) {
-            '0' -> memory[instructionPointer + position]
+            '0' -> memory[instructionPointer + position].toInt()
             '1' -> instructionPointer + position
-            '2' -> memory[instructionPointer + position] + relativeBase
+            '2' -> (memory[instructionPointer + position] + relativeBase).toInt()
             else -> throw IllegalArgumentException("Parameter mode unknown")
         }
 
 
     private fun write(index: Int, value: Long, parameterMode: Char) {
         val position = readPosition(index, parameterMode)
-        memory[position.toInt()] = value
+        memory[position] = value
     }
 
-    override fun hasNext() = memory[instructionPointer] != 99L
-
-    override fun next(): ASCIICodeComputer {
+    override fun next(): IOCodeComputer {
         getActions().forEach { it() }
         return this
     }
 
+    override fun run() {
+        while (hasNext()) {
+            next()
+        }
+    }
+
+    override val outputs: Deque<Long>
+        get() {
+            return output.values
+        }
+
     override fun input(value: Long) {
-        inputs.add(value)
-    }
-
-    override fun input(value: String) {
-        (value + "\n").chars().forEach { input(it.toLong()) }
-    }
-
-    operator fun get(i: Int) = memory[i]
-
-    operator fun set(i: Int, value: Long) {
-        memory[i] = value
+        input.add(value)
     }
 
     override fun nextOutput(): Long? {
@@ -182,22 +187,44 @@ class IntCodeComputer(override val program: List<Long>) : ASCIICodeComputer {
         return null
     }
 
-    override fun tryNextOutputChar(maxTries: Int) = tryNextOutput(maxTries)?.toChar()
+}
 
-    override fun run() {
-        asSequence().last()
+class DequeOutputDevice : OutputDevice {
+
+    override var values = ArrayDeque<Long>()
+
+    override fun write(value: Long) {
+        values.add(value)
     }
 
-    class Memory(private val list: MutableList<Long>) : MutableList<Long> by list {
-        override operator fun set(index: Int, element: Long): Long {
-            val size = index + 1
-            while (list.size < size) {
-                list.add(0L)
-            }
-            list[index] = element
-            return element
+    override fun reset() {
+        values = ArrayDeque()
+    }
+
+}
+
+class QueueInputDevice : InputDevice {
+    var values = ArrayBlockingQueue<Long>(100000)
+
+    override fun read(): Long = values.poll()
+    override fun add(value: Long) {
+        values.add(value)
+    }
+
+    override fun reset() {
+        values = ArrayBlockingQueue(100000)
+    }
+}
+
+class Memory(private val list: MutableList<Long>) : MutableList<Long> by list {
+    override operator fun set(index: Int, element: Long): Long {
+        val size = index + 1
+        while (list.size < size) {
+            list.add(0L)
         }
-
-        operator fun get(index: Long) = list.getOrElse(index.toInt()) { 0L }
+        list[index] = element
+        return element
     }
+
+    override operator fun get(index: Int) = list.getOrElse(index) { 0L }
 }
