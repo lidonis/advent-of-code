@@ -11,10 +11,8 @@
 |5 | _Done_
 |6 | _Done_
 |7 | _Done_
-|8 | OCR from int array using hexadecimal value of letter
 |8 | compare decode tail rec with recursive
-|8 | add Day8 test
-|9 | compare decode tail rec with recursive
+|9 | _Done_
 |10 | _Done_
 |11 | _Done_
 |12 | *TODO*

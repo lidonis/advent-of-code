@@ -1,6 +1,5 @@
 package fr.lidonis.adventofcode.y2019.day11
 
-import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.common.geo.plane.PositionSet
 import fr.lidonis.adventofcode.common.ocr.OCR
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
@@ -23,22 +22,12 @@ object Day11 : AdventOfCode2019(DAY) {
         panelsPaintedAtLeastOnce
     }
 
-    private const val LETTER_WIDTH = 4
-
     override fun part2() =
         robot(WHITE).run {
             compute()
             panels
         }.run {
-            val positionSets = PositionSet(this.filterValues { it == WHITE }.keys)
-                .mirrorY()
-                .chunked(LETTER_WIDTH + 1)
-
-            StringBuilder().apply {
-                for (positionSet in positionSets) {
-                    append(OCR.detect(positionSet.moveTo(Position.ORIGIN)))
-                }
-            }.toString()
+            OCR.detect(PositionSet(this.filterValues { it == WHITE }.keys).mirrorY())
         }
 
     private fun robot(startingPanelColor: Color) = EmergencyHullPaintingRobot(computer, startingPanelColor)
