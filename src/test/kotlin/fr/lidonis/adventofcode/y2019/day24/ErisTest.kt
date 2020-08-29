@@ -100,6 +100,19 @@ class ErisTest {
         assertThat(RecursiveEris(erisesPart2.subList(0, 1)).evolve(10).count()).isEqualTo(99)
     }
 
+    @Test
+    fun name() {
+        val erises = readErises("/day24/part2.txt")
+
+        RecursiveEris(erises.subList(0, 1)).erises.forEachIndexed { index, eris ->
+            eris.scan.filter { it.state == Eris.State.BUG }
+                .forEach {
+                    println(".populate(${it.position.y},${it.position.x},${index})")
+                }
+        }
+
+    }
+
     companion object {
 
         @JvmStatic

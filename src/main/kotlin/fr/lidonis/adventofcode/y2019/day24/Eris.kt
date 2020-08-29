@@ -2,10 +2,10 @@ package fr.lidonis.adventofcode.y2019.day24
 
 import fr.lidonis.adventofcode.common.geo.plane.Direction
 import fr.lidonis.adventofcode.common.geo.plane.Position
-import fr.lidonis.adventofcode.common.pow
+import fr.lidonis.adventofcode.common.math.pow
 import fr.lidonis.adventofcode.y2019.day24.Eris.State.*
 
-open class Eris(private val scan: List<Tile>) {
+open class Eris(val scan: List<Tile>) {
     constructor(input: String) : this(input.lines().mapIndexed { i, line ->
         line.mapIndexed { j, c ->
             Tile(
