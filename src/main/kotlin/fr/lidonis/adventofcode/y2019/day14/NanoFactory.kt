@@ -1,5 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day14
 
+import fr.lidonis.adventofcode.common.head
 import kotlin.math.ceil
 
 class NanoFactory(input: String) {
@@ -53,7 +54,7 @@ class NanoFactory(input: String) {
                 acc
             }
         }
-        return currentChemicals[0].quantity
+        return currentChemicals.head.quantity
     }
 
     private fun isFinished(currentChemicals: List<Chemical>) = !currentChemicals.all { it.name == "ORE" || it.leftOver }
