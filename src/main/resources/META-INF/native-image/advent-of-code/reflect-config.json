@@ -183,5 +183,10 @@
     "name": "fr.lidonis.adventofcode.y2020.day15.Day15",
     "allPublicMethods": true,
     "allDeclaredFields": true
+  },
+  {
+    "name": "fr.lidonis.adventofcode.y2020.day16.Day16",
+    "allPublicMethods": true,
+    "allDeclaredFields": true
   }
 ]
