@@ -2,11 +2,6 @@ package fr.lidonis.adventofcode.y2019.day22
 
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
-fun main() {
-    println("The position of card 2019 is ${Day22.part1()}")
-    println("The card number that ends up in position 2020 is ${Day22.part2()}")
-}
-
 private const val DAY = 22
 
 object Day22 : AdventOfCode2019(DAY) {

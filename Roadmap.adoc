@@ -1,34 +1,3 @@
 = Roadmap
 
-[cols="10%,90%"]
-|===
-|Day |Header 2
-
-|1 | _Done_
-|2 | _Done_
-|3 | _Done_
-|4 | _Done_
-|5 | _Done_
-|6 | _Done_
-|7 | _Done_
-|8 | compare decode tail rec with recursive
-|9 | _Done_
-|10 | _Done_
-|11 | _Done_
-|12 | *TODO*
-|13 | Bot for part 2
-|14 | *TODO*
-|15 | *TODO*
-|16 | _Done_
-|17 | Cleaner compress code
-|18 | *TODO*
-|19 | TractorBeam test ?
-|20 | Cleaner code
-|21 | _Done_
-|22 | _Done_
-|23 | *TODO*
-|24 | Cleaner code
-|25 | *TODO*
-|Intcodecomputer | cleaner code
-|Detekt | Fix all detekt issues
-|===
+Detekt | *Fix all detekt issues*

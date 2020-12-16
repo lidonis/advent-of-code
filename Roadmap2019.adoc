@@ -1,0 +1,32 @@
+= Roadmap 2019
+
+[cols="10%,90%"]
+|===
+|Day | status
+|1 | _Done_
+|2 | _Done_
+|3 | _Done_
+|4 | _Done_
+|5 | _Done_
+|6 | _Done_
+|7 | _Done_
+|8 | _Done_
+|9 | _Done_
+|10 | _Done_
+|11 | _Done_
+|12 | _Done_
+|13 | _Done_
+|14 | *TODO Hard*
+|15 | *TODO Hard*
+|16 | _Done_
+|17 | _Done_
+|18 | *TODO*
+|19 | *TractorBeam test ?*
+|20 | *Cleaner code*
+|21 | _Done_
+|22 | _Done_
+|23 | *TODO*
+|24 | *Cleaner code*
+|25 | *Bot*
+|Intcodecomputer | *cleaner code*
+|===

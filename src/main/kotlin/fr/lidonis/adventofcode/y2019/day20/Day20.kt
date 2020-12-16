@@ -2,14 +2,6 @@ package fr.lidonis.adventofcode.y2019.day20
 
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
-fun main() {
-    println("It takes ${Day20.part1()} to get from the open tile marked AA to the open tile marked ZZ")
-    println(
-        "it takes ${Day20.part2()} to get from the open tile marked AA to the open tile marked ZZ," +
-                " both at the outermost layer"
-    )
-}
-
 private const val DAY = 20
 
 object Day20 : AdventOfCode2019(DAY) {

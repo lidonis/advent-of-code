@@ -1,99 +1,72 @@
 package fr.lidonis.adventofcode.y2019.day13
 
 import fr.lidonis.adventofcode.common.geo.plane.Position
-import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IOCodeComputer
+import fr.lidonis.adventofcode.y2019.intcodecomputer.InputDevice
+import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer
+import kotlin.math.sign
+
+private const val INSTRUCTION_SIZE = 3
+private const val BLOCK_ID = 2L
+private const val PADDLE_ID = 3L
+private const val BALL_ID = 4L
+private val SCORE_POSITION = Position(-1, 0)
 
 class ArcadeCabinet(program: String) {
-    private val computer = IntCodeComputerFactory.buildIOComputer(program)
-    private val screen = Screen()
+    private val joystick = JoystickBot()
+    private val computer: IOCodeComputer = IntCodeComputer(program.split(",").map(String::toLong), input = joystick)
     private var score = 0L
 
     fun countBlock(): Int {
+        computer.reset()
         computer.run()
-        val screen = Screen()
-        computer.outputs.chunked(GROUP_SIZE).forEach {
-            screen[Position(
-                it[0].toInt(),
-                it[1].toInt()
-            )] = Screen.Tile[it[2].toInt()]
-        }
-        return screen.count(Screen.Tile.BLOCK)
+        val tileIds = computer.outputs.asSequence()
+            .drop(2).windowed(1, INSTRUCTION_SIZE).map { it.first() }
+        return tileIds.count { it == BLOCK_ID }
     }
 
-    private val scorePosition = Position(-1, 0)
-
-    private fun frame() {
+    fun bot(): Long {
+        computer.reset()
+        insert2Quarters()
         while (computer.hasNext()) {
             val instruction = getInstruction()
-            if (instruction.first != scorePosition) {
-                screen[instruction.first] = Screen.Tile[instruction.second.toInt()]
-            } else {
-                score = instruction.second
-                break
+            // no pattern matching :(
+            when {
+                instruction == null -> break
+                instruction.first == SCORE_POSITION -> score = instruction.second
+                instruction.second == PADDLE_ID -> joystick.paddleX = instruction.first.x
+                instruction.second == BALL_ID -> joystick.ballX = instruction.first.x
             }
         }
+        return score
     }
 
-    private fun getInstruction() =
-        Position(
-            computer.nextOutput()?.toInt()!!,
-            computer.nextOutput()?.toInt()!!
-        ) to computer.nextOutput()!!
-
-    fun play(): Int {
-        computer.reset()
+    private fun insert2Quarters() {
         computer.memory[0] = 2
-        var frameCount = 0
-        while (computer.hasNext()) {
-            println("Frame $frameCount")
-            frameCount++
-            frame()
-            screen.print()
-        }
-        return 0
     }
 
-    class Screen {
-
-        private val pixels = mutableMapOf<Position, Tile>()
-
-        fun count(tile: Tile) = pixels.count { it.value == tile }
-
-        fun print() {
-            pixels.forEach {
-                print(
-                    when (it.value) {
-                        Tile.EMPTY -> ' '
-                        Tile.WALL -> '█'
-                        Tile.BLOCK -> '▣'
-                        Tile.PADDLE -> '_'
-                        Tile.BALL -> '◍'
-                    }
-                )
-                if (it.key.x == SIZE) {
-                    println()
-                }
+    private fun getInstruction() = computer.nextOutput()?.let { x ->
+        computer.nextOutput()?.let { y ->
+            computer.nextOutput()?.let { tile ->
+                Position(x.toInt(), y.toInt()) to tile
             }
         }
+    }
 
-        operator fun set(position: Position, tile: Tile) {
-            pixels[position] = tile
+    class JoystickBot : InputDevice {
+        var ballX = 0
+        var paddleX = 0
+
+        override fun read() = (ballX - paddleX).sign.toLong()
+
+        override fun add(value: Long) {
+            TODO("Should be in this interface")
         }
 
-        enum class Tile {
-            EMPTY, WALL, BLOCK, PADDLE, BALL;
-
-            companion object {
-                operator fun get(ordinal: Int) = values()[ordinal]
-            }
-        }
-
-        companion object {
-            private const val SIZE = 42
+        override fun reset() {
+            ballX = 0
+            paddleX = 0
         }
     }
 
-    companion object {
-        private const val GROUP_SIZE = 3
-    }
 }

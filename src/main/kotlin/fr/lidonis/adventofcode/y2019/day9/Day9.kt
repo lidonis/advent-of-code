@@ -3,11 +3,6 @@ package fr.lidonis.adventofcode.y2019.day9
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
-fun main() {
-    println("The BOOST keycode is ${Day9.part1()}")
-    println("The coordinates of the distress signal are ${Day9.part2()}")
-}
-
 private const val DAY = 9
 
 object Day9 : AdventOfCode2019(DAY) {

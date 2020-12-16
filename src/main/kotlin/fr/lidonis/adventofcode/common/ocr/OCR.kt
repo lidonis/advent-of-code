@@ -15,13 +15,13 @@ object OCR {
     }
 
     private fun score(inputReader: InputReader) = PositionSet(
-        inputReader.lines().mapIndexed { j, s ->
+        inputReader.lines().flatMapIndexed { j, s ->
             s.mapIndexedNotNull { i, c ->
                 if (c == '█') Position(i, j) else null
             }
-        }.flatten().toSet()
+        }.toSet()
     ).score
 
-    fun detect(set: PositionSet) = set.chunked(OCR.LETTER_WIDTH + 1).map(::detectChar).joinToString("")
+    fun detect(set: PositionSet) = set.chunked(LETTER_WIDTH + 1).map(::detectChar).joinToString("")
     private fun detectChar(set: PositionSet) = mappings[set.moveTo(Position.ORIGIN).score] ?: ' '
 }

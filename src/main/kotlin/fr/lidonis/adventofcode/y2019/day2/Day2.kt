@@ -3,12 +3,7 @@ package fr.lidonis.adventofcode.y2019.day2
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
-fun main() {
-    println("The value at position 0 after the program halts is ${Day2.part1()}")
-    println("100 * noun + verb to produce 19690720 is ${Day2.part2()}")
-}
-
-private const val DAY = 2
+const val DAY = 2
 
 object Day2 : AdventOfCode2019(DAY) {
 
@@ -27,7 +22,7 @@ object Day2 : AdventOfCode2019(DAY) {
                 if (runNounVerb(noun, verb) == SEARCHED_OUTPUT) return MULTIPLIER * noun + verb
             }
         }
-        throw IllegalArgumentException("No inputs found")
+        error("No inputs found")
     }
 
     private fun runNounVerb(noun: Long, verb: Long) =

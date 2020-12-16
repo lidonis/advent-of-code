@@ -2,11 +2,6 @@ package fr.lidonis.adventofcode.y2019.day14
 
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
-fun main() {
-    println("The minimum amount of ORE required to produce exactly 1 FUEL is ${Day14.part1()}")
-    println("The maximum amount of FUEL produced is ${Day14.part2()}")
-}
-
 private const val DAY = 14
 
 object Day14 : AdventOfCode2019(DAY) {

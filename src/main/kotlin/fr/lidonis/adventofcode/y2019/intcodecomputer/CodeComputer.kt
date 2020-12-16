@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.intcodecomputer
 
-import java.util.*
+import java.util.Deque
 
 interface CodeComputer {
     val program: Iterable<Long>

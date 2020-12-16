@@ -2,11 +2,6 @@ package fr.lidonis.adventofcode.y2019.day3
 
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
-fun main() {
-    println("Manhattan distance from the central port to the closest intersection: ${Day3.part1()}")
-    println("Fewest combined steps the wires must take to reach an intersection: ${Day3.part2()}")
-}
-
 private const val DAY = 3
 
 object Day3 : AdventOfCode2019(DAY) {

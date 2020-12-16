@@ -27,7 +27,8 @@ class ScaffoldMap(private val scaffolds: List<Position>, private val vacuumRobot
         return scaffolds.filter { isIntersection(it) }.map { (i, j) -> i * j }.sum()
     }
 
-    private fun isIntersection(position: Position) = position.neighbours().count { scaffolds.contains(it) } == 4
+    private fun isIntersection(position: Position) =
+        position.neighbours().count { scaffolds.contains(it) } == INTERSECTION_COUNT
 
     fun findPath(): MutableList<String> {
         val path = mutableListOf<String>()
@@ -105,7 +106,7 @@ class ScaffoldMap(private val scaffolds: List<Position>, private val vacuumRobot
                         i++
                     }
                     'X' -> {
-                        throw IllegalStateException("Crashed")
+                        error("Crashed")
                     }
                     '.' -> {
                         i++
@@ -114,12 +115,14 @@ class ScaffoldMap(private val scaffolds: List<Position>, private val vacuumRobot
                         j++
                         i = 0
                     }
-                    else -> throw IllegalStateException("Unknown map character $c at $i,$j")
+                    else -> error("Unknown map character $c at $i,$j")
                 }
             }
             checkNotNull(vacuumRobot) { "Robot not found" }
             return ScaffoldMap(scaffolds, vacuumRobot)
         }
+
+        private const val INTERSECTION_COUNT = 4
     }
 
 }

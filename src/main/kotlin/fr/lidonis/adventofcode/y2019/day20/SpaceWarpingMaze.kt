@@ -8,12 +8,11 @@ class SpaceWarpingMaze(input: String) {
 
     private val mazeMap = input
         .lines()
-        .mapIndexed { j, s ->
-            s.mapIndexedNotNull { i, c ->
+        .flatMapIndexed { j, s ->
+            s.mapIndexed { i, c ->
                 Position(i, j) to c
             }
-        }.flatten()
-        .toMap()
+        }.toMap()
 
     private val openPassages = mazeMap.filterValues { it == '.' }.keys.toMutableList()
     private val portals = searchPortals()
@@ -77,7 +76,6 @@ class SpaceWarpingMaze(input: String) {
             ::getNeighboursInception
         )
     }
-
 
     private fun getNeighboursInception(currentNode: Node) =
         currentNode.position.neighbours()

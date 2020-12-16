@@ -28,7 +28,7 @@ class SpringDroid(program: String) {
             AND D J
             WALK
             """.trimIndent(),
-            true
+            false
         )
 
     fun run() =
@@ -44,6 +44,6 @@ class SpringDroid(program: String) {
             AND T J
             RUN
             """.trimIndent(),
-            true
+            false
         )
 }

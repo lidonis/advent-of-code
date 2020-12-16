@@ -2,11 +2,6 @@ package fr.lidonis.adventofcode.y2019.day19
 
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
-fun main() {
-    println("${Day19.part1()} are affected by the tractor beam in the 50x50 area closest to the emitter")
-    println("The value is ${Day19.part2()}")
-}
-
 private const val DAY = 19
 
 object Day19 : AdventOfCode2019(DAY) {

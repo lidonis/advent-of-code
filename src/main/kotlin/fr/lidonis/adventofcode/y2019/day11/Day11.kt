@@ -8,11 +8,6 @@ import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color.BLAC
 import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color.WHITE
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
-fun main() {
-    println("${Day11.part1()} panels painted at least once")
-    println("The registration identifier is: ${Day11.part2()}")
-}
-
 private const val DAY = 11
 
 object Day11 : AdventOfCode2019(DAY) {

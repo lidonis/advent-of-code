@@ -1,7 +1,15 @@
 import fr.lidonis.adventofcode.common.InputReader
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
-import kotlinx.coroutines.*
-import kotlinx.coroutines.channels.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ObsoleteCoroutinesApi
+import kotlinx.coroutines.channels.ActorScope
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.channels.ReceiveChannel
+import kotlinx.coroutines.channels.SendChannel
+import kotlinx.coroutines.channels.actor
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 
 @ObsoleteCoroutinesApi
 fun main() {
@@ -19,6 +27,10 @@ data class Idle(override val address: Int) : Activity()
 data class Active(override val address: Int) : Activity()
 
 object NetworkInterfaceControllerActor {
+    private const val MAX_COMPUTER = 50
+    private const val MAX_TRIES = 10
+    private const val MAX_COUNT = 20
+    private const val NAT_ADDRESS = 255
 
     @ObsoleteCoroutinesApi
     fun main() = runBlocking {
@@ -30,23 +42,19 @@ object NetworkInterfaceControllerActor {
     @ObsoleteCoroutinesApi
     private class Router(private val actor: ActorScope<NetworkMessage>) {
         private val scope = CoroutineScope(actor.coroutineContext)
-        private val program = InputReader("day23.txt").text()
-        private val computerChannels = mutableListOf<SendChannel<Packet>>()
-        private var monitor: SendChannel<NetworkMessage>
-        private var nat: SendChannel<NetworkMessage>
+        private val program = InputReader("/input/y2019/day23.txt").text()
+        private var monitor: SendChannel<NetworkMessage> = scope.actor(capacity = Channel.UNLIMITED) {
+            Monitor(this, actor.channel).watch()
+        }
 
-        init {
-            monitor = scope.actor(capacity = Channel.UNLIMITED) {
-                Monitor(this, actor.channel).watch()
+        private var nat: SendChannel<NetworkMessage> = scope.actor(capacity = Channel.UNLIMITED) {
+            NotAlwaysTransmitting(this, actor.channel).nat()
+        }
+
+        private val computerChannels = (0 until MAX_COMPUTER).map {
+            scope.actor<Packet>(capacity = Channel.UNLIMITED) {
+                NetworkComputer(this, actor.channel, program, it).compute()
             }
-            nat = scope.actor(capacity = Channel.UNLIMITED) {
-                NotAlwaysTransmitting(this, actor.channel).nat()
-            }
-            computerChannels.addAll((0 until 50).map {
-                scope.actor<Packet>(capacity = Channel.UNLIMITED) {
-                    NetworkComputer(this, actor.channel, program, it).compute()
-                }
-            })
         }
 
         suspend fun dispatch() {
@@ -58,7 +66,7 @@ object NetworkInterfaceControllerActor {
                 monitor.send(networkMessage)
                 when (networkMessage) {
                     is Packet -> routePacket(networkMessage)
-                    is Activity -> if (networkMessage.address == 255) nat.send(networkMessage)
+                    is Activity -> if (networkMessage.address == NAT_ADDRESS) nat.send(networkMessage)
                     is Done -> actor.cancel()
                 }
             }
@@ -67,13 +75,12 @@ object NetworkInterfaceControllerActor {
         private suspend fun routePacket(packet: Packet) {
             when (packet.destination) {
                 in computerChannels.indices -> computerChannels[packet.destination].send(packet)
-                255 -> nat.send(packet)
+                NAT_ADDRESS -> nat.send(packet)
                 else -> {
                     error("Dead letter $packet")
                 }
             }
         }
-
     }
 
     private class NetworkComputer(
@@ -98,7 +105,7 @@ object NetworkInterfaceControllerActor {
 
         private suspend fun activate() {
             var count = 0
-            while (count < 20) {
+            while (count < MAX_COUNT) {
                 inbox.poll()?.run {
                     computer.input(x)
                     computer.input(y)
@@ -112,9 +119,9 @@ object NetworkInterfaceControllerActor {
         }
 
         private fun nextPacket() =
-            computer.tryNextOutput(10)?.let { destination ->
-                computer.tryNextOutput(10)?.let { x ->
-                    computer.tryNextOutput(10)?.let { y ->
+            computer.tryNextOutput(MAX_TRIES)?.let { destination ->
+                computer.tryNextOutput(MAX_TRIES)?.let { x ->
+                    computer.tryNextOutput(MAX_TRIES)?.let { y ->
                         Packet(address, destination.toInt(), x, y)
                     }
                 }
@@ -126,7 +133,7 @@ object NetworkInterfaceControllerActor {
         private val network: SendChannel<NetworkMessage>
     ) {
         private val ysReceivedByComputer0FromNat = mutableSetOf<Long>()
-        private val computerStates = MutableList(50) { true }
+        private val computerStates = MutableList(MAX_COMPUTER) { true }
 
         suspend fun watch() {
             for (networkMessage in inbox) {
@@ -144,12 +151,12 @@ object NetworkInterfaceControllerActor {
                 when (networkMessage) {
                     is Active -> {
                         computerStates[networkMessage.address] = true
-                        network.send(Active(255))
+                        network.send(Active(NAT_ADDRESS))
                     }
                     is Idle -> {
                         computerStates[networkMessage.address] = false
                         if (computerStates.all { !it }) {
-                            network.send(Idle(255))
+                            network.send(Idle(NAT_ADDRESS))
                         }
                     }
                 }
@@ -157,14 +164,14 @@ object NetworkInterfaceControllerActor {
         }
 
         private fun checkFirstY(networkMessage: Packet) {
-            if (networkMessage.destination == 255 && ysReceivedByComputer0FromNat.isEmpty()) {
+            if (networkMessage.destination == NAT_ADDRESS && ysReceivedByComputer0FromNat.isEmpty()) {
                 println("Y value of the first packet sent to address 255: ${networkMessage.y}")
             }
         }
 
         private suspend fun checkYTwiceInRow(networkMessage: Packet) {
-            if (networkMessage.source == 255 && networkMessage.destination == 0
-                && !ysReceivedByComputer0FromNat.add(networkMessage.y)
+            if (networkMessage.source == NAT_ADDRESS && networkMessage.destination == 0 &&
+                !ysReceivedByComputer0FromNat.add(networkMessage.y)
             ) {
                 println(
                     "First Y value delivered by the NAT to the computer at address 0 twice in a row: " +
@@ -185,12 +192,13 @@ object NetworkInterfaceControllerActor {
             for (networkMessage in inbox) {
                 when {
                     networkMessage is Packet -> lastPacket = networkMessage
-                    networkMessage is Idle && networkMessage.address == 255 -> lastPacket?.run {
-                        network.send(Packet(255, 0, x, y))
+                    networkMessage is Idle && networkMessage.address == NAT_ADDRESS -> lastPacket?.run {
+                        network.send(Packet(NAT_ADDRESS, 0, x, y))
                         lastPacket = null
                     }
                 }
             }
         }
     }
+
 }

@@ -8,7 +8,7 @@ import fr.lidonis.adventofcode.y2019.intcodecomputer.IOCodeComputer
 
 class EmergencyHullPaintingRobot(private val computer: IOCodeComputer, startingPanelColor: Color) {
     private var direction = Direction.UP
-    private var position = Position(0, 0)
+    private var position = Position.ORIGIN
     val panels = mutableMapOf<Position, Color>().withDefault { BLACK }
 
     init {
@@ -34,7 +34,7 @@ class EmergencyHullPaintingRobot(private val computer: IOCodeComputer, startingP
         panels[position] = when (output) {
             0L -> BLACK
             1L -> WHITE
-            else -> throw IllegalArgumentException("Paint not found")
+            else -> error("Paint not found")
         }
     }
 
@@ -42,7 +42,7 @@ class EmergencyHullPaintingRobot(private val computer: IOCodeComputer, startingP
         when (output) {
             0L -> direction--
             1L -> direction++
-            else -> throw IllegalArgumentException("Wrong rotation")
+            else -> error("Wrong rotation")
         }
     }
 

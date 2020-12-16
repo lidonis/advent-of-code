@@ -3,6 +3,10 @@ package fr.lidonis.adventofcode.y2019.day19
 import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
+private const val MULTIPLIER = 10000
+private const val MAX_SEARCH = 2000
+private const val MIN_SEARCH = 1800
+
 class TractorBeam(program: String) {
     private val beamMap = BeamMap(program)
 
@@ -24,7 +28,8 @@ class TractorBeam(program: String) {
         return affected
     }
 
-    fun fit(size: Int) = affected(1800, 2000).asSequence().first { rightSize(it, size) }.let { it.x * 10000 + it.y }
+    fun fit(size: Int) = affected(MIN_SEARCH, MAX_SEARCH).first { rightSize(it, size) }
+        .let { it.x * MULTIPLIER + it.y }
 
     private fun rightSize(position: Position, size: Int) =
         beamMap[Position(position.x + size - 1, position.y)] == 1L &&
@@ -50,6 +55,5 @@ class TractorBeam(program: String) {
                     nextOutput() ?: error { "Position not found $it" }
                 }
             }
-
     }
 }

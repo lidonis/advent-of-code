@@ -10,7 +10,7 @@ data class PositionSet(val positions: Set<Position>) : Set<Position> by position
 
     fun moveTo(position: Position) = PositionSet(map { it - boundingBox.start + position }.toSet())
 
-    val boundingBox by lazy {
+    private val boundingBox by lazy {
         if (isEmpty()) {
             BoundingBox(Position.ORIGIN, Position.ORIGIN)
         } else {

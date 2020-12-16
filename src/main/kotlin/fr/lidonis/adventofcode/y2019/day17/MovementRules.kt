@@ -1,62 +1,90 @@
 package fr.lidonis.adventofcode.y2019.day17
 
+import java.util.ArrayDeque
+
+private const val NB_FUNCTION = 3
+private const val DELIMITER = ","
+private const val CHAR_LIMIT = 20
+
 data class MovementRules(val mainRoutine: String, val functionA: String, val functionB: String, val functionC: String) {
+
+    fun decompress() = mainRoutine.split(DELIMITER).map {
+        when (it) {
+            "A" -> functionA
+            "B" -> functionB
+            "C" -> functionC
+            else -> null
+        }
+    }.joinToString(DELIMITER)
 
     companion object {
         fun from(path: List<String>): MovementRules {
             val compressed = compress(path)
             compressed ?: error("Can't find compressed rules")
-            println(compressed)
             return MovementRules(
-                compressed.main.map { i -> 'A' + i }.joinToString(","),
-                compressed.programs[0].joinToString(","),
-                compressed.programs[1].joinToString(","),
-                compressed.programs[2].joinToString(",")
+                compressed.main.map { i -> 'A' + i }.joinToString(DELIMITER),
+                compressed.functions[0].toString(),
+                compressed.functions[1].toString(),
+                compressed.functions[2].toString()
             )
         }
 
         private fun compress(path: List<String>): CompressState? {
-            val stack = mutableListOf(CompressState(emptyList(), emptyList(), 0))
-            while (stack.isNotEmpty()) {
-                val state = stack.removeAt(stack.lastIndex)
-                if (state.index >= path.size) {
+            val deque = ArrayDeque<CompressState>()
+            deque.push(CompressState())
+            while (deque.isNotEmpty()) {
+                val state = deque.pop()
+                if (state.isSolution(path)) {
                     return state
                 }
-                val (main, programs, index) = state
-                if (main.size < 10) {
-                    for ((i, program) in programs.withIndex()) {
-                        if (path.subList(index, minOf(path.size, index + program.size)) ==
-                            program.subList(0, minOf(program.size, path.size - index))
-                        ) {
-                            stack += CompressState(
-                                main + i,
-                                programs,
-                                index + program.size
-                            )
-                        }
-                    }
-                }
-                if (programs.size < 3) {
-                    for (end in index + 1 until path.size) {
-                        val program = path.subList(index, end)
-                        if (program.sumBy { it.length } + program.size - 1 > 20) {
-                            break
-                        }
-                        stack += CompressState(
-                            main + programs.size,
-                            programs.plusElement(program),
-                            index + program.size
-                        )
-                    }
+                val pathLeft = path.drop(state.index)
+                deque.addAll(addToMain(state, pathLeft))
+                if (state.canAddFunction()) {
+                    deque.addAll(generateFunctions(pathLeft, state))
                 }
             }
             return null
         }
 
-        private data class CompressState(
-            val main: List<Int>,
-            val programs: List<List<String>>,
-            val index: Int
-        )
+        private fun addToMain(state: CompressState, pathLeft: List<String>) =
+            state.functions.mapIndexedNotNull { i, function ->
+                if (function == Function(pathLeft.take(function.size))) state.addToMain(i) else null
+            }
+
+        private fun generateFunctions(pathLeft: List<String>, state: CompressState) =
+            pathLeft.indices.map { Function(pathLeft.take(it)) }
+                .filter { it.charSize <= CHAR_LIMIT }
+                .map { state.addFunction(it) }
     }
+}
+
+private data class CompressState(
+    val main: List<Int> = emptyList(),
+    val functions: List<Function> = emptyList(),
+    val index: Int = 0
+) {
+    fun addFunction(function: Function) = CompressState(
+        main + functions.size,
+        functions.plusElement(function),
+        index + function.size
+    )
+
+    fun addToMain(functionIndex: Int) = CompressState(
+        main + functionIndex,
+        functions,
+        index + functions[functionIndex].size
+    )
+
+    fun canAddFunction() = functions.size < NB_FUNCTION
+
+    fun isSolution(path: List<String>) = index == path.size
+}
+
+private inline class Function(val list: List<String>) {
+    val size: Int
+        get() = list.size
+
+    val charSize get() = list.sumBy { it.length } + list.size - 1
+
+    override fun toString() = list.joinToString(DELIMITER)
 }

@@ -2,12 +2,8 @@ package fr.lidonis.adventofcode.y2019.day4
 
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
-fun main() {
-    println("${Day4.part1()} different passwords with first check")
-    print("${Day4.part2()} different passwords with second check")
-}
-
 private const val DAY = 4
+
 object Day4 : AdventOfCode2019(DAY) {
 
     override fun part1() = inputRange.filter(PasswordChecker::check1).count()
@@ -15,5 +11,6 @@ object Day4 : AdventOfCode2019(DAY) {
 
     private val inputRange = input().text()
         .split("-")
-        .run { this[0].toInt()..this[1].toInt() }
+        .map(String::toInt)
+        .let { (start, end) -> start..end }
 }

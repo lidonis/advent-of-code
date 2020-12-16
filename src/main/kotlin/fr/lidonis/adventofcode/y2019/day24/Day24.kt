@@ -2,11 +2,6 @@ package fr.lidonis.adventofcode.y2019.day24
 
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
-fun main() {
-    println("Biodiversity rating for the first layout that appears twice ${Day24.part1()}")
-    println("${Day24.part2()} bugs are present after 200 minutes")
-}
-
 private const val DAY = 24
 
 object Day24 : AdventOfCode2019(DAY) {
@@ -20,9 +15,10 @@ object Day24 : AdventOfCode2019(DAY) {
         return eris.biodiversityRating
     }
 
+    private const val EVOLVE_COUNT = 200
+
     override fun part2() =
-        RecursiveEris(listOf(Eris(scan).toRecursive())).evolve(200).count()
+        RecursiveEris(listOf(Eris(scan).toRecursive())).evolve(EVOLVE_COUNT).countBugs()
 
     private val scan = input().text()
-
 }

@@ -13,3 +13,11 @@ fun <T> List<T>.permute(): List<List<T>> {
     }
     return permutations
 }
+
+fun <T> List<T>.combine(size: Int): List<Set<T>> {
+    return when {
+        this.isEmpty() -> emptyList()
+        size == 1 -> this.map(::setOf)
+        else -> this.drop(1).combine(size - 1).map { setOf(this.first()) + it } + this.drop(1).combine(size)
+    }
+}

@@ -2,11 +2,6 @@ package fr.lidonis.adventofcode.y2019.day17
 
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
-fun main() {
-    println("The sum of the alignment parameters is ${Day17.part1()}")
-    println("The vacuum robot has collected ${Day17.part2()} dust")
-}
-
 private const val DAY = 17
 
 object Day17 : AdventOfCode2019(DAY) {

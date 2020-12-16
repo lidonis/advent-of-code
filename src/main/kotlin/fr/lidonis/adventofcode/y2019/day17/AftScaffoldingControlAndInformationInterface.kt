@@ -18,7 +18,8 @@ class AftScaffoldingControlAndInformationInterface(program: String) {
     fun amountOfDustCollected(): Long? =
         computer.run {
             memory[0] = 2
-            val movementRules = MovementRules.from(scaffoldMap.findPath())
+            val path = scaffoldMap.findPath()
+            val movementRules = MovementRules.from(path)
             input(movementRules.mainRoutine)
             input(movementRules.functionA)
             input(movementRules.functionB)

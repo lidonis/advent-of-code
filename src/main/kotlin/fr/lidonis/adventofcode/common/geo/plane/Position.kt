@@ -3,20 +3,22 @@ package fr.lidonis.adventofcode.common.geo.plane
 import fr.lidonis.adventofcode.common.math.atan2
 import fr.lidonis.adventofcode.common.math.pow
 import kotlin.math.abs
+import kotlin.math.cos
+import kotlin.math.roundToInt
+import kotlin.math.sin
 import kotlin.math.sqrt
 
 data class Position(val x: Int, val y: Int) {
 
-    operator fun plus(move: Position) =
-        add(this, move)
+    constructor(x: Double, y: Double) : this(x.roundToInt(), y.roundToInt())
 
-    operator fun minus(move: Position) = this + Position(
-        -move.x,
-        -move.y
-    )
+    operator fun plus(move: Position) = add(this, move)
 
-    operator fun plus(direction: Direction) =
-        add(this, direction.move)
+    operator fun minus(move: Position) = this + Position(-move.x, -move.y)
+
+    operator fun times(value: Int) = Position(x * value, y * value)
+
+    operator fun plus(direction: Direction) = this + direction.move
 
     fun neighbours() = Direction.values().map { this + it }
 
@@ -26,6 +28,10 @@ data class Position(val x: Int, val y: Int) {
         atan2(target.x - x, target.y - y)
 
     fun distance(target: Position) = distance(this, target)
+
+    fun rotate(radian: Double) = Position(
+        x * cos(radian) + y * sin(radian), y * cos(radian) - x * sin(radian)
+    )
 
     companion object {
 

@@ -1,10 +1,12 @@
-import Day18.Tile.*
+import Day18.Tile.Entrance
+import Day18.Tile.Key
+import Day18.Tile.TileFactory
 import fr.lidonis.adventofcode.common.InputReader
 import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.common.graph.BreadthFirstSearch
 
 fun main() {
-    val input = InputReader("day18.txt").text()
+    val input = InputReader("/input/y2019/day18.txt").text()
     val vault = Day18(input)
     println(vault.shortestPathStepCount())
 }
@@ -23,10 +25,8 @@ class Day18(input: String) {
                     val tile = TileFactory.from(c)
                     val position = Position(i, j)
                     vaultMap[position] = tile
-                    when (tile) {
-                        is Key -> keys.add(tile)
-                        is Entrance -> entrances.add(position)
-                    }
+                    if (tile is Key) keys.add(tile)
+                    else if (tile is Entrance) entrances.add(position)
                 }
             }
     }
@@ -80,7 +80,7 @@ class Day18(input: String) {
                     '@' -> Entrance
                     in 'a'..'z' -> Key(c)
                     in 'A'..'Z' -> Door(c)
-                    else -> throw IllegalStateException("")
+                    else -> error("Unknown tile")
                 }
         }
     }

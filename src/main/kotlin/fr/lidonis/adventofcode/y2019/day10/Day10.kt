@@ -2,11 +2,6 @@ package fr.lidonis.adventofcode.y2019.day10
 
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
-fun main() {
-    println("${Day10.part1()} asteroids can be detected from the best location")
-    println("The 200th asteroid to be vaporized is at ${Day10.part2()}")
-}
-
 private const val DAY = 10
 
 object Day10 : AdventOfCode2019(DAY) {

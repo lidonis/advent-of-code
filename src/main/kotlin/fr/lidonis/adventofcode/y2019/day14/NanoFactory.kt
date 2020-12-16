@@ -52,7 +52,6 @@ class NanoFactory(input: String) {
                 }
                 acc
             }
-            println(currentChemicals)
         }
         return currentChemicals[0].quantity
     }

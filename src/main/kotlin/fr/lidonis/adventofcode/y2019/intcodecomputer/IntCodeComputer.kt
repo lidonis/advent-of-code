@@ -1,7 +1,10 @@
 package fr.lidonis.adventofcode.y2019.intcodecomputer
 
-import java.util.*
+import java.util.ArrayDeque
+import java.util.Deque
 import java.util.concurrent.ArrayBlockingQueue
+
+private const val END_PROGRAM = 99L
 
 class IntCodeComputer(
     override val program: Iterable<Long>,
@@ -27,7 +30,7 @@ class IntCodeComputer(
 
     private fun needReset() = instructionPointer != 0 && memory != program
 
-    override fun hasNext() = memory[instructionPointer] != 99L
+    override fun hasNext() = memory[instructionPointer] != END_PROGRAM
 
     private fun getActions(): MutableList<() -> Unit> {
         val actions = mutableListOf<() -> Unit>()
@@ -51,8 +54,7 @@ class IntCodeComputer(
                             write(
                                 3, firstParameter() * secondParameter(), parameterMode(5)
                             )
-                        }
-                        , incrementInstructionPointer(4)
+                        }, incrementInstructionPointer(4)
                     )
                 )
             }
@@ -84,7 +86,6 @@ class IntCodeComputer(
                 } else {
                     instructionPointer + 3
                 }
-
             }
             7 -> {
                 actions.add {
@@ -110,12 +111,11 @@ class IntCodeComputer(
                 actions.add { relativeBase += firstParameter() }
                 actions.add(incrementInstructionPointer(2))
             }
-            99 -> throw IllegalStateException("Program halted")
-            else -> throw IllegalArgumentException("Opcode unknown")
+            99 -> error("Program halted")
+            else -> error("Opcode unknown")
         }
         return actions
     }
-
 
     private fun incrementInstructionPointer(value: Int): () -> Unit = {
         instructionPointer += value
@@ -138,9 +138,8 @@ class IntCodeComputer(
             '0' -> memory[instructionPointer + position].toInt()
             '1' -> instructionPointer + position
             '2' -> (memory[instructionPointer + position] + relativeBase).toInt()
-            else -> throw IllegalArgumentException("Parameter mode unknown")
+            else -> error("Parameter mode unknown")
         }
-
 
     private fun write(index: Int, value: Long, parameterMode: Char) {
         val position = readPosition(index, parameterMode)
@@ -186,7 +185,6 @@ class IntCodeComputer(
         }
         return null
     }
-
 }
 
 class DequeOutputDevice : OutputDevice {
@@ -200,19 +198,24 @@ class DequeOutputDevice : OutputDevice {
     override fun reset() {
         values = ArrayDeque()
     }
-
 }
 
 class QueueInputDevice : InputDevice {
-    var values = ArrayBlockingQueue<Long>(100000)
+
+    var values = ArrayBlockingQueue<Long>(MAX_CAPACITY)
 
     override fun read(): Long = values.poll()
+
     override fun add(value: Long) {
         values.add(value)
     }
 
     override fun reset() {
-        values = ArrayBlockingQueue(100000)
+        values = ArrayBlockingQueue(MAX_CAPACITY)
+    }
+
+    companion object {
+        private const val MAX_CAPACITY = 100000
     }
 }
 

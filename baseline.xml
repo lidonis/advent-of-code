@@ -1,75 +1,24 @@
 <?xml version="1.0" ?>
 <SmellBaseline>
-  <Blacklist></Blacklist>
-  <Whitelist>
-    <ID>ComplexMethod:IntCodeComputer.kt$IntCodeComputer$getActions</ID>
-    <ID>LongMethod:BasicIntCodeComputer.kt$BasicIntCodeComputer$getActions</ID>
-    <ID>LongMethod:IntCodeComputer.kt$IntCodeComputer$getActions</ID>
-    <ID>MagicNumber:BasicIntCodeComputer.kt$BasicIntCodeComputer$3</ID>
-    <ID>MagicNumber:BasicIntCodeComputer.kt$BasicIntCodeComputer$4</ID>
-    <ID>MagicNumber:BasicIntCodeComputer.kt$BasicIntCodeComputer$5</ID>
-    <ID>MagicNumber:BasicIntCodeComputer.kt$BasicIntCodeComputer$6</ID>
-    <ID>MagicNumber:BasicIntCodeComputer.kt$BasicIntCodeComputer$7</ID>
-    <ID>MagicNumber:BasicIntCodeComputer.kt$BasicIntCodeComputer$8</ID>
-    <ID>MagicNumber:BasicIntCodeComputer.kt$BasicIntCodeComputer$99</ID>
-    <ID>MagicNumber:BasicIntCodeComputer.kt$BasicIntCodeComputer$99L</ID>
-    <ID>MagicNumber:Day23.kt$NetworkInterfaceControllerActor.Monitor$255</ID>
-    <ID>MagicNumber:Day23.kt$NetworkInterfaceControllerActor.Monitor$50</ID>
-    <ID>MagicNumber:Day23.kt$NetworkInterfaceControllerActor.NetworkComputer$10</ID>
-    <ID>MagicNumber:Day23.kt$NetworkInterfaceControllerActor.NetworkComputer$20</ID>
-    <ID>MagicNumber:Day23.kt$NetworkInterfaceControllerActor.NotAlwaysTransmitting$255</ID>
-    <ID>MagicNumber:Day23.kt$NetworkInterfaceControllerActor.Router$255</ID>
-    <ID>MagicNumber:Day23.kt$NetworkInterfaceControllerActor.Router$50</ID>
-    <ID>MagicNumber:Day24.kt$Day24$200</ID>
-    <ID>MagicNumber:Day24.kt$Day24$24</ID>
-    <ID>MagicNumber:Day25.kt$10</ID>
-    <ID>MagicNumber:Eris.kt$Eris$3</ID>
-    <ID>MagicNumber:Eris.kt$Eris$4</ID>
-    <ID>MagicNumber:Eris.kt$Eris$5</ID>
-    <ID>MagicNumber:Eris.kt$Eris.EmptyRecursiveEris$5</ID>
-    <ID>MagicNumber:Eris.kt$RecursiveEris$3</ID>
-    <ID>MagicNumber:FlawedFrequencyTransmission.kt$FlawedFrequencyTransmission$10</ID>
-    <ID>MagicNumber:FlawedFrequencyTransmission.kt$FlawedFrequencyTransmission$10.0</ID>
-    <ID>MagicNumber:FlawedFrequencyTransmission.kt$FlawedFrequencyTransmission$10000</ID>
-    <ID>MagicNumber:FlawedFrequencyTransmission.kt$FlawedFrequencyTransmission$7</ID>
-    <ID>MagicNumber:FlawedFrequencyTransmission.kt$FlawedFrequencyTransmission$8</ID>
-    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$10</ID>
-    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$100000</ID>
-    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$3</ID>
-    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$4</ID>
-    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$5</ID>
-    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$6</ID>
-    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$7</ID>
-    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$8</ID>
-    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$9</ID>
-    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$99</ID>
-    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$99L</ID>
-    <ID>MagicNumber:MovementRules.kt$MovementRules.Companion$10</ID>
-    <ID>MagicNumber:MovementRules.kt$MovementRules.Companion$20</ID>
-    <ID>MagicNumber:MovementRules.kt$MovementRules.Companion$3</ID>
-    <ID>MagicNumber:OrbitMap.kt$OrbitMap$2</ID>
-    <ID>MagicNumber:ScaffoldMap.kt$ScaffoldMap$4</ID>
-    <ID>MagicNumber:SpringScriptGenerator.kt$SpringScriptGenerator$10</ID>
-    <ID>MagicNumber:SpringScriptGenerator.kt$SpringScriptGenerator$3</ID>
-    <ID>MagicNumber:SpringScriptGenerator.kt$SpringScriptGenerator$4</ID>
-    <ID>MagicNumber:TractorBeam.kt$TractorBeam$10000</ID>
-    <ID>MagicNumber:TractorBeam.kt$TractorBeam$1800</ID>
-    <ID>MagicNumber:TractorBeam.kt$TractorBeam$2000</ID>
-    <ID>MaxLineLength:Day23.kt$NetworkInterfaceControllerActor.Monitor$println("First Y value delivered by the NAT to
-      the computer at address 0 twice in a row: ${networkMessage.y}")
-    </ID>
-    <ID>MaxLineLength:SpaceCardDeck.kt$SpaceCardDeck$it.startsWith("deal with increment") -&gt; { deck: SpaceCardDeck -&gt;
-      deck.dealWithIncrement(it.split(" ").last().toInt()) }
-    </ID>
-    <ID>NestedBlockDepth:Day11.kt$Day11$part2</ID>
-    <ID>NestedBlockDepth:Day25.kt$main</ID>
-    <ID>NestedBlockDepth:MovementRules.kt$MovementRules.Companion$compress</ID>
-    <ID>NewLineAtEndOfFile:BreadthFirstSearch.kt$fr.lidonis.adventofcode.common.graph.BreadthFirstSearch.kt</ID>
-    <ID>TooManyFunctions:BasicIntCodeComputer.kt$BasicIntCodeComputer$BasicIntCodeComputer</ID>
-    <ID>TooManyFunctions:IntCodeComputer.kt$IntCodeComputer$IntCodeComputer</ID>
-    <ID>WildcardImport:Day18.kt$import Day18.Tile.*</ID>
-    <ID>WildcardImport:Day23.kt$import kotlinx.coroutines.*</ID>
-    <ID>WildcardImport:Day23.kt$import kotlinx.coroutines.channels.*</ID>
-    <ID>WildcardImport:Eris.kt$import fr.lidonis.adventofcode.y2019.day24.Eris.State.*</ID>
-  </Whitelist>
+    <ManuallySuppressedIssues></ManuallySuppressedIssues>
+    <CurrentIssues>
+        <ID>ComplexMethod:IntCodeComputer.kt$IntCodeComputer$private fun getActions(): MutableList&lt;() -&gt;
+            Unit&gt;
+        </ID>
+        <ID>LongMethod:IntCodeComputer.kt$IntCodeComputer$private fun getActions(): MutableList&lt;() -&gt; Unit&gt;
+        </ID>
+        <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$3</ID>
+        <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$4</ID>
+        <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$5</ID>
+        <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$6</ID>
+        <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$7</ID>
+        <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$8</ID>
+        <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$9</ID>
+        <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$99</ID>
+        <ID>MagicNumber:SpringScriptGenerator.kt$SpringScriptGenerator$10</ID>
+        <ID>MagicNumber:SpringScriptGenerator.kt$SpringScriptGenerator$3</ID>
+        <ID>MagicNumber:SpringScriptGenerator.kt$SpringScriptGenerator$4</ID>
+        <ID>TooManyFunctions:Eris.kt$Eris</ID>
+        <ID>TooManyFunctions:IntCodeComputer.kt$IntCodeComputer : ASCIICodeComputer</ID>
+    </CurrentIssues>
 </SmellBaseline>

@@ -27,14 +27,12 @@ class DirectionTest {
         )
     }
 
-
     @Test
     fun `test west turn right is north`() {
         assertThat(Direction.LEFT.turnRight()).isEqualTo(
             Direction.UP
         )
     }
-
 
     @Test
     fun `test north turn left is west`() {
@@ -57,12 +55,10 @@ class DirectionTest {
         )
     }
 
-
     @Test
     fun `test east turn left is north`() {
         assertThat(Direction.RIGHT.turnLeft()).isEqualTo(
             Direction.UP
         )
     }
-
 }
