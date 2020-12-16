@@ -41,7 +41,7 @@ class AdventOfCodeCommand(private val year: Int, private val day: Int) {
         Class.forName("fr.lidonis.adventofcode.y$year.day$day.Day$day").getDeclaredField("INSTANCE")
             .get(null) as AdventOfCode
     } catch (e: ClassNotFoundException) {
-        throw IllegalStateException("Advent of code not load with params year: $year day: $day", e)
+        throw IllegalStateException("Advent of code not found with params year: $year day: $day", e)
     } catch (e: ClassCastException) {
         throw IllegalStateException("Class found but not Advent of code object", e)
     }
