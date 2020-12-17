@@ -6,9 +6,9 @@ private const val DAY = 2
 
 object Day2 : AdventOfCode2020(DAY) {
 
+    private val passwordDatabase = PasswordDatabase(input().lines())
+
     override fun part1() = passwordDatabase.countValidPasswordSledRentalPolicy()
 
     override fun part2() = passwordDatabase.countValidPasswordTobogganCorporatePolicy()
-
-    private val passwordDatabase = PasswordDatabase(input().lines())
 }

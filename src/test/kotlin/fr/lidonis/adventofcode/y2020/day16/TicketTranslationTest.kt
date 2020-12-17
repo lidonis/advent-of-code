@@ -3,8 +3,6 @@ package fr.lidonis.adventofcode.y2020.day16
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-import org.junit.jupiter.api.Assertions.*
-
 class TicketTranslationTest {
 
     @Test
@@ -27,7 +25,7 @@ class TicketTranslationTest {
     }
 
     @Test
-    internal fun ticket() {
+    fun ticket() {
         val scan = """
             class: 0-1 or 4-19
             row: 0-5 or 8-19

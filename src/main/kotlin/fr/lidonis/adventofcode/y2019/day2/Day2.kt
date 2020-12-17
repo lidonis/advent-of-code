@@ -9,12 +9,13 @@ object Day2 : AdventOfCode2019(DAY) {
 
     private const val NOUN = 12L
     private const val VERB = 2L
-
-    override fun part1() = runNounVerb(NOUN, VERB)
-
     private const val MAX_INPUT = 99L
     private const val SEARCHED_OUTPUT = 19690720L
     private const val MULTIPLIER = 100
+
+    private val computer = IntCodeComputerFactory.buildBasicComputer(input().text())
+
+    override fun part1() = runNounVerb(NOUN, VERB)
 
     override fun part2(): Long {
         for (noun in 0..MAX_INPUT) {
@@ -33,6 +34,4 @@ object Day2 : AdventOfCode2019(DAY) {
             run()
             memory[0]
         }
-
-    private val computer = IntCodeComputerFactory.buildBasicComputer(input().text())
 }

@@ -8,10 +8,9 @@ private const val TURN_PART_2 = 30000000
 
 object Day15 : AdventOfCode2020(DAY) {
 
+    private val rambunctiousRecitation = RambunctiousRecitation(input().text())
+
     override fun part1() = rambunctiousRecitation.lastSpoken(TURN_PART_1)
 
     override fun part2() = rambunctiousRecitation.lastSpoken(TURN_PART_2)
-
-    private val rambunctiousRecitation = RambunctiousRecitation(input().text())
-
 }

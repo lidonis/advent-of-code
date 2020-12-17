@@ -12,12 +12,13 @@ object Day7 : AdventOfCode2019(DAY) {
     private const val PART_2_RANGE_START = 5L
     private const val PART_2_RANGE_END = 9L
 
+    private val program = input().text()
+
     override fun part1() = largestSignal(PART_1_RANGE_START..PART_1_RANGE_END) ?: error("No signal ...")
+
     override fun part2() = largestSignal(PART_2_RANGE_START..PART_2_RANGE_END) ?: error("No signal ...")
 
     private fun largestSignal(range: LongRange) = range.toList().permute().map {
         Amplifiers(program, it).run()
     }.maxOrNull()
-
-    private val program = input().text()
 }

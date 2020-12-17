@@ -7,7 +7,10 @@ private const val DAY = 9
 
 object Day9 : AdventOfCode2019(DAY) {
 
+    private val computer = IntCodeComputerFactory.buildIOComputer(input().text())
+
     override fun part1() = compute(1) ?: error("No boost code")
+
     override fun part2() = compute(2) ?: error("No distress signal")
 
     private fun compute(input: Long) = computer.run {
@@ -15,6 +18,4 @@ object Day9 : AdventOfCode2019(DAY) {
         input(input)
         nextOutput()
     }
-
-    private val computer = IntCodeComputerFactory.buildIOComputer(input().text())
 }

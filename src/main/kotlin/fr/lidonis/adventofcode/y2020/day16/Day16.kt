@@ -6,10 +6,11 @@ private const val DAY = 16
 
 object Day16 : AdventOfCode2020(DAY) {
 
-    override fun part1() = ticketTranslation.scanningErrorRate()
-
-    override fun part2() = ticketTranslation.ticket().filterKeys { it.startsWith("departure") }.values.fold(1, Long::times)
-
     private val ticketTranslation = TicketTranslation(input().lines())
 
+    override fun part1() = ticketTranslation.scanningErrorRate()
+
+    override fun part2() = ticketTranslation.ticket()
+        .filterKeys { it.startsWith("departure") }.values
+        .fold(1, Long::times)
 }

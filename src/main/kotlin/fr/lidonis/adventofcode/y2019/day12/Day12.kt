@@ -6,8 +6,9 @@ private const val DAY = 12
 
 object Day12 : AdventOfCode2019(DAY) {
 
-    override fun part1() = galileanMoons.totalEnergy()
-    override fun part2() = galileanMoons.stepsToRepeatPreviousState()
-
     private val galileanMoons = GalileanMoons(input().lines())
+
+    override fun part1() = galileanMoons.totalEnergy()
+
+    override fun part2() = galileanMoons.stepsToRepeatPreviousState()
 }

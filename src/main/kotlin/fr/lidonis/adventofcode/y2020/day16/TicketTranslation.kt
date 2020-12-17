@@ -1,65 +1,75 @@
 package fr.lidonis.adventofcode.y2020.day16
 
-import fr.lidonis.adventofcode.common.head
-import fr.lidonis.adventofcode.common.tail
+@OptIn(ExperimentalStdlibApi::class)
+class TicketTranslation(lines: List<String>) {
 
-class TicketTranslation(private val lines: List<String>) {
-
-    private val rules = mutableMapOf<String, List<IntRange>>()
-    private val myTicket = mutableListOf<Int>()
-    private val nearbyTickets = mutableListOf<List<Int>>()
+    private val rules: Map<String, Set<IntRange>>
+    private val allFields: Set<String>
+    private val allRanges: Set<IntRange>
+    private val myTicket: List<Int>
+    private val nearbyTickets: List<List<Int>>
+    private val matchingFieldsCache = mutableMapOf<Int, Set<String>>()
 
     init {
-        var scanRule = true
-        var scanMyTicket = false
-        var scanNearbyTickets = false
-        for (line in lines) {
-            when {
-                line.isEmpty() -> continue
-                line == "your ticket:" -> {
-                    scanMyTicket = true
-                    scanRule = false
-                }
-                line == "nearby tickets:" -> {
-                    scanNearbyTickets = true
-                    scanMyTicket = false
-                }
-                scanRule -> line.split(": ").let { (field, ranges) ->
-                    rules[field] = ranges.split(" or ")
-                        .map { it.split("-").let { (start, end) -> start.toInt()..end.toInt() } }
-                        .toList()
+        val lineIterator = lines.iterator()
+        rules = buildMap(readRules(lineIterator))
+        allRanges = rules.values.flatten().toSet()
+        allFields = rules.keys
+        check(lineIterator.next() == "your ticket:")
+        myTicket = lineIterator.next().split(",").map(String::toInt)
+        check(lineIterator.next().isEmpty())
+        check(lineIterator.next() == "nearby tickets:")
+        nearbyTickets = buildList(readNearbyTickets(lineIterator))
+    }
 
-                }
-                scanMyTicket -> myTicket.addAll(line.split(",").map(String::toInt))
-                scanNearbyTickets -> nearbyTickets.add(line.split(",").map(String::toInt))
+    private fun readRules(lineIterator: Iterator<String>): MutableMap<String, Set<IntRange>>.() -> Unit = {
+        for (line in lineIterator) {
+            if (line.isEmpty()) break
+            line.split(": ").let { (field, ranges) ->
+                this[field] = ranges.split(" or ").map {
+                    val (start, end) = it.split("-")
+                    start.toInt()..end.toInt()
+                }.toSet()
             }
         }
     }
 
-    fun scanningErrorRate(): Int {
-        val allRanges = rules.values.flatten()
-        return nearbyTickets.flatMap { ticket -> ticket.filter { i -> allRanges.none { it.contains(i) } } }.sum()
+    private fun readNearbyTickets(lineIterator: Iterator<String>): MutableList<List<Int>>.() -> Unit = {
+        for (line in lineIterator) {
+            this.add(line.split(',').map { it.toInt() })
+        }
     }
 
-    fun ticket(): Map<String, Int> {
-        val allRanges = rules.values.flatten()
-        val validTickets = nearbyTickets.filter { t -> t.all { i -> allRanges.any { it.contains(i) } } }
-        val mappings = validTickets.head.map(this::matchingFields).toMutableList()
-        for (ticket in validTickets.tail) {
+    fun scanningErrorRate() = nearbyTickets.flatMap { ticket ->
+        ticket.filter { allRanges.none { range -> range.contains(it) } }
+    }.sum()
+
+    fun ticket() = this.fieldsMapping().let { fieldsMapping ->
+        myTicket.mapIndexed { i, value -> fieldsMapping[i] to value }.toMap()
+    }
+
+    private fun fieldsMapping(): List<String> {
+        val compatibilitiesBySize = compatibilities().withIndex().sortedBy { it.value.size }
+        val matchedFields = mutableSetOf<String>()
+        val fieldsMapping = MutableList(allFields.size) { "" }
+        for ((index, fields) in compatibilitiesBySize) {
+            fieldsMapping[index] = (fields - matchedFields).first()
+            matchedFields.add(fieldsMapping[index])
+        }
+        return fieldsMapping
+    }
+
+    private fun compatibilities(): List<Set<String>> {
+        return validTickets().fold(MutableList(allFields.size) { allFields }) { compatibilities, ticket ->
             for ((i, value) in ticket.withIndex()) {
-                mappings[i] = mappings[i].intersect(matchingFields(value))
+                compatibilities[i] = compatibilities[i].intersect(matchingFields(value))
             }
+            compatibilities
         }
-        val fieldsMapping = mappings.asSequence()
-            .mapIndexed { index, set -> index to set }
-            .sortedByDescending { it.second.size }
-            .windowed(2, partialWindows = true)
-            .map { it.head.first to it.head.second - it.getOrElse(1) { -1 to emptySet() }.second }
-            .sortedBy { it.first }.map { it.second.first() }.toList()
-        return myTicket.mapIndexed { i, value -> fieldsMapping[i] to value }.toMap()
     }
 
-    private fun matchingFields(value: Int) = rules.filterValues { ranges -> ranges.any { it.contains(value) } }.keys
+    private fun validTickets() = nearbyTickets.filter { t -> t.all { i -> allRanges.any { it.contains(i) } } }
 
-
+    private fun matchingFields(value: Int) =
+        matchingFieldsCache.getOrPut(value) { rules.filterValues { ranges -> ranges.any { it.contains(value) } }.keys }
 }

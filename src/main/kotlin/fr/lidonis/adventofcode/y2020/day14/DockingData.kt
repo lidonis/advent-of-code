@@ -2,6 +2,7 @@ package fr.lidonis.adventofcode.y2020.day14
 
 import java.util.BitSet
 
+private const val VALUES_BIT_SIZE = 36
 private val MASK_REGEX = Regex("^mask = ([X01]{36})$")
 private val MEMORY_REGEX = Regex("""^mem\[(\d+)] = (\d+)$""")
 
@@ -33,18 +34,17 @@ sealed class DockingData(private val program: List<String>) {
 
 class DockingDataV1(program: List<String>) : DockingData(program) {
 
-    private var bitSet1 = BitSet(36)
+    private var bitSet1 = BitSet(VALUES_BIT_SIZE)
 
     override fun readMask(s: String) {
         super.readMask(s)
         //TODO BISET AND ET AND NOT
-        bitSet1 = BitSet(36)
+        bitSet1 = BitSet(VALUES_BIT_SIZE)
         mask.forEachIndexed { index, c ->
             if (c == '1') {
                 println(c); bitSet1.set(index, true); println(bitSet1)
             }
         }
-        println("$mask $bitSet1")
     }
 
     override fun writeMemory(address: Long, value: Long) {

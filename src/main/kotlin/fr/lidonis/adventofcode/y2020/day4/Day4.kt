@@ -6,9 +6,9 @@ private const val DAY = 4
 
 object Day4 : AdventOfCode2020(DAY) {
 
+    private val passportScanner = PassportScanner(input().text())
+
     override fun part1() = passportScanner.countValidRequiredField()
 
     override fun part2() = passportScanner.countValidValues()
-
-    private val passportScanner = PassportScanner(input().text())
 }

@@ -65,6 +65,7 @@ kotlin {
 
 compileKotlin {
     kotlinOptions {
-        freeCompilerArgs = ["-Xinline-classes"]
+        jvmTarget = '1.6'
+        freeCompilerArgs = ["-Xinline-classes", "-Xopt-in=kotlin.RequiresOptIn"]
     }
 }

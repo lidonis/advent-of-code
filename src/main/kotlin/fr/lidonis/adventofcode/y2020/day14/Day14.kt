@@ -9,5 +9,4 @@ object Day14 : AdventOfCode2020(DAY) {
     override fun part1() = DockingDataV1(input().lines()).runProgram()
 
     override fun part2() = DockingDataV2(input().lines()).runProgram()
-
 }

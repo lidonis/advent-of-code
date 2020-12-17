@@ -6,10 +6,9 @@ private const val DAY = 5
 
 object Day5 : AdventOfCode2020(DAY) {
 
+    private val binaryBoardingScanner = BinaryBoardingScanner(input().lines())
+
     override fun part1() = binaryBoardingScanner.highestSeatID()
 
     override fun part2() = binaryBoardingScanner.findMissingSeatId()
-
-    private val binaryBoardingScanner = BinaryBoardingScanner(input().lines())
-
 }

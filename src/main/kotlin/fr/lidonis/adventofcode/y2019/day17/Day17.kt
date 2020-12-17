@@ -6,9 +6,9 @@ private const val DAY = 17
 
 object Day17 : AdventOfCode2019(DAY) {
 
+    private val ascii = AftScaffoldingControlAndInformationInterface(input().text())
+
     override fun part1() = ascii.sumOfTheAlignmentParameters()
 
     override fun part2() = ascii.amountOfDustCollected() ?: error("No dust collected")
-
-    private val ascii = AftScaffoldingControlAndInformationInterface(input().text())
 }

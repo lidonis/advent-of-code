@@ -6,10 +6,10 @@ private const val DAY = 13
 
 object Day13 : AdventOfCode2020(DAY) {
 
+    private val shuttleSearch = ShuttleSearch(input().lines())
+
     override fun part1() =
         shuttleSearch.searchBus()?.let { (busId, waitTime) -> busId * waitTime } ?: error("Bus not found")
 
     override fun part2() = shuttleSearch.findTimestamp()
-
-    private val shuttleSearch = ShuttleSearch(input().lines())
 }

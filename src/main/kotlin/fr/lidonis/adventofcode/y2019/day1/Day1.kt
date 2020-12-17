@@ -6,8 +6,9 @@ private const val DAY = 1
 
 object Day1 : AdventOfCode2019(DAY) {
 
-    override fun part1(): Int = spacecraft.fuelRequirements()
-    override fun part2(): Int = spacecraft.fullFuelRequirements()
-
     private val spacecraft = Spacecraft(input().text().lines().map(String::toInt))
+
+    override fun part1(): Int = spacecraft.fuelRequirements()
+
+    override fun part2(): Int = spacecraft.fullFuelRequirements()
 }

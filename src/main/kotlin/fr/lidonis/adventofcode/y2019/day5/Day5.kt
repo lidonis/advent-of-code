@@ -7,6 +7,10 @@ private const val DAY = 5
 
 object Day5 : AdventOfCode2019(DAY) {
 
+    private const val DIAGNOSTIC_MODE = 5L
+
+    private val computer = IntCodeComputerFactory.buildIOComputer(input().text())
+
     override fun part1(): Long = computer.run {
         reset()
         input(1)
@@ -16,14 +20,9 @@ object Day5 : AdventOfCode2019(DAY) {
         diagnosticCode
     }
 
-    private const val DIAGNOSTIC_MODE = 5L
-
     override fun part2() = computer.run {
         reset()
         input(DIAGNOSTIC_MODE)
         nextOutput() ?: error("No diagnostic code")
     }
-
-    private val computer = IntCodeComputerFactory.buildIOComputer(input().text())
-
 }

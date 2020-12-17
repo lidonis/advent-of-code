@@ -6,11 +6,9 @@ private const val DAY = 13
 
 object Day13 : AdventOfCode2019(DAY) {
 
+    private val arcadeCabinet = ArcadeCabinet(input().text())
+
     override fun part1() = arcadeCabinet.countBlock()
 
-    override fun part2(): Any {
-        return arcadeCabinet.bot()
-    }
-
-    private val arcadeCabinet = ArcadeCabinet(input().text())
+    override fun part2() = arcadeCabinet.bot()
 }

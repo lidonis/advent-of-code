@@ -12,6 +12,9 @@ private const val DAY = 11
 
 object Day11 : AdventOfCode2019(DAY) {
 
+    private fun robot(startingPanelColor: Color) =
+        EmergencyHullPaintingRobot(IntCodeComputerFactory.buildIOComputer(input().text()), startingPanelColor)
+
     override fun part1() = robot(BLACK).run {
         compute()
         panelsPaintedAtLeastOnce
@@ -24,8 +27,4 @@ object Day11 : AdventOfCode2019(DAY) {
         }.run {
             OCR.detect(PositionSet(this.filterValues { it == WHITE }.keys).mirrorY())
         }
-
-    private fun robot(startingPanelColor: Color) = EmergencyHullPaintingRobot(computer, startingPanelColor)
-
-    private val computer = IntCodeComputerFactory.buildIOComputer(input().text())
 }
