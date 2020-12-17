@@ -1,24 +1,21 @@
 <?xml version="1.0" ?>
 <SmellBaseline>
-    <ManuallySuppressedIssues></ManuallySuppressedIssues>
-    <CurrentIssues>
-        <ID>ComplexMethod:IntCodeComputer.kt$IntCodeComputer$private fun getActions(): MutableList&lt;() -&gt;
-            Unit&gt;
-        </ID>
-        <ID>LongMethod:IntCodeComputer.kt$IntCodeComputer$private fun getActions(): MutableList&lt;() -&gt; Unit&gt;
-        </ID>
-        <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$3</ID>
-        <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$4</ID>
-        <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$5</ID>
-        <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$6</ID>
-        <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$7</ID>
-        <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$8</ID>
-        <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$9</ID>
-        <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$99</ID>
-        <ID>MagicNumber:SpringScriptGenerator.kt$SpringScriptGenerator$10</ID>
-        <ID>MagicNumber:SpringScriptGenerator.kt$SpringScriptGenerator$3</ID>
-        <ID>MagicNumber:SpringScriptGenerator.kt$SpringScriptGenerator$4</ID>
-        <ID>TooManyFunctions:Eris.kt$Eris</ID>
-        <ID>TooManyFunctions:IntCodeComputer.kt$IntCodeComputer : ASCIICodeComputer</ID>
-    </CurrentIssues>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>ComplexMethod:IntCodeComputer.kt$IntCodeComputer$private fun getActions(): MutableList&lt;() -&gt; Unit&gt;</ID>
+    <ID>LongMethod:IntCodeComputer.kt$IntCodeComputer$private fun getActions(): MutableList&lt;() -&gt; Unit&gt;</ID>
+    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$3</ID>
+    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$4</ID>
+    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$5</ID>
+    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$6</ID>
+    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$7</ID>
+    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$8</ID>
+    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$9</ID>
+    <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$99</ID>
+    <ID>MagicNumber:SpringScriptGenerator.kt$SpringScriptGenerator$10</ID>
+    <ID>MagicNumber:SpringScriptGenerator.kt$SpringScriptGenerator$3</ID>
+    <ID>MagicNumber:SpringScriptGenerator.kt$SpringScriptGenerator$4</ID>
+    <ID>TooManyFunctions:Eris.kt$Eris</ID>
+    <ID>TooManyFunctions:IntCodeComputer.kt$IntCodeComputer : ASCIICodeComputer</ID>
+  </CurrentIssues>
 </SmellBaseline>

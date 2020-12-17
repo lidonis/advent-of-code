@@ -14,15 +14,13 @@ data class PositionSet(val positions: Set<Position>) : Set<Position> by position
         if (isEmpty()) {
             BoundingBox(Position.ORIGIN, Position.ORIGIN)
         } else {
-            var (xMin, yMin) = first()
-            var (xMax, yMax) = first()
-            for (position in drop(1)) {
-                if (position.x < xMin) xMin = position.x
-                if (position.y < yMin) yMin = position.y
-                if (position.x > xMax) xMax = position.x
-                if (position.y > yMax) yMax = position.y
+            val min = positions.reduce { acc, position ->
+                Position(acc.x.coerceAtMost(position.x), acc.y.coerceAtMost(position.y))
             }
-            BoundingBox(Position(xMin, yMin), Position(xMax, yMax))
+            val max = positions.reduce { acc, position ->
+                Position(acc.x.coerceAtLeast(position.x), acc.y.coerceAtLeast(position.y))
+            }
+            BoundingBox(min, max)
         }
     }
 

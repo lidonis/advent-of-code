@@ -9,7 +9,6 @@ private val MEMORY_REGEX = Regex("""^mem\[(\d+)] = (\d+)$""")
 sealed class DockingData(private val program: List<String>) {
 
     protected val memory = mutableMapOf<Long, Long>()
-    protected var mask = ""
 
     fun runProgram(): Long {
         program.forEach { line ->
@@ -25,59 +24,54 @@ sealed class DockingData(private val program: List<String>) {
         return memory.values.sum()
     }
 
-    open fun readMask(s: String) {
-        mask = s.reversed()
-    }
+    abstract fun readMask(mask: String)
 
-    protected abstract fun writeMemory(address: Long, value: Long)
+    abstract fun writeMemory(address: Long, value: Long)
 }
 
 class DockingDataV1(program: List<String>) : DockingData(program) {
 
     private var bitSet1 = BitSet(VALUES_BIT_SIZE)
+    private var bitSet0 = BitSet(VALUES_BIT_SIZE)
 
-    override fun readMask(s: String) {
-        super.readMask(s)
-        //TODO BISET AND ET AND NOT
+    override fun readMask(mask: String) {
         bitSet1 = BitSet(VALUES_BIT_SIZE)
-        mask.forEachIndexed { index, c ->
-            if (c == '1') {
-                println(c); bitSet1.set(index, true); println(bitSet1)
+        bitSet0 = BitSet(VALUES_BIT_SIZE)
+        mask.reversed().forEachIndexed { index, c ->
+            when (c) {
+                '1' -> bitSet1.set(index, true)
+                '0' -> bitSet0.set(index, true)
             }
         }
     }
 
     override fun writeMemory(address: Long, value: Long) {
         val bitSet = BitSet.valueOf(longArrayOf(value))
-        mask.forEachIndexed { index, c ->
-            when (c) {
-                '0' -> bitSet.set(index, false)
-            }
-        }
-        bitSet.and(bitSet1)
-
+        bitSet.or(bitSet1)
+        bitSet.andNot(bitSet0)
         memory[address] = bitSet.toLongArray()[0]
     }
 }
 
 class DockingDataV2(program: List<String>) : DockingData(program) {
 
+    private var mask = ""
+
+    override fun readMask(mask: String) {
+        this.mask = mask.reversed()
+    }
+
     override fun writeMemory(address: Long, value: Long) {
-        var results = mutableListOf(BitSet.valueOf(longArrayOf(address)))
+        var addresses = listOf(BitSet.valueOf(longArrayOf(address)))
         mask.forEachIndexed { index, c ->
             when (c) {
-                '1' -> results.forEach { it.set(index) }
-                'X' -> {
-                    val t1 =
-                        results.map { BitSet.valueOf(it.toLongArray()) }.onEach { it.set(index, true) }
-                            .toMutableList()
-                    val t2 =
-                        results.map { BitSet.valueOf(it.toLongArray()) }.onEach { it.clear(index) }
-                    t1.addAll(t2)
-                    results = t1
-                }
+                '1' -> addresses.forEach { it.set(index) }
+                'X' -> addresses = floatingIndex(addresses, index)
             }
         }
-        results.forEach { memory[it.toLongArray()[0]] = value }
+        addresses.forEach { memory[it.toLongArray()[0]] = value }
     }
+
+    private fun floatingIndex(addresses: List<BitSet>, index: Int) =
+        addresses.onEach { it.clear(index) } + addresses.map { it.clone() as BitSet }.onEach { it.set(index, true) }
 }

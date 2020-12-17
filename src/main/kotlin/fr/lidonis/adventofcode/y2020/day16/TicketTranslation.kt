@@ -62,7 +62,7 @@ class TicketTranslation(lines: List<String>) {
     private fun compatibilities(): List<Set<String>> {
         return validTickets().fold(MutableList(allFields.size) { allFields }) { compatibilities, ticket ->
             for ((i, value) in ticket.withIndex()) {
-                compatibilities[i] = compatibilities[i].intersect(matchingFields(value))
+                compatibilities[i] = compatibilities[i] intersect matchingFields(value)
             }
             compatibilities
         }

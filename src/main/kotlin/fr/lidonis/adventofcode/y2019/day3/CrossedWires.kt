@@ -2,6 +2,7 @@ package fr.lidonis.adventofcode.y2019.day3
 
 import fr.lidonis.adventofcode.common.geo.plane.Direction
 import fr.lidonis.adventofcode.common.geo.plane.Position
+import fr.lidonis.adventofcode.common.tail
 
 class CrossedWires(input1: List<String>, input2: List<String>) {
     private val startingPosition = Position(1, 1)
@@ -11,15 +12,14 @@ class CrossedWires(input1: List<String>, input2: List<String>) {
 
     constructor(input1: String, input2: String) : this(input1.split(","), input2.split(","))
 
-    fun minimumDistance() = wire1.drop(1).intersect(wire2.drop(1))
+    fun minimumDistance() = (wire1.tail intersect wire2.tail)
         .map { startingPosition.manhattanDistance(it) }.minOrNull()
 
-    fun fewestSteps() = wire1.drop(1).intersect(wire2.drop(1)).map {
+    fun fewestSteps() = (wire1.tail intersect wire2.tail).map {
         wire1.indexOf(it) + wire2.indexOf(it)
     }.minOrNull()
 
     class Wire(private val positions: List<Position>) : List<Position> by positions {
-
         constructor(
             startingPosition: Position,
             moves: List<String>

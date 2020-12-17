@@ -1,5 +1,9 @@
 package fr.lidonis.adventofcode.y2020.day17
 
+private const val ACTIVATED_COUNT = 3
+private const val STAY_ACTIVE_MIN = 2
+private const val STAY_ACTIVE_MAX = 3
+
 data class ConwayCubes(private val lines: List<String>) {
 
     fun cube(cycleCount: Int): Int {
@@ -23,8 +27,10 @@ data class ConwayCubes(private val lines: List<String>) {
             val activated = current.fold(mutableMapOf<Coordinate<R>, Int>()) { acc, j ->
                 j.adjacentCoordinates().forEach { acc[it] = (acc[it] ?: 0) + 1 }
                 acc
-            }.filterValues { it == 3 }.keys
-            val stayActive = current.filter { (it.adjacentCoordinates() intersect current).size in 2..3 }
+            }.filterValues { it == ACTIVATED_COUNT }.keys
+            val stayActive = current.filter {
+                (it.adjacentCoordinates() intersect current).size in STAY_ACTIVE_MIN..STAY_ACTIVE_MAX
+            }
             activated + stayActive
         }
     }
