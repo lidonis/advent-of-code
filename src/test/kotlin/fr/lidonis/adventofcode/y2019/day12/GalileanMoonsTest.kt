@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2019.day12
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 
-class GalileanMoonsTest {
+internal class GalileanMoonsTest {
 
     private val scan1 = """
         <x=-1, y=0, z=2>

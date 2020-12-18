@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2020.day15
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class RambunctiousRecitationTest {
+internal class RambunctiousRecitationTest {
 
     @Test
     fun lastSpokenDetailed() {

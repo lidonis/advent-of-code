@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2020.day16
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class TicketTranslationTest {
+internal class TicketTranslationTest {
 
     @Test
     fun scanningErrorRate() {

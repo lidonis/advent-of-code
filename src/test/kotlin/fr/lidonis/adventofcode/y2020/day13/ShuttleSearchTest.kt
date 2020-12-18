@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2020.day13
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class ShuttleSearchTest {
+internal class ShuttleSearchTest {
 
     private val input1 = """
         939

@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
-class PasswordDatabaseTest {
+internal class PasswordDatabaseTest {
 
     @Nested
     inner class SledRentalPolicyTest {

@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2020.day6
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class CustomsFormsTest {
+internal class CustomsFormsTest {
 
     @Test
     fun sumOfYesAnyone() {

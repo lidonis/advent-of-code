@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2019.day20
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 
-class SpaceWarpingMazeTest {
+internal class SpaceWarpingMazeTest {
 
     @Test
     fun `donut example 1`() {

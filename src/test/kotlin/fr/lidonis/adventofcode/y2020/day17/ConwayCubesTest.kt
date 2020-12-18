@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2020.day17
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class ConwayCubesTest {
+internal class ConwayCubesTest {
 
     @Test
     fun `conway cube`() {

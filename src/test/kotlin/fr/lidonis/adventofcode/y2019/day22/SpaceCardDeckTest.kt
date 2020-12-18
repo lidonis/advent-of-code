@@ -7,7 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 import org.junit.jupiter.params.provider.ValueSource
 
-class SpaceCardDeckTest {
+internal class SpaceCardDeckTest {
 
     private val startDeck = SpaceCardDeck(10)
 

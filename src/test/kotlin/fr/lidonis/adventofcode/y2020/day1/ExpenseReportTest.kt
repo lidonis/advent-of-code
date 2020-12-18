@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2020.day1
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
 
-class ExpenseReportTest {
+internal class ExpenseReportTest {
 
     @Test
     fun `part 1`() {

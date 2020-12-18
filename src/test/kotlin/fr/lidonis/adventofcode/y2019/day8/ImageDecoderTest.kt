@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2019.day8
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class ImageDecoderTest {
+internal class ImageDecoderTest {
 
     @Test
     fun checksum() {

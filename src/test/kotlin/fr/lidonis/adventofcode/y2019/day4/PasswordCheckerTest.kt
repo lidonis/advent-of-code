@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2019.day4
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-class PasswordCheckerTest {
+internal class PasswordCheckerTest {
 
     @Test
     fun `first check 111111 meets criteria`() {

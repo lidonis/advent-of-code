@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2019.day1
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class SpacecraftTest {
+internal class SpacecraftTest {
 
     @Test
     fun `fuel requirements for mass of 12 is 2`() {

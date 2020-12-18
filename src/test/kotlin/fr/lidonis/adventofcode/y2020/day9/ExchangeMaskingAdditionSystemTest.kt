@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2020.day9
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class ExchangeMaskingAdditionSystemTest {
+internal class ExchangeMaskingAdditionSystemTest {
 
     @Test
     fun `find invalid number`() {

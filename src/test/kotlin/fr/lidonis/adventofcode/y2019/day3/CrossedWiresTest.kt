@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2019.day3
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class CrossedWiresTest {
+internal class CrossedWiresTest {
 
     @Test
     fun distanceExample1() {

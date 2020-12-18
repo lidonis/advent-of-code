@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2019.day17
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class ScaffoldMapTest {
+internal class ScaffoldMapTest {
 
     @Test
     fun `test example alignment parameters`() {

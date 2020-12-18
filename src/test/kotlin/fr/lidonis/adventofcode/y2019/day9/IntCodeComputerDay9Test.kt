@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
 
 @Tag("IntCodeComputer")
-class IntCodeComputerDay9Test {
+internal class IntCodeComputerDay9Test {
 
     @Test
     fun `example 1`() {

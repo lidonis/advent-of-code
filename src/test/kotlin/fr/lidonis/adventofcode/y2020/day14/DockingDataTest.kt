@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2020.day14
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class DockingDataTest {
+internal class DockingDataTest {
 
     @Test
     fun v1() {

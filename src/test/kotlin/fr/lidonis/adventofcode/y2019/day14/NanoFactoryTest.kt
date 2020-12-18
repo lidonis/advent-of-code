@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2019.day14
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
-class NanoFactoryTest {
+internal class NanoFactoryTest {
 
     @Test
     fun `1 fuel from 1 ore`() {

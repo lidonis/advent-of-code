@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2020.day7
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class LuggageProcessingTest {
+internal class LuggageProcessingTest {
 
     @Test
     fun `can contain shiny gold bag`() {

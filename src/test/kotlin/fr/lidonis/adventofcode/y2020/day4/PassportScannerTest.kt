@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2020.day4
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class PassportScannerTest {
+internal class PassportScannerTest {
 
     @Test
     fun countValidRequiredField() {

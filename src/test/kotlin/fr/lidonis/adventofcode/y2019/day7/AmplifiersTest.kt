@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2019.day7
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class AmplifiersTest {
+internal class AmplifiersTest {
 
     @Test
     fun `Max thruster 43210`() {

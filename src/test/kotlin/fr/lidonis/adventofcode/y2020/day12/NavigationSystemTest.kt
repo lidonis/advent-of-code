@@ -3,7 +3,7 @@ package fr.lidonis.adventofcode.y2020.day12
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class NavigationSystemTest {
+internal class NavigationSystemTest {
     @Test
     fun distance() {
         val navigation = NavigationSystem(

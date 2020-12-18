@@ -2,11 +2,15 @@ package fr.lidonis.adventofcode.y2019.day11
 
 import fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot.Color.BLACK
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IOCodeComputer
-import io.mockk.*
+import io.mockk.Runs
+import io.mockk.every
+import io.mockk.just
+import io.mockk.mockk
+import io.mockk.verifyOrder
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class EmergencyHullPaintingRobotTest {
+internal class EmergencyHullPaintingRobotTest {
 
     @Test
     fun `example 1`() {

@@ -4,7 +4,7 @@ import fr.lidonis.adventofcode.y2020.day3.TobogganMap.Slope
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class TobogganMapTest {
+internal class TobogganMapTest {
 
     private val tobogganMap = TobogganMap(
         """

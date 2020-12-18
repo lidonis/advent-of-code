@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.MethodSource
 
-class SeatingSystemTest {
+internal class SeatingSystemTest {
 
     @ParameterizedTest(name = "Evolve1 after {index} step")
     @MethodSource
