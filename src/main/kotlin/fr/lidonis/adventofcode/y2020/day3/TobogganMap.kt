@@ -4,10 +4,18 @@ class TobogganMap(map: List<String>) {
 
     data class Slope(val right: Int, val down: Int)
 
-    private val trees = map.map { line -> line.mapIndexedNotNull { i, char -> if (char == '#') i else null } }
+    private val trees = sequence {
+        for (line in map) {
+            yield(sequence {
+                for ((i, c) in line.withIndex()) {
+                    if (c == '#') yield(i)
+                }
+            }.toList())
+        }
+    }.toList()
     private val size = map.first().length
 
     fun treeEncounter(slope: Slope) =
-        (trees.indices step slope.down).count { trees[it].contains((it * slope.right / slope.down) % size) }
+        (trees.indices step slope.down).count { (it * slope.right / slope.down) % size in trees[it] }
 
 }

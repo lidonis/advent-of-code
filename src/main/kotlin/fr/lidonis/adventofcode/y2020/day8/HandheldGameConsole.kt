@@ -34,7 +34,7 @@ class HandheldGameConsole(program: List<String>) {
         return global
     }
 
-    private enum class Operation {
+    enum class Operation {
         ACC, JMP, NOP
     }
 
@@ -49,7 +49,7 @@ class HandheldGameConsole(program: List<String>) {
 
         operator fun inc() = plus(1)
 
-        val looped = history.contains(current)
+        val looped = current in history
 
         val overflow = current >= max
     }

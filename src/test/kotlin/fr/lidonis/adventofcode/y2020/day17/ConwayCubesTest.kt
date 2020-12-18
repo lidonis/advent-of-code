@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 class ConwayCubesTest {
 
     @Test
-    fun name() {
+    fun `conway cube`() {
         val state = """
             .#.
             ..#

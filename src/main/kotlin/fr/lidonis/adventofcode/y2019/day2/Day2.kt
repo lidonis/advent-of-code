@@ -1,5 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day2
 
+import fr.lidonis.adventofcode.common.Answer
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
@@ -15,8 +16,10 @@ object Day2 : AdventOfCode2019(DAY) {
 
     private val computer = IntCodeComputerFactory.buildBasicComputer(input().text())
 
+    @Answer("4138658")
     override fun part1() = runNounVerb(NOUN, VERB)
 
+    @Answer("7264")
     override fun part2(): Long {
         for (noun in 0..MAX_INPUT) {
             for (verb in 0..MAX_INPUT) {

@@ -1,5 +1,6 @@
 package fr.lidonis.adventofcode.y2020.day3
 
+import fr.lidonis.adventofcode.common.Answer
 import fr.lidonis.adventofcode.y2020.AdventOfCode2020
 import fr.lidonis.adventofcode.y2020.day3.TobogganMap.Slope
 
@@ -16,8 +17,10 @@ object Day3 : AdventOfCode2020(DAY) {
 
     private val tobogganMap = TobogganMap(input().lines())
 
+    @Answer("299")
     override fun part1() = tobogganMap.treeEncounter(Slope(FIRST_RIGHT_SLOPE, MIN_DOWN_SLOPE))
 
+    @Answer("3621285278")
     override fun part2() =
         listOf(
             Slope(MIN_RIGHT_SLOPE, MIN_DOWN_SLOPE),

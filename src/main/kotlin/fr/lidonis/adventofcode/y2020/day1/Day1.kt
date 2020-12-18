@@ -1,5 +1,6 @@
 package fr.lidonis.adventofcode.y2020.day1
 
+import fr.lidonis.adventofcode.common.Answer
 import fr.lidonis.adventofcode.y2020.AdventOfCode2020
 
 private const val DAY = 1
@@ -12,8 +13,10 @@ object Day1 : AdventOfCode2020(DAY) {
 
     private val expenseReport = ExpenseReport(input().lines().map(String::toInt))
 
+    @Answer("703131")
     override fun part1() = report(PART_1_SIZE)
 
+    @Answer("272423970")
     override fun part2() = report(PART_2_SIZE)
 
     private fun report(size: Int) =

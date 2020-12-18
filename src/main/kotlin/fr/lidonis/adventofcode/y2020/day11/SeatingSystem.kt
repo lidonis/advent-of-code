@@ -54,9 +54,11 @@ abstract class SeatingSystem(private val layout: MutableMap<Position, State>) {
     }
 
     companion object {
-        fun toMutableMap(input: List<String>) = input.flatMapIndexed { i, line ->
-            line.mapIndexed { j, c ->
-                Position(j, i) to (State.valueOf(c) ?: error("Unknown state"))
+        fun toMutableMap(input: List<String>) = sequence {
+            for ((i, line) in input.withIndex()) {
+                for ((j, c) in line.withIndex()) {
+                    yield(Position(j, i) to (State.valueOf(c) ?: error("Unknown state")))
+                }
             }
         }.toMap().toMutableMap()
 

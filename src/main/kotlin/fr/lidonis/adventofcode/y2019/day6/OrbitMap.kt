@@ -30,5 +30,5 @@ class OrbitMap(input: String) {
         BreadthFirstSearch.search(start, { it == end }, ::findNeighbours) ?: error("Can't find orbital transfer")
 
     private fun findNeighbours(node: String) =
-        neighbours.getOrPut(node) { orbits.filterValues { it.contains(node) }.keys + (orbits[node] ?: emptySet()) }
+        neighbours.getOrPut(node) { orbits.filterValues { node in it }.keys + (orbits[node] ?: emptySet()) }
 }

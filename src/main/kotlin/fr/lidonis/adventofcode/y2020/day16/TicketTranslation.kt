@@ -41,7 +41,7 @@ class TicketTranslation(lines: List<String>) {
     }
 
     fun scanningErrorRate() = nearbyTickets.flatMap { ticket ->
-        ticket.filter { allRanges.none { range -> range.contains(it) } }
+        ticket.filter { allRanges.none { range -> it in range } }
     }.sum()
 
     fun ticket() = this.fieldsMapping().let { fieldsMapping ->
@@ -68,8 +68,8 @@ class TicketTranslation(lines: List<String>) {
         }
     }
 
-    private fun validTickets() = nearbyTickets.filter { t -> t.all { i -> allRanges.any { it.contains(i) } } }
+    private fun validTickets() = nearbyTickets.filter { t -> t.all { i -> allRanges.any { i in it } } }
 
     private fun matchingFields(value: Int) =
-        matchingFieldsCache.getOrPut(value) { rules.filterValues { ranges -> ranges.any { it.contains(value) } }.keys }
+        matchingFieldsCache.getOrPut(value) { rules.filterValues { ranges -> ranges.any { value in it } }.keys }
 }

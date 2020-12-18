@@ -1,5 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day24
 
+import fr.lidonis.adventofcode.common.Answer
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
 private const val DAY = 24
@@ -10,6 +11,7 @@ object Day24 : AdventOfCode2019(DAY) {
 
     private val scan = input().text()
 
+    @Answer("18370591")
     override fun part1(): Int {
         val evolutions = mutableSetOf<Int>()
         var eris = Eris(scan)
@@ -19,5 +21,6 @@ object Day24 : AdventOfCode2019(DAY) {
         return eris.biodiversityRating
     }
 
-    override fun part2() = RecursiveEris(listOf(Eris(scan).toRecursive())).evolve(EVOLVE_COUNT).countBugs()
+    @Answer("2040")
+    override fun part2() = RecursiveEris(listOf(Eris(scan))).evolve(EVOLVE_COUNT).countBugs()
 }

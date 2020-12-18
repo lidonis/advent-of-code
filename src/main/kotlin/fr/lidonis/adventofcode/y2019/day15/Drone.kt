@@ -59,7 +59,7 @@ class ShipMap {
             for (i in xMin..xMax) {
                 val position = Position(i, j)
                 when {
-                    walls.contains(position) -> print('#')
+                    position in walls -> print('#')
                     i == 0 && j == 0 -> print('S')
                     position == drone -> print('D')
                     else -> print(' ')

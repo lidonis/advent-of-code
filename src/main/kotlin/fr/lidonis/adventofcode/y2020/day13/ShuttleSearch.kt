@@ -11,9 +11,9 @@ class ShuttleSearch(private val lines: List<String>) {
             .minByOrNull { (_, waitTime) -> waitTime }
     }
 
-    fun findTimestamp() =
-        lines[1].split(",")
-            .mapIndexedNotNull { i, s -> s.toLongOrNull()?.let { it to it - i } }
-            .unzip()
-            .let { chineseRemainder(it.first, it.second) }
+    fun findTimestamp() = sequence {
+        for ((i, s) in lines[1].split(",").withIndex()) {
+            s.toLongOrNull()?.let { yield(it to it - i) }
+        }
+    }.unzip().let { chineseRemainder(it.first, it.second) }
 }

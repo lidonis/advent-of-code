@@ -28,23 +28,23 @@ class ScaffoldMap(private val scaffolds: List<Position>, private val vacuumRobot
     }
 
     private fun isIntersection(position: Position) =
-        position.neighbours().count { scaffolds.contains(it) } == INTERSECTION_COUNT
+        position.neighbours().count { it in scaffolds } == INTERSECTION_COUNT
 
     fun findPath(): MutableList<String> {
         val path = mutableListOf<String>()
         var forwardCount = 0
         while (true) {
             when {
-                scaffolds.contains(vacuumRobot.forward) -> {
+                vacuumRobot.forward in scaffolds -> {
                     forwardCount++
                     vacuumRobot.moveForward()
                 }
-                scaffolds.contains(vacuumRobot.left) -> {
+                vacuumRobot.left in scaffolds -> {
                     forwardCount = addForwardCount(path, forwardCount)
                     path += "R"
                     vacuumRobot.turnLeft()
                 }
-                scaffolds.contains(vacuumRobot.right) -> {
+                vacuumRobot.right in scaffolds -> {
                     forwardCount = addForwardCount(path, forwardCount)
                     path += "L"
                     vacuumRobot.turnRight()

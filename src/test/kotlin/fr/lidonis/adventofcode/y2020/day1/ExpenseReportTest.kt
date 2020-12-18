@@ -16,7 +16,7 @@ class ExpenseReportTest {
                         1456
                         """.trimIndent().lines().map(String::toInt)
         val combinationBySum = ExpenseReport(example).findCombinationBySum(2, 2020)
-        Assertions.assertThat(combinationBySum).isEqualTo(setOf(1721, 299))
+        Assertions.assertThat(combinationBySum).isEqualTo(listOf(1721, 299))
     }
 
     @Test
@@ -30,6 +30,6 @@ class ExpenseReportTest {
                         1456
                         """.trimIndent().lines().map(String::toInt)
         val combinationBySum = ExpenseReport(example).findCombinationBySum(3, 2020)
-        Assertions.assertThat(combinationBySum).isEqualTo(setOf(979, 366, 675))
+        Assertions.assertThat(combinationBySum).isEqualTo(listOf(979, 366, 675))
     }
 }

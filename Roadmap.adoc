@@ -1,3 +1,9 @@
 = Roadmap
 
 Detekt | *Fix all detekt issues*
+
+Main | *Kotlin class*
+
+Main | *File as param*
+
+GRAALVM | *Generate reflect-config.json*

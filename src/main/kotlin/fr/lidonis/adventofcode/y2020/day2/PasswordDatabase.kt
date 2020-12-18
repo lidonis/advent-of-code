@@ -23,7 +23,7 @@ class PasswordDatabase(private val passwordRecords: List<String>) {
             this.letter = letter.first()
         }
 
-        fun check(password: String) = range.contains(password.count { it == letter })
+        fun check(password: String) = password.count { it == letter } in range
     }
 
 

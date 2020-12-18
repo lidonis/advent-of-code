@@ -1,10 +1,10 @@
 package fr.lidonis.adventofcode.common
 
-val <T> Iterable<T>.tail: List<T>
-    get() = drop(1)
-
 val <T> List<T>.head: T
     get() = first()
+
+val <T> Iterable<T>.tail: List<T>
+    get() = drop(1)
 
 fun <T> List<T>.permute(): List<List<T>> {
     if (this.size == 1) return listOf(this)
@@ -19,10 +19,10 @@ fun <T> List<T>.permute(): List<List<T>> {
     return permutations
 }
 
-fun <T> List<T>.combine(size: Int): List<Set<T>> {
+fun <T> List<T>.combine(size: Int): List<List<T>> {
     return when {
         this.isEmpty() -> emptyList()
-        size == 1 -> this.map(::setOf)
-        else -> this.tail.combine(size - 1).map { setOf(this.first()) + it } + this.tail.combine(size)
+        size == 1 -> this.map(::listOf)
+        else -> this.tail.combine(size - 1).map { listOf(this.head) + it } + this.tail.combine(size)
     }
 }

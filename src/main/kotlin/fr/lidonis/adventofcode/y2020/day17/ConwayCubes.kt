@@ -7,23 +7,22 @@ private const val STAY_ACTIVE_MAX = 3
 data class ConwayCubes(private val lines: List<String>) {
 
     fun cube(cycleCount: Int): Int {
-        val coordinates =
-            lines.flatMapIndexed { i, s ->
-                s.mapIndexed { j, c -> if (c == '#') ConwayCube(i, j, 0) else null }
-            }.filterNotNull().toSet()
-        return boot(coordinates).elementAt(cycleCount).size
+        return boot(readLines { i, j -> ConwayCube(i, j, 0) }).elementAt(cycleCount).size
     }
 
-    fun hypercube(cycleCount: Int): Int {
-        val coordinates =
-            lines.flatMapIndexed { i, s ->
-                s.mapIndexed { j, c -> if (c == '#') ConwayHyperCube(i, j, 0, 0) else null }
-            }.filterNotNull().toSet()
-        return boot(coordinates).elementAt(cycleCount).size
-    }
+    private fun <T> readLines(constructor: (Int, Int) -> Coordinate<T>) = sequence {
+        for ((i, line) in lines.withIndex()) {
+            for ((j, c) in line.withIndex()) {
+                if (c == '#') yield(constructor(i, j))
+            }
+        }
+    }.toSet()
 
-    private fun <R : Coordinate<R>> boot(coordinates: Set<Coordinate<R>>): Sequence<Set<Coordinate<R>>> {
-        return generateSequence(coordinates) { current ->
+    fun hypercube(cycleCount: Int) =
+        boot(readLines { i, j -> ConwayHyperCube(i, j, 0, 0) }).elementAt(cycleCount).size
+
+    private fun <R : Coordinate<R>> boot(coordinates: Set<Coordinate<R>>) =
+        generateSequence(coordinates) { current ->
             val activated = current.fold(mutableMapOf<Coordinate<R>, Int>()) { acc, j ->
                 j.adjacentCoordinates().forEach { acc[it] = (acc[it] ?: 0) + 1 }
                 acc
@@ -33,29 +32,34 @@ data class ConwayCubes(private val lines: List<String>) {
             }
             activated + stayActive
         }
-    }
 
     interface Coordinate<T> {
         fun adjacentCoordinates(): Set<T>
     }
 
     data class ConwayCube(val x: Int, val y: Int, val z: Int) : Coordinate<ConwayCube> {
-        override fun adjacentCoordinates() = (-1..1).flatMap { i ->
-            (-1..1).flatMap { j ->
-                (-1..1).map { k ->
-                    ConwayCube(x + i, y + j, z + k)
+        override fun adjacentCoordinates() = sequence {
+            for (i in -1..1) {
+                for (j in -1..1) {
+                    for (k in -1..1) {
+                        yield(ConwayCube(x + i, y + j, z + k))
+                    }
                 }
             }
-        }.minus(this).toSet()
+        }.toSet().minus(this)
     }
 
     data class ConwayHyperCube(val x: Int, val y: Int, val z: Int, val w: Int) : Coordinate<ConwayHyperCube> {
-        override fun adjacentCoordinates() = (-1..1).flatMap { i ->
-            (-1..1).flatMap { j ->
-                (-1..1).flatMap { k ->
-                    (-1..1).map { l -> ConwayHyperCube(x + i, y + j, z + k, w + l) }
+        override fun adjacentCoordinates() = sequence {
+            for (i in -1..1) {
+                for (j in -1..1) {
+                    for (k in -1..1) {
+                        for (l in -1..1) {
+                            yield(ConwayHyperCube(x + i, y + j, z + k, w + l))
+                        }
+                    }
                 }
             }
-        }.minus(this).toSet()
+        }.toSet().minus(this)
     }
 }

@@ -1,5 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day5
 
+import fr.lidonis.adventofcode.common.Answer
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
@@ -11,6 +12,7 @@ object Day5 : AdventOfCode2019(DAY) {
 
     private val computer = IntCodeComputerFactory.buildIOComputer(input().text())
 
+    @Answer("13547311")
     override fun part1(): Long = computer.run {
         reset()
         input(1)
@@ -20,6 +22,7 @@ object Day5 : AdventOfCode2019(DAY) {
         diagnosticCode
     }
 
+    @Answer("236453")
     override fun part2() = computer.run {
         reset()
         input(DIAGNOSTIC_MODE)

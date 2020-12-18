@@ -26,7 +26,7 @@ class SpaceWarpingMaze(input: String) {
     )
 
     private fun getNeighbours(position: Position) =
-        position.neighbours().filter { openPassages.contains(it) }
+        position.neighbours().filter { it in openPassages }
             .map { searchExitPortal(it)?.exit ?: it }
 
     private fun searchExitPortal(position: Position) =
@@ -79,7 +79,7 @@ class SpaceWarpingMaze(input: String) {
 
     private fun getNeighboursInception(currentNode: Node) =
         currentNode.position.neighbours()
-            .filter { openPassages.contains(it) }
+            .filter { it in openPassages }
             .mapNotNull {
                 val exitPortal = searchExitPortal(it)
                 when {
