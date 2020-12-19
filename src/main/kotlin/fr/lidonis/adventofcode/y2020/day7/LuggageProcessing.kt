@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2020.day7
 
-val REGEX_LINES = Regex("""([\w\s]+) bags contain ([\d\w\s,]+)\.""")
+private val REGEX_LINES = Regex("""([\w\s]+) bags contain ([\d\w\s,]+)\.""")
 
 class LuggageProcessing(rules: List<String>) {
 
