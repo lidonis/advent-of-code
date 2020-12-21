@@ -42,8 +42,7 @@ internal class ScaffoldMapTest {
             ....#####......
             """.trimIndent()
         )
-        assertThat(scaffoldMap.findPath().joinToString(",")).isEqualTo("R,8,R,8,R,4,R,4,R,8,L,6,L,2,R,4,R,4,R,8,R,8,R,8,L,6,L,2")
+        val expected = "R,8,R,8,R,4,R,4,R,8,L,6,L,2,R,4,R,4,R,8,R,8,R,8,L,6,L,2"
+        assertThat(scaffoldMap.findPath().joinToString(",")).isEqualTo(expected)
     }
-
-
 }

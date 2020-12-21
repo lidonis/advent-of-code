@@ -53,6 +53,4 @@ internal class AmplifiersTest {
         )
         assertThat(amplifiers.run()).isEqualTo(18216)
     }
-
-
 }

@@ -1,7 +1,6 @@
 = Roadmap
 
 Detekt | *Fix all detekt issues*
-Detekt | *Fix all detekt tests issues*
 
 Main | *Kotlin class*
 

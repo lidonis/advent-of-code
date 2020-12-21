@@ -5,12 +5,11 @@ import fr.lidonis.adventofcode.common.Answer
 import kotlin.reflect.KFunction
 import kotlin.reflect.full.declaredMemberFunctions
 import kotlin.reflect.full.findAnnotation
+import kotlin.streams.asStream
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DynamicTest
 import org.junit.jupiter.api.TestFactory
 import org.reflections.Reflections
-import java.util.stream.Stream
-import kotlin.streams.asStream
 
 class NonRegressionTest {
 
@@ -47,5 +46,4 @@ class NonRegressionTest {
     private fun getAnswer(partMethod: KFunction<*>): String {
         return partMethod.findAnnotation<Answer>()?.answer ?: "Answer not found"
     }
-
 }
