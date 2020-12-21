@@ -8,7 +8,10 @@ private val LINE_REGEX = Regex("""(.+) \(contains (.+)\)""")
 class AllergenAssessment(lines: List<kotlin.String>) {
 
     val foods = lines.map(Food.Companion::fromString)
-    val safeIngredient by lazy { foods.flatMap { it.ingredients }.toSet() - canonical }
+    val safeIngredient by lazy {
+        val ingredients = foods.flatMap { it.ingredients }.toSet()
+        ingredients - canonical
+    }
     val canonical by lazy {
         val allergens = foods.flatMap { it.allergens }.toSet()
         solve(
@@ -26,7 +29,6 @@ class AllergenAssessment(lines: List<kotlin.String>) {
         remaining: Map<Allergen, Set<Ingredient>>,
         acc: Map<Allergen, Ingredient>
     ): Map<Allergen, Ingredient> {
-        println("$remaining $acc")
         if (remaining.isEmpty()) return acc
         remaining.filterValues { it.size == 1 }.entries.first().let { (allergen, ingredientSet) ->
             return ingredientSet.first().let { ingredient ->
