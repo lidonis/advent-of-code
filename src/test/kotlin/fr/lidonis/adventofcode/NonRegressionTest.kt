@@ -5,25 +5,23 @@ import fr.lidonis.adventofcode.common.Answer
 import kotlin.reflect.KFunction
 import kotlin.reflect.full.declaredMemberFunctions
 import kotlin.reflect.full.findAnnotation
-import kotlin.streams.asStream
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DynamicTest
 import org.junit.jupiter.api.TestFactory
 import org.reflections.Reflections
 import java.util.stream.Stream
+import kotlin.streams.asStream
 
 class NonRegressionTest {
 
     @TestFactory
-    fun `Test all Advent of Code`(): Stream<DynamicTest> {
-        val reflections = Reflections(NonRegressionTest::class.java.packageName)
-        val allClasses = reflections.getSubTypesOf(AdventOfCode::class.java)
-        return sequence {
-            for (clazz in allClasses) {
+    fun `Test all Advent of Code`() = sequence {
+        AdventOfCode::class.java.let {
+            for (clazz in Reflections(it.packageName).getSubTypesOf(it)) {
                 buildAdventCodeTest(clazz)
             }
-        }.asStream()
-    }
+        }
+    }.asStream()
 
     private suspend fun SequenceScope<DynamicTest>.buildAdventCodeTest(clazz: Class<out AdventOfCode>) {
         clazz.kotlin.objectInstance?.let { adventOfCode ->
@@ -35,8 +33,9 @@ class NonRegressionTest {
     private suspend fun SequenceScope<DynamicTest>.addPart(adventOfCode: AdventOfCode, partId: Int) {
         partFunction(adventOfCode, partId)?.let { partFunction ->
             getAnswer(partFunction).let { answer ->
-                yield(DynamicTest.dynamicTest("AoC ${adventOfCode.year} day ${adventOfCode.day} part $partId") {
-                    assertThat(partFunction.call(adventOfCode).toString()).isEqualTo(answer)
+                val description = "AoC ${adventOfCode.year} day ${adventOfCode.day} part $partId"
+                yield(DynamicTest.dynamicTest(description) {
+                    assertThat(partFunction.call(adventOfCode).toString()).isEqualTo(answer).describedAs(description)
                 })
             }
         }

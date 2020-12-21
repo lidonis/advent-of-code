@@ -3,6 +3,7 @@ package fr.lidonis.adventofcode.common.ocr
 import fr.lidonis.adventofcode.common.InputReader
 import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.common.geo.plane.PositionSet
+import kotlinx.coroutines.yield
 import java.io.File
 
 object OCR {
@@ -15,9 +16,11 @@ object OCR {
     }
 
     private fun score(inputReader: InputReader) = PositionSet(
-        inputReader.lines().flatMapIndexed { j, s ->
-            s.mapIndexedNotNull { i, c ->
-                if (c == '█') Position(i, j) else null
+        sequence {
+            for ((i, s) in inputReader.lines().withIndex()) {
+                for ((j, c) in s.withIndex()) {
+                    if (c == '█') yield(Position(j, i))
+                }
             }
         }.toSet()
     ).score

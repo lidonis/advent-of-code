@@ -17,7 +17,7 @@ object BreadthFirstSearch {
                 break
             }
             steps++
-            neighbours = neighbours.flatMap { findNeighbours(it) }.toSet().subtract(visited)
+            neighbours = neighbours.flatMap(findNeighbours).toSet().subtract(visited)
         }
         return if (found) steps else null
     }

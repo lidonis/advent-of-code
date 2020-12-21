@@ -15,5 +15,5 @@ object Day16 : AdventOfCode2020(DAY) {
     @Answer("953713095011")
     override fun part2() = ticketTranslation.ticket()
         .filterKeys { it.startsWith("departure") }.values
-        .fold(1, Long::times)
+        .fold(1L, Long::times)
 }
