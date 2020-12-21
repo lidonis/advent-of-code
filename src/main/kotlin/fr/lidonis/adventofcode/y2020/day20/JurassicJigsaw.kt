@@ -6,10 +6,10 @@ class JurassicJigsaw(text: String) {
 
     fun getCornerTiles() = tiles.filter(::isCornerTile).toSet()
 
-    private fun isCornerTile(tile: Tile) = (tiles - tile).filter { it.match(tile) }.size == 2
+    private fun isCornerTile(tile: Tile) = (tiles - tile).filter { it.isMatching(tile) }.size == 2
 
-    private fun waterRoughness(): Int {
-        return 0
+    fun waterRoughness(): Int {
+        return tiles.size
     }
 
 }
