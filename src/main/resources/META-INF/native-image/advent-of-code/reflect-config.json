@@ -203,5 +203,25 @@
     "name": "fr.lidonis.adventofcode.y2020.day19.Day19",
     "allPublicMethods": true,
     "allDeclaredFields": true
+  },
+  {
+    "name": "fr.lidonis.adventofcode.y2020.day20.Day20",
+    "allPublicMethods": true,
+    "allDeclaredFields": true
+  },
+  {
+    "name": "fr.lidonis.adventofcode.y2020.day21.Day21",
+    "allPublicMethods": true,
+    "allDeclaredFields": true
+  },
+  {
+    "name": "fr.lidonis.adventofcode.y2020.day22.Day22",
+    "allPublicMethods": true,
+    "allDeclaredFields": true
+  },
+  {
+    "name": "fr.lidonis.adventofcode.y2020.day23.Day23",
+    "allPublicMethods": true,
+    "allDeclaredFields": true
   }
 ]
