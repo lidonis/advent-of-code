@@ -9,7 +9,9 @@ class JurassicJigsaw(text: String) {
     private fun isCornerTile(tile: Tile) = (tiles - tile).filter { it.isMatching(tile) }.size == 2
 
     fun waterRoughness(): Int {
-        return Image(tiles).buildImage()
+        val image = Image(tiles).buildImage()
+        val monsters = SeaMonsterChaser().findSeaMonsters(image)
+        return (image - monsters).size
     }
 
 }

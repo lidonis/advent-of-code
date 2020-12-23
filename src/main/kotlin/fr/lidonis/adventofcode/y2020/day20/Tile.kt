@@ -1,7 +1,6 @@
 package fr.lidonis.adventofcode.y2020.day20
 
 import fr.lidonis.adventofcode.common.head
-import fr.lidonis.adventofcode.common.math.Matrix
 import fr.lidonis.adventofcode.common.tail
 
 private val TILE_ID_REGEX = Regex("Tile (\\d+):")

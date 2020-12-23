@@ -2,44 +2,35 @@ package fr.lidonis.adventofcode.y2020.day20
 
 import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.common.head
-import fr.lidonis.adventofcode.common.math.Matrix
-
-
-private val SEA_MONSTER = """
-                                  #
-            #    ##    ##    ###   
-             #  #  #  #  #  #      
-""".trimIndent().lines()
 
 class Image(tiles: List<Tile>) {
 
     private val borderTiles = getBorderTiles(tiles)
 
-    fun buildImage(): Int {
+    fun buildImage(): Set<Position> {
         val corners = findCorners(borderTiles)
         val topLeft = corners.head
-        val topLeftBorders = getTileEdgeBorders(borderTiles)[topLeft] ?: error("")
+        val topLeftBorders = getTileEdgeBorders(borderTiles)[topLeft] ?: error("Top left borders not found")
         val topLeftOriented = topLeft.orientations.find { tile ->
             topLeftBorders.contains(tile.top) && topLeftBorders.contains(tile.left)
-        } ?: error("")
+        } ?: error("Cannot find top left orientation")
         val solved = solveBottomAndRight(topLeftOriented)
         val borderRemoved = solved.map { tiles -> tiles.map { tile -> tile.inner() } }
-
-        val positions = sequence {
+        val tileSizeWithBorder = topLeft.matrix.column - 2
+        return sequence {
             for ((i, tileRow) in borderRemoved.withIndex()) {
                 for ((j, tile) in tileRow.withIndex()) {
                     for (x in 0 until tile.matrix.row) {
                         for (y in 0 until tile.matrix.column) {
-                            if (tile.matrix[x][y]) yield(Position(i * 8 + x, j * 8 + y))
+                            if (tile.matrix[x][y]) {
+                                yield(Position(i * tileSizeWithBorder + x, j * tileSizeWithBorder + y))
+                            }
                         }
                     }
                 }
             }
         }.toSet()
-
-        return positions.size
     }
-
 
     private fun getBorderTiles(tiles: List<Tile>) = tiles.flatMap { tile -> tile.borders.map { it to tile } }
         .groupBy({ it.first }, { it.second })
