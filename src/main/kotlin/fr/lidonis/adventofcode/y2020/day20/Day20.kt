@@ -12,7 +12,7 @@ object Day20 : AdventOfCode2020(DAY) {
     @Answer("32287787075651")
     override fun part1() = multiplyCornerTiles()
 
-    @Answer("334")
+    @Answer("1939")
     override fun part2() = jurassicJigsaw.waterRoughness()
 
     private fun multiplyCornerTiles() = jurassicJigsaw.getCornerTiles().fold(1L) { acc, tile -> acc * tile.id }

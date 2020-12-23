@@ -1,6 +1,5 @@
 package fr.lidonis.adventofcode.y2020.day20
 
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
 internal class ImageTest {
@@ -9,6 +8,7 @@ internal class ImageTest {
 
     @Test
     fun display() {
-       Image(tiles).buildImage()
+        val buildImage = Image(tiles).buildImage()
+        println(buildImage)
     }
 }

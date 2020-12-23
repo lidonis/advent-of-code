@@ -9,7 +9,7 @@ class JurassicJigsaw(text: String) {
     private fun isCornerTile(tile: Tile) = (tiles - tile).filter { it.isMatching(tile) }.size == 2
 
     fun waterRoughness(): Int {
-        return tiles.size
+        return Image(tiles).buildImage()
     }
 
 }

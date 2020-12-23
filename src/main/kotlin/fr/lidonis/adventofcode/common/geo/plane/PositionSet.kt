@@ -10,7 +10,7 @@ data class PositionSet(val positions: Set<Position>) : Set<Position> by position
 
     fun moveTo(position: Position) = PositionSet(map { it - boundingBox.start + position }.toSet())
 
-    private val boundingBox by lazy {
+    val boundingBox by lazy {
         if (isEmpty()) {
             BoundingBox(Position.ORIGIN, Position.ORIGIN)
         } else {
@@ -25,6 +25,15 @@ data class PositionSet(val positions: Set<Position>) : Set<Position> by position
     }
 
     val score = map { 2.pow(it.x * boundingBox.end.x + it.y) }.sum()
+
+    fun display() {
+        for (i in 0..boundingBox.end.x) {
+            for (j in 0..boundingBox.end.y) {
+                if (positions.contains(Position(i, j))) print("#") else print(".")
+            }
+            println()
+        }
+    }
 
     data class BoundingBox(val start: Position, var end: Position)
 }
