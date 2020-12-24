@@ -1,6 +1,5 @@
 package fr.lidonis.adventofcode
 
-import fr.lidonis.adventofcode.common.AdventOfCode
 import fr.lidonis.adventofcode.common.Answer
 import kotlin.reflect.KFunction
 import kotlin.reflect.full.declaredMemberFunctions

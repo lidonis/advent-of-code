@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2020
 
-import fr.lidonis.adventofcode.common.AdventOfCode
+import fr.lidonis.adventofcode.AdventOfCode
 
 private const val YEAR = 2020
 

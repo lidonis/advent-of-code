@@ -1,4 +1,6 @@
-package fr.lidonis.adventofcode.common
+package fr.lidonis.adventofcode
+
+import fr.lidonis.adventofcode.common.InputReader
 
 abstract class AdventOfCode(val year: Int) {
 

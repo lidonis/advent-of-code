@@ -1,6 +1,5 @@
 package fr.lidonis.adventofcode
 
-import fr.lidonis.adventofcode.common.AdventOfCode
 import kotlin.time.ExperimentalTime
 import kotlin.time.measureTimedValue
 import org.fusesource.jansi.Ansi.Color.BLACK
