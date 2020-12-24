@@ -65,7 +65,7 @@ class ShipMap {
                     else -> print(' ')
                 }
             }
-            print("\n")
+            println()
         }
     }
 
