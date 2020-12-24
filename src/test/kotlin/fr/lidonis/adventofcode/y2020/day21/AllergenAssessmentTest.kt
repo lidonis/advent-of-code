@@ -16,11 +16,11 @@ internal class AllergenAssessmentTest {
 
     @Test
     fun `safe ingredients`() {
-        assertThat(allergenAssessment.safeIngredient).isEqualTo(setOf("kfcds", "nhms", "sbzzf", "trh"))
+        assertThat(allergenAssessment.safeIngredient).containsExactlyInAnyOrder("kfcds", "nhms", "sbzzf", "trh")
     }
 
     @Test
     fun `canonical dangerous ingredient list`() {
-        assertThat(allergenAssessment.canonical).isEqualTo(setOf("mxmxvkd", "sqjhc", "fvjkl"))
+        assertThat(allergenAssessment.canonical).containsExactly("mxmxvkd", "sqjhc", "fvjkl")
     }
 }

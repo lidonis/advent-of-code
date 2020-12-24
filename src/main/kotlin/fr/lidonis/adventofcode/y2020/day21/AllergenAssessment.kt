@@ -17,7 +17,7 @@ class AllergenAssessment(lines: List<kotlin.String>) {
         solve(
             allergens.associateWith(this::ingredientsWhichCanContainAllergen),
             emptyMap()
-        ).values.toSet()
+        ).toSortedMap().values
     }
 
     private fun ingredientsWhichCanContainAllergen(allergen: Allergen): Set<Ingredient> = foods

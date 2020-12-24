@@ -15,5 +15,5 @@ object Day21 : AdventOfCode2020(DAY) {
     }.sum()
 
     @Answer("prxmdlz,ncjv,knprxg,lxjtns,vzzz,clg,cxfz,qdfpq")
-    override fun part2() = allergenAssessment.canonical.sorted().joinToString(",")
+    override fun part2() = allergenAssessment.canonical.joinToString(",")
 }
