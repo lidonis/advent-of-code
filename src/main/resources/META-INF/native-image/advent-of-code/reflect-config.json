@@ -223,5 +223,10 @@
     "name": "fr.lidonis.adventofcode.y2020.day23.Day23",
     "allPublicMethods": true,
     "allDeclaredFields": true
+  },
+  {
+    "name": "fr.lidonis.adventofcode.y2020.day24.Day24",
+    "allPublicMethods": true,
+    "allDeclaredFields": true
   }
 ]
