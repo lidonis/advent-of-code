@@ -20,7 +20,7 @@ class PasswordDatabase(private val passwordRecords: List<String>) {
             val (range, letter) = policy.split(' ')
             val (min, max) = range.split('-')
             this.range = IntRange(min.toInt(), max.toInt())
-            this.letter = letter.first()
+            this.letter = letter.single()
         }
 
         fun check(password: String) = password.count { it == letter } in range
@@ -43,7 +43,7 @@ class PasswordDatabase(private val passwordRecords: List<String>) {
             val (position1, position2) = range.split('-')
             this.position1 = position1.toInt()
             this.position2 = position2.toInt()
-            this.letter = letter.first()
+            this.letter = letter.single()
         }
 
         fun check(password: String) = validPosition(password, position1) xor validPosition(password, position2)

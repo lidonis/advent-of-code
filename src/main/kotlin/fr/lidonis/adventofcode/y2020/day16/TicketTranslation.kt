@@ -53,7 +53,7 @@ class TicketTranslation(lines: List<String>) {
         val matchedFields = mutableSetOf<String>()
         val fieldsMapping = MutableList(allFields.size) { "" }
         for ((index, fields) in compatibilitiesBySize) {
-            fieldsMapping[index] = (fields - matchedFields).first()
+            fieldsMapping[index] = (fields - matchedFields).single()
             matchedFields.add(fieldsMapping[index])
         }
         return fieldsMapping

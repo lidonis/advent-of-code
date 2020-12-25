@@ -31,7 +31,7 @@ class AllergenAssessment(lines: List<kotlin.String>) {
     ): Map<Allergen, Ingredient> {
         if (remaining.isEmpty()) return acc
         remaining.filterValues { it.size == 1 }.entries.first().let { (allergen, ingredientSet) ->
-            return ingredientSet.first().let { ingredient ->
+            return ingredientSet.single().let { ingredient ->
                 solve(
                     (remaining - allergen).mapValues { it.value - ingredient },
                     acc + (allergen to ingredient)

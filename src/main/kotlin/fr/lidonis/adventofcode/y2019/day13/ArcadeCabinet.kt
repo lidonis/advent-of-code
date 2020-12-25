@@ -21,7 +21,7 @@ class ArcadeCabinet(program: String) {
         computer.reset()
         computer.run()
         val tileIds = computer.outputs.asSequence()
-            .drop(2).windowed(1, INSTRUCTION_SIZE).map { it.first() }
+            .drop(2).windowed(1, INSTRUCTION_SIZE).map { it.single() }
         return tileIds.count { it == BLOCK_ID }
     }
 

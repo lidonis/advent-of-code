@@ -43,7 +43,7 @@ class Image(tiles: List<Tile>) {
     }
 
     private fun getTileEdgeBorders(borderTiles: Map<Border, List<Tile>>): Map<Tile, Set<Border>> {
-        val edgeBorderTiles = borderTiles.filterValues { it.size == 1 }.mapValues { it.value.first() }
+        val edgeBorderTiles = borderTiles.filterValues { it.size == 1 }.mapValues { it.value.single() }
         return edgeBorderTiles.entries.groupBy { it.value }
             .mapValues { it.value.fold(setOf()) { acc, entry -> setOf(entry.key) + acc } }
     }
