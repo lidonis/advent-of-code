@@ -12,7 +12,6 @@ import fr.lidonis.adventofcode.y2019.day24.Eris.State.EMPTY
 import fr.lidonis.adventofcode.y2019.day24.Eris.State.ERIS
 
 private const val SIZE = 5
-private const val WINDOW_SIZE = 3
 private val CENTER = Position(SIZE / 2, SIZE / 2)
 
 class Eris(private val bugs: Set<Position>) {
@@ -29,21 +28,18 @@ class Eris(private val bugs: Set<Position>) {
         bugs.sumBy { 2 pow (it.x + it.y * SIZE) }
     }
 
-    fun evolve() = Eris(runThrough { i, j ->
-        val position = Position(i, j)
-        position to if (position in bugs) BUG else EMPTY
-    }.mapNotNull { tile ->
-        if (evolve(tile.second, countBugs(tile.first.neighbours())) == BUG) tile.first else null
-    }.toSet())
+    fun evolve() = evolutions().elementAt(1)
 
-    private fun countBugs(positions: List<Position>) = positions.count { it in bugs }
-
-    private fun evolve(currentState: State, bugCount: Int) = when {
-        currentState == ERIS -> ERIS
-        currentState == BUG && bugCount == 1 -> BUG
-        currentState == EMPTY && bugCount in 1..2 -> BUG
-        else -> EMPTY
-    }
+    fun evolutions() = generateSequence(bugs) { current ->
+        val activated = current.fold(mutableMapOf<Position, Int>()) { acc, j ->
+            neighbours(j).forEach { acc[it] = (acc[it] ?: 0) + 1 }
+            acc
+        }.filterValues { it in 1..2 }.keys - current
+        val stayActive = current.filter {
+            (neighbours(it) intersect current).size == 1
+        }
+        activated + stayActive
+    }.map { Eris(it) }
 
     fun recursiveEvolve(aboveEris: Eris, belowEris: Eris) = Eris(runThrough { i, j ->
         val position = Position(i, j)
@@ -53,12 +49,21 @@ class Eris(private val bugs: Set<Position>) {
             else -> EMPTY
         }
     }.mapNotNull { tile ->
-        if (evolve(
-                tile.second,
-                countBugRec(tile.first.neighbours(), tile.first, aboveEris, belowEris).sum()
-            ) == BUG
+        if (let {
+                val bugCount = it.countBugRec(tile.first.neighbours(), tile.first, aboveEris, belowEris).sum()
+                when {
+                    tile.second == ERIS -> ERIS
+                    tile.second == BUG && bugCount == 1 -> BUG
+                    tile.second == EMPTY && bugCount in 1..2 -> BUG
+                    else -> EMPTY
+                }
+            } == BUG
         ) tile.first else null
     }.toSet())
+
+    private fun neighbours(center: Position) = center.neighbours().filter { position ->
+        position.x in 0 until SIZE && position.y in 0 until SIZE
+    }
 
     private fun countBugRec(positions: List<Position>, current: Position, aboveEris: Eris, belowEris: Eris) =
         positions.map { position ->
@@ -100,6 +105,12 @@ class Eris(private val bugs: Set<Position>) {
 
     override fun hashCode() = biodiversityRating.hashCode()
 
+    override fun toString() = '\n' + (0 until SIZE).flatMap { i ->
+        (0 until SIZE).map { j ->
+            if(bugs.contains(Position(j,i))) '#' else '.'
+        } + '\n'
+    }.joinToString("")
+
     enum class State(val c: Char) {
         BUG('#'), EMPTY('.'), ERIS('?');
 
@@ -107,39 +118,4 @@ class Eris(private val bugs: Set<Position>) {
             fun valueOf(c: Char) = values().find { it.c == c }
         }
     }
-}
-
-data class RecursiveEris(val erises: List<Eris>) {
-
-    fun evolve(minutes: Int) = (1..minutes).fold(this) { reris, _ -> reris.evolve() }
-
-    private fun evolve(): RecursiveEris {
-        val evolved =
-            (listOf(Eris(emptySet()).recursiveEvolve(Eris(emptySet()), erises.first())) +
-                    (listOf(Eris(emptySet())) + erises + Eris(emptySet())).windowed(
-                        WINDOW_SIZE,
-                        partialWindows = true
-                    ).map {
-                        when (it.size) {
-                            WINDOW_SIZE -> it[1].recursiveEvolve(it[0], it[2])
-                            WINDOW_SIZE - 1 -> it[1].recursiveEvolve(it[0], Eris(emptySet()))
-                            else -> Eris(emptySet())
-                        }
-                    }).toMutableList()
-        if (evolved.first() == Eris(emptySet())) {
-            evolved.removeAt(0)
-        }
-        if (evolved.first() == Eris(emptySet())) {
-            evolved.removeAt(0)
-        }
-        if (evolved.last() == Eris(emptySet())) {
-            evolved.removeAt(evolved.size - 1)
-        }
-        if (evolved.last() == Eris(emptySet())) {
-            evolved.removeAt(evolved.size - 1)
-        }
-        return RecursiveEris(evolved)
-    }
-
-    fun countBugs() = erises.map(Eris::countBugs).sum()
 }

@@ -14,11 +14,10 @@ object Day24 : AdventOfCode2019(DAY) {
     @Answer("18370591")
     override fun part1(): Int {
         val evolutions = mutableSetOf<Int>()
-        var eris = Eris(scan)
-        while (evolutions.add(eris.biodiversityRating)) {
-            eris = eris.evolve()
-        }
-        return eris.biodiversityRating
+        val looped = Eris(scan).evolutions().dropWhile {
+            evolutions.add(it.biodiversityRating)
+        }.first()
+        return looped.biodiversityRating
     }
 
     @Answer("2040")
