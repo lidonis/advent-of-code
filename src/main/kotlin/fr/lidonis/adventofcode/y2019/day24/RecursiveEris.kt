@@ -1,38 +1,39 @@
 package fr.lidonis.adventofcode.y2019.day24
 
-private const val WINDOW_SIZE = 3
+import fr.lidonis.adventofcode.common.tail
 
-data class RecursiveEris(val erises: List<Eris>) {
+data class RecursiveEris(private val bugs: Set<RecursivePosition>) {
 
-    fun evolve(minutes: Int) = (1..minutes).fold(this) { reris, _ -> reris.evolve() }
+    constructor(input: String) : this(read(input, 0))
 
-    private fun evolve(): RecursiveEris {
-        val evolved =
-            (listOf(Eris(emptySet()).recursiveEvolve(Eris(emptySet()), erises.first())) +
-                    (listOf(Eris(emptySet())) + erises + Eris(emptySet())).windowed(
-                        WINDOW_SIZE,
-                        partialWindows = true
-                    ).map {
-                        when (it.size) {
-                            WINDOW_SIZE -> it[1].recursiveEvolve(it[0], it[2])
-                            WINDOW_SIZE - 1 -> it[1].recursiveEvolve(it[0], Eris(emptySet()))
-                            else -> Eris(emptySet())
-                        }
-                    }).toMutableList()
-        if (evolved.first() == Eris(emptySet())) {
-            evolved.removeAt(0)
+    constructor(input: List<String>) : this(input.flatMap {
+        val z = Regex("Depth (.*):").matchEntire(it.lineSequence().first())?.destructured?.component1()?.toInt() ?: 0
+        read(it.lines().tail.joinToString("\n"), z)
+    }.toSet())
+
+    fun evolve(i: Int) = evolutions().elementAt(i)
+
+    private fun evolutions() = generateSequence(bugs) { current ->
+        val activated = current.fold(mutableMapOf<RecursivePosition, Int>()) { acc, j ->
+            j.neighbours().forEach { acc[it] = (acc[it] ?: 0) + 1 }
+            acc
+        }.filterValues { it in 1..2 }.keys - current
+        val stayActive = current.filter {
+            (it.neighbours() intersect current).size == 1
         }
-        if (evolved.first() == Eris(emptySet())) {
-            evolved.removeAt(0)
-        }
-        if (evolved.last() == Eris(emptySet())) {
-            evolved.removeAt(evolved.size - 1)
-        }
-        if (evolved.last() == Eris(emptySet())) {
-            evolved.removeAt(evolved.size - 1)
-        }
-        return RecursiveEris(evolved)
+        activated + stayActive
+    }.map { RecursiveEris(it) }
+
+
+    fun countBugs() = bugs.size
+
+    companion object {
+        private fun read(input: String, z: Int) = sequence {
+            for ((i, line) in input.lines().withIndex()) {
+                for ((j, c) in line.withIndex()) {
+                    if (c == '#') yield(RecursivePosition(i, j, z))
+                }
+            }
+        }.toSet()
     }
-
-    fun countBugs() = erises.map(Eris::countBugs).sum()
 }

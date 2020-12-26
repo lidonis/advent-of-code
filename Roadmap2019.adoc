@@ -26,7 +26,7 @@
 |21 | _Done_
 |22 | _Done_
 |23 | *TODO*
-|24 | *Cleaner code*
+|24 | _Done_
 |25 | *Bot*
 |Intcodecomputer | *cleaner code*
 |===

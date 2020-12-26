@@ -21,5 +21,5 @@ object Day24 : AdventOfCode2019(DAY) {
     }
 
     @Answer("2040")
-    override fun part2() = RecursiveEris(listOf(Eris(scan))).evolve(EVOLVE_COUNT).countBugs()
+    override fun part2() = RecursiveEris(scan).evolve(EVOLVE_COUNT).countBugs()
 }
