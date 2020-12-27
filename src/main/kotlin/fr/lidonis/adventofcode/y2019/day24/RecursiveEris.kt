@@ -7,7 +7,8 @@ data class RecursiveEris(private val bugs: Set<RecursivePosition>) {
     constructor(input: String) : this(read(input, 0))
 
     constructor(input: List<String>) : this(input.flatMap {
-        val z = Regex("Depth (.*):").matchEntire(it.lineSequence().first())?.destructured?.component1()?.toInt() ?: 0
+        val z = Regex("Depth (.*):").matchEntire(it.lineSequence().first())?.destructured?.component1()?.toInt()
+            ?: error(" No depth found")
         read(it.lines().tail.joinToString("\n"), z)
     }.toSet())
 
