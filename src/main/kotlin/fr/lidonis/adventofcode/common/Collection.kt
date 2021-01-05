@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.common
 
-val <T> List<T>.head: T
+val <T> Iterable<T>.head: T
     get() = first()
 
 val <T> Iterable<T>.tail: List<T>
@@ -19,7 +19,7 @@ fun <T> List<T>.permute(): List<List<T>> {
     return permutations
 }
 
-fun <T> List<T>.combine(size: Int): List<List<T>> {
+fun <T> Collection<T>.combine(size: Int): List<List<T>> {
     return when {
         this.isEmpty() -> emptyList()
         size == 1 -> this.map(::listOf)
