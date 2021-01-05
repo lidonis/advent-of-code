@@ -51,7 +51,7 @@ internal class RecursiveErisTest {
                         ..#..
                         .....
                         """.trimIndent(), """
-                        Depth 0:    
+                        Depth 0:
                         #..#.
                         ####.
                         ##?.#
