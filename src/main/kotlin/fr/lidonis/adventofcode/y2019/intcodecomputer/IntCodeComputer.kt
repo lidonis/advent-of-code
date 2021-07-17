@@ -1,7 +1,6 @@
 package fr.lidonis.adventofcode.y2019.intcodecomputer
 
-import java.util.ArrayDeque
-import java.util.Deque
+import java.util.*
 import java.util.concurrent.ArrayBlockingQueue
 
 private const val END_PROGRAM = 99L
@@ -36,42 +35,20 @@ class IntCodeComputer(
         val actions = mutableListOf<() -> Unit>()
         when (opcode) {
             1 -> {
-                actions.addAll(
-                    listOf(
-                        {
-                            write(
-                                3, firstParameter() + secondParameter(), parameterMode(5)
-                            )
-                        },
-                        incrementInstructionPointer(4)
-                    )
-                )
+                actions += { write(3, firstParameter() + secondParameter(), parameterMode(5)) }
+                actions += incrementInstructionPointer(4)
             }
             2 -> {
-                actions.addAll(
-                    listOf(
-                        {
-                            write(
-                                3, firstParameter() * secondParameter(), parameterMode(5)
-                            )
-                        }, incrementInstructionPointer(4)
-                    )
-                )
+                actions += { write(3, firstParameter() * secondParameter(), parameterMode(5)) }
+                actions += incrementInstructionPointer(4)
             }
             3 -> {
-                actions.addAll(
-                    listOf(
-                        { write(1, input.read(), parameterMode(3)) },
-                        incrementInstructionPointer(2)
-                    )
-                )
+                actions += { write(1, input.read(), parameterMode(3)) }
+                actions += incrementInstructionPointer(2)
             }
             4 -> {
-                actions.add {
-                    output.write(read(1, parameterMode(3)))
-                }
-
-                actions.add(incrementInstructionPointer(2))
+                actions += { output.write(read(1, parameterMode(3))) }
+                actions += incrementInstructionPointer(2)
             }
             5 -> {
                 instructionPointer = if (firstParameter() != 0L) {
@@ -88,28 +65,28 @@ class IntCodeComputer(
                 }
             }
             7 -> {
-                actions.add {
+                actions += {
                     write(
                         3,
                         if ((firstParameter() < secondParameter())) 1L else 0L,
                         parameterMode(5)
                     )
                 }
-                actions.add(incrementInstructionPointer(4))
+                actions += incrementInstructionPointer(4)
             }
             8 -> {
-                actions.add {
+                actions += {
                     write(
                         3,
                         if ((firstParameter() == secondParameter())) 1L else 0L,
                         parameterMode(5)
                     )
                 }
-                actions.add(incrementInstructionPointer(4))
+                actions += incrementInstructionPointer(4)
             }
             9 -> {
-                actions.add { relativeBase += firstParameter() }
-                actions.add(incrementInstructionPointer(2))
+                actions += { relativeBase += firstParameter() }
+                actions += incrementInstructionPointer(2)
             }
             99 -> error("Program halted")
             else -> error("Opcode unknown")
