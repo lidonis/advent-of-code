@@ -35,7 +35,7 @@ abstract class ExpressionEvaluator {
                     )
                     ops.pop()
                 }
-                '+', '*' -> {
+                in "+*" -> {
                     while (ops.isNotEmpty() && hasPrecedence(tokens[i], ops.peek())) {
                         values.push(applyOperation(ops.pop(), values.pop(), values.pop()))
                     }
@@ -60,11 +60,11 @@ abstract class ExpressionEvaluator {
     }
 }
 
-class ExpressionEvaluator1 : ExpressionEvaluator() {
-    override fun hasPrecedence(op1: Char, op2: Char): Boolean = op2 != '(' && op2 != ')'
+open class ExpressionEvaluator1 : ExpressionEvaluator() {
+    override fun hasPrecedence(op1: Char, op2: Char): Boolean = op2 !in "()"
 }
 
-class ExpressionEvaluator2 : ExpressionEvaluator() {
-    override fun hasPrecedence(op1: Char, op2: Char) = if (op2 == '(' || op2 == ')') false
-    else !((op2 == '*' || op2 == '/') && (op1 == '+' || op1 == '-'))
+class ExpressionEvaluator2 : ExpressionEvaluator1() {
+    override fun hasPrecedence(op1: Char, op2: Char) = super.hasPrecedence(op1, op2)
+            && (op1 != '+' && op2 != '*')
 }
