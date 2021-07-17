@@ -11,12 +11,12 @@ class HandheldGameConsole(program: List<String>) {
 
     private val instructions = program.map {
         Instruction(
-            valueOf(it.take(OPERATION_SIZE).toUpperCase()),
+            valueOf(it.take(OPERATION_SIZE).uppercase()),
             it.drop(OPERATION_SIZE + 1).toInt()
         )
     }
 
-    fun run(): Int {
+    fun run(): Result<Int> {
         var global = 0
         var lineIndex = LineIndex(max = instructions.size)
         while (!lineIndex.overflow) {
@@ -29,9 +29,9 @@ class HandheldGameConsole(program: List<String>) {
                 JMP -> lineIndex += instruction.argument
                 NOP -> lineIndex++
             }
-            if (lineIndex.looped) throw InfiniteLoopException(global)
+            if (lineIndex.looped) return Result.failure(InfiniteLoopException(global))
         }
-        return global
+        return Result.success(global)
     }
 
     enum class Operation {

@@ -1,7 +1,7 @@
 package fr.lidonis.adventofcode.y2020.day8
 
+import fr.lidonis.adventofcode.y2020.day8.HandheldGameConsole.InfiniteLoopException
 import org.assertj.core.api.Assertions.assertThat
-import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test
 
 internal class HandheldGameConsoleTest {
@@ -20,7 +20,8 @@ internal class HandheldGameConsoleTest {
             acc +6
         """.trimIndent().lines()
         val handheldGameConsole = HandheldGameConsole(program)
-        assertThatThrownBy { handheldGameConsole.run() }.isEqualTo(HandheldGameConsole.InfiniteLoopException(5))
+        val expectedFailure = Result.failure<InfiniteLoopException>(InfiniteLoopException(5))
+        assertThat(handheldGameConsole.run()).isEqualTo(expectedFailure)
     }
 
     @Test
@@ -37,6 +38,6 @@ internal class HandheldGameConsoleTest {
             acc +6
         """.trimIndent().lines()
         val handheldGameConsole = HandheldGameConsole(program)
-        assertThat(handheldGameConsole.run()).isEqualTo(8)
+        assertThat(handheldGameConsole.run()).isEqualTo(Result.success(8))
     }
 }
