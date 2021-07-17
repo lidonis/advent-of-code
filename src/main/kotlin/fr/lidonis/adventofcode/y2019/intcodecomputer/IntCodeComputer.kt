@@ -176,7 +176,7 @@ class IntCodeComputer(
     }
 
     override fun tryNextOutput(maxTries: Int): Long? {
-        for (i in 0 until maxTries) {
+        (0 until maxTries).forEach { _ ->
             next()
             val output = outputs.poll()
             if (output != null) {

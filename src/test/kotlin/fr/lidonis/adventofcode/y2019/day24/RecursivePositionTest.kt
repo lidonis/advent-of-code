@@ -120,6 +120,4 @@ internal class RecursivePositionTest {
             RecursivePosition(x = 4, y = 0, z = 1)
         )
     }
-
-
 }
