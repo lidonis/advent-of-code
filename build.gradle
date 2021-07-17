@@ -41,10 +41,6 @@ test {
     useJUnitPlatform()
 }
 
-detekt {
-    baseline file('baseline.xml')
-}
-
 application {
     mainClass.set('fr.lidonis.adventofcode.AdventOfCodeMain')
 }
