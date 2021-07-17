@@ -37,7 +37,7 @@ class Image(tiles: List<Tile>) {
 
     private fun findCorners(borderTiles: Map<Border, List<Tile>>): List<Tile> {
         return getTileEdgeBorders(borderTiles)
-            .filter { it.value.size == 2 * 2 }
+            .filter { it.value.size == (2 * 2) }
             .keys
             .toList()
     }
