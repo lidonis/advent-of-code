@@ -1,10 +1,54 @@
 package fr.lidonis.adventofcode.y2019.intcodecomputer
 
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.ADDS
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.ADJUSTS_THE_RELATIVE_BASE
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.HALT_PROGRAM
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.INPUT
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.JUMP_IF_FALSE
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.JUMP_IF_TRUE
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.MULTIPLIES
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.OUTPUTS
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.STORE_IF_EQUALS
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.STORE_IF_LESS_THAN
 import java.util.*
 import java.util.concurrent.ArrayBlockingQueue
 
-private const val END_PROGRAM = 99L
 private const val MAX_CAPACITY = 100000
+
+private const val OP_CODE_ADDS = 1
+private const val OP_CODE_MULTIPLIES = 2
+private const val OP_CODE_INPUT = 3
+private const val OP_CODE_OUTPUTS = 4
+private const val OP_CODE_JUMP_IF_TRUE = 5
+private const val OP_CODE_JUMP_IF_FALSE = 6
+private const val OP_CODE_STORE_IF_LESS_THAN = 7
+private const val OP_CODE_STORE_IF_EQUALS = 8
+private const val OP_CODE_ADJUSTS_THE_RELATIVE_BASE = 9
+private const val OP_CODE_HALT_PROGRAM = 99
+
+private const val INSTRUCTION_SIZE_NO_PARAM = 0
+private const val INSTRUCTION_SIZE_ONE_PARAM = 1
+private const val INSTRUCTION_SIZE_TWO_PARAMS = 2
+private const val INSTRUCTION_SIZE_THREE_PARAMS = 3
+
+private enum class Instruction(val opcode: Int, val size: Int) {
+    ADDS(OP_CODE_ADDS, INSTRUCTION_SIZE_THREE_PARAMS),
+    MULTIPLIES(OP_CODE_MULTIPLIES, INSTRUCTION_SIZE_THREE_PARAMS),
+    INPUT(OP_CODE_INPUT, INSTRUCTION_SIZE_TWO_PARAMS),
+    OUTPUTS(OP_CODE_OUTPUTS, INSTRUCTION_SIZE_ONE_PARAM),
+    JUMP_IF_TRUE(OP_CODE_JUMP_IF_TRUE, INSTRUCTION_SIZE_TWO_PARAMS),
+    JUMP_IF_FALSE(OP_CODE_JUMP_IF_FALSE, INSTRUCTION_SIZE_TWO_PARAMS),
+    STORE_IF_LESS_THAN(OP_CODE_STORE_IF_LESS_THAN, INSTRUCTION_SIZE_TWO_PARAMS),
+    STORE_IF_EQUALS(OP_CODE_STORE_IF_EQUALS, INSTRUCTION_SIZE_TWO_PARAMS),
+    ADJUSTS_THE_RELATIVE_BASE(OP_CODE_ADJUSTS_THE_RELATIVE_BASE, INSTRUCTION_SIZE_ONE_PARAM),
+    HALT_PROGRAM(OP_CODE_HALT_PROGRAM, INSTRUCTION_SIZE_NO_PARAM);
+
+    companion object {
+        fun fromOpcode(opcode: Int) =
+            values().find { it.opcode == opcode }
+                ?: error("Opcode unknown")
+    }
+}
 
 class IntCodeComputer(
     override val program: Iterable<Long>,
@@ -30,11 +74,7 @@ class IntCodeComputer(
 
     private fun needReset() = instructionPointer != 0 && memory != program
 
-    override fun hasNext() = memory[instructionPointer] != END_PROGRAM
-
-    private fun incrementInstructionPointer(value: Int) {
-        instructionPointer += value
-    }
+    override fun hasNext() = memory[instructionPointer] != OP_CODE_HALT_PROGRAM.toLong()
 
     private val opcode get() = currentCode.takeLast(2).toInt()
 
@@ -55,36 +95,55 @@ class IntCodeComputer(
     private fun write(index: Int, value: Long) {
         val position = readPosition(index)
         memory[position] = value
-        incrementInstructionPointer(index + 1)
     }
 
     override fun next(): IOCodeComputer {
-        when (opcode) {
-            1 -> write(3, firstParam() + secondParam())
-            2 -> write(3, firstParam() * secondParam())
-            3 -> write(1, input.read())
-            4 -> {
+        when (Instruction.fromOpcode(opcode)) {
+            ADDS -> {
+                write(3, firstParam() + secondParam())
+                instructionPointer += 3 + 1
+            }
+            MULTIPLIES -> {
+                write(3, firstParam() * secondParam())
+                instructionPointer += 3 + 1
+            }
+            INPUT -> {
+                write(1, input.read())
+                instructionPointer += 1 + 1
+            }
+            OUTPUTS -> {
                 output.write(firstParam())
-                incrementInstructionPointer(2)
+                instructionPointer += 2
             }
-            5 -> instructionPointer = if (firstParam() != 0L) {
-                secondParam().toInt()
-            } else {
-                instructionPointer + 3
+            JUMP_IF_TRUE -> {
+                instructionPointer = if (firstParam().toBoolean()) {
+                    secondParam().toInt()
+                } else {
+                    instructionPointer + JUMP_IF_TRUE.size + 1
+                }
             }
-            6 -> instructionPointer = if (firstParam() == 0L) {
-                secondParam().toInt()
-            } else {
-                instructionPointer + 3
+            JUMP_IF_FALSE -> {
+                instructionPointer = if (!firstParam().toBoolean()) {
+                    secondParam().toInt()
+                } else {
+                    instructionPointer + JUMP_IF_FALSE.size + 1
+                }
             }
-            7 -> write(3, if ((firstParam() < secondParam())) 1L else 0L)
-            8 -> write(3, if ((firstParam() == secondParam())) 1L else 0L)
-            9 -> {
+            STORE_IF_LESS_THAN -> {
+                write(3, (firstParam() < secondParam()).toLong())
+                instructionPointer += 4
+            }
+            STORE_IF_EQUALS -> {
+                write(3, (firstParam() == secondParam()).toLong())
+                instructionPointer += 4
+            }
+            ADJUSTS_THE_RELATIVE_BASE -> {
                 relativeBase += firstParam()
-                incrementInstructionPointer(2)
+                instructionPointer += 2
             }
-            99 -> error("Program halted")
-            else -> error("Opcode unknown")
+            HALT_PROGRAM -> {
+                error("Program halted")
+            }
         }
         return this
     }
@@ -126,6 +185,9 @@ class IntCodeComputer(
         return null
     }
 }
+
+fun Long.toBoolean() = this != 0L
+fun Boolean.toLong() = if (this) 1L else 0L
 
 class DequeOutputDevice : OutputDevice {
 
