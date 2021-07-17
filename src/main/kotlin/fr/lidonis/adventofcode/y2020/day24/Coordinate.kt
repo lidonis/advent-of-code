@@ -24,7 +24,7 @@ data class Coordinate(val q: Int, val r: Int) {
         NORTH_EAST("ne", Coordinate(1, -1));
 
         companion object {
-            private val initialsMap by lazy { values().map { it.initials to it }.toMap() }
+            private val initialsMap by lazy { values().associateBy { it.initials } }
 
             fun fromInitials(initials: String) = initialsMap[initials]
         }

@@ -26,7 +26,7 @@ interface ASCIICodeComputer : IOCodeComputer {
         (value + "\n").chars().forEach { input(it.toLong()) }
     }
 
-    fun tryNextOutputChar(maxTries: Int) = tryNextOutput(maxTries)?.toChar()
+    fun tryNextOutputChar(maxTries: Int) = tryNextOutput(maxTries)?.toInt()?.toChar()
 }
 
 interface OutputDevice {

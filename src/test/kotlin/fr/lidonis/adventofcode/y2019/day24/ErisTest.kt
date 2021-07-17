@@ -32,10 +32,9 @@ internal class ErisTest {
 
         @JvmStatic
         fun evolve() = InputReader("/y2019/day24/part1.txt").text()
-            .split("\n\n")
+            .split("\r\n")
             .map { it.lines().drop(1).joinToString("\n") }
             .map(::Eris)
             .zipWithNext()
-
     }
 }

@@ -24,7 +24,7 @@ class VacuumRobot(private var position: Position, private var direction: Directi
 class ScaffoldMap(private val scaffolds: List<Position>, private val vacuumRobot: VacuumRobot) {
 
     fun sumOfTheAlignmentParameters(): Int {
-        return scaffolds.filter { isIntersection(it) }.map { (i, j) -> i * j }.sum()
+        return scaffolds.filter { isIntersection(it) }.sumOf { (i, j) -> i * j }
     }
 
     private fun isIntersection(position: Position) =
@@ -124,5 +124,4 @@ class ScaffoldMap(private val scaffolds: List<Position>, private val vacuumRobot
 
         private const val INTERSECTION_COUNT = 4
     }
-
 }

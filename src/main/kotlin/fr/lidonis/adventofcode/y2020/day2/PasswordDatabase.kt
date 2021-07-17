@@ -26,7 +26,6 @@ class PasswordDatabase(private val passwordRecords: List<String>) {
         fun check(password: String) = password.count { it == letter } in range
     }
 
-
     private fun isValidRecordTobogganCorporatePolicy(record: String): Boolean {
         val (policy, password) = record.split(": ")
         return TobogganCorporatePolicy(policy).check(password)

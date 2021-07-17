@@ -16,8 +16,9 @@ class LuggageProcessing(rules: List<String>) {
         .let { list -> list + list.flatMap { recurseUp(it.color) } }
         .distinct()
 
-    private fun recurseDown(color: String): Int = 1 + bags.first { it.color == color }.containedColors
-        .map { (c, bag) -> c * recurseDown(bag) }.sum()
+    private fun recurseDown(color: String): Int = 1 + bags
+        .first { it.color == color }.containedColors
+        .sumOf { (c, bag) -> c * recurseDown(bag) }
 
     data class Bag(val color: String, val containedColors: List<Pair<Int, String>> = emptyList()) {
         companion object {

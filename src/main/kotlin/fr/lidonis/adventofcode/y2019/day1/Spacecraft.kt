@@ -5,8 +5,8 @@ private const val SUBTRACTOR = 2
 
 class Spacecraft(private val moduleMasses: List<Int>) {
 
-    fun fuelRequirements() = moduleMasses.map(::fuel).sum()
-    fun fullFuelRequirements() = moduleMasses.map(::fullFuel).sum()
+    fun fuelRequirements() = moduleMasses.sumOf(::fuel)
+    fun fullFuelRequirements() = moduleMasses.sumOf(::fullFuel)
 
     private fun fuel(mass: Int) = mass / DIVISOR - SUBTRACTOR
 

@@ -85,8 +85,8 @@ object SpringScriptGenerator {
                 AND C J
                 NOT J J
                 AND D J
-                """.trimIndent()
-                        + currentInstruction + "RUN"
+                """.trimIndent() +
+                        currentInstruction + "RUN"
             )
         }
     }

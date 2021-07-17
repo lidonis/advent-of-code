@@ -9,7 +9,7 @@ class OperationOrder(private val lines: List<String>) {
     fun sum2() = sum(ExpressionEvaluator2())
 
     private fun sum(expressionEvaluator: ExpressionEvaluator) = expressionEvaluator.let {
-        lines.map(it::evaluate).sum()
+        lines.sumOf(it::evaluate)
     }
 }
 

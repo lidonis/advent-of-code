@@ -16,7 +16,7 @@ data class Eris(private val bugs: Set<Position>) {
     }.toSet())
 
     val biodiversityRating by lazy {
-        bugs.sumBy { 2 pow (it.x + it.y * SIZE) }
+        bugs.sumOf { 2 pow (it.x + it.y * SIZE) }
     }
 
     fun evolve() = evolutions().elementAt(1)
@@ -35,5 +35,4 @@ data class Eris(private val bugs: Set<Position>) {
     private fun neighbours(center: Position) = center.neighbours().filter { position ->
         position.x in 0 until SIZE && position.y in 0 until SIZE
     }
-
 }

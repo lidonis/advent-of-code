@@ -14,7 +14,7 @@ class SpringDroid(program: String) {
         computer.run()
         val result = computer.outputs.pollLast()
         if (printOutput) {
-            computer.outputs.forEach { print(it.toChar()) }
+            computer.outputs.forEach { print(it.toInt().toChar()) }
         }
         return result
     }

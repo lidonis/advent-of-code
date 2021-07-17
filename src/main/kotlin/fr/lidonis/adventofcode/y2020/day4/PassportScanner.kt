@@ -30,14 +30,14 @@ class PassportScanner(text: String) {
     fun countValidValues() = passportDataList.count { it.isValidValue() }
 
     class PassportData(map: Map<String, String?>) {
-        val byr: String? by map
-        val iyr: String? by map
-        val eyr: String? by map
-        val hgt: String? by map
-        val hcl: String? by map
-        val ecl: String? by map
-        val pid: String? by map
-        val cid: String? by map
+        private val byr: String? by map
+        private val iyr: String? by map
+        private val eyr: String? by map
+        private val hgt: String? by map
+        private val hcl: String? by map
+        private val ecl: String? by map
+        private val pid: String? by map
+        private val cid: String? by map
 
         fun isValidateRequiredField() =
             byr != null && iyr != null && eyr != null && hgt != null && hcl != null && ecl != null && pid != null
@@ -61,9 +61,11 @@ class PassportScanner(text: String) {
             } ?: false
 
         override fun toString(): String {
-            return if (isValidateRequiredField())
+            return if (isValidateRequiredField()) {
                 "Passport(byr=$byr, iyr=$iyr, eyr=$eyr, hgt=$hgt, hcl=$hcl, ecl='$ecl', pid=$pid, cid=$cid)"
-            else "Missing values in passport"
+            } else {
+                "Missing values in passport"
+            }
         }
     }
 }

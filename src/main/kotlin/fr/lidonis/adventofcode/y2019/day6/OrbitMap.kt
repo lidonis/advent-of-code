@@ -16,13 +16,13 @@ class OrbitMap(input: String) {
         }
     }
 
-    fun countTotalOrbits() = orbits.values.map(::countOrbits).sum()
+    fun countTotalOrbits() = orbits.values.sumOf(::countOrbits)
     private fun countOrbits(orbits: Set<String>): Int {
-        return orbits.map { 1 + countOrbit(it) }.sum()
+        return orbits.sumOf { 1 + countOrbit(it) }
     }
 
     private fun countOrbit(key: String): Int =
-        orbitCount.getOrPut(key) { orbits[key]?.map { 1 + countOrbit(it) }?.sum() ?: 0 }
+        orbitCount.getOrPut(key) { orbits[key]?.sumOf { 1 + countOrbit(it) } ?: 0 }
 
     fun minimumOrbitalTransfers(start: String, end: String) = orbitalTransfer(start, end) - 2
 

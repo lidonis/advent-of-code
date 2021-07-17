@@ -16,6 +16,6 @@ class TobogganMap(map: List<String>) {
     private val size = map.first().length
 
     fun treeEncounter(slope: Slope) =
-        (trees.indices step slope.down).count { (it * slope.right / slope.down) % size in trees[it] }
-
+        (trees.indices step slope.down)
+            .count { (it * slope.right / slope.down) % size in trees[it] }
 }

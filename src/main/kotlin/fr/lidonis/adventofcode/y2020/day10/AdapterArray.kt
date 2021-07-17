@@ -17,9 +17,8 @@ class AdapterArray(list: List<Int>) {
         val cache = HashMap<Int, Long>()
         cache[adapters.first()] = 1
         adapters.drop(1).forEach { jolts ->
-            cache[jolts] = (jolts + 1..jolts + MAX_DIFFERENCE).map { cache[it] ?: 0 }.sum()
+            cache[jolts] = (jolts + 1..jolts + MAX_DIFFERENCE).sumOf { cache[it] ?: 0 }
         }
         return cache[0] ?: 0
     }
 }
-

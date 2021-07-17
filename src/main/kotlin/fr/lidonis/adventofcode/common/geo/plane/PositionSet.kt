@@ -24,7 +24,7 @@ data class PositionSet(val positions: Set<Position>) : Set<Position> by position
         }
     }
 
-    val score = map { 2.pow(it.x * boundingBox.end.x + it.y) }.sum()
+    val score = sumOf { 2.pow(it.x * boundingBox.end.x + it.y) }
 
     fun display() {
         for (i in 0..boundingBox.end.x) {

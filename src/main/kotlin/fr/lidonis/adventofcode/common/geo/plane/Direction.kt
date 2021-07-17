@@ -15,8 +15,8 @@ enum class Direction(val letter: Char, val move: Position) {
     fun turnLeft() = this - 1
 
     companion object {
-        private val letters by lazy { values().map { it.letter to it }.toMap() }
-        private val positions by lazy { values().map { it.move to it }.toMap() }
+        private val letters by lazy { values().associateBy { it.letter } }
+        private val positions by lazy { values().associateBy { it.move } }
 
         fun fromChar(c: Char) = letters[c]
 

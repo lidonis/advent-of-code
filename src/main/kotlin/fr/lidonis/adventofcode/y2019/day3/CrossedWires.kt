@@ -38,6 +38,6 @@ class CrossedWires(input1: List<String>, input2: List<String>) {
         }
 
         fun moves(startingPosition: Position) =
-            (0 until size).fold(listOf(startingPosition), { acc, _ -> acc + (acc.last() + direction) }).drop(1)
+            (0 until size).fold(listOf(startingPosition)) { acc, _ -> acc + (acc.last() + direction) }.drop(1)
     }
 }

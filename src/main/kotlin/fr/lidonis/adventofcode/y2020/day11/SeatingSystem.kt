@@ -85,9 +85,9 @@ data class AdjacentSeatingSystem(private val layout: MutableMap<Position, State>
     constructor(input: List<String>) : this(toMutableMap(input))
 
     override fun neighboursState(current: Position) =
-        adjacentNeighbours.getOrPut(current, {
+        adjacentNeighbours.getOrPut(current) {
             ALL_DIRECTIONS.map { it + current }
-        }).mapNotNull { layout[it] }
+        }.mapNotNull { layout[it] }
 }
 
 private const val FIRST_OVERCROWDED_COUNT = 5
@@ -100,9 +100,9 @@ data class FirstSeatingSystem(private val layout: MutableMap<Position, State>) :
     constructor(input: List<String>) : this(toMutableMap(input))
 
     override fun neighboursState(current: Position): List<State> =
-        firstNeighbours.getOrPut(current, {
+        firstNeighbours.getOrPut(current) {
             ALL_DIRECTIONS.map { look(current, it) }
-        }).mapNotNull { layout[it] }
+        }.mapNotNull { layout[it] }
 
     private fun look(
         current: Position,
@@ -111,5 +111,4 @@ data class FirstSeatingSystem(private val layout: MutableMap<Position, State>) :
         State.FLOOR -> look(current + direction, direction)
         else -> current + direction
     }
-
 }
