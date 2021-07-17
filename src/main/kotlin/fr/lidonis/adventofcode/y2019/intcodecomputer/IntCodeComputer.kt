@@ -32,100 +32,81 @@ class IntCodeComputer(
 
     override fun hasNext() = memory[instructionPointer] != END_PROGRAM
 
-    private fun getActions(): MutableList<() -> Unit> {
-        val actions = mutableListOf<() -> Unit>()
-        when (opcode) {
-            1 -> {
-                actions += { write(3, firstParameter() + secondParameter(), parameterMode(5)) }
-                actions += incrementInstructionPointer(4)
-            }
-            2 -> {
-                actions += { write(3, firstParameter() * secondParameter(), parameterMode(5)) }
-                actions += incrementInstructionPointer(4)
-            }
-            3 -> {
-                actions += { write(1, input.read(), parameterMode(3)) }
-                actions += incrementInstructionPointer(2)
-            }
-            4 -> {
-                actions += { output.write(read(1, parameterMode(3))) }
-                actions += incrementInstructionPointer(2)
-            }
-            5 -> {
-                instructionPointer = if (firstParameter() != 0L) {
-                    secondParameter().toInt()
-                } else {
-                    instructionPointer + 3
-                }
-            }
-            6 -> {
-                instructionPointer = if (firstParameter() == 0L) {
-                    secondParameter().toInt()
-                } else {
-                    instructionPointer + 3
-                }
-            }
-            7 -> {
-                actions += {
-                    write(
-                        3,
-                        if ((firstParameter() < secondParameter())) 1L else 0L,
-                        parameterMode(5)
-                    )
-                }
-                actions += incrementInstructionPointer(4)
-            }
-            8 -> {
-                actions += {
-                    write(
-                        3,
-                        if ((firstParameter() == secondParameter())) 1L else 0L,
-                        parameterMode(5)
-                    )
-                }
-                actions += incrementInstructionPointer(4)
-            }
-            9 -> {
-                actions += { relativeBase += firstParameter() }
-                actions += incrementInstructionPointer(2)
-            }
-            99 -> error("Program halted")
-            else -> error("Opcode unknown")
-        }
-        return actions
-    }
-
     private fun incrementInstructionPointer(value: Int): () -> Unit = {
         instructionPointer += value
     }
-
-    private fun firstParameter() = read(1, parameterMode(3))
-
-    private fun secondParameter() = read(2, parameterMode(4))
 
     private val opcode get() = currentCode.takeLast(2).toInt()
 
     private fun parameterMode(index: Int) =
         currentCode.getOrElse(currentCode.length - index) { '0' }
 
-    private fun read(position: Int, parameterMode: Char) =
-        memory[readPosition(position, parameterMode)]
+    private fun read(position: Int) =
+        memory[readPosition(position)]
 
-    private fun readPosition(position: Int, parameterMode: Char) =
-        when (parameterMode) {
+    private fun readPosition(position: Int) =
+        when (parameterMode(position + 2)) {
             '0' -> memory[instructionPointer + position].toInt()
             '1' -> instructionPointer + position
             '2' -> (memory[instructionPointer + position] + relativeBase).toInt()
             else -> error("Parameter mode unknown")
         }
 
-    private fun write(index: Int, value: Long, parameterMode: Char) {
-        val position = readPosition(index, parameterMode)
+    private fun write(index: Int, value: Long) {
+        val position = readPosition(index)
         memory[position] = value
+        incrementInstructionPointer(index + 1)()
     }
 
     override fun next(): IOCodeComputer {
-        getActions().forEach { it() }
+        when (opcode) {
+            1 -> {
+                write(3, read(1) + read(2))
+            }
+            2 -> {
+                write(3, read(1) * read(2))
+            }
+            3 -> {
+                write(1, input.read())
+            }
+            4 -> {
+                output.write(read(1));
+                incrementInstructionPointer(2)()
+            }
+            5 -> {
+
+                instructionPointer = if (read(1) != 0L) {
+                    read(2).toInt()
+                } else {
+                    instructionPointer + 3
+                }
+
+            }
+            6 -> {
+                instructionPointer = if (read(1) == 0L) {
+                    read(2).toInt()
+                } else {
+                    instructionPointer + 3
+                }
+            }
+            7 -> {
+                write(
+                    3,
+                    if ((read(1) < read(2))) 1L else 0L
+                )
+            }
+            8 -> {
+                write(
+                    3,
+                    if ((read(1) == read(2))) 1L else 0L
+                )
+            }
+            9 -> {
+                relativeBase += read(1); incrementInstructionPointer(2)()
+            }
+            99 -> error("Program halted")
+            else -> error("Opcode unknown")
+        }
         return this
     }
 
@@ -136,9 +117,7 @@ class IntCodeComputer(
     }
 
     override val outputs: Deque<Long>
-        get() {
-            return output.values
-        }
+        get() = output.values
 
     override fun input(value: Long) {
         input.add(value)
