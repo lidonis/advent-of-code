@@ -34,12 +34,12 @@ private const val INSTRUCTION_SIZE_THREE_PARAMS = 3
 private enum class Instruction(val opcode: Int, val size: Int) {
     ADDS(OP_CODE_ADDS, INSTRUCTION_SIZE_THREE_PARAMS),
     MULTIPLIES(OP_CODE_MULTIPLIES, INSTRUCTION_SIZE_THREE_PARAMS),
-    INPUT(OP_CODE_INPUT, INSTRUCTION_SIZE_TWO_PARAMS),
+    INPUT(OP_CODE_INPUT, INSTRUCTION_SIZE_ONE_PARAM),
     OUTPUTS(OP_CODE_OUTPUTS, INSTRUCTION_SIZE_ONE_PARAM),
     JUMP_IF_TRUE(OP_CODE_JUMP_IF_TRUE, INSTRUCTION_SIZE_TWO_PARAMS),
     JUMP_IF_FALSE(OP_CODE_JUMP_IF_FALSE, INSTRUCTION_SIZE_TWO_PARAMS),
-    STORE_IF_LESS_THAN(OP_CODE_STORE_IF_LESS_THAN, INSTRUCTION_SIZE_TWO_PARAMS),
-    STORE_IF_EQUALS(OP_CODE_STORE_IF_EQUALS, INSTRUCTION_SIZE_TWO_PARAMS),
+    STORE_IF_LESS_THAN(OP_CODE_STORE_IF_LESS_THAN, INSTRUCTION_SIZE_THREE_PARAMS),
+    STORE_IF_EQUALS(OP_CODE_STORE_IF_EQUALS, INSTRUCTION_SIZE_THREE_PARAMS),
     ADJUSTS_THE_RELATIVE_BASE(OP_CODE_ADJUSTS_THE_RELATIVE_BASE, INSTRUCTION_SIZE_ONE_PARAM),
     HALT_PROGRAM(OP_CODE_HALT_PROGRAM, INSTRUCTION_SIZE_NO_PARAM);
 
@@ -98,18 +98,18 @@ class IntCodeComputer(
     }
 
     override fun next(): IOCodeComputer {
-        when (Instruction.fromOpcode(opcode)) {
+        when (val instruction = Instruction.fromOpcode(opcode)) {
             ADDS -> {
                 write(3, firstParam() + secondParam())
-                instructionPointer += 3 + 1
+                instructionPointer += instruction.size + 1
             }
             MULTIPLIES -> {
                 write(3, firstParam() * secondParam())
-                instructionPointer += 3 + 1
+                instructionPointer += instruction.size + 1
             }
             INPUT -> {
                 write(1, input.read())
-                instructionPointer += 1 + 1
+                instructionPointer += instruction.size + 1
             }
             OUTPUTS -> {
                 output.write(firstParam())
@@ -119,27 +119,27 @@ class IntCodeComputer(
                 instructionPointer = if (firstParam().toBoolean()) {
                     secondParam().toInt()
                 } else {
-                    instructionPointer + JUMP_IF_TRUE.size + 1
+                    instructionPointer + instruction.size + 1
                 }
             }
             JUMP_IF_FALSE -> {
                 instructionPointer = if (!firstParam().toBoolean()) {
                     secondParam().toInt()
                 } else {
-                    instructionPointer + JUMP_IF_FALSE.size + 1
+                    instructionPointer + instruction.size + 1
                 }
             }
             STORE_IF_LESS_THAN -> {
                 write(3, (firstParam() < secondParam()).toLong())
-                instructionPointer += 4
+                instructionPointer += instruction.size + 1
             }
             STORE_IF_EQUALS -> {
                 write(3, (firstParam() == secondParam()).toLong())
-                instructionPointer += 4
+                instructionPointer += instruction.size + 1
             }
             ADJUSTS_THE_RELATIVE_BASE -> {
                 relativeBase += firstParam()
-                instructionPointer += 2
+                instructionPointer += instruction.size + 1
             }
             HALT_PROGRAM -> {
                 error("Program halted")
