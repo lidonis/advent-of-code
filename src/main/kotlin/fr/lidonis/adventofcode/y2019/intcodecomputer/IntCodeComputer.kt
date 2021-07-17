@@ -1,10 +1,54 @@
 package fr.lidonis.adventofcode.y2019.intcodecomputer
 
-import java.util.ArrayDeque
-import java.util.Deque
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.ADDS
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.ADJUSTS_THE_RELATIVE_BASE
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.HALT_PROGRAM
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.INPUT
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.JUMP_IF_FALSE
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.JUMP_IF_TRUE
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.MULTIPLIES
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.OUTPUTS
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.STORE_IF_EQUALS
+import fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction.STORE_IF_LESS_THAN
+import java.util.*
 import java.util.concurrent.ArrayBlockingQueue
 
-private const val END_PROGRAM = 99L
+private const val MAX_CAPACITY = 100000
+
+private const val OP_CODE_ADDS = 1
+private const val OP_CODE_MULTIPLIES = 2
+private const val OP_CODE_INPUT = 3
+private const val OP_CODE_OUTPUTS = 4
+private const val OP_CODE_JUMP_IF_TRUE = 5
+private const val OP_CODE_JUMP_IF_FALSE = 6
+private const val OP_CODE_STORE_IF_LESS_THAN = 7
+private const val OP_CODE_STORE_IF_EQUALS = 8
+private const val OP_CODE_ADJUSTS_THE_RELATIVE_BASE = 9
+private const val OP_CODE_HALT_PROGRAM = 99
+
+private const val INSTRUCTION_SIZE_NO_PARAM = 0
+private const val INSTRUCTION_SIZE_ONE_PARAM = 1
+private const val INSTRUCTION_SIZE_TWO_PARAMS = 2
+private const val INSTRUCTION_SIZE_THREE_PARAMS = 3
+
+private enum class Instruction(val opcode: Int, val size: Int) {
+    ADDS(OP_CODE_ADDS, INSTRUCTION_SIZE_THREE_PARAMS),
+    MULTIPLIES(OP_CODE_MULTIPLIES, INSTRUCTION_SIZE_THREE_PARAMS),
+    INPUT(OP_CODE_INPUT, INSTRUCTION_SIZE_ONE_PARAM),
+    OUTPUTS(OP_CODE_OUTPUTS, INSTRUCTION_SIZE_ONE_PARAM),
+    JUMP_IF_TRUE(OP_CODE_JUMP_IF_TRUE, INSTRUCTION_SIZE_TWO_PARAMS),
+    JUMP_IF_FALSE(OP_CODE_JUMP_IF_FALSE, INSTRUCTION_SIZE_TWO_PARAMS),
+    STORE_IF_LESS_THAN(OP_CODE_STORE_IF_LESS_THAN, INSTRUCTION_SIZE_THREE_PARAMS),
+    STORE_IF_EQUALS(OP_CODE_STORE_IF_EQUALS, INSTRUCTION_SIZE_THREE_PARAMS),
+    ADJUSTS_THE_RELATIVE_BASE(OP_CODE_ADJUSTS_THE_RELATIVE_BASE, INSTRUCTION_SIZE_ONE_PARAM),
+    HALT_PROGRAM(OP_CODE_HALT_PROGRAM, INSTRUCTION_SIZE_NO_PARAM);
+
+    companion object {
+        fun fromOpcode(opcode: Int) =
+            values().find { it.opcode == opcode }
+                ?: error("Opcode unknown")
+    }
+}
 
 class IntCodeComputer(
     override val program: Iterable<Long>,
@@ -19,7 +63,7 @@ class IntCodeComputer(
         get() = memory[instructionPointer].toString()
 
     override fun reset() {
-        if (needReset()) {
+        if (instructionPointer != 0 && memory != program) {
             instructionPointer = 0
             memory = Memory(program.toMutableList())
             relativeBase = 0L
@@ -28,126 +72,73 @@ class IntCodeComputer(
         }
     }
 
-    private fun needReset() = instructionPointer != 0 && memory != program
-
-    override fun hasNext() = memory[instructionPointer] != END_PROGRAM
-
-    private fun getActions(): MutableList<() -> Unit> {
-        val actions = mutableListOf<() -> Unit>()
-        when (opcode) {
-            1 -> {
-                actions.addAll(
-                    listOf(
-                        {
-                            write(
-                                3, firstParameter() + secondParameter(), parameterMode(5)
-                            )
-                        },
-                        incrementInstructionPointer(4)
-                    )
-                )
-            }
-            2 -> {
-                actions.addAll(
-                    listOf(
-                        {
-                            write(
-                                3, firstParameter() * secondParameter(), parameterMode(5)
-                            )
-                        }, incrementInstructionPointer(4)
-                    )
-                )
-            }
-            3 -> {
-                actions.addAll(
-                    listOf(
-                        { write(1, input.read(), parameterMode(3)) },
-                        incrementInstructionPointer(2)
-                    )
-                )
-            }
-            4 -> {
-                actions.add {
-                    output.write(read(1, parameterMode(3)))
-                }
-
-                actions.add(incrementInstructionPointer(2))
-            }
-            5 -> {
-                instructionPointer = if (firstParameter() != 0L) {
-                    secondParameter().toInt()
-                } else {
-                    instructionPointer + 3
-                }
-            }
-            6 -> {
-                instructionPointer = if (firstParameter() == 0L) {
-                    secondParameter().toInt()
-                } else {
-                    instructionPointer + 3
-                }
-            }
-            7 -> {
-                actions.add {
-                    write(
-                        3,
-                        if ((firstParameter() < secondParameter())) 1L else 0L,
-                        parameterMode(5)
-                    )
-                }
-                actions.add(incrementInstructionPointer(4))
-            }
-            8 -> {
-                actions.add {
-                    write(
-                        3,
-                        if ((firstParameter() == secondParameter())) 1L else 0L,
-                        parameterMode(5)
-                    )
-                }
-                actions.add(incrementInstructionPointer(4))
-            }
-            9 -> {
-                actions.add { relativeBase += firstParameter() }
-                actions.add(incrementInstructionPointer(2))
-            }
-            99 -> error("Program halted")
-            else -> error("Opcode unknown")
-        }
-        return actions
-    }
-
-    private fun incrementInstructionPointer(value: Int): () -> Unit = {
-        instructionPointer += value
-    }
-
-    private fun firstParameter() = read(1, parameterMode(3))
-
-    private fun secondParameter() = read(2, parameterMode(4))
+    override fun hasNext() = memory[instructionPointer] != OP_CODE_HALT_PROGRAM.toLong()
 
     private val opcode get() = currentCode.takeLast(2).toInt()
 
-    private fun parameterMode(index: Int) =
-        currentCode.getOrElse(currentCode.length - index) { '0' }
+    private fun read(position: Int) =
+        memory[readPosition(position)]
 
-    private fun read(position: Int, parameterMode: Char) =
-        memory[readPosition(position, parameterMode)]
-
-    private fun readPosition(position: Int, parameterMode: Char) =
-        when (parameterMode) {
+    private fun readPosition(position: Int) =
+        when (currentCode.getOrElse(currentCode.length - (position + 2)) { '0' }) {
             '0' -> memory[instructionPointer + position].toInt()
             '1' -> instructionPointer + position
             '2' -> (memory[instructionPointer + position] + relativeBase).toInt()
             else -> error("Parameter mode unknown")
         }
 
-    private fun write(index: Int, value: Long, parameterMode: Char) {
-        val position = readPosition(index, parameterMode)
-        memory[position] = value
+    private fun write(index: Int, value: Long) {
+        memory[readPosition(index)] = value
     }
 
     override fun next(): IOCodeComputer {
-        getActions().forEach { it() }
+        when (val instruction = Instruction.fromOpcode(opcode)) {
+            ADDS -> {
+                write(instruction.size, read(1) + read(2))
+                instructionPointer += instruction.size + 1
+            }
+            MULTIPLIES -> {
+                write(instruction.size, read(1) * read(2))
+                instructionPointer += instruction.size + 1
+            }
+            INPUT -> {
+                write(instruction.size, input.read())
+                instructionPointer += instruction.size + 1
+            }
+            OUTPUTS -> {
+                output.write(read(1))
+                instructionPointer += instruction.size + 1
+            }
+            JUMP_IF_TRUE -> {
+                instructionPointer = if (read(1).toBoolean()) {
+                    read(2).toInt()
+                } else {
+                    instructionPointer + instruction.size + 1
+                }
+            }
+            JUMP_IF_FALSE -> {
+                instructionPointer = if (!read(1).toBoolean()) {
+                    read(2).toInt()
+                } else {
+                    instructionPointer + instruction.size + 1
+                }
+            }
+            STORE_IF_LESS_THAN -> {
+                write(instruction.size, (read(1) < read(2)).toLong())
+                instructionPointer += instruction.size + 1
+            }
+            STORE_IF_EQUALS -> {
+                write(instruction.size, (read(1) == read(2)).toLong())
+                instructionPointer += instruction.size + 1
+            }
+            ADJUSTS_THE_RELATIVE_BASE -> {
+                relativeBase += read(1)
+                instructionPointer += instruction.size + 1
+            }
+            HALT_PROGRAM -> {
+                error("Program halted")
+            }
+        }
         return this
     }
 
@@ -158,9 +149,7 @@ class IntCodeComputer(
     }
 
     override val outputs: Deque<Long>
-        get() {
-            return output.values
-        }
+        get() = output.values
 
     override fun input(value: Long) {
         input.add(value)
@@ -186,6 +175,9 @@ class IntCodeComputer(
         return null
     }
 }
+
+fun Long.toBoolean() = this != 0L
+fun Boolean.toLong() = if (this) 1L else 0L
 
 class DequeOutputDevice : OutputDevice {
 
@@ -214,9 +206,6 @@ class QueueInputDevice : InputDevice {
         values = ArrayBlockingQueue(MAX_CAPACITY)
     }
 
-    companion object {
-        private const val MAX_CAPACITY = 100000
-    }
 }
 
 class Memory(private val list: MutableList<Long>) : MutableList<Long> by list {
