@@ -4,6 +4,7 @@ import java.util.*
 import java.util.concurrent.ArrayBlockingQueue
 
 private const val END_PROGRAM = 99L
+private const val MAX_CAPACITY = 100000
 
 class IntCodeComputer(
     override val program: Iterable<Long>,
@@ -191,9 +192,6 @@ class QueueInputDevice : InputDevice {
         values = ArrayBlockingQueue(MAX_CAPACITY)
     }
 
-    companion object {
-        private const val MAX_CAPACITY = 100000
-    }
 }
 
 class Memory(private val list: MutableList<Long>) : MutableList<Long> by list {
