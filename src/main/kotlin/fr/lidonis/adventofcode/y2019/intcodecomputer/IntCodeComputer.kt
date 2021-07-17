@@ -63,7 +63,7 @@ class IntCodeComputer(
         get() = memory[instructionPointer].toString()
 
     override fun reset() {
-        if (needReset()) {
+        if (instructionPointer != 0 && memory != program) {
             instructionPointer = 0
             memory = Memory(program.toMutableList())
             relativeBase = 0L
@@ -72,20 +72,15 @@ class IntCodeComputer(
         }
     }
 
-    private fun needReset() = instructionPointer != 0 && memory != program
-
     override fun hasNext() = memory[instructionPointer] != OP_CODE_HALT_PROGRAM.toLong()
 
     private val opcode get() = currentCode.takeLast(2).toInt()
-
-    private fun parameterMode(index: Int) =
-        currentCode.getOrElse(currentCode.length - index) { '0' }
 
     private fun read(position: Int) =
         memory[readPosition(position)]
 
     private fun readPosition(position: Int) =
-        when (parameterMode(position + 2)) {
+        when (currentCode.getOrElse(currentCode.length - (position + 2)) { '0' }) {
             '0' -> memory[instructionPointer + position].toInt()
             '1' -> instructionPointer + position
             '2' -> (memory[instructionPointer + position] + relativeBase).toInt()
@@ -93,52 +88,51 @@ class IntCodeComputer(
         }
 
     private fun write(index: Int, value: Long) {
-        val position = readPosition(index)
-        memory[position] = value
+        memory[readPosition(index)] = value
     }
 
     override fun next(): IOCodeComputer {
         when (val instruction = Instruction.fromOpcode(opcode)) {
             ADDS -> {
-                write(3, firstParam() + secondParam())
+                write(instruction.size, read(1) + read(2))
                 instructionPointer += instruction.size + 1
             }
             MULTIPLIES -> {
-                write(3, firstParam() * secondParam())
+                write(instruction.size, read(1) * read(2))
                 instructionPointer += instruction.size + 1
             }
             INPUT -> {
-                write(1, input.read())
+                write(instruction.size, input.read())
                 instructionPointer += instruction.size + 1
             }
             OUTPUTS -> {
-                output.write(firstParam())
-                instructionPointer += 2
+                output.write(read(1))
+                instructionPointer += instruction.size + 1
             }
             JUMP_IF_TRUE -> {
-                instructionPointer = if (firstParam().toBoolean()) {
-                    secondParam().toInt()
+                instructionPointer = if (read(1).toBoolean()) {
+                    read(2).toInt()
                 } else {
                     instructionPointer + instruction.size + 1
                 }
             }
             JUMP_IF_FALSE -> {
-                instructionPointer = if (!firstParam().toBoolean()) {
-                    secondParam().toInt()
+                instructionPointer = if (!read(1).toBoolean()) {
+                    read(2).toInt()
                 } else {
                     instructionPointer + instruction.size + 1
                 }
             }
             STORE_IF_LESS_THAN -> {
-                write(3, (firstParam() < secondParam()).toLong())
+                write(instruction.size, (read(1) < read(2)).toLong())
                 instructionPointer += instruction.size + 1
             }
             STORE_IF_EQUALS -> {
-                write(3, (firstParam() == secondParam()).toLong())
+                write(instruction.size, (read(1) == read(2)).toLong())
                 instructionPointer += instruction.size + 1
             }
             ADJUSTS_THE_RELATIVE_BASE -> {
-                relativeBase += firstParam()
+                relativeBase += read(1)
                 instructionPointer += instruction.size + 1
             }
             HALT_PROGRAM -> {
@@ -147,10 +141,6 @@ class IntCodeComputer(
         }
         return this
     }
-
-    private fun secondParam() = read(2)
-
-    private fun firstParam() = read(1)
 
     override fun run() {
         while (hasNext()) {
