@@ -55,15 +55,9 @@ graal {
     option '--static'
 }
 
-kotlin {
-    sourceSets.all {
-        languageSettings.enableLanguageFeature('InlineClasses')
-    }
-}
-
 compileKotlin {
     kotlinOptions {
         jvmTarget = '1.6'
-        freeCompilerArgs = ["-Xinline-classes", "-Xopt-in=kotlin.RequiresOptIn"]
+        freeCompilerArgs = ["-Xopt-in=kotlin.RequiresOptIn"]
     }
 }

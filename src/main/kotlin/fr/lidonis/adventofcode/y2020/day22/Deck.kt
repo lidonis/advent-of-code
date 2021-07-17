@@ -2,8 +2,10 @@ package fr.lidonis.adventofcode.y2020.day22
 
 import fr.lidonis.adventofcode.common.head
 import fr.lidonis.adventofcode.common.tail
+import kotlin.jvm.JvmInline
 
-inline class Deck(private val cards: List<Int>) {
+@JvmInline
+value class Deck(private val cards: List<Int>) {
     constructor(text: String) : this(text.split(", ").map(String::toInt))
 
     val score: Int get() = cards.reversed().mapIndexed { index, value -> value * (index + 1) }.sum()
