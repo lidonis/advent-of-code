@@ -57,7 +57,13 @@ graal {
 
 compileKotlin {
     kotlinOptions {
-        jvmTarget = '1.6'
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
         freeCompilerArgs = ["-Xopt-in=kotlin.RequiresOptIn"]
+    }
+}
+
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 }
