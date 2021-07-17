@@ -8,7 +8,7 @@ class AftScaffoldingControlAndInformationInterface(program: String) {
 
     private var scaffoldMap = computer.run {
         this.run()
-        val input = this.outputs.map { it.toChar() }.joinToString("")
+        val input = this.outputs.map { it.toInt().toChar() }.joinToString("")
         this.reset()
         ScaffoldMap.from(input)
     }

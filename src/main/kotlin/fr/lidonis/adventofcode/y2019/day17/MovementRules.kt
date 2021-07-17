@@ -80,11 +80,12 @@ private data class CompressState(
     fun isSolution(path: List<String>) = index == path.size
 }
 
-private inline class Function(val list: List<String>) {
+@JvmInline
+private value class Function(val list: List<String>) {
     val size: Int
         get() = list.size
 
-    val charSize get() = list.sumBy { it.length } + list.size - 1
+    val charSize get() = list.sumOf { it.length } + list.size - 1
 
     override fun toString() = list.joinToString(DELIMITER)
 }

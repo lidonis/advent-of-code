@@ -68,7 +68,7 @@ class Day18(input: String) {
         }
 
         data class Door(private val letter: Char) : Tile() {
-            private val key = Key(letter.toLowerCase())
+            private val key = Key(letter.lowercaseChar())
             override fun access(keys: Set<Key>) = key in keys
         }
 

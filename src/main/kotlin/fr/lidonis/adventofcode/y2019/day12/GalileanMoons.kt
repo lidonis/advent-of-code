@@ -44,7 +44,7 @@ class GalileanMoons(lines: List<String>) {
             val velocities = MutableList(points.size) { 0 }
             while (true) {
                 for ((i, point) in points.withIndex()) {
-                    velocities[i] += points.sumBy { (it - point).sign }
+                    velocities[i] += points.sumOf { (it - point).sign }
                 }
                 for ((i, velocity) in velocities.withIndex()) {
                     points[i] += velocity
