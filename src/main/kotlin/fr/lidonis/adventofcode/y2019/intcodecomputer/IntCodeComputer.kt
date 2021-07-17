@@ -32,7 +32,7 @@ class IntCodeComputer(
 
     override fun hasNext() = memory[instructionPointer] != END_PROGRAM
 
-    private fun incrementInstructionPointer(value: Int): () -> Unit = {
+    private fun incrementInstructionPointer(value: Int) {
         instructionPointer += value
     }
 
@@ -55,60 +55,43 @@ class IntCodeComputer(
     private fun write(index: Int, value: Long) {
         val position = readPosition(index)
         memory[position] = value
-        incrementInstructionPointer(index + 1)()
+        incrementInstructionPointer(index + 1)
     }
 
     override fun next(): IOCodeComputer {
         when (opcode) {
-            1 -> {
-                write(3, read(1) + read(2))
-            }
-            2 -> {
-                write(3, read(1) * read(2))
-            }
-            3 -> {
-                write(1, input.read())
-            }
+            1 -> write(3, firstParam() + secondParam())
+            2 -> write(3, firstParam() * secondParam())
+            3 -> write(1, input.read())
             4 -> {
-                output.write(read(1));
-                incrementInstructionPointer(2)()
+                output.write(firstParam())
+                incrementInstructionPointer(2)
             }
-            5 -> {
-
-                instructionPointer = if (read(1) != 0L) {
-                    read(2).toInt()
-                } else {
-                    instructionPointer + 3
-                }
-
+            5 -> instructionPointer = if (firstParam() != 0L) {
+                secondParam().toInt()
+            } else {
+                instructionPointer + 3
             }
-            6 -> {
-                instructionPointer = if (read(1) == 0L) {
-                    read(2).toInt()
-                } else {
-                    instructionPointer + 3
-                }
+            6 -> instructionPointer = if (firstParam() == 0L) {
+                secondParam().toInt()
+            } else {
+                instructionPointer + 3
             }
-            7 -> {
-                write(
-                    3,
-                    if ((read(1) < read(2))) 1L else 0L
-                )
-            }
-            8 -> {
-                write(
-                    3,
-                    if ((read(1) == read(2))) 1L else 0L
-                )
-            }
+            7 -> write(3, if ((firstParam() < secondParam())) 1L else 0L)
+            8 -> write(3, if ((firstParam() == secondParam())) 1L else 0L)
             9 -> {
-                relativeBase += read(1); incrementInstructionPointer(2)()
+                relativeBase += firstParam()
+                incrementInstructionPointer(2)
             }
             99 -> error("Program halted")
             else -> error("Opcode unknown")
         }
         return this
     }
+
+    private fun secondParam() = read(2)
+
+    private fun firstParam() = read(1)
 
     override fun run() {
         while (hasNext()) {

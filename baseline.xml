@@ -4,8 +4,7 @@
     <ID>ModifierOrder:MovementRules.kt$Function$@JvmInline private value</ID>
   </ManuallySuppressedIssues>
   <CurrentIssues>
-    <ID>ComplexMethod:IntCodeComputer.kt$IntCodeComputer$private fun getActions(): MutableList&lt;() -&gt; Unit&gt;</ID>
-    <ID>LongMethod:IntCodeComputer.kt$IntCodeComputer$private fun getActions(): MutableList&lt;() -&gt; Unit&gt;</ID>
+    <ID>ComplexMethod:IntCodeComputer.kt$IntCodeComputer$override fun next(): IOCodeComputer</ID>
     <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$3</ID>
     <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$4</ID>
     <ID>MagicNumber:IntCodeComputer.kt$IntCodeComputer$5</ID>
@@ -17,6 +16,7 @@
     <ID>MagicNumber:SpringScriptGenerator.kt$SpringScriptGenerator$10</ID>
     <ID>MagicNumber:SpringScriptGenerator.kt$SpringScriptGenerator$3</ID>
     <ID>MagicNumber:SpringScriptGenerator.kt$SpringScriptGenerator$4</ID>
+    <ID>ModifierOrder:MovementRules.kt$Function$@JvmInline private value</ID>
     <ID>TooManyFunctions:IntCodeComputer.kt$IntCodeComputer : ASCIICodeComputer</ID>
   </CurrentIssues>
 </SmellBaseline>
