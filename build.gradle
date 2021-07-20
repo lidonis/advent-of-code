@@ -19,7 +19,7 @@ repositories {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2"
-    implementation "info.picocli:picocli:4.0.4"
+    implementation "info.picocli:picocli:4.6.1"
     implementation 'info.picocli:picocli-jansi-graalvm:1.2.0'
     implementation 'org.fusesource.jansi:jansi:2.3.3'
 
