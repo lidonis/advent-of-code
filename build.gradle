@@ -21,7 +21,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1-native-mt"
     implementation "info.picocli:picocli:4.6.1"
     implementation 'info.picocli:picocli-jansi-graalvm:1.2.0'
-    implementation 'org.fusesource.jansi:jansi:2.3.3'
+    implementation 'org.fusesource.jansi:jansi:2.3.4'
 
     annotationProcessor "info.picocli:picocli-codegen:4.6.1"
 
