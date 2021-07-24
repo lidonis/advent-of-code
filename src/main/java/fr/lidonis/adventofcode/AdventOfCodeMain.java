@@ -1,11 +1,9 @@
 package fr.lidonis.adventofcode;
 
-import java.util.logging.Logger;
-import org.fusesource.jansi.AnsiConsole;
-import picocli.CommandLine;
-import java.util.logging.Level;
-
 import java.util.concurrent.Callable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import picocli.CommandLine;
 
 @CommandLine.Command(
         name = "advent-of-code", mixinStandardHelpOptions = true, description = "Prints Advent of Code result"
