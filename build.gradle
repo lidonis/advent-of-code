@@ -9,8 +9,10 @@ plugins {
 group 'fr.lidonis'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = JavaVersion.VERSION_1_8.toString()
-targetCompatibility = JavaVersion.VERSION_1_8.toString()
+def jvmVersion = JavaVersion.VERSION_11.toString()
+
+sourceCompatibility = jvmVersion
+targetCompatibility = jvmVersion
 
 repositories {
     mavenCentral()
@@ -47,18 +49,19 @@ application {
 graal {
     mainClass application.getMainClass().get()
     outputName rootProject.name
+    javaVersion jvmVersion
     option '--static'
 }
 
 compileKotlin {
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        jvmTarget = jvmVersion
         freeCompilerArgs = ["-Xopt-in=kotlin.RequiresOptIn"]
     }
 }
 
 compileTestKotlin {
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        jvmTarget = jvmVersion
     }
 }
