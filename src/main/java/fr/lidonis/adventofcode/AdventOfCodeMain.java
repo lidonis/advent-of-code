@@ -1,8 +1,8 @@
 package fr.lidonis.adventofcode;
 
 import java.util.logging.Logger;
+import org.fusesource.jansi.AnsiConsole;
 import picocli.CommandLine;
-import picocli.jansi.graalvm.AnsiConsole;
 import java.util.logging.Level;
 
 import java.util.concurrent.Callable;
@@ -21,10 +21,7 @@ public class AdventOfCodeMain implements Callable<Integer> {
     private int day;
 
     public static void main(String[] args) {
-        int exitCode;
-        try (AnsiConsole ignored = AnsiConsole.windowsInstall()) {
-            exitCode = new CommandLine(new AdventOfCodeMain()).execute(args);
-        }
+        int exitCode = new CommandLine(new AdventOfCodeMain()).execute(args);
         System.exit(exitCode);
     }
 
