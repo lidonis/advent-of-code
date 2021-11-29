@@ -1,7 +1,6 @@
 import fr.lidonis.adventofcode.common.InputReader
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ObsoleteCoroutinesApi
 import kotlinx.coroutines.channels.ActorScope
 import kotlinx.coroutines.channels.Channel
@@ -9,7 +8,6 @@ import kotlinx.coroutines.channels.ReceiveChannel
 import kotlinx.coroutines.channels.SendChannel
 import kotlinx.coroutines.channels.actor
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
 
 @ObsoleteCoroutinesApi
 fun main() {
@@ -87,7 +85,7 @@ object NetworkInterfaceControllerActor {
         private val inbox: ReceiveChannel<Packet>,
         private val network: SendChannel<NetworkMessage>,
         program: String,
-        private val address: Int
+        private val address: Int,
     ) {
         private val computer = IntCodeComputerFactory.buildIOComputer(program)
 
@@ -97,16 +95,14 @@ object NetworkInterfaceControllerActor {
 
         suspend fun compute() {
             while (true) {
-                withContext(Dispatchers.IO) {
-                    activate()
-                }
+                activate()
             }
         }
 
         private suspend fun activate() {
             var count = 0
             while (count < MAX_COUNT) {
-                inbox.poll()?.run {
+                inbox.tryReceive().getOrNull()?.run {
                     computer.input(x)
                     computer.input(y)
                     network.send(Active(address))
@@ -130,7 +126,7 @@ object NetworkInterfaceControllerActor {
 
     private class Monitor(
         private val inbox: ReceiveChannel<NetworkMessage>,
-        private val network: SendChannel<NetworkMessage>
+        private val network: SendChannel<NetworkMessage>,
     ) {
         private val ysReceivedByComputer0FromNat = mutableSetOf<Long>()
         private val computerStates = MutableList(MAX_COMPUTER) { true }
@@ -184,7 +180,7 @@ object NetworkInterfaceControllerActor {
 
     private class NotAlwaysTransmitting(
         private val inbox: ReceiveChannel<NetworkMessage>,
-        private val network: SendChannel<NetworkMessage>
+        private val network: SendChannel<NetworkMessage>,
     ) {
         private var lastPacket: Packet? = null
 
