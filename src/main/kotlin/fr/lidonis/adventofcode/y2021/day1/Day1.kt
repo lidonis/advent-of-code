@@ -10,7 +10,7 @@ object Day1 : AdventOfCode2021(DAY) {
     private val sweepReport: SweepReport = SweepReport(input().lines().map(String::toInt))
 
     @Answer("1393")
-    override fun part1(): Int = sweepReport.countIncrease()
+    override fun part1() = sweepReport.countIncrease()
 
     @Answer("1359")
     override fun part2() =  sweepReport.countWindowIncrease()
