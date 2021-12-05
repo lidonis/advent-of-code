@@ -1,7 +1,7 @@
 package fr.lidonis.adventofcode.common.geo.plane
 
 import kotlin.math.abs
-import java.lang.Integer.max
+import kotlin.math.max
 
 data class Line(val a: Position, val b: Position) {
     val isHorizontal = a.x == b.x
