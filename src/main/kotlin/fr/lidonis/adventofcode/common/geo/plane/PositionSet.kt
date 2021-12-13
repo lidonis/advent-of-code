@@ -6,7 +6,7 @@ data class PositionSet(val positions: Set<Position>) : Set<Position> by position
 
     fun mirrorY() = PositionSet(map { Position(it.x, -it.y) }.toSet())
 
-    fun chunked(size: Int) = groupBy { it.x / size }.values.map { PositionSet(it.toSet()) }
+    fun chunked(size: Int) = groupBy { it.x / size }.toSortedMap().values.map { PositionSet(it.toSet()) }
 
     fun moveTo(position: Position) = PositionSet(map { it - boundingBox.start + position }.toSet())
 
@@ -27,8 +27,8 @@ data class PositionSet(val positions: Set<Position>) : Set<Position> by position
     val score = sumOf { 2.pow(it.x * boundingBox.end.x + it.y) }
 
     fun display() {
-        for (i in 0..boundingBox.end.x) {
-            for (j in 0..boundingBox.end.y) {
+        for (j in 0..boundingBox.end.y) {
+            for (i in 0..boundingBox.end.x) {
                 if (positions.contains(Position(i, j))) print("#") else print(".")
             }
             println()
