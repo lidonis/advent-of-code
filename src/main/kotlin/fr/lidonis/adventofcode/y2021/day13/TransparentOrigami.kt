@@ -41,13 +41,13 @@ private data class FoldInstruction(val axis: FoldAxis, val index: Int) {
 
     private fun Position.foldY(yAxis: Int) = when {
         y < yAxis -> this
-        y > yAxis -> Position(this.x, yAxis - (this.y - yAxis))
+        y > yAxis -> Position(x, 2 * yAxis - y)
         else -> error("Fold on axis")
     }
 
     private fun Position.foldX(xAxis: Int) = when {
         x < xAxis -> this
-        x > xAxis -> Position(xAxis - (this.x - xAxis), this.y)
+        x > xAxis -> Position(2 * xAxis - x, y)
         else -> error("Fold on axis")
     }
 }
