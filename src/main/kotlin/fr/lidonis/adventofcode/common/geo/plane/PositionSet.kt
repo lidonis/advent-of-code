@@ -27,8 +27,8 @@ data class PositionSet(val positions: Set<Position>) : Set<Position> by position
     val score = sumOf { 2.pow(it.x * boundingBox.end.x + it.y) }
 
     fun display() {
-        for (j in 0..boundingBox.end.y) {
-            for (i in 0..boundingBox.end.x) {
+        for (j in (boundingBox.start.y)..boundingBox.end.y) {
+            for (i in (boundingBox.start.x)..boundingBox.end.x) {
                 if (positions.contains(Position(i, j))) print("#") else print(".")
             }
             println()
