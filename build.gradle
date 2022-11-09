@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'application'
-    id 'org.jetbrains.kotlin.jvm' version '1.7.20'
+    id 'org.jetbrains.kotlin.jvm' version '1.7.21'
     id 'io.gitlab.arturbosch.detekt' version '1.20.0'
     id 'com.palantir.graal' version '0.12.0'
 }
