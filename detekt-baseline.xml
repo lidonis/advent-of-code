@@ -4,6 +4,8 @@
     <ID>ModifierOrder:MovementRules.kt$Function$@JvmInline private value</ID>
   </ManuallySuppressedIssues>
   <CurrentIssues>
+    <ID>DestructuringDeclarationWithTooManyEntries:HydrothermalVents.kt$HydrothermalVents$val (x1, y1, x2, y2) = LINE_REGEX.find(input)?.destructured ?: error("wrong format")</ID>
+    <ID>DestructuringDeclarationWithTooManyEntries:MovementRulesTest.kt$MovementRulesTest$val (mainRoutine, functionA, functionB, functionC) = movementRules</ID>
     <ID>MagicNumber:SpringScriptGenerator.kt$SpringScriptGenerator$10</ID>
     <ID>MagicNumber:SpringScriptGenerator.kt$SpringScriptGenerator$3</ID>
     <ID>MagicNumber:SpringScriptGenerator.kt$SpringScriptGenerator$4</ID>
