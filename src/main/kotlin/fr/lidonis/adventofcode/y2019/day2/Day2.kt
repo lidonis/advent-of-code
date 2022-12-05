@@ -4,7 +4,7 @@ import fr.lidonis.adventofcode.common.Answer
 import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
-const val DAY = 2
+private const val DAY = 2
 
 object Day2 : AdventOfCode2019(DAY) {
 
