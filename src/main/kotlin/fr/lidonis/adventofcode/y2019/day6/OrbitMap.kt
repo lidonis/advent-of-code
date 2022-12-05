@@ -2,14 +2,14 @@ package fr.lidonis.adventofcode.y2019.day6
 
 import fr.lidonis.adventofcode.common.graph.BreadthFirstSearch
 
-class OrbitMap(input: String) {
+class OrbitMap(input: List<String>) {
 
     private val orbits = mutableMapOf<String, MutableSet<String>>()
     private val orbitCount = mutableMapOf<String, Int>()
     private val neighbours = mutableMapOf<String, Set<String>>()
 
     init {
-        input.lines().forEach {
+        input.forEach {
             it.split(")").run {
                 orbits.getOrPut(this[1]) { mutableSetOf() }.add(this[0])
             }

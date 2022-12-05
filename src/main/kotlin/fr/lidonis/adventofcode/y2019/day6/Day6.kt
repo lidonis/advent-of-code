@@ -7,7 +7,7 @@ private const val DAY = 6
 
 object Day6 : AdventOfCode2019(DAY) {
 
-    private val orbitMap = OrbitMap(input().text())
+    private val orbitMap = OrbitMap(input().lines())
 
     @Answer("271151")
     override fun part1() = orbitMap.countTotalOrbits()

@@ -13,8 +13,8 @@ object Day4 : AdventOfCode2019(DAY) {
         .let { (start, end) -> start..end }
 
     @Answer("511")
-    override fun part1() = inputRange.filter(PasswordChecker::check1).count()
+    override fun part1() = inputRange.count(PasswordChecker::check1)
 
     @Answer("316")
-    override fun part2() = inputRange.filter(PasswordChecker::check2).count()
+    override fun part2() = inputRange.count(PasswordChecker::check2)
 }

@@ -20,7 +20,7 @@ internal class OrbitMapTest {
             E)J
             J)K
             K)L
-        """.trimIndent()
+        """.trimIndent().lines()
         )
         assertThat(orbitMap.countTotalOrbits()).isEqualTo(42)
     }
@@ -42,7 +42,7 @@ internal class OrbitMapTest {
             K)L
             K)YOU
             I)SAN
-        """.trimIndent()
+        """.trimIndent().lines()
         )
         assertThat(orbitMap.minimumOrbitalTransfers("YOU", "SAN")).isEqualTo(4)
     }
