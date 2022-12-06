@@ -14,8 +14,8 @@ object Day6: AdventOfCode2022(DAY) {
     private val tuningTrouble = TuningTrouble(input().text())
 
     @Answer("1896")
-    override fun part1() = tuningTrouble.firstChar(PART1_SIZE)
+    override fun part1() = tuningTrouble.startOfMessage(PART1_SIZE)
 
     @Answer("3452")
-    override fun part2() = tuningTrouble.firstChar(PART2_SIZE)
+    override fun part2() = tuningTrouble.startOfMessage(PART2_SIZE)
 }
