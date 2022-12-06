@@ -1,5 +1,6 @@
 package fr.lidonis.adventofcode.y2022.day6
 
+import fr.lidonis.adventofcode.common.Answer
 import fr.lidonis.adventofcode.y2022.AdventOfCode2022
 
 
@@ -12,7 +13,9 @@ object Day6: AdventOfCode2022(DAY) {
 
     private val tuningTrouble = TuningTrouble(input().text())
 
+    @Answer("1896")
     override fun part1() = tuningTrouble.firstChar(PART1_SIZE)
 
+    @Answer("3452")
     override fun part2() = tuningTrouble.firstChar(PART2_SIZE)
 }
