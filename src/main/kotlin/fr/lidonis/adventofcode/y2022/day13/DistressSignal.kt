@@ -12,6 +12,7 @@ class DistressSignal(private val lines: List<String>) {
     private fun packets() = lines
         .filter(String::isNotBlank)
         .map { mapper.readTree(it) }
+
     fun countOrdered() = packets()
         .chunked(2)
         .mapIndexed { i, chunk ->
@@ -38,8 +39,8 @@ class DistressSignal(private val lines: List<String>) {
 
 private operator fun JsonNode.compareTo(other: JsonNode): Int = when {
     this is ArrayNode && other is ArrayNode -> {
-        val item = this.toList().zip(other.toList()).firstOrNull { it.first.compareTo(it.second) != 0 }
-        item?.first?.compareTo(item.second) ?: this.size().compareTo(other.size())
+        val pair = this.toList().zip(other.toList()).firstOrNull { it.first.compareTo(it.second) != 0 }
+        pair?.first?.compareTo(pair.second) ?: this.size().compareTo(other.size())
     }
     this is ArrayNode && other is IntNode -> this.compareTo(ObjectMapper().createArrayNode().add(other))
     this is IntNode && other is ArrayNode -> ObjectMapper().createArrayNode().add(this).compareTo(other)
