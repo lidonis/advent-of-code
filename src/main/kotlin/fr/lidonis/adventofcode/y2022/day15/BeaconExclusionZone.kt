@@ -1,7 +1,6 @@
 package fr.lidonis.adventofcode.y2022.day15
 
 import fr.lidonis.adventofcode.common.geo.plane.Position
-import kotlin.math.abs
 
 
 private const val INPUT_REGEX = """Sensor at x=(-?\d+), y=(-?\d+): closest beacon is at x=(-?\d+), y=(-?\d+)"""
@@ -25,21 +24,20 @@ class BeaconExclusionZone(lines: List<String>) {
     private val beaconsPositions = sensors.map { it.closestBeacon }.toSet()
     private val allKnownPositions = sensorsPositions + beaconsPositions
 
+    private val maxRange = sensors.maxOf { it.range }
+
     fun countPositionsNoBeacon(noBeaconRow: Int): Any {
-        val beaconsInRow = beaconsPositions
-            .map { it.y }
-            .filter { it == noBeaconRow }
-            .toSet()
+        val (minX, maxX) = allKnownPositions
+            .map { it.x }
+            .sorted()
+            .let { it.first() to it.last() }
 
-        val noBeacon = sensors
-            .map { sensor -> sensor.position.x to sensor.range - abs(noBeaconRow - sensor.position.y) }
-            .flatMap { (x, deltaToRow) ->
-                ((x - deltaToRow)..(x + deltaToRow)).toSet()
+        return ((minX - maxRange)..(maxX + maxRange)).count { x ->
+            sensors.any { sensor ->
+                val position = Position(x, noBeaconRow)
+                position !in allKnownPositions && sensor.isInRange(position)
             }
-            .toSet()
-            .subtract(beaconsInRow)
-
-        return noBeacon.count()
+        }
     }
 
     fun findDistressBeacon(areaSize: Long) = sensors.asSequence().flatMap {
