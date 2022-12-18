@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
 private const val DAY = 17
 
+@Suppress("unused")
 object Day17 : AdventOfCode2019(DAY) {
 
     private val ascii = AftScaffoldingControlAndInformationInterface(input().text())

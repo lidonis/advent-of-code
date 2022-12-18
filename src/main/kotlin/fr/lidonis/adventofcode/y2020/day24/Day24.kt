@@ -7,6 +7,7 @@ private const val DAY = 24
 
 private const val NB_EVOLUTION = 100
 
+@Suppress("unused")
 object Day24 : AdventOfCode2020(DAY) {
 
     private val lobbyLayout = LobbyLayout.fromLines(input().lines())

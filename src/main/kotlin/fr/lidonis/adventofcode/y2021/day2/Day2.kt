@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2021.AdventOfCode2021
 
 private const val DAY = 2
 
+@Suppress("unused")
 object Day2 : AdventOfCode2021(DAY) {
 
     private val submarineCourse = SubmarineCourse(input().lines())

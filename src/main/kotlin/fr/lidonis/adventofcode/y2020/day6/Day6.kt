@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2020.AdventOfCode2020
 
 private const val DAY = 6
 
+@Suppress("unused")
 object Day6 : AdventOfCode2020(DAY) {
 
     private val customsForms = CustomsForms(input().text())

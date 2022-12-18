@@ -9,6 +9,7 @@ private const val NB_FIRST_MOVES = 100
 private const val NB_SECOND_MOVES = 10_000_000
 private const val SECOND_SIZE = 1_000_000
 
+@Suppress("unused")
 object Day23 : AdventOfCode2020(DAY) {
 
     @Answer("43769582")

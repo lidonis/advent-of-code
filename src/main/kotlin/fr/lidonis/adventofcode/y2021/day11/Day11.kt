@@ -7,6 +7,7 @@ private const val DAY = 11
 
 private const val TIMES_PART_1 = 100
 
+@Suppress("unused")
 object Day11 : AdventOfCode2021(DAY) {
 
     private val input = input().lines()

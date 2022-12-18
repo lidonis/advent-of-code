@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2020.AdventOfCode2020
 
 private const val DAY = 17
 
+@Suppress("unused")
 object Day17 : AdventOfCode2020(DAY) {
 
     private const val BOOT_CYCLE_COUNT = 6

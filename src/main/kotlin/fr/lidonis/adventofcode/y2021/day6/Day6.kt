@@ -8,6 +8,7 @@ private const val DAY = 6
 private const val NB_DAYS_PART_1 = 80
 private const val NB_DAYS_PART_2 = 256
 
+@Suppress("unused")
 object Day6 : AdventOfCode2021(DAY) {
 
     private val lanternfish = Lanternfish(input().text())

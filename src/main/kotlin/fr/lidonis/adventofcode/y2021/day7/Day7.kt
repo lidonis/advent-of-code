@@ -5,7 +5,7 @@ import fr.lidonis.adventofcode.y2021.AdventOfCode2021
 
 private const val DAY = 7
 
-
+@Suppress("unused")
 object Day7 : AdventOfCode2021(DAY) {
 
     private val crabSubmarines = CrabSubmarines(input().text())

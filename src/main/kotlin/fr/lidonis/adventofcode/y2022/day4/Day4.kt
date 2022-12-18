@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2022.AdventOfCode2022
 
 private const val DAY = 4
 
+@Suppress("unused")
 object Day4 : AdventOfCode2022(DAY) {
 
     private val campCleanup = CampCleanup(input().lines())

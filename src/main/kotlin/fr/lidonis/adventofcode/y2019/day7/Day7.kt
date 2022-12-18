@@ -6,6 +6,7 @@ import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
 private const val DAY = 7
 
+@Suppress("unused")
 object Day7 : AdventOfCode2019(DAY) {
 
     private const val PART_1_RANGE_START = 0L

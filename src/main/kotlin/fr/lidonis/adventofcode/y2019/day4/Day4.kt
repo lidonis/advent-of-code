@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
 private const val DAY = 4
 
+@Suppress("unused")
 object Day4 : AdventOfCode2019(DAY) {
 
     private val inputRange = input().text()

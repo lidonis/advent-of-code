@@ -9,6 +9,7 @@ private const val DAY = 6
 private const val PART1_SIZE = 4
 private const val PART2_SIZE = 14
 
+@Suppress("unused")
 object Day6: AdventOfCode2022(DAY) {
 
     private val tuningTrouble = TuningTrouble(input().text())

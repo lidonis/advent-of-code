@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
 private const val DAY = 21
 
+@Suppress("unused")
 object Day21 : AdventOfCode2019(DAY) {
 
     private val droid = SpringDroid(input().text())

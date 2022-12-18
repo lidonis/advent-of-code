@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2021.AdventOfCode2021
 
 private const val DAY = 1
 
+@Suppress("unused")
 object Day1 : AdventOfCode2021(DAY) {
 
     private val sweepReport: SweepReport = SweepReport(input().lines().map(String::toInt))

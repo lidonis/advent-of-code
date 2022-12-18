@@ -7,6 +7,7 @@ private const val DAY = 15
 private const val TURN_PART_1 = 2020
 private const val TURN_PART_2 = 30000000
 
+@Suppress("unused")
 object Day15 : AdventOfCode2020(DAY) {
 
     private val text = input().text()

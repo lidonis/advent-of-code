@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2021.AdventOfCode2021
 
 private const val DAY = 9
 
+@Suppress("unused")
 object Day9 : AdventOfCode2021(DAY) {
 
     private val smokeBasin = SmokeBasin(input().lines())

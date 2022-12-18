@@ -6,6 +6,7 @@ import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 private const val DAY = 9
 
+@Suppress("unused")
 object Day9 : AdventOfCode2019(DAY) {
 
     private val computer = IntCodeComputerFactory.buildIOComputer(input().text())

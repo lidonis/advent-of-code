@@ -6,6 +6,7 @@ import fr.lidonis.adventofcode.y2020.day8.HandheldGameConsole.InfiniteLoopExcept
 
 private const val DAY = 8
 
+@Suppress("unused")
 object Day8 : AdventOfCode2020(DAY) {
 
     @Answer("1384")

@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2022.AdventOfCode2022
 
 private const val DAY = 12
 
+@Suppress("unused")
 object Day12 : AdventOfCode2022(DAY) {
 
     private val hillClimbingAlgorithm = HillClimbingAlgorithm(input().lines())

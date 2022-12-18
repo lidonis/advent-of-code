@@ -11,6 +11,7 @@ import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 private const val DAY = 11
 
+@Suppress("unused")
 object Day11 : AdventOfCode2019(DAY) {
 
     private fun robot(startingPanelColor: Color) =

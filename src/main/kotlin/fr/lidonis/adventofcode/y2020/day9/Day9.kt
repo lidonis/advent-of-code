@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2020.AdventOfCode2020
 
 private const val DAY = 9
 
+@Suppress("unused")
 object Day9 : AdventOfCode2020(DAY) {
 
     @Answer("88311122")

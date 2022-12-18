@@ -6,6 +6,7 @@ import fr.lidonis.adventofcode.y2020.day3.TobogganMap.Slope
 
 private const val DAY = 3
 
+@Suppress("unused")
 object Day3 : AdventOfCode2020(DAY) {
 
     private const val MIN_RIGHT_SLOPE = 1

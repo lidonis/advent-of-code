@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
 private const val DAY = 24
 
+@Suppress("unused")
 object Day24 : AdventOfCode2019(DAY) {
 
     private const val EVOLVE_COUNT = 200

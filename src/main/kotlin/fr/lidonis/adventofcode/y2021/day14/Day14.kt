@@ -8,6 +8,7 @@ private const val DAY = 14
 private const val STEPS_PART_1 = 10
 private const val STEPS_PART_2 = 40
 
+@Suppress("unused")
 object Day14 : AdventOfCode2021(DAY) {
 
     private val extendedPolymerization = ExtendedPolymerization(input().lines())

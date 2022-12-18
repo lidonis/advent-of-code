@@ -7,6 +7,7 @@ private const val DAY = 1
 
 private const val TOP = 3
 
+@Suppress("unused")
 object Day1 : AdventOfCode2022(DAY) {
 
     private val calorieCounting = CalorieCounting(input().text())

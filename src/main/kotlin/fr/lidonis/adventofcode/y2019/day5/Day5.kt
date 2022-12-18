@@ -6,6 +6,7 @@ import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 
 private const val DAY = 5
 
+@Suppress("unused")
 object Day5 : AdventOfCode2019(DAY) {
 
     private const val DIAGNOSTIC_MODE = 5L

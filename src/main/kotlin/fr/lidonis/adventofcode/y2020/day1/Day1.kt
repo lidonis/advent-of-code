@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2020.AdventOfCode2020
 
 private const val DAY = 1
 
+@Suppress("unused")
 object Day1 : AdventOfCode2020(DAY) {
 
     private const val SUM = 2020

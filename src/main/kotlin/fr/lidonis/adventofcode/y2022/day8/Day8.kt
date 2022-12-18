@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2022.AdventOfCode2022
 
 private const val DAY = 8
 
+@Suppress("unused")
 object Day8: AdventOfCode2022(DAY) {
 
     private val treetopTreeHouse = TreetopTreeHouse(input().lines())

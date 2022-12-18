@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2020.AdventOfCode2020
 
 private const val DAY = 10
 
+@Suppress("unused")
 object Day10 : AdventOfCode2020(DAY) {
 
     private val adapterArray = AdapterArray(input().lines().map(String::toInt))

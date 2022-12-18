@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
 private const val DAY = 3
 
+@Suppress("unused")
 object Day3 : AdventOfCode2019(DAY) {
 
     private val wires = input().lines().map { line -> line.split(",") }.run {

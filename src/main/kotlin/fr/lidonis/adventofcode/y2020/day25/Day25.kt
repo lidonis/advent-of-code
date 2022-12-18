@@ -7,6 +7,7 @@ private const val DAY = 25
 
 private const val PART_2 = "Sorry for the trouble"
 
+@Suppress("unused")
 object Day25 : AdventOfCode2020(DAY) {
 
     @Answer("12181021")

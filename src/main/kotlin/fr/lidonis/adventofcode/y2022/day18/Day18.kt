@@ -4,6 +4,8 @@ import fr.lidonis.adventofcode.common.Answer
 import fr.lidonis.adventofcode.y2022.AdventOfCode2022
 
 private const val DAY = 18
+
+@Suppress("unused")
 object Day18 : AdventOfCode2022(DAY) {
 
     private val boilingBoulders = BoilingBoulders(input().lines())

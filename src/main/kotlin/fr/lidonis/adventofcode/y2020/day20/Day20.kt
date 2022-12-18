@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2020.AdventOfCode2020
 
 private const val DAY = 20
 
+@Suppress("unused")
 object Day20 : AdventOfCode2020(DAY) {
 
     private val jurassicJigsaw = JurassicJigsaw(input().text())

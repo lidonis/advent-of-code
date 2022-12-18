@@ -4,6 +4,8 @@ import fr.lidonis.adventofcode.common.Answer
 import fr.lidonis.adventofcode.y2022.AdventOfCode2022
 
 private const val DAY = 14
+
+@Suppress("unused")
 object Day14 : AdventOfCode2022(DAY) {
 
     private val distressSignal = RegolithReservoir(input().lines())

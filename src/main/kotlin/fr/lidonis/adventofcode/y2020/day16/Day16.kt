@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2020.AdventOfCode2020
 
 private const val DAY = 16
 
+@Suppress("unused")
 object Day16 : AdventOfCode2020(DAY) {
 
     private val ticketTranslation = TicketTranslation(input().lines())

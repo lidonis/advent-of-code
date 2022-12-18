@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2021.AdventOfCode2021
 
 private const val DAY = 5
 
+@Suppress("unused")
 object Day5 : AdventOfCode2021(DAY) {
 
     private val hydrothermalVents = HydrothermalVents(input().lines())

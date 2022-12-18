@@ -5,6 +5,7 @@ import fr.lidonis.adventofcode.y2019.AdventOfCode2019
 
 private const val DAY = 22
 
+@Suppress("unused")
 object Day22 : AdventOfCode2019(DAY) {
 
     private const val PART_1_DECK_SIZE = 10007L
