@@ -23,7 +23,7 @@ class LobbyLayout(private val tiles: Set<Coordinate>) {
     companion object {
         fun fromLines(lines: List<String>) = LobbyLayout(lines.fold(mutableSetOf()) { acc, line ->
             val coordinate = Coordinate.fromDirections(line)
-            if (acc.contains(coordinate)) acc.remove(coordinate) else acc.add(coordinate)
+            if (coordinate in acc) acc.remove(coordinate) else acc.add(coordinate)
             acc
         })
     }

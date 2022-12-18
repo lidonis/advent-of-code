@@ -11,7 +11,7 @@ object Day21 : AdventOfCode2020(DAY) {
 
     @Answer("2786")
     override fun part1() = allergenAssessment.safeIngredient.sumOf { safe ->
-        allergenAssessment.foods.count { it.ingredients.contains(safe) }
+        allergenAssessment.foods.count { safe in it.ingredients }
     }
 
     @Answer("prxmdlz,ncjv,knprxg,lxjtns,vzzz,clg,cxfz,qdfpq")

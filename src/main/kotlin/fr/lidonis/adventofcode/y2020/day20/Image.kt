@@ -12,7 +12,7 @@ class Image(tiles: List<Tile>) {
         val topLeft = corners.head
         val topLeftBorders = getTileEdgeBorders(borderTiles)[topLeft] ?: error("Top left borders not found")
         val topLeftOriented = topLeft.orientations.find { tile ->
-            topLeftBorders.contains(tile.top) && topLeftBorders.contains(tile.left)
+            tile.top in topLeftBorders && tile.left in topLeftBorders
         } ?: error("Cannot find top left orientation")
         val solved = solveBottomAndRight(topLeftOriented)
         val borderRemoved = solved.map { tiles -> tiles.map { tile -> tile.inner() } }

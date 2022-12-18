@@ -33,7 +33,7 @@ data class PositionSet(val positions: Set<Position>) : Set<Position> by position
     fun buildString() = buildString {
         for (j in (boundingBox.start.y)..boundingBox.end.y) {
             for (i in (boundingBox.start.x)..boundingBox.end.x) {
-                if (positions.contains(Position(i, j))) append("#") else append(".")
+                if (Position(i, j) in positions) append("#") else append(".")
             }
             appendLine()
         }

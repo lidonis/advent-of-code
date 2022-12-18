@@ -25,7 +25,7 @@ class CrabCombat(text: String) {
         var currentGameState = initialState
         val gameHistory = mutableSetOf<GameState>()
         while (!currentGameState.isFinished) {
-            currentGameState = if (gameHistory.contains(currentGameState)) {
+            currentGameState = if (currentGameState in gameHistory) {
                 currentGameState.player1Win()
             } else {
                 gameHistory.add(currentGameState)

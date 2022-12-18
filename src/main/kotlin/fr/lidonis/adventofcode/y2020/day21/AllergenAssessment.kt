@@ -21,7 +21,7 @@ class AllergenAssessment(lines: List<kotlin.String>) {
     }
 
     private fun ingredientsWhichCanContainAllergen(allergen: Allergen): Set<Ingredient> = foods
-        .filter { it.allergens.contains(allergen) }
+        .filter { allergen in it.allergens }
         .map { it.ingredients }
         .reduce { acc, set -> acc intersect set }
 
