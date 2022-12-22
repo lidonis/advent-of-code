@@ -26,3 +26,8 @@ fun <T> Collection<T>.combine(size: Int): List<List<T>> {
         else -> this.tail.combine(size - 1).map { listOf(this.head) + it } + this.tail.combine(size)
     }
 }
+
+fun <T> Map<T, Int>.get0(key: T): Int = getOrElse(key) { 0 }
+fun <K> Map<K, Int>.merge(other: Map<K, Int>, fn: (Int, Int) -> Int) = toMutableMap().apply {
+    other.forEach { (k, v) -> merge(k, v, fn) }
+}

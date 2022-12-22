@@ -26,6 +26,6 @@ object OCR {
         }.toSet()
     ).score
 
-    fun detect(set: PositionSet) = set.chunked(LETTER_WIDTH + 1).map(::detectChar).joinToString("")
+    fun detect(set: PositionSet) = set.chunkedX(LETTER_WIDTH + 1).map(::detectChar).joinToString("")
     private fun detectChar(set: PositionSet) = mappings[set.moveTo(Position.ORIGIN).score] ?: ' '
 }
