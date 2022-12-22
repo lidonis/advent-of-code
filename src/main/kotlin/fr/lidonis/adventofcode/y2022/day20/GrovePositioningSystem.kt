@@ -31,7 +31,7 @@ class GrovePositioningSystem(lines: List<String>) {
         for (node in elements) {
             val currentIndex = indexOf(node)
             val newIndex = (currentIndex + node.value * multiplier).mod(lastIndex)
-            remove(node)
+            removeAt(currentIndex)
             add(newIndex, node)
         }
     }
