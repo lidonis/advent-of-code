@@ -2,7 +2,6 @@ package fr.lidonis.adventofcode.y2022.day23
 
 import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.common.geo.plane.PositionSet
-import kotlin.math.absoluteValue
 
 class UnstableDiffusion(
     val map: Set<Position>,
@@ -14,8 +13,7 @@ class UnstableDiffusion(
     fun numberOfTheFirstRoundWhereNoElfMoves() =
         sequence()
             .zipWithNext()
-            .takeWhile { it.first.map != it.second.map }
-            .count() + 1
+            .indexOfFirst { it.first.map == it.second.map } + 1
 
     private fun evolve(): UnstableDiffusion {
         val proposedMoves = map.associateWith {
@@ -32,7 +30,7 @@ class UnstableDiffusion(
     private fun sequence() = generateSequence(this) { it.evolve() }
 
     fun countEmptyTile() = PositionSet(map).boundingBox.let {
-        (it.end.x - it.start.x + 1).absoluteValue * (it.end.x - it.start.x).absoluteValue - map.size
+        (it.end.x - it.start.x + 1) * (it.end.y - it.start.y + 1) - map.size
     }
 
     private fun Position.proposeMove(): Position {
