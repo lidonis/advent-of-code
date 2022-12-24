@@ -26,6 +26,7 @@ data class PositionSet(val positions: Set<Position>) : Set<Position> by position
 
     val score = sumOf { 2.pow(it.x * boundingBox.end.x + it.y) }
 
+    @Suppress("unused")
     fun display() {
         println(buildString())
     }
@@ -39,5 +40,8 @@ data class PositionSet(val positions: Set<Position>) : Set<Position> by position
         }
     }
 
-    data class BoundingBox(val start: Position, var end: Position)
+    data class BoundingBox(val start: Position, var end: Position) {
+        operator fun contains(position: Position) =
+            position.x in start.x..end.x && position.y in start.y..end.y
+    }
 }
