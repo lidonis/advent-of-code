@@ -44,14 +44,18 @@ class UnstableDiffusion(
         return this
     }
 
-    private fun Position.anyNeighbours(): Boolean {
-        return allNeighbours().any { it in map }
-    }
+    private fun Position.anyNeighbours() =
+        neighboursPositions().any { it in map }
 
-    private fun Position.allNeighbours() = neighbourPositions.map { this + it }
+    private fun Position.neighboursPositions() =
+        neighbourPositions
+            .asSequence()
+            .map { this + it }
 
     private fun Position.noNeighbours(direction: OrthogonalDirection) =
-        direction.adjacentDirections.map { this + it }
+        direction.adjacentDirections
+            .asSequence()
+            .map { this + it }
             .none { it in map }
 
     @OptIn(ExperimentalStdlibApi::class)
