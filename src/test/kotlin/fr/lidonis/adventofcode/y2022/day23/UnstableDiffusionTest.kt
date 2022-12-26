@@ -125,7 +125,7 @@ internal class UnstableDiffusionTest {
 
         private val largerExample by lazy {
             InputReader("/y2022/day23/larger-example.txt").text()
-                .split("${System.lineSeparator()}${System.lineSeparator()}")
+                .split("\n\n")
                 .map { it.lines().drop(1).joinToString(System.lineSeparator()) }
                 .zip(
                     listOf(
