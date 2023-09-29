@@ -48,7 +48,7 @@ class BeaconExclusionZone(lines: List<String>) {
         val outlineDistance = range + 1
         val minY = position.y - outlineDistance
         val maxY = position.y + outlineDistance
-        (minY..maxY).forEach { y ->
+        for (y in minY..maxY) {
             val offset = if (y <= position.y) {
                 y - minY
             } else {
