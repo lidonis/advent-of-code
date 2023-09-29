@@ -97,18 +97,22 @@ class IntCodeComputer(
                 write(instruction.size, read(1) + read(2))
                 instructionPointer += instruction.size + 1
             }
+
             MULTIPLIES -> {
                 write(instruction.size, read(1) * read(2))
                 instructionPointer += instruction.size + 1
             }
+
             INPUT -> {
                 write(instruction.size, input.read())
                 instructionPointer += instruction.size + 1
             }
+
             OUTPUTS -> {
                 output.write(read(1))
                 instructionPointer += instruction.size + 1
             }
+
             JUMP_IF_TRUE -> {
                 instructionPointer = if (read(1).toBoolean()) {
                     read(2).toInt()
@@ -116,6 +120,7 @@ class IntCodeComputer(
                     instructionPointer + instruction.size + 1
                 }
             }
+
             JUMP_IF_FALSE -> {
                 instructionPointer = if (!read(1).toBoolean()) {
                     read(2).toInt()
@@ -123,18 +128,22 @@ class IntCodeComputer(
                     instructionPointer + instruction.size + 1
                 }
             }
+
             STORE_IF_LESS_THAN -> {
                 write(instruction.size, (read(1) < read(2)).toLong())
                 instructionPointer += instruction.size + 1
             }
+
             STORE_IF_EQUALS -> {
                 write(instruction.size, (read(1) == read(2)).toLong())
                 instructionPointer += instruction.size + 1
             }
+
             ADJUSTS_THE_RELATIVE_BASE -> {
                 relativeBase += read(1)
                 instructionPointer += instruction.size + 1
             }
+
             HALT_PROGRAM -> {
                 error("Program halted")
             }
@@ -165,7 +174,7 @@ class IntCodeComputer(
     }
 
     override fun tryNextOutput(maxTries: Int): Long? {
-        (0 until maxTries).forEach { _ ->
+        repeat(maxTries) {
             next()
             val output = outputs.poll()
             if (output != null) {
