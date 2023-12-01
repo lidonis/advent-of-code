@@ -65,7 +65,7 @@ graal {
 compileKotlin {
     kotlinOptions {
         jvmTarget = jvmVersion
-        freeCompilerArgs = ["-Xopt-in=kotlin.RequiresOptIn", "-Xcontext-receivers"]
+        freeCompilerArgs = ["-opt-in=kotlin.RequiresOptIn", "-Xcontext-receivers"]
         languageVersion = "1.8"
     }
 }
