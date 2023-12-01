@@ -17,7 +17,7 @@ fun main() {
 private fun print(it: Char, computer: IntCodeComputer) {
     print(it)
     if (it == '?') {
-        readLine()?.run {
+        readlnOrNull()?.run {
             computer.input(this)
         }
     }
