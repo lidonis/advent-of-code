@@ -1,0 +1,24 @@
+package fr.lidonis.adventofcode.y{{year}}.day{{day}}
+
+import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Test
+
+class {{name}}Test {
+
+    val input = """
+    """.trimMargin()
+
+    @Test
+    fun part1() {
+        val {{lname}} = {{name}}(input.lines())
+        val result = {{lname}}.part1()
+        assertThat(result).isEqualTo(0)
+    }
+
+    @Test
+    fun part2() {
+        val {{lname}} = {{name}}(input.lines())
+        val result = {{lname}}.part2()
+        assertThat(result).isEqualTo(0)
+    }
+}
