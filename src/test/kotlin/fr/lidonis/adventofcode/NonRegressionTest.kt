@@ -1,10 +1,10 @@
 package fr.lidonis.adventofcode
 
 import fr.lidonis.adventofcode.common.Answer
+import fr.lidonis.adventofcode.common.reflect.getAllSubclasses
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DynamicTest
 import org.junit.jupiter.api.TestFactory
-import org.reflections.Reflections
 import kotlin.reflect.KFunction
 import kotlin.reflect.full.declaredMemberFunctions
 import kotlin.reflect.full.findAnnotation
@@ -14,10 +14,8 @@ class NonRegressionTest {
 
     @TestFactory
     fun `Test all Advent of Code`() = sequence {
-        AdventOfCode::class.java.let {
-            for (clazz in Reflections(it.packageName).getSubTypesOf(it)) {
-                buildAdventCodeTest(clazz)
-            }
+        for (clazz in getAllSubclasses<AdventOfCode>()) {
+            buildAdventCodeTest(clazz)
         }
     }.asStream()
 
