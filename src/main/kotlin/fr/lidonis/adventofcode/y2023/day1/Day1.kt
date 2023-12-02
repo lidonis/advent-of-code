@@ -11,9 +11,9 @@ object Day1 : AdventOfCode2023(DAY) {
     private val trebuchet = Trebuchet(input().lines())
 
     @Answer("54597")
-    override fun part1() = trebuchet.part1().sum()
+    override fun part1() = trebuchet.part1()
 
     @Answer("54504")
-    override fun part2() = trebuchet.part2().sum()
+    override fun part2() = trebuchet.part2()
 
 }

@@ -15,8 +15,7 @@ class TrebuchetTest {
     @Test
     fun part1() {
         val part1 = Trebuchet(input1.lines()).part1()
-        assertThat(part1).containsExactly(12, 38, 15, 77)
-        assertThat(part1.sum()).isEqualTo(142)
+        assertThat(part1).isEqualTo(142)
     }
 
     private val input2 = """
@@ -32,7 +31,6 @@ class TrebuchetTest {
     @Test
     fun part2() {
         val part2 = Trebuchet(input2.lines()).part2()
-        assertThat(part2).containsExactly(29, 83, 13, 24, 42, 14, 76)
-        assertThat(part2.sum()).isEqualTo(281)
+        assertThat(part2).isEqualTo(281)
     }
 }

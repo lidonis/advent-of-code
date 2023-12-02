@@ -1,41 +1,43 @@
 package fr.lidonis.adventofcode.y2023.day1
 
-private const val MIN_DIGIT = 1
-private const val MAX_DIGIT = 9
+private val spelledOutDigits = listOf(
+    "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+).withIndex().map { (index, value) -> value to index + 1 }
 
 class Trebuchet(private val lines: List<String>) {
 
-    private val digits: Map<String, Int> = (MIN_DIGIT..MAX_DIGIT).associateBy { it.toString() }
-
-    private val letters: Map<String, Int> = listOf(
-        "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
-    ).withIndex().associate { it.value to it.index + 1 }
-
-    private val digitsAndLetters = digits + letters
-
-    fun part1() = lines.map { line ->
-        line.calibration(digits)
+    fun part1() = lines.sumOf { line ->
+        line
+            .indexDigits()
+            .calibration()
     }
 
-    private fun String.calibration(digitsAndLetters: Map<String, Int>): Int {
-        val first = digitsAndLetters.indexFirst(this).minBy { it.first }.second
-        val last = digitsAndLetters.indexLast(this).minBy { it.first }.second
+    private fun String.indexDigits() = mapIndexedNotNull { index, c ->
+        if (c.isDigit()) index to c.digitToInt() else null
+    }
+
+    private fun List<Pair<Int, Int>>.calibration(): Int {
+        val first = minBy { it.first }.second
+        val last = maxBy { it.first }.second
         return "$first$last".toInt()
     }
 
-    private fun Map<String, Int>.indexFirst(line: String) = map {
-        line.indexOf(it.key) to it.value
-    }.filter { it.first != -1 }
-
-    private fun Map<String, Int>.indexLast(line: String): List<Pair<Int, Int>> {
-        val reversedLine = line.reversed()
-        return map {
-            reversedLine.indexOf(it.key.reversed()) to it.value
-        }.filter { it.first != -1 }
+    fun part2() = lines.sumOf { line ->
+        line
+            .indexDigitsAndSpelledOutDigits()
+            .calibration()
     }
 
-    fun part2() = lines.map { line ->
-        line.calibration(digitsAndLetters)
-    }
+    private fun String.indexDigitsAndSpelledOutDigits() = mapIndexedNotNull { index, c ->
+        if (c.isDigit()) {
+            index to c.digitToInt()
+        } else {
+            substring(index).let { sub ->
+                spelledOutDigits
+                    .find { sub.startsWith(it.first) }
+                    ?.let { index to it.second }
+            }
+        }
 
+    }
 }
