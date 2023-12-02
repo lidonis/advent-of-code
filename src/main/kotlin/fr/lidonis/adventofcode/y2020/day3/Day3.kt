@@ -1,6 +1,7 @@
 package fr.lidonis.adventofcode.y2020.day3
 
 import fr.lidonis.adventofcode.common.Answer
+import fr.lidonis.adventofcode.common.multiply
 import fr.lidonis.adventofcode.y2020.AdventOfCode2020
 import fr.lidonis.adventofcode.y2020.day3.TobogganMap.Slope
 
@@ -31,5 +32,5 @@ object Day3 : AdventOfCode2020(DAY) {
             Slope(MIN_RIGHT_SLOPE, FASTER_DOWN_SLOPE)
         )
             .map { tobogganMap.treeEncounter(it).toLong() }
-            .reduce(Long::times)
+            .multiply()
 }

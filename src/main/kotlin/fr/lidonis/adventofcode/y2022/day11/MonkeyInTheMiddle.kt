@@ -1,5 +1,7 @@
 package fr.lidonis.adventofcode.y2022.day11
 
+import fr.lidonis.adventofcode.common.multiply
+
 private const val MONKEY_SIZE = 7
 
 private const val ROUND_PART1 = 20
@@ -12,7 +14,7 @@ class MonkeyInTheMiddle(lines: List<String>) {
     private val monkeys = lines.chunked(MONKEY_SIZE).map { Monkey.fromString(it) }
 
     init {
-        val product = monkeys.map { it.divisor }.fold(1, Long::times)
+        val product = monkeys.map { it.divisor }.multiply()
         for (monkey in monkeys) {
             monkey.product = product
             monkey.monkeys = monkeys

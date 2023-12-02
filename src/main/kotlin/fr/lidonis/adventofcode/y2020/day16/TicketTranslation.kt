@@ -45,7 +45,7 @@ class TicketTranslation(lines: List<String>) {
     }.sum()
 
     fun ticket() = this.fieldsMapping().let { fieldsMapping ->
-        myTicket.mapIndexed { i, value -> fieldsMapping[i] to value }.toMap()
+        myTicket.mapIndexed { i, value -> fieldsMapping[i] to value.toLong() }.toMap()
     }
 
     private fun fieldsMapping(): List<String> {

@@ -26,3 +26,7 @@ fun <T> Collection<T>.combine(size: Int): List<List<T>> {
         else -> this.tail.combine(size - 1).map { listOf(this.head) + it } + this.tail.combine(size)
     }
 }
+
+fun Collection<Int>.multiply() = this.reduce(Int::times)
+
+fun Collection<Long>.multiply() = this.reduce(Long::times)

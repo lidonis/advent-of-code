@@ -39,7 +39,7 @@ internal class TicketTranslationTest {
             15,1,5
             5,14,9
         """.trimIndent().lines()
-        val ticket = mapOf("class" to 12, "row" to 11, "seat" to 13)
+        val ticket = mapOf("class" to 12L, "row" to 11L, "seat" to 13L)
         assertThat(TicketTranslation(scan).ticket()).isEqualTo(ticket)
     }
 }

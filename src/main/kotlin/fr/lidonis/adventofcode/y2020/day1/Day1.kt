@@ -1,6 +1,7 @@
 package fr.lidonis.adventofcode.y2020.day1
 
 import fr.lidonis.adventofcode.common.Answer
+import fr.lidonis.adventofcode.common.multiply
 import fr.lidonis.adventofcode.y2020.AdventOfCode2020
 
 private const val DAY = 1
@@ -21,6 +22,6 @@ object Day1 : AdventOfCode2020(DAY) {
     override fun part2() = report(PART_2_SIZE)
 
     private fun report(size: Int) =
-        expenseReport.findCombinationBySum(size, SUM)?.reduce(Int::times)
+        expenseReport.findCombinationBySum(size, SUM)?.multiply()
             ?: error("No combination found")
 }
