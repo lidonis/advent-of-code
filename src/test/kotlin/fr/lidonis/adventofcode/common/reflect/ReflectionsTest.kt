@@ -15,7 +15,6 @@ class ReflectionsTest {
             )
     }
 
-
     abstract class AbstractClass {
         abstract fun function()
     }

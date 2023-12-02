@@ -6,14 +6,13 @@ inline fun <reified T : Any> getAllSubclasses(): List<Class<out T>> {
     return getSubtypes(T::class.java)
 }
 
-inline fun <reified T> getSubtypes(type: Class<T>): List<Class<out T>> {
-    val packageName = type.`package`.name
-    return getClasses(type, packageName)
+inline fun <reified T> getSubtypes(type: Class<T>) =
+    getClasses(type)
         .filter { type.isAssignableFrom(it) && it != type }
-}
 
-fun <T> getClasses(type: Class<T>, packageName: String): List<Class<out T>> {
-    val classLoader = Thread.currentThread().contextClassLoader
+inline fun <reified T> getClasses(type: Class<T>): List<Class<out T>> {
+    val packageName = type.`package`.name
+    val classLoader = T::class.java.classLoader
     val path = packageName.replace('.', '/')
     val resources = classLoader.getResources(path)
     val dirs = mutableListOf<File>()
@@ -32,6 +31,7 @@ fun <T> getClasses(type: Class<T>, packageName: String): List<Class<out T>> {
     return classes
 }
 
+@Suppress("SwallowedException", "ReturnCount")
 fun <T> findClasses(type: Class<T>, directory: File, packageName: String): List<Class<out T>> {
     val classes = mutableListOf<Class<out T>>()
 
@@ -45,7 +45,7 @@ fun <T> findClasses(type: Class<T>, directory: File, packageName: String): List<
         if (file.isDirectory) {
             classes.addAll(findClasses(type, file, "$packageName.${file.name}"))
         } else if (file.name.endsWith(".class")) {
-            val className = "${packageName}.${file.name.substring(0, file.name.length - 6)}"
+            val className = "$packageName.${file.name.substring(0, file.name.length - 6)}"
             try {
                 classes.add(Class.forName(className).asSubclass(type))
             } catch (e: ClassNotFoundException) {
