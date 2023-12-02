@@ -25,8 +25,9 @@ class Day18(input: String) {
                     val tile = TileFactory.from(c)
                     val position = Position(i, j)
                     vaultMap[position] = tile
-                    if (tile is Key) keys.add(tile)
-                    else if (tile is Entrance) entrances.add(position)
+                    if (tile is Key) {
+                        keys.add(tile)
+                    } else if (tile is Entrance) entrances.add(position)
                 }
             }
     }
@@ -41,8 +42,9 @@ class Day18(input: String) {
         .map {
             val keys = node.keys.toMutableSet()
             val tile = vaultMap[it]!!
-            if (tile is Key)
+            if (tile is Key) {
                 keys += tile
+            }
             Node(it, keys)
         }
 
@@ -51,15 +53,15 @@ class Day18(input: String) {
     sealed class Tile {
         abstract fun access(keys: Set<Key>): Boolean
 
-        object OpenPassage : Tile() {
+        data object OpenPassage : Tile() {
             override fun access(keys: Set<Key>) = true
         }
 
-        object StoneWall : Tile() {
+        data object StoneWall : Tile() {
             override fun access(keys: Set<Key>) = false
         }
 
-        object Entrance : Tile() {
+        data object Entrance : Tile() {
             override fun access(keys: Set<Key>) = true
         }
 

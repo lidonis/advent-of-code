@@ -21,7 +21,7 @@ internal class MovementRulesTest {
     fun compressLong() {
         val program =
             "R,4,R,10,R,8,R,4,R,10,R,6,R,4,R,4,R,10,R,8,R,4,R,10,R,6,R,4,R,4,L,12,R,6,L,12,R,10,R,6,R,4,R,4,L," +
-                    "12,R,6,L,12,R,4,R,10,R,8,R,4,R,10,R,6,R,4,R,4,L,12,R,6,L,12"
+                "12,R,6,L,12,R,4,R,10,R,8,R,4,R,10,R,6,R,4,R,4,L,12,R,6,L,12"
         val movementRules = MovementRules.from(program.split(","))
         assertThat(movementRules.decompress()).isEqualTo(program)
         val (mainRoutine, functionA, functionB, functionC) = movementRules

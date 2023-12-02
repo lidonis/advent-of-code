@@ -23,7 +23,8 @@ class SeaMonsterChaser {
                     it[i].add(j, c == '#')
                 }
             }
-        })
+        }
+    )
 
     fun findSeaMonsters(image: Set<Position>) = seaMonsterMatrix.allOrientations()
         .map { findSeaMonsters(PositionSet(image), matrixToPositionSet(it)) }
@@ -42,12 +43,13 @@ class SeaMonsterChaser {
         }.toSet()
     }
 
-    private fun matrixToPositionSet(monster: Matrix<Boolean>) = PositionSet(sequence {
-        for (x in 0 until monster.row) {
-            for (y in 0 until monster.column) {
-                if (monster[x][y]) yield(Position(x, y))
+    private fun matrixToPositionSet(monster: Matrix<Boolean>) = PositionSet(
+        sequence {
+            for (x in 0 until monster.row) {
+                for (y in 0 until monster.column) {
+                    if (monster[x][y]) yield(Position(x, y))
+                }
             }
-        }
-    }.toSet())
-
+        }.toSet()
+    )
 }

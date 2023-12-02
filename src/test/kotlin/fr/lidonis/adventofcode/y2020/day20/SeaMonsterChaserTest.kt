@@ -46,5 +46,4 @@ internal class SeaMonsterChaserTest {
         val monsters = SeaMonsterChaser().findSeaMonsters(readLines(image))
         assertThat(monsters.size).isEqualTo(30)
     }
-
 }

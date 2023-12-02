@@ -24,5 +24,4 @@ internal class ComboBreakerTest {
     fun computeEncryptionKeyWithCardKey() {
         assertThat(ComboBreaker(5764801).computeEncryptionKey(11)).isEqualTo(14897079)
     }
-
 }

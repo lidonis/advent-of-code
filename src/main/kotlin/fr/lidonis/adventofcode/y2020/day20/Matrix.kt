@@ -29,5 +29,4 @@ class Matrix<T>(val values: List<List<T>>) : List<List<T>> by values {
         }
         return Matrix(transpose).flip()
     }
-
 }

@@ -13,7 +13,7 @@ internal class NavigationSystemTest {
             F7
             R90
             F11
-        """.trimIndent().lines()
+            """.trimIndent().lines()
         )
         assertThat(navigation.distanceDirection()).isEqualTo(25)
     }
@@ -27,7 +27,7 @@ internal class NavigationSystemTest {
             F7
             R90
             F11
-        """.trimIndent().lines()
+            """.trimIndent().lines()
         )
         assertThat(navigation.distanceWaypoint()).isEqualTo(286)
     }

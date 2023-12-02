@@ -13,7 +13,7 @@ internal class GrovePositioningSystemTest {
             -2
             0
             4
-        """.trimIndent()
+    """.trimIndent()
         .lines()
 
     @Test

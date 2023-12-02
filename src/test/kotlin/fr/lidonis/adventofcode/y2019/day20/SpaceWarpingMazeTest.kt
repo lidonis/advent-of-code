@@ -28,7 +28,7 @@ internal class SpaceWarpingMazeTest {
               ###########.#####  
                          Z       
                          Z       
-        """.trimIndent()
+            """.trimIndent()
         )
         Assertions.assertThat(maze.shortestPathDonut()).isEqualTo(23)
     }
@@ -74,7 +74,7 @@ internal class SpaceWarpingMazeTest {
               #########.###.###.#############  
                        B   J   C               
                        U   P   P               
-        """.trimIndent()
+            """.trimIndent()
         )
         Assertions.assertThat(maze.shortestPathDonut()).isEqualTo(58)
     }
@@ -102,7 +102,7 @@ internal class SpaceWarpingMazeTest {
               ###########.#####  
                          Z       
                          Z       
-        """.trimIndent()
+            """.trimIndent()
         )
         Assertions.assertThat(maze.shortestPathInception()).isEqualTo(26)
     }
@@ -148,7 +148,7 @@ internal class SpaceWarpingMazeTest {
               #############.#.#.###.###################  
                            A O F   N                     
                            A A D   M                     
-        """.trimIndent()
+            """.trimIndent()
         )
         Assertions.assertThat(maze.shortestPathInception()).isEqualTo(396)
     }

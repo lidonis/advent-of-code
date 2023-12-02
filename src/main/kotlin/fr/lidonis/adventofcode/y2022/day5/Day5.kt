@@ -15,5 +15,4 @@ object Day5 : AdventOfCode2022(DAY) {
 
     @Answer("RGLVRCQSB")
     override fun part2() = supplyStacks.moveBulk()
-
 }

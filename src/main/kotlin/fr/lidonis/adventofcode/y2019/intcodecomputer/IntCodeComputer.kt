@@ -45,7 +45,7 @@ private enum class Instruction(val opcode: Int, val size: Int) {
 
     companion object {
         fun fromOpcode(opcode: Int) =
-            values().find { it.opcode == opcode }
+            entries.find { it.opcode == opcode }
                 ?: error("Opcode unknown")
     }
 }
@@ -214,7 +214,6 @@ class QueueInputDevice : InputDevice {
     override fun reset() {
         values = ArrayBlockingQueue(MAX_CAPACITY)
     }
-
 }
 
 class Memory(private val list: MutableList<Long>) : MutableList<Long> by list {

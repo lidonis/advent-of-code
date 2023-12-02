@@ -12,9 +12,11 @@ object Day16 : AdventOfCode2019(DAY) {
     private const val RADIX = 10
 
     private val fft =
-        FlawedFrequencyTransmission(input().text().map {
-            Character.digit(it, RADIX)
-        })
+        FlawedFrequencyTransmission(
+            input().text().map {
+                Character.digit(it, RADIX)
+            }
+        )
 
     @Answer("84970726")
     override fun part1() = fft.phases(TIMES)

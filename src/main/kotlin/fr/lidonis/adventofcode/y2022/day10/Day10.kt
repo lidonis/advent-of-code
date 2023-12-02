@@ -6,7 +6,7 @@ import fr.lidonis.adventofcode.y2022.AdventOfCode2022
 private const val DAY = 10
 
 @Suppress("unused")
-object Day10: AdventOfCode2022(DAY) {
+object Day10 : AdventOfCode2022(DAY) {
 
     private val cathodeRayTube = CathodeRayTube(input().lines())
 

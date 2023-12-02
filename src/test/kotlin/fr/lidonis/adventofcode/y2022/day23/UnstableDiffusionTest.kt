@@ -29,7 +29,7 @@ internal class UnstableDiffusionTest {
             ...#.
             ..#..
             .....
-    """.trimIndent()
+        """.trimIndent()
 
         private val state2StateSmallExample = """
             .....
@@ -38,7 +38,7 @@ internal class UnstableDiffusionTest {
             ....#
             .....
             ..#..
-    """.trimIndent()
+        """.trimIndent()
 
         private val state3StateSmallExample = """
             ..#..
@@ -47,7 +47,7 @@ internal class UnstableDiffusionTest {
             ....#
             .....
             ..#..
-    """.trimIndent()
+        """.trimIndent()
 
         @Test
         fun `small example display`() {
@@ -87,9 +87,7 @@ internal class UnstableDiffusionTest {
         }
 
         private fun UnstableDiffusion.display() = this.display(6, 5)
-
     }
-
 
     @ParameterizedTest(name = "Evolve after {index} step")
     @MethodSource

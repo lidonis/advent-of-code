@@ -29,7 +29,7 @@ internal class DistressSignalTest {
 
             [1,[2,[3,[4,[5,6,7]]]],8,9]
             [1,[2,[3,[4,[5,6,0]]]],8,9]
-        """.trimIndent()
+    """.trimIndent()
 
     @Test
     fun `full example`() {
@@ -43,7 +43,7 @@ internal class DistressSignalTest {
         val input = """
             [1,1,3,1,1]
             [1,1,5,1,1]
-            """.trimIndent()
+        """.trimIndent()
 
         val result = DistressSignal(input.lines()).countOrdered()
 
@@ -55,7 +55,7 @@ internal class DistressSignalTest {
         val input = """
             [[1],[2,3,4]]
             [[1],4]
-            """.trimIndent()
+        """.trimIndent()
 
         val result = DistressSignal(input.lines()).countOrdered()
 
@@ -67,7 +67,7 @@ internal class DistressSignalTest {
         val input = """
             [9]
             [[8,7,6]]
-            """.trimIndent()
+        """.trimIndent()
 
         val result = DistressSignal(input.lines()).countOrdered()
 
@@ -79,7 +79,7 @@ internal class DistressSignalTest {
         val input = """
             [[4,4],4,4]
             [[4,4],4,4,4]
-            """.trimIndent()
+        """.trimIndent()
 
         val result = DistressSignal(input.lines()).countOrdered()
 
@@ -91,7 +91,7 @@ internal class DistressSignalTest {
         val input = """
             [7,7,7,7]
             [7,7,7]
-            """.trimIndent()
+        """.trimIndent()
 
         val result = DistressSignal(input.lines()).countOrdered()
 
@@ -103,7 +103,7 @@ internal class DistressSignalTest {
         val input = """
             []
             [3]
-            """.trimIndent()
+        """.trimIndent()
 
         val result = DistressSignal(input.lines()).countOrdered()
 
@@ -115,7 +115,7 @@ internal class DistressSignalTest {
         val input = """
             [[[]]]
             [[]]
-            """.trimIndent()
+        """.trimIndent()
 
         val result = DistressSignal(input.lines()).countOrdered()
 
@@ -127,7 +127,7 @@ internal class DistressSignalTest {
         val input = """
             [1,[2,[3,[4,[5,6,7]]]],8,9]
             [1,[2,[3,[4,[5,6,0]]]],8,9]
-            """.trimIndent()
+        """.trimIndent()
 
         val result = DistressSignal(input.lines()).countOrdered()
 

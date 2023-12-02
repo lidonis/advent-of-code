@@ -68,5 +68,4 @@ class ArcadeCabinet(program: String) {
             paddleX = 0
         }
     }
-
 }

@@ -36,8 +36,7 @@ class NavigationSystem(lines: List<String>) {
         NORTH('N'), SOUTH('S'), EAST('E'), WEST('W'), LEFT('L'), RIGHT('R'), FORWARD('F');
 
         companion object {
-            fun valueOf(c: Char) = values().find { it.c == c }
+            fun valueOf(c: Char) = entries.find { it.c == c }
         }
     }
-
 }

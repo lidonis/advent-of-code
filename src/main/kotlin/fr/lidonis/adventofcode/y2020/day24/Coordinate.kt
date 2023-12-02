@@ -4,14 +4,17 @@ data class Coordinate(val q: Int, val r: Int) {
 
     operator fun plus(move: Coordinate) = Coordinate(this.q + move.q, this.r + move.r)
 
-    fun neighbours() = Direction.values().map { this + it.coordinate }
+    fun neighbours() = Direction.entries.map { this + it.coordinate }
 
     companion object {
         fun fromDirections(directions: String) = directions.fold("" to Coordinate(0, 0)) { acc, c ->
             val current = acc.first + c
             Direction.fromInitials(current)?.let { "" to acc.second + it.coordinate }
-                ?: if (current == "s" || current == "n") c.toString() to acc.second
-                else error("wrong coordinate")
+                ?: if (current == "s" || current == "n") {
+                    c.toString() to acc.second
+                } else {
+                    error("wrong coordinate")
+                }
         }.second
     }
 
@@ -24,7 +27,7 @@ data class Coordinate(val q: Int, val r: Int) {
         NORTH_EAST("ne", Coordinate(1, -1));
 
         companion object {
-            private val initialsMap by lazy { values().associateBy { it.initials } }
+            private val initialsMap by lazy { entries.associateBy { it.initials } }
 
             fun fromInitials(initials: String) = initialsMap[initials]
         }

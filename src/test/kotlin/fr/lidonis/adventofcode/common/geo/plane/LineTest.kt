@@ -42,34 +42,45 @@ internal class LineTest {
     @Test
     internal fun `all positions x1=x2`() {
         val result = horizontalLine.allPositions
-        assertThat(result).isEqualTo(PositionSet(setOf(
-            Position(1, 3),
-            Position(1, 4),
-            Position(1, 5)
-        )))
+        assertThat(result).isEqualTo(
+            PositionSet(
+                setOf(
+                    Position(1, 3),
+                    Position(1, 4),
+                    Position(1, 5)
+                )
+            )
+        )
     }
 
     @Test
     internal fun `all positions y1=y2`() {
         val result = verticalLine.allPositions
-        assertThat(result).isEqualTo(PositionSet(setOf(
-            Position(4, 2),
-            Position(5, 2),
-            Position(6, 2),
-            Position(7, 2),
-            Position(8, 2),
-        )))
+        assertThat(result).isEqualTo(
+            PositionSet(
+                setOf(
+                    Position(4, 2),
+                    Position(5, 2),
+                    Position(6, 2),
+                    Position(7, 2),
+                    Position(8, 2),
+                )
+            )
+        )
     }
 
     @Test
     internal fun `all positions diagonal`() {
         val result = diagonalLine.allPositions
-        assertThat(result).isEqualTo(PositionSet(setOf(
-            Position(1, 1),
-            Position(2, 2),
-            Position(3, 3),
-            Position(4, 4),
-        )))
+        assertThat(result).isEqualTo(
+            PositionSet(
+                setOf(
+                    Position(1, 1),
+                    Position(2, 2),
+                    Position(3, 3),
+                    Position(4, 4),
+                )
+            )
+        )
     }
-
 }

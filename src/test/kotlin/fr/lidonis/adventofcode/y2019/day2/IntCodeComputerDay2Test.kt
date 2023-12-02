@@ -46,7 +46,8 @@ internal class IntCodeComputerDay2Test {
                 2, 3, 11, 0,
                 99,
                 30, 40, 50
-            ), computer.next().memory
+            ),
+            computer.next().memory
         )
         Assertions.assertEquals(
             listOf(
@@ -54,7 +55,8 @@ internal class IntCodeComputerDay2Test {
                 2, 3, 11, 0,
                 99,
                 30, 40, 50
-            ), computer.next().memory
+            ),
+            computer.next().memory
         )
         Assertions.assertFalse(computer.hasNext())
     }

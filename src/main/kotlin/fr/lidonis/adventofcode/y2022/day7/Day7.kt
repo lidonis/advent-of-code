@@ -8,7 +8,7 @@ private const val DAY = 7
 private const val SIZE_PART1 = 100_000
 
 @Suppress("unused")
-object Day7: AdventOfCode2022(DAY) {
+object Day7 : AdventOfCode2022(DAY) {
 
     private val noSpaceLeftOnDevice = NoSpaceLeftOnDevice(input().lines())
 

@@ -46,8 +46,8 @@ class CathodeRayTube(private val lines: List<String>) {
                         if (sprite - c in -1..1) add(Position(c, height))
                     }
                 }
-            })
+            }
+        )
         return positionSet
     }
-
 }

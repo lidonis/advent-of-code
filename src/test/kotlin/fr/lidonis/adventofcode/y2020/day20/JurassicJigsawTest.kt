@@ -111,7 +111,7 @@ val INPUT = """
             ..#.###...
             ..#.......
             ..#.###...
-        """.trimIndent()
+""".trimIndent()
 
 internal class JurassicJigsawTest {
 
@@ -133,6 +133,6 @@ internal class JurassicJigsawTest {
 
     @Test
     fun `water roughness`() {
-       assertThat(jurassicJigsaw.waterRoughness()).isEqualTo(273)
+        assertThat(jurassicJigsaw.waterRoughness()).isEqualTo(273)
     }
 }

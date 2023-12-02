@@ -14,7 +14,7 @@ internal class ExpenseReportTest {
                         299
                         675
                         1456
-                        """.trimIndent().lines().map(String::toInt)
+        """.trimIndent().lines().map(String::toInt)
         val combinationBySum = ExpenseReport(example).findCombinationBySum(2, 2020)
         Assertions.assertThat(combinationBySum).isEqualTo(listOf(1721, 299))
     }
@@ -28,7 +28,7 @@ internal class ExpenseReportTest {
                         299
                         675
                         1456
-                        """.trimIndent().lines().map(String::toInt)
+        """.trimIndent().lines().map(String::toInt)
         val combinationBySum = ExpenseReport(example).findCombinationBySum(3, 2020)
         Assertions.assertThat(combinationBySum).isEqualTo(listOf(979, 366, 675))
     }

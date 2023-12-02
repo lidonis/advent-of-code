@@ -73,7 +73,6 @@ private open class NumberMonkey(
     context(ListRationalFunctionSpace<BigInteger, Ring<BigInteger>>, MonkeysContext)
     override fun rationalFunctions() =
         ListRationalFunction(listOf(number.toBigInteger()))
-
 }
 
 private open class ComputeMonkey(

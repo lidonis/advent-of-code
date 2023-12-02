@@ -15,5 +15,4 @@ object Day3 : AdventOfCode2022(DAY) {
 
     @Answer("2639")
     override fun part2() = rucksackReorganization.elves()
-
 }

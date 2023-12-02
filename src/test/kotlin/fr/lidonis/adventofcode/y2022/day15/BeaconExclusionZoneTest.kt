@@ -23,16 +23,15 @@ internal class BeaconExclusionZoneTest {
     Sensor at x=20, y=1: closest beacon is at x=15, y=3
     """.trimIndent()
 
-    @Test()
+    @Test
     fun `count positions with no beacon`() {
         val result = BeaconExclusionZone(input.lines()).countPositionsNoBeacon(10)
         assertThat(result).isEqualTo(26)
     }
 
-    @Test()
+    @Test
     fun `find distress beacon`() {
         val result = BeaconExclusionZone(input.lines()).findDistressBeacon(20)
         assertThat(result).isEqualTo(Position(14, 11))
     }
-
 }

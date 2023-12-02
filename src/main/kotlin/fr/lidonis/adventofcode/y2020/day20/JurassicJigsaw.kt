@@ -13,5 +13,4 @@ class JurassicJigsaw(text: String) {
         val monsters = SeaMonsterChaser().findSeaMonsters(image)
         return (image - monsters).size
     }
-
 }

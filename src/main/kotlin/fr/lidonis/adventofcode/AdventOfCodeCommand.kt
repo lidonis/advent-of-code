@@ -1,10 +1,10 @@
 package fr.lidonis.adventofcode
 
-import kotlin.time.ExperimentalTime
-import kotlin.time.measureTimedValue
 import org.fusesource.jansi.Ansi.Color.BLACK
 import org.fusesource.jansi.Ansi.Color.GREEN
 import org.fusesource.jansi.Ansi.ansi
+import kotlin.time.ExperimentalTime
+import kotlin.time.measureTimedValue
 
 class AdventOfCodeCommand(private val year: Int, private val day: Int) {
 
@@ -30,7 +30,7 @@ class AdventOfCodeCommand(private val year: Int, private val day: Int) {
             Part 1 took $part1Time
             Part 2 took $part2Time
             Total took ${loadTime + part1Time + part2Time}
-        """.trimIndent()
+                """.trimIndent()
             )
         )
         return 0

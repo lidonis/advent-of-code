@@ -35,7 +35,7 @@ internal class CathodeRayTubeTest {
         val result = CathodeRayTube(input.lines()).print()
 
         assertThat(result).isEqualTo(
-        """
+            """
             ##..##..##..##..##..##..##..##..##..##..
             ###...###...###...###...###...###...###.
             ####....####....####....####....####....
@@ -43,6 +43,7 @@ internal class CathodeRayTubeTest {
             ######......######......######......####
             #######.......#######.......#######.....
             
-            """.trimIndent())
+            """.trimIndent()
+        )
     }
 }

@@ -7,7 +7,7 @@ const val BINGO_BOARD_SIZE = 5
 class BingoBoard(private val lines: List<String>) {
     private val matrix = Matrix(lines)
     private val rows = (1..BINGO_BOARD_SIZE).map { matrix.row(it) }
-    private val columns =  (1..BINGO_BOARD_SIZE).map { matrix.column(it) }
+    private val columns = (1..BINGO_BOARD_SIZE).map { matrix.column(it) }
     private val results = rows + columns
     private val allNumbers = rows.flatten().toSet()
 
@@ -17,5 +17,4 @@ class BingoBoard(private val lines: List<String>) {
     override fun toString(): String {
         return "BingoBoard(\n${lines.joinToString("\n")}\n)"
     }
-
 }

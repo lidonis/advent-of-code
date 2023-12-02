@@ -26,13 +26,11 @@ class Drone(program: String) {
                 2L -> break@loop
             }
             direction++
-
         }
         shipMap.display(position)
         return position
     }
 }
-
 
 class ShipMap {
     private var xMin = 0

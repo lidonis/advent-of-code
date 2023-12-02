@@ -51,7 +51,6 @@ class EmergencyHullPaintingRobot(private val computer: IOCodeComputer, startingP
     }
 
     enum class Color {
-        BLACK, WHITE;
+        BLACK, WHITE
     }
-
 }

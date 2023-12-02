@@ -17,8 +17,7 @@ internal class AdapterArrayTest {
                 6
                 12
                 4
-            """.trimIndent().lines().map(String::toInt)
-
+    """.trimIndent().lines().map(String::toInt)
 
     private val example2: List<Int> = """
         28

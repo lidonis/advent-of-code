@@ -17,5 +17,4 @@ object Day1 : AdventOfCode2022(DAY) {
 
     @Answer("201491")
     override fun part2() = calorieCounting.mostCalories(TOP)
-
 }

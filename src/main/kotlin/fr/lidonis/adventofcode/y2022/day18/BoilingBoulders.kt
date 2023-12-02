@@ -30,9 +30,9 @@ class BoilingBoulders(lines: List<String>) {
                 currentCube.neighbours()
                     .filter { neighbour ->
                         neighbour.x in minX..maxX &&
-                                neighbour.y in minY..maxY &&
-                                neighbour.z in minZ..maxZ &&
-                                neighbour !in scan
+                            neighbour.y in minY..maxY &&
+                            neighbour.z in minZ..maxZ &&
+                            neighbour !in scan
                     }
                     .forEach { neighbour ->
                         add(neighbour) && toVisit.add(neighbour)
@@ -45,13 +45,15 @@ class BoilingBoulders(lines: List<String>) {
 
     private fun minMax(cubeProperty: KProperty1<Cube, Int>) =
         scan.map(cubeProperty).sorted().let { it.first() - 1 to it.last() + 1 }
-
 }
 
 private data class Cube(val x: Int, val y: Int, val z: Int) {
     fun neighbours() = setOf(
-        Cube(x - 1, y, z), Cube(x + 1, y, z),
-        Cube(x, y - 1, z), Cube(x, y + 1, z),
-        Cube(x, y, z - 1), Cube(x, y, z + 1),
+        Cube(x - 1, y, z),
+        Cube(x + 1, y, z),
+        Cube(x, y - 1, z),
+        Cube(x, y + 1, z),
+        Cube(x, y, z - 1),
+        Cube(x, y, z + 1),
     )
 }

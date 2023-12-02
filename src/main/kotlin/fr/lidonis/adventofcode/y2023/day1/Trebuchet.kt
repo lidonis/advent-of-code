@@ -38,6 +38,5 @@ class Trebuchet(private val lines: List<String>) {
                     ?.let { index to it.second }
             }
         }
-
     }
 }

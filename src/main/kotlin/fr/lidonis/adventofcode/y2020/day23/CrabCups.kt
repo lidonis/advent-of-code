@@ -50,7 +50,7 @@ class CrabCups(text: String, private val size: Int = text.length) {
     }
 
     val order: String
-        get() : String {
+        get(): String {
             return generateSequence(values[0]) { values[it] }
                 .takeWhile { it != 0 }
                 .fold(StringBuilder()) { sb, value -> sb.append(value + 1) }.toString()

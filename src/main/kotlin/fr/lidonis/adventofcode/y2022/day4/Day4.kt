@@ -15,5 +15,4 @@ object Day4 : AdventOfCode2022(DAY) {
 
     @Answer("936")
     override fun part2() = campCleanup.overlap()
-
 }

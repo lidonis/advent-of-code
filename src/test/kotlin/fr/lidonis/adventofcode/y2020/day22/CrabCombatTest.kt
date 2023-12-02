@@ -20,7 +20,7 @@ internal class CrabCombatTest {
         4
         7
         10
-    """.trimIndent()
+        """.trimIndent()
     )
 
     @Test
@@ -45,7 +45,7 @@ internal class CrabCombatTest {
             2
             29
             14
-        """.trimIndent()
+            """.trimIndent()
         )
         assertThat(crabCombat.playRecursive()).isEqualTo(105)
     }

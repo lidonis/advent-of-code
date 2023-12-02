@@ -12,20 +12,21 @@ class CrossedWires(input1: List<String>, input2: List<String>) {
 
     constructor(input1: String, input2: String) : this(input1.split(","), input2.split(","))
 
-    fun minimumDistance() = (wire1.tail intersect wire2.tail)
-        .map { startingPosition.manhattanDistance(it) }.minOrNull()
+    fun minimumDistance() = (wire1.tail intersect wire2.tail).minOfOrNull { startingPosition.manhattanDistance(it) }
 
-    fun fewestSteps() = (wire1.tail intersect wire2.tail).map {
+    fun fewestSteps() = (wire1.tail intersect wire2.tail).minOfOrNull {
         wire1.indexOf(it) + wire2.indexOf(it)
-    }.minOrNull()
+    }
 
     class Wire(private val positions: List<Position>) : List<Position> by positions {
         constructor(
             startingPosition: Position,
             moves: List<String>
-        ) : this(moves.fold(listOf(startingPosition)) { acc, move ->
-            acc + Move.read(move).moves(acc.last())
-        })
+        ) : this(
+            moves.fold(listOf(startingPosition)) { acc, move ->
+                acc + Move.read(move).moves(acc.last())
+            }
+        )
     }
 
     data class Move(val direction: Direction, val size: Int) {

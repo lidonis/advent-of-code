@@ -43,13 +43,13 @@ class PassportScanner(text: String) {
             byr != null && iyr != null && eyr != null && hgt != null && hcl != null && ecl != null && pid != null
 
         fun isValidValue() = isValidateRequiredField() &&
-                byr?.toInt() in MIN_BIRTH_YEAR..MAX_BIRTH_YEAR &&
-                iyr?.toInt() in MIN_ISSUE_YEAR..MAX_ISSUE_YEAR &&
-                eyr?.toInt() in MIN_EXPIRATION_YEAR..MAX_EXPIRATION_YEAR &&
-                validateHeight() &&
-                hcl?.matches(HAIR_COLOR_FORMAT) == true &&
-                ecl?.matches(EYE_COLOR_FORMAT) == true &&
-                pid?.matches(PASSPORT_ID_FORMAT) == true
+            byr?.toInt() in MIN_BIRTH_YEAR..MAX_BIRTH_YEAR &&
+            iyr?.toInt() in MIN_ISSUE_YEAR..MAX_ISSUE_YEAR &&
+            eyr?.toInt() in MIN_EXPIRATION_YEAR..MAX_EXPIRATION_YEAR &&
+            validateHeight() &&
+            hcl?.matches(HAIR_COLOR_FORMAT) == true &&
+            ecl?.matches(EYE_COLOR_FORMAT) == true &&
+            pid?.matches(PASSPORT_ID_FORMAT) == true
 
         private fun validateHeight() =
             HEIGHT_FORMAT.find(hgt ?: "")?.destructured?.let { (height, unit) ->

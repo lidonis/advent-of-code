@@ -15,5 +15,4 @@ object Day3 : AdventOfCode2021(DAY) {
 
     @Answer("4636702")
     override fun part2() = submarineReport.lifeSupportRating()
-
 }

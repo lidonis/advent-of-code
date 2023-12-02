@@ -65,6 +65,6 @@ open class ExpressionEvaluator1 : ExpressionEvaluator() {
 }
 
 class ExpressionEvaluator2 : ExpressionEvaluator1() {
-    override fun hasPrecedence(op1: Char, op2: Char) = super.hasPrecedence(op1, op2)
-            && (op1 != '+' && op2 != '*')
+    override fun hasPrecedence(op1: Char, op2: Char) = super.hasPrecedence(op1, op2) &&
+        (op1 != '+' && op2 != '*')
 }

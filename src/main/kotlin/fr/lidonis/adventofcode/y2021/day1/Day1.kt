@@ -14,6 +14,5 @@ object Day1 : AdventOfCode2021(DAY) {
     override fun part1() = sweepReport.countIncrease()
 
     @Answer("1359")
-    override fun part2() =  sweepReport.countWindowIncrease()
-
+    override fun part2() = sweepReport.countWindowIncrease()
 }

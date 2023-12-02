@@ -20,7 +20,7 @@ internal class CalorieCountingTest {
             9000
 
             10000
-        """.trimIndent()
+    """.trimIndent()
 
     @Test
     internal fun testMostCalories() {

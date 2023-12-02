@@ -23,7 +23,6 @@ internal class CrossedWiresTest {
         assertEquals(135, day3.minimumDistance())
     }
 
-
     @Test
     fun stepsExample1() {
         val day3 = CrossedWires(
@@ -41,7 +40,4 @@ internal class CrossedWiresTest {
         )
         assertEquals(410, day3.fewestSteps())
     }
-
 }
-
-

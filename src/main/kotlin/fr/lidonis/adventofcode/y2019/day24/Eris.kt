@@ -7,13 +7,15 @@ const val SIZE = 5
 
 data class Eris(private val bugs: Set<Position>) {
 
-    constructor(input: String) : this(sequence {
-        for ((i, line) in input.lines().withIndex()) {
-            for ((j, c) in line.withIndex()) {
-                if (c == '#') yield(Position(j, i))
+    constructor(input: String) : this(
+        sequence {
+            for ((i, line) in input.lines().withIndex()) {
+                for ((j, c) in line.withIndex()) {
+                    if (c == '#') yield(Position(j, i))
+                }
             }
-        }
-    }.toSet())
+        }.toSet()
+    )
 
     val biodiversityRating by lazy {
         bugs.sumOf { 2 pow (it.x + it.y * SIZE) }

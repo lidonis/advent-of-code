@@ -19,10 +19,12 @@ class FlawedFrequencyTransmission(private val input: List<Int>) {
     }
 
     private fun phase(input: List<Int>) =
-        input.mapIndexed { i, _ ->
-            abs(input.drop(i).zip(repeatingPattern(i).take(input.size).toList()).sumOf {
-                it.first * it.second
-            }) % DECIMAL
+        List(input.size) { i ->
+            abs(
+                input.drop(i).zip(repeatingPattern(i).take(input.size).toList()).sumOf {
+                    it.first * it.second
+                }
+            ) % DECIMAL
         }
 
     private fun repeatingPattern(i: Int) = sequence {

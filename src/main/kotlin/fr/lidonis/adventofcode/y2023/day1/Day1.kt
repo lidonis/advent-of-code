@@ -15,5 +15,4 @@ object Day1 : AdventOfCode2023(DAY) {
 
     @Answer("54504")
     override fun part2() = trebuchet.part2()
-
 }

@@ -20,7 +20,11 @@ object Day8 : AdventOfCode2019(DAY) {
     override fun part1() = decoder.checksum()
 
     @Answer("EBZUR")
-    override fun part2() = OCR.detect(PositionSet(decoder.decode().flatMapIndexed { j, s ->
-        s.mapIndexedNotNull { i, c -> if (c == '1') Position(i, j) else null }
-    }.toSet()))
+    override fun part2() = OCR.detect(
+        PositionSet(
+            decoder.decode().flatMapIndexed { j, s ->
+                s.mapIndexedNotNull { i, c -> if (c == '1') Position(i, j) else null }
+            }.toSet()
+        )
+    )
 }

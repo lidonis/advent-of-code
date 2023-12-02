@@ -15,18 +15,21 @@ class Blizzards(
 
     private fun evolve() = Blizzards(
         positions.map { it.evolve() },
-        row, column
+        row,
+        column
     )
 
     private fun Pair<Position, Direction>.evolve(): Pair<Position, Direction> {
         val position = first + second.move
-        return (when {
-            position.x == 0 -> Position(column - 2, position.y)
-            position.x == column - 1 -> Position(1, position.y)
-            position.y == 0 -> Position(position.x, row - 2)
-            position.y == row - 1 -> Position(position.x, 1)
-            else -> position
-        }) to second
+        return (
+            when {
+                position.x == 0 -> Position(column - 2, position.y)
+                position.x == column - 1 -> Position(1, position.y)
+                position.y == 0 -> Position(position.x, row - 2)
+                position.y == row - 1 -> Position(position.x, 1)
+                else -> position
+            }
+            ) to second
     }
 
     fun display() = buildString {
@@ -63,7 +66,9 @@ class Blizzards(
                                         ?.let { repeat(it) { add(position to Direction.UP) } }
                             }
                         }
-                    }, lines.size, lines.first().length
+                    },
+                lines.size,
+                lines.first().length
             )
         }
     }

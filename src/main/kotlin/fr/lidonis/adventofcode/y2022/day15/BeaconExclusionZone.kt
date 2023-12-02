@@ -2,7 +2,6 @@ package fr.lidonis.adventofcode.y2022.day15
 
 import fr.lidonis.adventofcode.common.geo.plane.Position
 
-
 private const val INPUT_REGEX = """Sensor at x=(-?\d+), y=(-?\d+): closest beacon is at x=(-?\d+), y=(-?\d+)"""
 
 class BeaconExclusionZone(lines: List<String>) {
@@ -65,10 +64,9 @@ class BeaconExclusionZone(lines: List<String>) {
 
     private fun Position.isDistressBeacon(areaSize: Long) =
         this !in allKnownPositions &&
-                x in 0..areaSize &&
-                y in 0..areaSize &&
-                sensors.none { sensor -> sensor.isInRange(this) }
-
+            x in 0..areaSize &&
+            y in 0..areaSize &&
+            sensors.none { sensor -> sensor.isInRange(this) }
 }
 
 data class Sensor(val position: Position, val closestBeacon: Position) {

@@ -11,7 +11,7 @@ internal class BlizzardBasinTest {
          #>v.><>#
          #<^v^^>#
          ######.#
-     """.trimIndent()
+    """.trimIndent()
 
     @Test
     fun `shortest path`() {

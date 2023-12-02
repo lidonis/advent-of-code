@@ -6,11 +6,13 @@ class TobogganMap(map: List<String>) {
 
     private val trees = sequence {
         for (line in map) {
-            yield(sequence {
-                for ((i, c) in line.withIndex()) {
-                    if (c == '#') yield(i)
-                }
-            }.toList())
+            yield(
+                sequence {
+                    for ((i, c) in line.withIndex()) {
+                        if (c == '#') yield(i)
+                    }
+                }.toList()
+            )
         }
     }.toList()
     private val size = map.first().length

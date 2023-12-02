@@ -1,8 +1,8 @@
 package fr.lidonis.adventofcode.common.math
 
+import java.math.BigInteger
 import kotlin.math.atan2
 import kotlin.math.pow
-import java.math.BigInteger
 
 fun atan2(x: Int, y: Int) = atan2(x.toDouble(), y.toDouble())
 

@@ -15,5 +15,4 @@ object Day2 : AdventOfCode2021(DAY) {
 
     @Answer("1739283308")
     override fun part2() = submarineCourse.plannedCourseWithAim().let { it.x * it.y }
-
 }

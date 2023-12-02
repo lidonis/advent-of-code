@@ -9,9 +9,11 @@ class SpaceCardDeck(private val cards: List<Int>) : Iterable<Int> by cards {
 
     fun dealIntoNewStack() = SpaceCardDeck(cards.reversed())
 
-    fun cut(n: Int) = SpaceCardDeck(cards.toMutableList().also {
-        Collections.rotate(it, -n)
-    })
+    fun cut(n: Int) = SpaceCardDeck(
+        cards.toMutableList().also {
+            Collections.rotate(it, -n)
+        }
+    )
 
     fun dealWithIncrement(n: Int): SpaceCardDeck {
         val newCards = IntArray(size)
@@ -36,5 +38,4 @@ class SpaceCardDeck(private val cards: List<Int>) : Iterable<Int> by cards {
     fun cardPosition(position: Int) = cards.indexOf(position)
 
     override fun toString() = "SpaceCardDeck(cards=$cards)"
-
 }

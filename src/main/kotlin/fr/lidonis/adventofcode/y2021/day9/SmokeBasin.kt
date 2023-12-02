@@ -29,5 +29,4 @@ class SmokeBasin(lines: List<String>) {
         .mapNotNull { smokes[it]?.let { risk -> it to risk } }
         .filter { it.second > entry.second && it.second < HIGHEST_LOCATION }
         .flatMap { listOf(it) + neighbours(it) }.distinct()
-
 }

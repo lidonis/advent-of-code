@@ -34,6 +34,7 @@ internal class MonkeyInTheMiddleTest {
             If true: throw to monkey 0
             If false: throw to monkey 1
     """.trimIndent()
+
     @Test
     fun `monkey business`() {
         val monkeyBusiness = MonkeyInTheMiddle(input.lines()).monkeyBusiness()

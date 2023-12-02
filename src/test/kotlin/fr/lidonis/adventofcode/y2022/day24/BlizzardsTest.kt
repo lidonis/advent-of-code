@@ -99,5 +99,4 @@ internal class BlizzardsTest {
             complexExample
                 .mapIndexed { step, blizzards -> Arguments.of(blizzards, step) }
     }
-
 }

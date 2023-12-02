@@ -22,9 +22,12 @@ class UnstableDiffusion(
 
         val allowedMove = proposedMoves.values.groupingBy { it }.eachCount().filter { it.value <= 1 }
 
-        return UnstableDiffusion(proposedMoves.map {
-            if (it.value in allowedMove) it.value else it.key
-        }.toSet(), direction + 1)
+        return UnstableDiffusion(
+            proposedMoves.map {
+                if (it.value in allowedMove) it.value else it.key
+            }.toSet(),
+            direction + 1
+        )
     }
 
     private fun sequence() = generateSequence(this) { it.evolve() }
@@ -56,7 +59,6 @@ class UnstableDiffusion(
             .map { this + it }
             .none { it in map }
 
-    @OptIn(ExperimentalStdlibApi::class)
     fun display(row: Int, column: Int) = buildString {
         for (i in 0..<row) {
             for (j in 0..<column) {
@@ -72,17 +74,19 @@ class UnstableDiffusion(
 
     companion object {
         fun parse(input: String, direction: OrthogonalDirection = OrthogonalDirection.NORTH): UnstableDiffusion {
-            return UnstableDiffusion(input.lines().flatMapIndexed { row, line ->
-                line.mapIndexedNotNull { column, c ->
-                    if (c == '#') Position(column, row) else null
-                }
-            }.toSet(), direction)
+            return UnstableDiffusion(
+                input.lines().flatMapIndexed { row, line ->
+                    line.mapIndexedNotNull { column, c ->
+                        if (c == '#') Position(column, row) else null
+                    }
+                }.toSet(),
+                direction
+            )
         }
     }
 }
 
 private operator fun Position.plus(direction: OrthogonalDirection) = this + direction.move
-
 
 private val neighbourPositions = listOf(
     Position(-1, -1),
@@ -129,8 +133,7 @@ enum class OrthogonalDirection(val move: Position, val adjacentDirections: List<
         )
     );
 
-    operator fun plus(value: Int) = values()[Math.floorMod(ordinal + value, values().size)]
+    operator fun plus(value: Int) = entries[Math.floorMod(ordinal + value, entries.size)]
 
-    @OptIn(ExperimentalStdlibApi::class)
-    fun followingDirections() = (0..<values().size).map { this + it }
+    fun followingDirections() = (0..<entries.size).map { this + it }
 }

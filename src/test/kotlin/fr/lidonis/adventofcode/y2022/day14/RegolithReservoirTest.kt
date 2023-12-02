@@ -5,10 +5,13 @@ import org.junit.jupiter.api.Test
 
 internal class RegolithReservoirTest {
 
-    private val regolithReservoir = RegolithReservoir("""
+    private val regolithReservoir =
+        RegolithReservoir(
+            """
         498,4 -> 498,6 -> 496,6
         503,4 -> 502,4 -> 502,9 -> 494,9
-    """.trimIndent().lines())
+            """.trimIndent().lines()
+        )
 
     @Test
     fun `count sand before abyss`() {

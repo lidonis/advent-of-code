@@ -36,5 +36,4 @@ class SpecialNumeralAnalogueFuelUnits {
             reverse()
         }
     }
-
 }

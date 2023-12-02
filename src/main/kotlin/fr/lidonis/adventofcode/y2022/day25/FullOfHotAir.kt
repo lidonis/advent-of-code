@@ -6,5 +6,4 @@ class FullOfHotAir(private val lines: List<String>) {
         SpecialNumeralAnalogueFuelUnits(
             lines.sumOf { SpecialNumeralAnalogueFuelUnits(it).decimalValue }
         ).stringValue
-
 }

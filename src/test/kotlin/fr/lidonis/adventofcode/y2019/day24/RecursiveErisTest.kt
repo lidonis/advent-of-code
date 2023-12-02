@@ -18,11 +18,10 @@ internal class RecursiveErisTest {
                     #.?##
                     ..#..
                     #....
-                    """.trimIndent()
+                """.trimIndent()
             ).countBugs()
         ).isEqualTo(8)
     }
-
 
     @Test
     fun `count bugs recursive`() {
@@ -38,7 +37,7 @@ internal class RecursiveErisTest {
                     #.?##
                     ..#..
                     #....
-                    """.trimIndent()
+            """.trimIndent()
         )
         Assertions.assertThat(recursiveEris.evolve(1)).isEqualTo(
             RecursiveEris(
@@ -50,21 +49,23 @@ internal class RecursiveErisTest {
                         ..?#.
                         ..#..
                         .....
-                        """.trimIndent(), """
+                    """.trimIndent(),
+                    """
                         Depth 0:
                         #..#.
                         ####.
                         ##?.#
                         ##.##
                         .##..
-                        """.trimIndent(), """
+                    """.trimIndent(),
+                    """
                         Depth 1:
                         ....#
                         ....#
                         ..?.#
                         ....#
                         #####
-                        """.trimIndent()
+                    """.trimIndent()
                 )
             )
         )

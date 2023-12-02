@@ -20,5 +20,4 @@ data class Line(val a: Position, val b: Position) {
         }
         Position(x, y)
     }.toSet()
-
 }

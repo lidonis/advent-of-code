@@ -16,8 +16,8 @@ class SweepReportTest {
             269
             260
             263
-            """.trimIndent()
-            .lines().map(String::toInt)
+    """.trimIndent()
+        .lines().map(String::toInt)
 
     @Test
     fun `count increase`() {

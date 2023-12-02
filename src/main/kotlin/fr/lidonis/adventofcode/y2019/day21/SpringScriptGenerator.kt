@@ -58,13 +58,15 @@ object SpringScriptGenerator {
     }
 
     private fun generateWalkInstruction() = sequence {
-        yieldAll(commands.flatMap { command ->
-            walkReadRegisters.flatMap { readRegister ->
-                writeRegisters.map { writeRegister ->
-                    "$command $readRegister $writeRegister"
+        yieldAll(
+            commands.flatMap { command ->
+                walkReadRegisters.flatMap { readRegister ->
+                    writeRegisters.map { writeRegister ->
+                        "$command $readRegister $writeRegister"
+                    }
                 }
             }
-        })
+        )
     }
 
     private fun generateRunScript(maxIteration: Int) = sequence {
@@ -86,18 +88,20 @@ object SpringScriptGenerator {
                 NOT J J
                 AND D J
                 """.trimIndent() +
-                        currentInstruction + "RUN"
+                    currentInstruction + "RUN"
             )
         }
     }
 
     private fun generateRunInstruction() = sequence {
-        yieldAll(commands.flatMap { command ->
-            runReadRegisters.flatMap { readRegister ->
-                writeRegisters.map { writeRegister ->
-                    "$command $readRegister $writeRegister"
+        yieldAll(
+            commands.flatMap { command ->
+                runReadRegisters.flatMap { readRegister ->
+                    writeRegisters.map { writeRegister ->
+                        "$command $readRegister $writeRegister"
+                    }
                 }
             }
-        })
+        )
     }
 }

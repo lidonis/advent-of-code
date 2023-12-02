@@ -9,8 +9,7 @@ class ExtendedPolymerization(lines: List<String>) {
         .associate { (a, b) -> a to b }
 
     fun mostAndLeastCommonElements(nbSteps: Int): Long {
-        val (pairs, elements) = with(polymerTemplate)
-        { windowed(2).frequencies() to map(Char::toString).frequencies() }
+        val (pairs, elements) = with(polymerTemplate) { windowed(2).frequencies() to map(Char::toString).frequencies() }
 
         repeat(nbSteps) {
             val newPairs = mutableMapOf<String, Long>()

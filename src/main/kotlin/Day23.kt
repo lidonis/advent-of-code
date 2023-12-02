@@ -16,7 +16,7 @@ fun main() {
 
 sealed class NetworkMessage
 data class Packet(val source: Int, val destination: Int, val x: Long, val y: Long) : NetworkMessage()
-object Done : NetworkMessage()
+data object Done : NetworkMessage()
 abstract class Activity : NetworkMessage() {
     abstract val address: Int
 }
@@ -32,7 +32,7 @@ object NetworkInterfaceControllerActor {
 
     @ObsoleteCoroutinesApi
     fun main() = runBlocking {
-        actor<NetworkMessage>(capacity = Channel.UNLIMITED) {
+        actor(capacity = Channel.UNLIMITED) {
             Router(this).dispatch()
         }
     }
@@ -50,7 +50,7 @@ object NetworkInterfaceControllerActor {
         }
 
         private val computerChannels = (0 until MAX_COMPUTER).map {
-            scope.actor<Packet>(capacity = Channel.UNLIMITED) {
+            scope.actor(capacity = Channel.UNLIMITED) {
                 NetworkComputer(this, actor.channel, program, it).compute()
             }
         }
@@ -171,7 +171,7 @@ object NetworkInterfaceControllerActor {
             ) {
                 println(
                     "First Y value delivered by the NAT to the computer at address 0 twice in a row: " +
-                            "${networkMessage.y}"
+                        "${networkMessage.y}"
                 )
                 network.send(Done)
             }
@@ -196,5 +196,4 @@ object NetworkInterfaceControllerActor {
             }
         }
     }
-
 }

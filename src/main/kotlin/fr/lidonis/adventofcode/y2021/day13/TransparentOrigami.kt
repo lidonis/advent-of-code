@@ -23,11 +23,11 @@ class TransparentOrigami(lines: List<String>) {
     fun countVisibleDotsAfter1Fold() = dots.fold(foldInstructions.first()).distinct().count()
 
     fun display() = OCR.detect(
-        PositionSet(foldInstructions
-            .fold(dots, Sequence<Position>::fold).toSet()
+        PositionSet(
+            foldInstructions
+                .fold(dots, Sequence<Position>::fold).toSet()
         )
     )
-
 }
 
 private fun Sequence<Position>.fold(instruction: FoldInstruction) = map(instruction::fold)

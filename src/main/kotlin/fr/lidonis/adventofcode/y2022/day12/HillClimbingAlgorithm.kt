@@ -46,12 +46,11 @@ class HillClimbingAlgorithm(lines: List<String>) {
     }
 
     private fun findNeighboursDown(position: Position) = findNeighbours(position) {
-        it >=  height(position) - 1
+        it >= height(position) - 1
     }
 
     private fun findNeighbours(position: Position, canClimb: (Int) -> Boolean) =
         position.neighbours().associateWith { heightMap[it] }
             .filter { entry -> entry.value?.let(canClimb) ?: false }
             .map { it.key }
-
 }

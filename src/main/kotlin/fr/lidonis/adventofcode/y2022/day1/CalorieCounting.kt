@@ -5,8 +5,11 @@ class CalorieCounting(private val input: String) {
     private val calories: List<Int> by lazy {
         val result = mutableListOf(0)
         input.lines().forEach { line ->
-            if(line.isBlank()) result.add(0)
-            else result[result.lastIndex] += line.toInt()
+            if (line.isBlank()) {
+                result.add(0)
+            } else {
+                result[result.lastIndex] += line.toInt()
+            }
         }
         result.sortedDescending()
     }
@@ -14,5 +17,4 @@ class CalorieCounting(private val input: String) {
     fun mostCalories(take: Int): Int {
         return calories.take(take).sum()
     }
-
 }

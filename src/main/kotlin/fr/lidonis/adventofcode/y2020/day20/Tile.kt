@@ -14,19 +14,28 @@ data class Tile(val id: Int, val matrix: Matrix<Boolean>) {
             TILE_ID_REGEX.matchEntire(title)?.destructured?.component1()?.toInt() ?: error("No tile id found")
         },
         lines.tail.let { content ->
-            Matrix(MutableList<ArrayList<Boolean>>(content.size) { ArrayList(content.first().length) }.also {
-                for ((i, line) in content.withIndex()) {
-                    for ((j, c) in line.withIndex()) {
-                        it[i].add(j, c == '#')
+            Matrix(
+                MutableList<ArrayList<Boolean>>(content.size) { ArrayList(content.first().length) }.also {
+                    for ((i, line) in content.withIndex()) {
+                        for ((j, c) in line.withIndex()) {
+                            it[i].add(j, c == '#')
+                        }
                     }
                 }
-            })
-        })
+            )
+        }
+    )
 
     val borders: List<Border> by lazy {
         listOf(
-            top, right, bottom, left,
-            top.reversed(), right.reversed(), bottom.reversed(), left.reversed(),
+            top,
+            right,
+            bottom,
+            left,
+            top.reversed(),
+            right.reversed(),
+            bottom.reversed(),
+            left.reversed(),
         )
     }
 

@@ -22,5 +22,4 @@ class Lanternfish(text: String) {
         }
         return state.sum()
     }
-
 }

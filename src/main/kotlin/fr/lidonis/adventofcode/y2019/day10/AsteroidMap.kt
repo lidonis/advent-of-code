@@ -4,13 +4,15 @@ import fr.lidonis.adventofcode.common.geo.plane.Position
 
 class AsteroidMap(private val asteroids: List<Position>) {
 
-    constructor(input: String) : this(sequence {
-        for ((i, s) in input.lines().withIndex()) {
-            for ((j, c) in s.withIndex()) {
-                if (c == '#') yield(Position(j, i))
+    constructor(input: String) : this(
+        sequence {
+            for ((i, s) in input.lines().withIndex()) {
+                for ((j, c) in s.withIndex()) {
+                    if (c == '#') yield(Position(j, i))
+                }
             }
-        }
-    }.toList())
+        }.toList()
+    )
 
     fun bestStation(): Pair<Position, Int>? = asteroids.map { it to countDetections(it) }.maxByOrNull { it.second }
 

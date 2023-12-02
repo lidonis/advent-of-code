@@ -36,7 +36,7 @@ internal class MatrixTest {
             4 5 6
             7 8 9
             8 7 6
-            """.trimIndent()
+        """.trimIndent()
         val rowIndex = 4
         val expectedRow = listOf(8, 7, 6)
         assertEquals(expectedRow, Matrix(matrixAsString).row(rowIndex))
@@ -56,7 +56,7 @@ internal class MatrixTest {
             1 2 3
             4 5 6
             7 8 9
-            """.trimIndent()
+        """.trimIndent()
         val columnIndex = 3
         val expectedColumn = listOf(3, 6, 9)
         assertEquals(expectedColumn, Matrix(matrixAsString).column(columnIndex))
@@ -68,7 +68,7 @@ internal class MatrixTest {
             1 2 3 4
             5 6 7 8
             9 8 7 6
-            """.trimIndent()
+        """.trimIndent()
         val columnIndex = 4
         val expectedColumn = listOf(4, 8, 6)
         assertEquals(expectedColumn, Matrix(matrixAsString).column(columnIndex))
@@ -80,7 +80,7 @@ internal class MatrixTest {
             89 1903   3
             18    3   1
              9    4 800
-            """.trimIndent()
+        """.trimIndent()
         val columnIndex = 2
         val expectedColumn = listOf(1903, 3, 4)
         assertEquals(expectedColumn, Matrix(matrixAsString).column(columnIndex))

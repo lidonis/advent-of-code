@@ -20,7 +20,7 @@ internal class MonkeyMathTest {
             lgvd: ljgn * ptdq
             drzm: hmdt - zczc
             hmdt: 32
-        """.trimIndent().lines()
+    """.trimIndent().lines()
 
     @Test
     fun `root yell`() {

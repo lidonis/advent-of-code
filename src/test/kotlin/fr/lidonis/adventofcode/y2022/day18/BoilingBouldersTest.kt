@@ -8,9 +8,9 @@ internal class BoilingBouldersTest {
     private val simpleInput = """
             1,1,1
             2,1,1
-        """.trimIndent()
+    """.trimIndent()
 
-    private val largerInput ="""
+    private val largerInput = """
             2,2,2
             1,2,2
             3,2,2
@@ -24,7 +24,7 @@ internal class BoilingBouldersTest {
             3,2,5
             2,1,5
             2,3,5
-        """.trimIndent()
+    """.trimIndent()
 
     @Test
     fun `simple example surface area`() {
@@ -53,5 +53,4 @@ internal class BoilingBouldersTest {
 
         assertThat(result).isEqualTo(58)
     }
-
 }

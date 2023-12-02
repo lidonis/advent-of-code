@@ -64,5 +64,4 @@ internal class ShuttleSearchTest {
         """.trimIndent().lines()
         assertThat(ShuttleSearch(input).findTimestamp()).isEqualTo(1202161486)
     }
-
 }

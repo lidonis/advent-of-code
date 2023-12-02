@@ -1,14 +1,14 @@
 package fr.lidonis.adventofcode
 
 import fr.lidonis.adventofcode.common.Answer
-import kotlin.reflect.KFunction
-import kotlin.reflect.full.declaredMemberFunctions
-import kotlin.reflect.full.findAnnotation
-import kotlin.streams.asStream
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DynamicTest
 import org.junit.jupiter.api.TestFactory
 import org.reflections.Reflections
+import kotlin.reflect.KFunction
+import kotlin.reflect.full.declaredMemberFunctions
+import kotlin.reflect.full.findAnnotation
+import kotlin.streams.asStream
 
 class NonRegressionTest {
 
@@ -32,9 +32,13 @@ class NonRegressionTest {
         partFunction(adventOfCode, partId)?.let { partFunction ->
             getAnswer(partFunction).let { answer ->
                 val description = "AoC ${adventOfCode.year} day ${adventOfCode.day} part $partId"
-                yield(DynamicTest.dynamicTest(description) {
-                    assertThat(partFunction.call(adventOfCode).toString()).isEqualTo(answer).describedAs(description)
-                })
+                yield(
+                    DynamicTest.dynamicTest(description) {
+                        assertThat(
+                            partFunction.call(adventOfCode).toString()
+                        ).isEqualTo(answer).describedAs(description)
+                    }
+                )
             }
         }
     }

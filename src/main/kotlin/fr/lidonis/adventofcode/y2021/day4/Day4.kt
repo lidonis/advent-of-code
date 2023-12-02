@@ -15,5 +15,4 @@ object Day4 : AdventOfCode2021(DAY) {
 
     @Answer("34726")
     override fun part2() = bingo.finalScoreLastWin()
-
 }

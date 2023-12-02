@@ -13,5 +13,4 @@ object Day2 : AdventOfCode2022(DAY) {
 
     @Answer("13022")
     override fun part2() = RockPaperScissors(input().lines()).scoreAgain()
-
 }

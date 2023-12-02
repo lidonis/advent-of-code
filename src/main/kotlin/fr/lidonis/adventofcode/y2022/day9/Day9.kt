@@ -9,7 +9,7 @@ private const val NB_TAILS_PART1 = 1
 private const val NB_TAILS_PART2 = 9
 
 @Suppress("unused")
-object Day9: AdventOfCode2022(DAY) {
+object Day9 : AdventOfCode2022(DAY) {
 
     private val ropeBridge = RopeBridge(input().lines())
 

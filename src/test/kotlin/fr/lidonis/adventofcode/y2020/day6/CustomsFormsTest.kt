@@ -24,7 +24,7 @@ internal class CustomsFormsTest {
             a
 
             b
-        """.trimIndent()
+            """.trimIndent()
         )
         assertThat(customsForms.sumOfYesAnyone()).isEqualTo(11)
     }
@@ -48,7 +48,7 @@ internal class CustomsFormsTest {
             a
 
             b
-        """.trimIndent()
+            """.trimIndent()
         )
         assertThat(customsForms.sumOfYesEveryone()).isEqualTo(6)
     }

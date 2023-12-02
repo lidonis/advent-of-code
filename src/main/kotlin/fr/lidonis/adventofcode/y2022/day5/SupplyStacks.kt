@@ -51,4 +51,3 @@ class SupplyStacks(private val lines: List<String>) {
 
     private data class Move(val quantity: Int, val from: Int, val to: Int)
 }
-

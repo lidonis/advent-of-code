@@ -45,7 +45,6 @@ internal class SpaceCardDeckTest {
             val shuffledDeck = startDeck.shuffle(example.first)
             assertThat(shuffledDeck).containsExactlyElementsOf(example.second)
         }
-
     }
 
     @Nested
@@ -91,7 +90,6 @@ internal class SpaceCardDeckTest {
         ) = (0L until size).map { i ->
             function(SpaceCardMathShuffler(size.toLong())).compute(i).toInt()
         }
-
     }
 
     companion object {
@@ -102,23 +100,23 @@ internal class SpaceCardDeckTest {
                     deal with increment 7
                     deal into new stack
                     deal into new stack
-                    """.trimIndent()
-                    to
-                    listOf(0, 3, 6, 9, 2, 5, 8, 1, 4, 7),
+            """.trimIndent()
+                to
+                listOf(0, 3, 6, 9, 2, 5, 8, 1, 4, 7),
             """
                     cut 6
                     deal with increment 7
                     deal into new stack
-                    """.trimIndent()
-                    to
-                    listOf(3, 0, 7, 4, 1, 8, 5, 2, 9, 6),
+            """.trimIndent()
+                to
+                listOf(3, 0, 7, 4, 1, 8, 5, 2, 9, 6),
             """
                     deal with increment 7
                     deal with increment 9
                     cut -2
-                    """.trimIndent()
-                    to
-                    listOf(6, 3, 0, 7, 4, 1, 8, 5, 2, 9),
+            """.trimIndent()
+                to
+                listOf(6, 3, 0, 7, 4, 1, 8, 5, 2, 9),
             """
                     deal into new stack
                     cut -2
@@ -130,13 +128,12 @@ internal class SpaceCardDeckTest {
                     deal with increment 9
                     deal with increment 3
                     cut -1
-                    """.trimIndent()
-                    to
-                    listOf(9, 2, 5, 8, 1, 4, 7, 0, 3, 6)
+            """.trimIndent()
+                to
+                listOf(9, 2, 5, 8, 1, 4, 7, 0, 3, 6)
         )
 
         @JvmStatic
         fun rangeProvider() = 0..9
-
     }
 }

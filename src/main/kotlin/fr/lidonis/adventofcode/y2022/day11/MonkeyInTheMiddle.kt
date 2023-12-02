@@ -15,7 +15,7 @@ class MonkeyInTheMiddle(lines: List<String>) {
         val product = monkeys.map { it.divisor }.fold(1, Long::times)
         for (monkey in monkeys) {
             monkey.product = product
-            monkey.monkeys  = monkeys
+            monkey.monkeys = monkeys
         }
     }
 
@@ -24,7 +24,7 @@ class MonkeyInTheMiddle(lines: List<String>) {
     private fun rounds(rounds: Int, action: (Monkey) -> Unit): Long {
         repeat(rounds) {
             repeat(monkeys.size) {
-               action(monkeys[it])
+                action(monkeys[it])
             }
         }
         val sortedInspected = monkeys.map { it.inspected }.sortedDescending()
@@ -32,7 +32,6 @@ class MonkeyInTheMiddle(lines: List<String>) {
     }
 
     fun monkeyBusinessNoWorries() = rounds(ROUND_PART2, Monkey::inspectAndThrowTrick)
-
 }
 
 private data class Monkey(
@@ -49,7 +48,7 @@ private data class Monkey(
 
     fun inspectAndThrowBored() = inspectAndThrow { items[0] = items[0] / BORED_DIVISOR }
 
-    private fun inspectAndThrow(manageWorry: () -> Unit){
+    private fun inspectAndThrow(manageWorry: () -> Unit) {
         repeat(items.size) {
             inspected++
             worry()
@@ -70,7 +69,7 @@ private data class Monkey(
         monkeys[targetMonkey].receive(item)
     }
 
-    private fun receive(item: Long){
+    private fun receive(item: Long) {
         items.add(item)
     }
 

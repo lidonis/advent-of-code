@@ -19,7 +19,7 @@ internal class TobogganMapTest {
         #.##...#...
         #...##....#
         .#..#...#.#
-            """.trimIndent().lines()
+        """.trimIndent().lines()
     )
 
     @Test
@@ -46,5 +46,4 @@ internal class TobogganMapTest {
     fun `Slope Right 1, down 2`() {
         assertThat(tobogganMap.treeEncounter(Slope(1, 2))).isEqualTo(2)
     }
-
 }

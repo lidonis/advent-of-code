@@ -33,10 +33,12 @@ class TractorBeam(program: String) {
 
     private fun rightSize(position: Position, size: Int) =
         beamMap[Position(position.x + size - 1, position.y)] == 1L &&
-                beamMap[Position(
+            beamMap[
+                Position(
                     position.x,
                     position.y + size - 1
-                )] == 1L
+                )
+            ] == 1L
 
     class BeamMap(program: String) {
 
