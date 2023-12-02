@@ -4,14 +4,18 @@ Code for _advent of code_ in Kotlin
 
 == Run Code
 
-`./gradlew run --args="-y2020 -d1"`
+[source,shell]
+----
+ ./gradlew run --args="-y2020 -d1"
+----
 
 == Native Image
 
 A native image can be build with GraalVM
 
-`./gradlew nativeImage`
+[source,shell]
+----
+./gradlew nativeImage
+----
 
 The native image wil be available at build/graal/advent-of-code
-
-
