@@ -1,5 +1,5 @@
 [versions]
-jdk = "17"
+jdk = "21"
 kotlin = "1.9.21"
 detekt = "1.23.4"
 graalvm = "22.3.3"

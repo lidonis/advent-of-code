@@ -4,7 +4,7 @@ plugins {
     application
     alias(libs.plugins.kotlin)
     alias(libs.plugins.detekt)
-    alias(libs.plugins.graalvm)
+    id("org.graalvm.buildtools.native") version "0.9.28"
     alias(libs.plugins.jmh)
 }
 
@@ -63,14 +63,6 @@ tasks.withType<Test>().configureEach {
     useJUnitPlatform()
 }
 
-graal {
-    mainClass(application.mainClass.get())
-    outputName(rootProject.name)
-    javaVersion(libs.versions.jdk.get())
-    option("--static")
-    graalVersion(libs.versions.graalvm.get())
-}
-
 detekt {
     buildUponDefaultConfig = true
     allRules = false
@@ -80,4 +72,11 @@ detekt {
         "src/main/kotlin",
         "src/test/kotlin",
     )
+}
+
+graalvmNative {
+    toolchainDetection.set(true)
+    binaries.all {
+        resources.autodetect()
+    }
 }

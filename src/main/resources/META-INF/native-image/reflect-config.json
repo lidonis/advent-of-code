@@ -1,0 +1,3716 @@
+[
+{
+  "name":"Day18Test",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"larger example","parameterTypes":[] }, {"name":"more example 1","parameterTypes":[] }, {"name":"more example 2","parameterTypes":[] }, {"name":"more example 3","parameterTypes":[] }, {"name":"simple example","parameterTypes":[] }]
+},
+{
+  "name":"[Ljava.lang.Object;"
+},
+{
+  "name":"[Ljava.lang.constant.ClassDesc;"
+},
+{
+  "name":"[Ljava.lang.constant.ConstantDesc;"
+},
+{
+  "name":"com.fasterxml.jackson.databind.ext.Java7SupportImpl",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.tools.attach.VirtualMachine"
+},
+{
+  "name":"fr.lidonis.adventofcode.AdventOfCode"
+},
+{
+  "name":"fr.lidonis.adventofcode.AdventOfCodeCommand"
+},
+{
+  "name":"fr.lidonis.adventofcode.AdventOfCodeMain"
+},
+{
+  "name":"fr.lidonis.adventofcode.NonRegressionTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"Test all Advent of Code","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.NonRegressionTest$Test all Advent of Code$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.NonRegressionTest$buildAdventCodeTest$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.Answer",
+  "queryAllDeclaredMethods":true,
+  "methods":[{"name":"answer","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.common.CollectionKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.DirectionTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"test east turn left is north","parameterTypes":[] }, {"name":"test east turn right is south","parameterTypes":[] }, {"name":"test north turn left is west","parameterTypes":[] }, {"name":"test north turn right is east","parameterTypes":[] }, {"name":"test south turn left is east","parameterTypes":[] }, {"name":"test south turn right is west","parameterTypes":[] }, {"name":"test west turn left is south","parameterTypes":[] }, {"name":"test west turn right is north","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.common.InputReader"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.geo.plane.Direction"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.geo.plane.Direction$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.geo.plane.Direction$Companion$letters$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.geo.plane.Direction$Companion$positions$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.geo.plane.Line"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.geo.plane.LineTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"all positions diagonal$advent_of_code_test","parameterTypes":[] }, {"name":"all positions x1=x2$advent_of_code_test","parameterTypes":[] }, {"name":"all positions y1=y2$advent_of_code_test","parameterTypes":[] }, {"name":"diagonal is not horizontal$advent_of_code_test","parameterTypes":[] }, {"name":"diagonal is not vertical$advent_of_code_test","parameterTypes":[] }, {"name":"horizontal line is horizontal$advent_of_code_test","parameterTypes":[] }, {"name":"horizontal line is not vertical$advent_of_code_test","parameterTypes":[] }, {"name":"vertical line is not horizontal$advent_of_code_test","parameterTypes":[] }, {"name":"vertical line is vertical$advent_of_code_test","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.common.geo.plane.Position"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.geo.plane.Position$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.geo.plane.PositionSet"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.geo.plane.PositionSet$BoundingBox"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.geo.plane.PositionSet$boundingBox$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.graph.BreadthFirstSearch"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.math.MathKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.math.Matrix"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.math.Matrix$parsed$1$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.math.Matrix$parsed$1$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.math.MatrixKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.math.MatrixTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"extract column from diff widths matrix","parameterTypes":[] }, {"name":"extract column from non square matrix","parameterTypes":[] }, {"name":"extract column from one number matrix","parameterTypes":[] }, {"name":"extract column matrix","parameterTypes":[] }, {"name":"extract row from diff widths matrix","parameterTypes":[] }, {"name":"extract row from matrix","parameterTypes":[] }, {"name":"extract row from non square matrix","parameterTypes":[] }, {"name":"extract row from one number matrix","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.common.ocr.OCR"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.ocr.OCR$score$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.common.reflect.ReflectionsKt",
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true
+},
+{
+  "name":"fr.lidonis.adventofcode.common.reflect.ReflectionsTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"should return all subclasses of abstract class","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.common.reflect.ReflectionsTest$AbstractClass",
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true
+},
+{
+  "name":"fr.lidonis.adventofcode.common.reflect.ReflectionsTest$ConcreteClass1",
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true
+},
+{
+  "name":"fr.lidonis.adventofcode.common.reflect.ReflectionsTest$ConcreteClass2",
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.AdventOfCode2019"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.AdventOfCode2019Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day1.Day1",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day1.Day1Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day1.Spacecraft"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day1.SpacecraftKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day1.SpacecraftTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"fuel requirements for mass of 100756 is 33583","parameterTypes":[] }, {"name":"fuel requirements for mass of 12 and 14 is 4","parameterTypes":[] }, {"name":"fuel requirements for mass of 12 is 2","parameterTypes":[] }, {"name":"fuel requirements for mass of 14 is 2","parameterTypes":[] }, {"name":"fuel requirements for mass of 1969 is 654","parameterTypes":[] }, {"name":"full fuel requirements for mass of 100756 is 50346","parameterTypes":[] }, {"name":"full fuel requirements for mass of 1969 is 966","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day10.AsteroidMap"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day10.AsteroidMap$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day10.AsteroidMap$vaporize$$inlined$sortedByDescending$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day10.AsteroidMap$vaporize$lambda$7$$inlined$sortedBy$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day10.AsteroidMap$vaporize$shootingMap$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day10.AsteroidMapTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"example 1","parameterTypes":[] }, {"name":"example 2","parameterTypes":[] }, {"name":"example 3","parameterTypes":[] }, {"name":"example 4","parameterTypes":[] }, {"name":"large example","parameterTypes":[] }, {"name":"vaporize","parameterTypes":[] }, {"name":"vaporize","parameterTypes":["kotlin.Pair"] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day10.AsteroidMapTest$Companion",
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day10.Day10",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day10.Day10Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day11.Day11",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day11.Day11Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot$Color"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobot$panels$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobotTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"example 1","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobotTest$example 1$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobotTest$example 1$3"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobotTest$example 1$4"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobotTest$example 1$5"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day11.EmergencyHullPaintingRobotTest$example 1$6"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day12.Day12",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day12.Day12Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day12.GalileanMoons"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day12.GalileanMoons$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day12.GalileanMoons$Companion$simulate$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day12.GalileanMoonsTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"stepsToRepeatPreviousState1","parameterTypes":[] }, {"name":"stepsToRepeatPreviousState2","parameterTypes":[] }, {"name":"totalEnergy1","parameterTypes":[] }, {"name":"totalEnergy2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day13.ArcadeCabinet"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day13.ArcadeCabinet$JoystickBot"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day13.ArcadeCabinet$countBlock$tileIds$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day13.ArcadeCabinetKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day13.Day13",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day13.Day13Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day14.Day14",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day14.Day14Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day14.NanoFactory"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day14.NanoFactory$Chemical"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day14.NanoFactory$Reaction"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day14.NanoFactoryTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"1 fuel from 1 ore","parameterTypes":[] }, {"name":"10 ore","parameterTypes":[] }, {"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day15.Day15",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day15.Day15Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day15.Drone"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day15.ShipMap"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day16.Day16",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day16.Day16Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day16.FlawedFrequencyTransmission"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day16.FlawedFrequencyTransmission$repeatingPattern$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day16.FlawedFrequencyTransmission$repeatingPattern$1$1$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day16.FlawedFrequencyTransmissionKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day16.FlawedFrequencyTransmissionTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"03415518 phase is 01029498","parameterTypes":[] }, {"name":"12345678 phase is 48226158","parameterTypes":[] }, {"name":"12345678 phased 4 times is 01029498","parameterTypes":[] }, {"name":"19617804207202209144916044189917 phased 100 times first 8 digits are 73745418","parameterTypes":[] }, {"name":"34040438 phase is 03415518","parameterTypes":[] }, {"name":"48226158 phase is 34040438","parameterTypes":[] }, {"name":"53553731 is embedded in 03081770884921959731165446850517","parameterTypes":[] }, {"name":"69317163492948606335995924319873 phased 100 times first 8 digits are 52432133","parameterTypes":[] }, {"name":"78725270 is embedded in 02935109699940807407585447034323","parameterTypes":[] }, {"name":"80871224585914546619083218645595 phased 100 times first 8 digits are 24176176","parameterTypes":[] }, {"name":"84462026 is embedded in 03036732577212944063491565474664","parameterTypes":[] }, {"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day17.AftScaffoldingControlAndInformationInterface"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day17.CompressState"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day17.Day17",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day17.Day17Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day17.Function"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day17.MovementRules"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day17.MovementRules$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day17.MovementRulesKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day17.MovementRulesTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"compressLong","parameterTypes":[] }, {"name":"compressSimple","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day17.ScaffoldMap"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day17.ScaffoldMap$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day17.ScaffoldMapTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"test example alignment parameters","parameterTypes":[] }, {"name":"test find path","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day17.VacuumRobot"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day19.Day19",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day19.Day19Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day19.TractorBeam"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day19.TractorBeam$BeamMap"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day19.TractorBeam$BeamMap$get$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day19.TractorBeam$BeamMap$get$1$1$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day19.TractorBeamKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day2.Day2",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day2.Day2Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day2.IntCodeComputerDay2Test",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"program 1","parameterTypes":[] }, {"name":"program 2","parameterTypes":[] }, {"name":"program 3","parameterTypes":[] }, {"name":"program 4","parameterTypes":[] }, {"name":"program 5","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day20.Day20",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day20.Day20Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day20.SpaceWarpingMaze"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day20.SpaceWarpingMaze$Node"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day20.SpaceWarpingMaze$Portal"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day20.SpaceWarpingMaze$WhenMappings"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day20.SpaceWarpingMaze$shortestPathDonut$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day20.SpaceWarpingMaze$shortestPathDonut$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day20.SpaceWarpingMaze$shortestPathInception$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day20.SpaceWarpingMaze$shortestPathInception$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day20.SpaceWarpingMazeTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"donut example 1","parameterTypes":[] }, {"name":"donut example 2","parameterTypes":[] }, {"name":"inception example 1","parameterTypes":[] }, {"name":"inception example 3","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day21.Day21",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day21.Day21Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day21.SpringDroid"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day21.SpringScriptGenerator"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day21.SpringScriptGenerator$bruteForceDroid$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day21.SpringScriptGenerator$bruteForceDroid$1$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day21.SpringScriptGenerator$generateRunInstruction$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day21.SpringScriptGenerator$generateRunScript$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day21.SpringScriptGenerator$generateWalkInstruction$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day21.SpringScriptGenerator$generateWalkScript$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day22.Day22",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day22.Day22Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day22.SpaceCardDeck"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day22.SpaceCardDeck$shuffle$1$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day22.SpaceCardDeck$shuffle$1$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day22.SpaceCardDeck$shuffle$1$3"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day22.SpaceCardDeck$shuffle$1$4"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day22.SpaceCardDeckTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"examples","parameterTypes":[] }, {"name":"rangeProvider","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day22.SpaceCardDeckTest$Companion",
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day22.SpaceCardDeckTest$SpaceCardDeckTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":["fr.lidonis.adventofcode.y2019.day22.SpaceCardDeckTest"] }, {"name":"cut","parameterTypes":[] }, {"name":"cut negative","parameterTypes":[] }, {"name":"deal into new stack","parameterTypes":[] }, {"name":"deal with increment 3","parameterTypes":[] }, {"name":"example","parameterTypes":["kotlin.Pair"] }, {"name":"space deck","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day22.SpaceCardDeckTest$SpaceCardMathShufflerTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":["fr.lidonis.adventofcode.y2019.day22.SpaceCardDeckTest"] }, {"name":"cut -N","parameterTypes":["long"] }, {"name":"cut N","parameterTypes":["long"] }, {"name":"deal into new stack","parameterTypes":[] }, {"name":"deal with increment N","parameterTypes":["long"] }, {"name":"example","parameterTypes":["kotlin.Pair"] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day22.SpaceCardDeckTest$SpaceCardMathShufflerTest$cut -N$deck$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day22.SpaceCardDeckTest$SpaceCardMathShufflerTest$cut N$deck$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day22.SpaceCardDeckTest$SpaceCardMathShufflerTest$deal into new stack$deck$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day22.SpaceCardDeckTest$SpaceCardMathShufflerTest$deal with increment N$deck$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day22.SpaceCardDeckTest$SpaceCardMathShufflerTest$example$shuffledDeck$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day22.SpaceCardMathShuffler"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day22.SpaceCardMathShuffler$ModularFunction"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.Day24",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.Day24$part1$looped$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.Day24Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.Eris"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.Eris$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.Eris$biodiversityRating$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.Eris$evolutions$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.Eris$evolutions$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.ErisKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.ErisTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"biodiversity rating","parameterTypes":[] }, {"name":"evolve","parameterTypes":[] }, {"name":"evolve","parameterTypes":["kotlin.Pair"] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.ErisTest$Companion",
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.RecursiveEris"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.RecursiveEris$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.RecursiveEris$Companion$read$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.RecursiveEris$evolutions$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.RecursiveEris$evolutions$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.RecursiveErisTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"count bugs init","parameterTypes":[] }, {"name":"count bugs recursive","parameterTypes":[] }, {"name":"evolve example recursively","parameterTypes":[] }, {"name":"evolve recursively","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.RecursivePosition"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.RecursivePosition$down$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.RecursivePosition$left$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.RecursivePosition$right$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.RecursivePosition$up$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.RecursivePositionKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day24.RecursivePositionTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"position 0,3,1","parameterTypes":[] }, {"name":"position 0,4,1","parameterTypes":[] }, {"name":"position 1,0,1","parameterTypes":[] }, {"name":"position 1,1,1","parameterTypes":[] }, {"name":"position 1,2,0","parameterTypes":[] }, {"name":"position 2,1,0","parameterTypes":[] }, {"name":"position 2,3,0","parameterTypes":[] }, {"name":"position 3,2,0","parameterTypes":[] }, {"name":"position 3,3,0","parameterTypes":[] }, {"name":"position 4,2,1","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day3.CrossedWires"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day3.CrossedWires$Move"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day3.CrossedWires$Move$MoveInterpreter"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day3.CrossedWires$Wire"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day3.CrossedWiresTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"distanceExample1","parameterTypes":[] }, {"name":"distanceExample2","parameterTypes":[] }, {"name":"stepsExample1","parameterTypes":[] }, {"name":"stepsExample2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day3.Day3",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day3.Day3Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day4.Day4",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day4.Day4Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day4.PasswordChecker"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day4.PasswordChecker$containsAtLeastOneCouple$$inlined$groupingBy$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day4.PasswordCheckerTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"first check 111111 meets criteria","parameterTypes":[] }, {"name":"first check 123789 does not meet criteria double","parameterTypes":[] }, {"name":"first check 22450 does not meet criteria never decrease","parameterTypes":[] }, {"name":"second check 111122 meets criteria","parameterTypes":[] }, {"name":"second check 123444 does not meet criteria no larger than two group","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day5.Day5",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day5.Day5Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day5.IntCodeComputerDay5Test",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"test 2 jump with non zero position mode","parameterTypes":[] }, {"name":"test 2 jump with zero position mode","parameterTypes":[] }, {"name":"test equals 8 with immediate mode","parameterTypes":[] }, {"name":"test equals 8 with position mode","parameterTypes":[] }, {"name":"test input","parameterTypes":[] }, {"name":"test jump with non zero position mode","parameterTypes":[] }, {"name":"test jump with zero position mode","parameterTypes":[] }, {"name":"test large program equal that 8$advent_of_code_test","parameterTypes":[] }, {"name":"test large program less that 8$advent_of_code_test","parameterTypes":[] }, {"name":"test large program more that 8$advent_of_code_test","parameterTypes":[] }, {"name":"test less than 8 with immediate mode","parameterTypes":[] }, {"name":"test less than 8 with position mode","parameterTypes":[] }, {"name":"test not equal 8 with immediate mode","parameterTypes":[] }, {"name":"test not equal 8 with position mode","parameterTypes":[] }, {"name":"test not less than 8 with immediate mode","parameterTypes":[] }, {"name":"test not less than 8 with position mode","parameterTypes":[] }, {"name":"test output","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day6.Day6",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day6.Day6Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day6.OrbitMap"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day6.OrbitMap$orbitalTransfer$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day6.OrbitMap$orbitalTransfer$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day6.OrbitMapTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"count total orbits$advent_of_code_test","parameterTypes":[] }, {"name":"minimum number orbital transfers","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day7.Amplifiers"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day7.AmplifiersKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day7.AmplifiersKt$cycle$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day7.AmplifiersTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"Max thruster 139629729","parameterTypes":[] }, {"name":"Max thruster 18216","parameterTypes":[] }, {"name":"Max thruster 43210","parameterTypes":[] }, {"name":"Max thruster 54321","parameterTypes":[] }, {"name":"Max thruster 65210","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day7.Day7",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day7.Day7Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day8.Day8",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day8.Day8Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day8.ImageDecoder"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day8.ImageDecoder$decode$3$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day8.ImageDecoder$minZeroLayer$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day8.ImageDecoderTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"checksum","parameterTypes":[] }, {"name":"decode image","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day9.Day9",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day9.Day9Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.day9.IntCodeComputerDay9Test",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"example 1","parameterTypes":[] }, {"name":"example 2","parameterTypes":[] }, {"name":"example 3","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.intcodecomputer.ASCIICodeComputer"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.intcodecomputer.ASCIICodeComputer$DefaultImpls"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.intcodecomputer.CodeComputer",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"getMemory","parameterTypes":[] }, {"name":"getProgram","parameterTypes":[] }, {"name":"hasNext","parameterTypes":[] }, {"name":"next","parameterTypes":[] }, {"name":"reset","parameterTypes":[] }, {"name":"run","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.intcodecomputer.DequeOutputDevice"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.intcodecomputer.IOCodeComputer",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"getOutputs","parameterTypes":[] }, {"name":"input","parameterTypes":["long"] }, {"name":"nextOutput","parameterTypes":[] }, {"name":"tryNextOutput","parameterTypes":["int"] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.intcodecomputer.InputDevice"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.intcodecomputer.Instruction$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputer$WhenMappings"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.intcodecomputer.Memory"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.intcodecomputer.OutputDevice"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2019.intcodecomputer.QueueInputDevice"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.AdventOfCode2020"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.AdventOfCode2020Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day1.Day1",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day1.Day1Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day1.ExpenseReport"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day1.ExpenseReportTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"part 1","parameterTypes":[] }, {"name":"part 2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day10.AdapterArray"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day10.AdapterArray$differences$$inlined$groupingBy$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day10.AdapterArrayKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day10.AdapterArrayTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"arrangements 1","parameterTypes":[] }, {"name":"arrangements 2","parameterTypes":[] }, {"name":"differences 1","parameterTypes":[] }, {"name":"differences 2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day10.Day10",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day10.Day10Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day11.AdjacentSeatingSystem"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day11.Day11",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day11.Day11Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day11.FirstSeatingSystem"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day11.FirstSeatingSystem$WhenMappings"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day11.SeatingSystem"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day11.SeatingSystem$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day11.SeatingSystem$Companion$toMutableMap$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day11.SeatingSystem$State"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day11.SeatingSystem$State$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day11.SeatingSystem$evolve$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day11.SeatingSystem$evolve$1$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day11.SeatingSystemKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day11.SeatingSystemTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"evolveAdjacent","parameterTypes":[] }, {"name":"evolveAdjacent","parameterTypes":["kotlin.Pair"] }, {"name":"evolveFirst","parameterTypes":[] }, {"name":"evolveFirst","parameterTypes":["kotlin.Pair"] }, {"name":"stabilizeAdjacent","parameterTypes":[] }, {"name":"stabilizeFirst","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day11.SeatingSystemTest$Companion",
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day11.SeatingSystemTest$Companion$evolveAdjacent$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day11.SeatingSystemTest$Companion$evolveFirst$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day11.SeatingSystemTest$Companion$readLayout$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day12.Angle"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day12.Day12",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day12.Day12Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day12.DirectionShip"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day12.NavigationSystem"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day12.NavigationSystem$Action"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day12.NavigationSystem$Action$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day12.NavigationSystem$Instruction"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day12.NavigationSystem$WhenMappings"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day12.NavigationSystemKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day12.NavigationSystemTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"distance","parameterTypes":[] }, {"name":"distanceWaypoint","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day12.Ship"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day12.WaypointShip"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day13.Day13",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day13.Day13Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day13.ShuttleSearch"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day13.ShuttleSearch$findTimestamp$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day13.ShuttleSearchTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"find timestamp 1","parameterTypes":[] }, {"name":"find timestamp 2","parameterTypes":[] }, {"name":"find timestamp 3","parameterTypes":[] }, {"name":"find timestamp 4","parameterTypes":[] }, {"name":"find timestamp 5","parameterTypes":[] }, {"name":"find timestamp 6","parameterTypes":[] }, {"name":"searchBus","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day14.Day14",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day14.Day14Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day14.DockingData"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day14.DockingDataKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day14.DockingDataTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"v1","parameterTypes":[] }, {"name":"v2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day14.DockingDataV1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day14.DockingDataV2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day15.Day15Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day15.RambunctiousRecitation"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day15.RambunctiousRecitationKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day15.RambunctiousRecitationTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"lastSpoken1","parameterTypes":[] }, {"name":"lastSpoken2","parameterTypes":[] }, {"name":"lastSpoken3","parameterTypes":[] }, {"name":"lastSpoken4","parameterTypes":[] }, {"name":"lastSpoken5","parameterTypes":[] }, {"name":"lastSpoken6","parameterTypes":[] }, {"name":"lastSpoken7","parameterTypes":[] }, {"name":"lastSpokenDetailed","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day16.Day16",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day16.Day16Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day16.TicketTranslation"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day16.TicketTranslation$fieldsMapping$$inlined$sortedBy$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day16.TicketTranslation$readNearbyTickets$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day16.TicketTranslation$readRules$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day16.TicketTranslationTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"scanningErrorRate","parameterTypes":[] }, {"name":"ticket","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day17.ConwayCubes"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day17.ConwayCubes$ConwayCube"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day17.ConwayCubes$ConwayCube$adjacentCoordinates$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day17.ConwayCubes$ConwayHyperCube"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day17.ConwayCubes$ConwayHyperCube$adjacentCoordinates$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day17.ConwayCubes$Coordinate"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day17.ConwayCubes$boot$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day17.ConwayCubes$cube$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day17.ConwayCubes$hypercube$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day17.ConwayCubes$readLines$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day17.ConwayCubesKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day17.ConwayCubesTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"conway cube","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day17.Day17",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day17.Day17Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day18.Day18",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day18.Day18Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day18.ExpressionEvaluator"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day18.ExpressionEvaluator1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day18.ExpressionEvaluator2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day18.OperationOrder"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day18.OperationOrderTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"expressions","parameterTypes":[] }, {"name":"part1","parameterTypes":["kotlin.Triple"] }, {"name":"part2","parameterTypes":["kotlin.Triple"] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day18.OperationOrderTest$Companion",
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day19.Day19",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day19.Day19Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day19.MonsterMessages"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day19.MonsterMessages$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day19.MonsterMessages$RuleMatcher"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day19.MonsterMessagesKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day19.MonsterMessagesTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"countValidMessages","parameterTypes":[] }, {"name":"countValidMessagesUpdated","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day2.Day2",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day2.Day2Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day2.PasswordDatabase"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day2.PasswordDatabase$SledRentalPolicy"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day2.PasswordDatabase$TobogganCorporatePolicy"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day2.PasswordDatabaseTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day2.PasswordDatabaseTest$SledRentalPolicyTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"1-3 b cdefg is invalid","parameterTypes":[] }, {"name":"<init>","parameterTypes":["fr.lidonis.adventofcode.y2020.day2.PasswordDatabaseTest"] }, {"name":"check 1-3 a abcde is valid","parameterTypes":[] }, {"name":"check 2-9 c ccccccccc is valid","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day2.PasswordDatabaseTest$TobogganCorporatePolicyTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"1-3 b cdefg is invalid","parameterTypes":[] }, {"name":"<init>","parameterTypes":["fr.lidonis.adventofcode.y2020.day2.PasswordDatabaseTest"] }, {"name":"check 1-3 a abcde is valid","parameterTypes":[] }, {"name":"check 2-9 c ccccccccc is invalid","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.Day20",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.Day20Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.Image"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.Image$buildImage$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.JurassicJigsaw"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.JurassicJigsawTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"corner tiles","parameterTypes":[] }, {"name":"water roughness","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.JurassicJigsawTestKt",
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.Matrix"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.SeaMonsterChaser"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.SeaMonsterChaser$findSeaMonsters$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.SeaMonsterChaser$matrixToPositionSet$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.SeaMonsterChaserKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.SeaMonsterChaserTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"findSeaMonster","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.SeaMonsterChaserTest$readLines$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.Tile"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.Tile$borders$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.Tile$bottom$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.Tile$left$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.Tile$orientations$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.Tile$right$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.Tile$top$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.TileKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day20.TileTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"bottom","parameterTypes":[] }, {"name":"left","parameterTypes":[] }, {"name":"match1951","parameterTypes":[] }, {"name":"match3079","parameterTypes":[] }, {"name":"notMatch1489","parameterTypes":[] }, {"name":"right","parameterTypes":[] }, {"name":"top","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day21.AllergenAssessment"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day21.AllergenAssessment$Food"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day21.AllergenAssessment$Food$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day21.AllergenAssessment$canonical$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day21.AllergenAssessment$safeIngredient$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day21.AllergenAssessmentKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day21.AllergenAssessmentTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"canonical dangerous ingredient list","parameterTypes":[] }, {"name":"safe ingredients","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day21.Day21",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day21.Day21Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day22.CrabCombat"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day22.CrabCombatTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"infinite game$advent_of_code_test","parameterTypes":[] }, {"name":"play","parameterTypes":[] }, {"name":"playRecursive","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day22.Day22",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day22.Day22Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day22.Deck"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day22.DeckTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"equals","parameterTypes":[] }, {"name":"notEquals","parameterTypes":[] }, {"name":"score","parameterTypes":[] }, {"name":"testDraw","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day22.GameState"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day22.GameState$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day23.CrabCups"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day23.CrabCups$order$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day23.CrabCups$order$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day23.CrabCupsKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day23.CrabCupsTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"init","parameterTypes":[] }, {"name":"round 1","parameterTypes":[] }, {"name":"round 10","parameterTypes":[] }, {"name":"round 100","parameterTypes":[] }, {"name":"round 2","parameterTypes":[] }, {"name":"round 3","parameterTypes":[] }, {"name":"size 1000000","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day23.Day23",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day23.Day23Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day24.Coordinate"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day24.Coordinate$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day24.Coordinate$Direction"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day24.Coordinate$Direction$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day24.Coordinate$Direction$Companion$initialsMap$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day24.CoordinateTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"e","parameterTypes":[] }, {"name":"esew","parameterTypes":[] }, {"name":"init","parameterTypes":[] }, {"name":"nwwswee","parameterTypes":[] }, {"name":"se","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day24.Day24",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day24.Day24Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day24.LobbyLayout"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day24.LobbyLayout$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day24.LobbyLayout$evolve$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day24.LobbyLayoutKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day24.LobbyLayoutTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"countBlackTiles","parameterTypes":[] }, {"name":"evolve 1","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day25.ComboBreaker"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day25.ComboBreaker$findLoopSize$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day25.ComboBreaker$transforms$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day25.ComboBreakerKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day25.ComboBreakerTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"computeEncryptionKeyWithCardKey","parameterTypes":[] }, {"name":"computeEncryptionKeyWithDoorKey","parameterTypes":[] }, {"name":"findCardLoopSize","parameterTypes":[] }, {"name":"findDoorLoopSize","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day25.Day25",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day25.Day25Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day3.Day3",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day3.Day3Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day3.TobogganMap"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day3.TobogganMap$Slope"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day3.TobogganMap$trees$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day3.TobogganMap$trees$1$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day3.TobogganMapTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"Slope Right 1, down 1","parameterTypes":[] }, {"name":"Slope Right 1, down 2","parameterTypes":[] }, {"name":"Slope Right 3, down 1","parameterTypes":[] }, {"name":"Slope Right 5, down 1","parameterTypes":[] }, {"name":"Slope Right 7, down 1","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day4.Day4",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day4.Day4Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day4.PassportScanner"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day4.PassportScanner$PassportData"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day4.PassportScanner$passportDataList$2$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day4.PassportScannerKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day4.PassportScannerTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"countValidRequiredField","parameterTypes":[] }, {"name":"countValidValues","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day5.BinaryBoardingScanner"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day5.BinaryBoardingScannerTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"find highest seat ID","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day5.Day5",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day5.Day5Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day6.CustomsForms"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day6.CustomsFormsTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"sumOfYesAnyone","parameterTypes":[] }, {"name":"sumOfYesEveryOne","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day6.Day6",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day6.Day6Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day7.Day7",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day7.Day7Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day7.LuggageProcessing"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day7.LuggageProcessing$Bag"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day7.LuggageProcessing$Bag$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day7.LuggageProcessingKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day7.LuggageProcessingTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"can contain shiny gold bag","parameterTypes":[] }, {"name":"required bag count","parameterTypes":[] }, {"name":"required bag count example 2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day8.CorruptionChecker"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day8.CorruptionChecker$swapProgram$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day8.CorruptionCheckerTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"corrupted","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day8.Day8",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day8.Day8Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day8.HandheldGameConsole"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day8.HandheldGameConsole$InfiniteLoopException"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day8.HandheldGameConsole$Instruction"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day8.HandheldGameConsole$LineIndex"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day8.HandheldGameConsole$Operation"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day8.HandheldGameConsole$WhenMappings"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day8.HandheldGameConsoleKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day8.HandheldGameConsoleTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"infinite loop","parameterTypes":[] }, {"name":"normal run","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day9.Day9",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day9.Day9Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day9.ExchangeMaskingAdditionSystem"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day9.ExchangeMaskingAdditionSystem$findInvalidNumber$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day9.ExchangeMaskingAdditionSystem$findWeakness$1$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day9.ExchangeMaskingAdditionSystem$findWeakness$1$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2020.day9.ExchangeMaskingAdditionSystemTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"find invalid number","parameterTypes":[] }, {"name":"find weakness","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.AdventOfCode2021"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.AdventOfCode2021Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day1.Day1",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day1.Day1Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day1.SweepReport"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day1.SweepReportKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day1.SweepReportTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"count increase","parameterTypes":[] }, {"name":"count window increase","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day11.Day11",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day11.Day11Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day11.DumboOctopus"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day11.DumboOctopusKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day11.DumboOctopusTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"count flashes large example$advent_of_code_test","parameterTypes":[] }, {"name":"count flashes simple example 1 step","parameterTypes":[] }, {"name":"count flashes simple example 2 steps","parameterTypes":[] }, {"name":"steps to synchronize$advent_of_code_test","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day13.Day13",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day13.Day13Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day13.FoldAxis"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day13.FoldAxis$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day13.FoldInstruction"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day13.FoldInstruction$WhenMappings"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day13.TransparentOrigami"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day13.TransparentOrigami$dots$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day13.TransparentOrigami$dots$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day13.TransparentOrigami$dots$3"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day13.TransparentOrigami$foldInstructions$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day13.TransparentOrigami$foldInstructions$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day13.TransparentOrigami$foldInstructions$3"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day13.TransparentOrigamiKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day13.TransparentOrigamiKt$fold$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day13.TransparentOrigamiTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"display$advent_of_code_test","parameterTypes":[] }, {"name":"fold 1$advent_of_code_test","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day14.Day14",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day14.Day14Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day14.ExtendedPolymerization"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day14.ExtendedPolymerizationKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day14.ExtendedPolymerizationTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"quantity of the most common element and subtract the quantity of the least common element$advent_of_code_test","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day2.Command"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day2.Day2",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day2.Day2Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day2.Direction"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day2.SubmarineCourse"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day2.SubmarineCourse$WhenMappings"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day2.SubmarineCourseTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"planned course with aim$advent_of_code_test","parameterTypes":[] }, {"name":"planned course$advent_of_code_test","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day3.Day3",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day3.Day3Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day3.SubmarineReport"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day3.SubmarineReport$lifeSupportRating$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day3.SubmarineReport$lifeSupportRating$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day3.SubmarineReportKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day3.SubmarineReportKt$comparator$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day3.SubmarineReportKt$comparator$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day3.SubmarineReportKt$leastCommon$$inlined$groupingBy$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day3.SubmarineReportKt$mostCommon$$inlined$groupingBy$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day3.SubmarineReportTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"life support rating$advent_of_code_test","parameterTypes":[] }, {"name":"power consumption$advent_of_code_test","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day4.Bingo"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day4.BingoBoard"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day4.BingoBoardKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day4.BingoBoardTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"lose$advent_of_code_test","parameterTypes":[] }, {"name":"win column$advent_of_code_test","parameterTypes":[] }, {"name":"win example 2$advent_of_code_test","parameterTypes":[] }, {"name":"win row$advent_of_code_test","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day4.BingoTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"final score first win$advent_of_code_test","parameterTypes":[] }, {"name":"final score last win$advent_of_code_test","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day4.Day4",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day4.Day4Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day5.Day5",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day5.Day5Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day5.HydrothermalVents"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day5.HydrothermalVents$countOverlap$$inlined$groupingBy$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day5.HydrothermalVentsKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day5.HydrothermalVentsTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"count at least two lines overlap with horizontal or vertical$advent_of_code_test","parameterTypes":[] }, {"name":"count at least two lines overlap$advent_of_code_test","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day6.Day6",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day6.Day6Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day6.Lanternfish"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day6.LanternfishKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day6.LanternfishTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"reproduce 18$advent_of_code_test","parameterTypes":[] }, {"name":"reproduce 256$advent_of_code_test","parameterTypes":[] }, {"name":"reproduce 80$advent_of_code_test","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day7.CrabSubmarines"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day7.CrabSubmarines$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day7.CrabSubmarinesKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day7.CrabSubmarinesTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"fuel to align constant burn","parameterTypes":[] }, {"name":"fuel to align increasing burn","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day7.Day7",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day7.Day7Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day9.Day9",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day9.Day9Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day9.SmokeBasin"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day9.SmokeBasinKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2021.day9.SmokeBasinTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"find 3 largest basins$advent_of_code_test","parameterTypes":[] }, {"name":"sum of the risk levels of all low points$advent_of_code_test","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.AdventOfCode2022"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.AdventOfCode2022Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day1.CalorieCounting"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day1.CalorieCounting$calories$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day1.CalorieCountingTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"testMostCalories$advent_of_code_test","parameterTypes":[] }, {"name":"testTop3MostCalories$advent_of_code_test","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day1.Day1",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day1.Day1Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day10.CathodeRayTube"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day10.CathodeRayTube$cycle$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day10.CathodeRayTubeKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day10.CathodeRayTubeTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"larger program","parameterTypes":[] }, {"name":"larger program print","parameterTypes":[] }, {"name":"small program","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day10.Day10",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day10.Day10Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day11.Day11",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day11.Day11Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day11.Monkey"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day11.Monkey$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day11.Monkey$Companion$extractOperation$operation$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day11.Monkey$Companion$extractOperation$operation$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day11.Monkey$Companion$extractOperation$operation$3"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day11.Monkey$inspectAndThrowBored$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day11.Monkey$inspectAndThrowTrick$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day11.MonkeyInTheMiddle"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day11.MonkeyInTheMiddle$monkeyBusiness$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day11.MonkeyInTheMiddle$monkeyBusinessNoWorries$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day11.MonkeyInTheMiddleKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day11.MonkeyInTheMiddleTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"monkey business","parameterTypes":[] }, {"name":"monkey business no worries","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day12.Day12",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day12.Day12Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day12.HillClimbingAlgorithm"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day12.HillClimbingAlgorithm$fewestStepsFromA$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day12.HillClimbingAlgorithm$fewestStepsFromStart$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day12.HillClimbingAlgorithm$findNeighboursDown$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day12.HillClimbingAlgorithm$findNeighboursUp$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day12.HillClimbingAlgorithm$search$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day12.HillClimbingAlgorithmKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day12.HillClimbingAlgorithmTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"fewest steps from a","parameterTypes":[] }, {"name":"fewest steps from start","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day13.Day13",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day13.Day13Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day13.DistressSignal"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day13.DistressSignal$decoderKey$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day13.DistressSignalKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day13.DistressSignalTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"decoder key","parameterTypes":[] }, {"name":"example 1","parameterTypes":[] }, {"name":"example 2","parameterTypes":[] }, {"name":"example 3","parameterTypes":[] }, {"name":"example 4","parameterTypes":[] }, {"name":"example 5","parameterTypes":[] }, {"name":"example 6","parameterTypes":[] }, {"name":"example 7","parameterTypes":[] }, {"name":"example 8","parameterTypes":[] }, {"name":"full example","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day14.Day14",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day14.Day14Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day14.RegolithReservoir"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day14.RegolithReservoir$countSandBeforeAbyss$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day14.RegolithReservoir$countSandBeforeAbyss$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day14.RegolithReservoir$totalSand$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day14.RegolithReservoirKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day14.RegolithReservoirTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"count sand before abyss","parameterTypes":[] }, {"name":"total sand","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day15.BeaconExclusionZone"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day15.BeaconExclusionZone$findDistressBeacon$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day15.BeaconExclusionZone$findDistressBeacon$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day15.BeaconExclusionZone$sensors$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day15.BeaconExclusionZone$sensors$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day15.BeaconExclusionZoneKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day15.BeaconExclusionZoneTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"count positions with no beacon","parameterTypes":[] }, {"name":"find distress beacon","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day15.Day15",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day15.Day15Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day15.Sensor"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day18.BoilingBoulders"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day18.BoilingBoulders$exteriorSurfaceArea$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day18.BoilingBoulders$exteriorSurfaceArea$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day18.BoilingBoulders$exteriorSurfaceArea$3"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day18.BoilingBoulders$scan$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day18.BoilingBoulders$scan$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day18.BoilingBoulders$scan$3"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day18.BoilingBouldersTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"larger example exterior surface area","parameterTypes":[] }, {"name":"larger example surface area","parameterTypes":[] }, {"name":"simple example exterior surface area","parameterTypes":[] }, {"name":"simple example surface area","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day18.Cube"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day18.Day18",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day18.Day18Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day2.Day2",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day2.Day2Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day2.RockPaperScissors"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day20.Day20",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day20.Day20Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day20.GrovePositioningSystem"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day20.GrovePositioningSystem$Element"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day20.GrovePositioningSystemKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day20.GrovePositioningSystemTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"sum","parameterTypes":[] }, {"name":"sum decrypted","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day21.ComputeMonkey"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day21.Day21",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day21.Day21Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day21.Human"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day21.Monkey"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day21.MonkeyMath"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day21.MonkeyMathKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day21.MonkeyMathTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"human yell","parameterTypes":[] }, {"name":"root yell","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day21.MonkeysContext"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day21.NumberMonkey"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day23.Day23",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day23.Day23Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day23.OrthogonalDirection"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day23.UnstableDiffusion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day23.UnstableDiffusion$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day23.UnstableDiffusion$evolve$$inlined$groupingBy$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day23.UnstableDiffusion$neighboursPositions$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day23.UnstableDiffusion$noNeighbours$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day23.UnstableDiffusion$sequence$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day23.UnstableDiffusionKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day23.UnstableDiffusionTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"count","parameterTypes":[] }, {"name":"evolve","parameterTypes":[] }, {"name":"evolve","parameterTypes":["fr.lidonis.adventofcode.y2022.day23.UnstableDiffusion","fr.lidonis.adventofcode.y2022.day23.UnstableDiffusion"] }, {"name":"largerExampleSequence","parameterTypes":[] }, {"name":"largerExampleSequence","parameterTypes":["fr.lidonis.adventofcode.y2022.day23.UnstableDiffusion","int"] }, {"name":"number of the first round where no Elf moves","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day23.UnstableDiffusionTest$Companion",
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day23.UnstableDiffusionTest$Companion$largerExample$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day23.UnstableDiffusionTest$SmallExample",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":["fr.lidonis.adventofcode.y2022.day23.UnstableDiffusionTest"] }, {"name":"small example display","parameterTypes":[] }, {"name":"small example move 1","parameterTypes":[] }, {"name":"small example move 2","parameterTypes":[] }, {"name":"small example move 3","parameterTypes":[] }, {"name":"small example sequence","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day24.BlizzardBasin"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day24.BlizzardBasin$blizzards$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day24.BlizzardBasin$blizzards$1$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day24.BlizzardBasin$shortestPath$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day24.BlizzardBasin$shortestPath$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day24.BlizzardBasinTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"shortest path","parameterTypes":[] }, {"name":"shortest path back and forth","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day24.Blizzards"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day24.Blizzards$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day24.Blizzards$evolve$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day24.BlizzardsKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day24.BlizzardsTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"complexExample","parameterTypes":[] }, {"name":"complexExample","parameterTypes":["fr.lidonis.adventofcode.y2022.day24.Blizzards","int"] }, {"name":"display","parameterTypes":[] }, {"name":"evolve 1","parameterTypes":[] }, {"name":"evolve 2","parameterTypes":[] }, {"name":"evolve 3","parameterTypes":[] }, {"name":"evolve steps","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day24.BlizzardsTest$Companion",
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day24.BlizzardsTest$Companion$complexExample$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day24.Day24",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day24.Day24Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day24.Direction"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day24.Direction$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day24.Direction$Companion$symbols$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day25.Day25",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day25.Day25Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day25.FullOfHotAir"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day25.SpecialNumeralAnalogueFuelUnits"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day25.SpecialNumeralAnalogueFuelUnitsKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day25.SpecialNumeralAnalogueFuelUnitsTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"decimalToSnafu","parameterTypes":["java.lang.String","java.lang.String"] }, {"name":"snafuToDecimal","parameterTypes":["java.lang.String","java.lang.String"] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day3.Day3",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day3.Day3Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day3.RucksackReorganization"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day3.RucksackReorganizationKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day4.CampCleanup"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day4.Day4",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day4.Day4Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day5.Day5",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day5.Day5Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day5.SupplyStacks"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day5.SupplyStacks$Move"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day5.SupplyStacks$move$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day5.SupplyStacks$moveBulk$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day5.SupplyStacksKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day6.Day6",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day6.Day6Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day6.TuningTrouble"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day6.TuningTroubleTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"example1$advent_of_code_test","parameterTypes":[] }, {"name":"example2$advent_of_code_test","parameterTypes":[] }, {"name":"example3$advent_of_code_test","parameterTypes":[] }, {"name":"example4$advent_of_code_test","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day7.Day7",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day7.Day7Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day7.NoSpaceLeftOnDevice"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day7.NoSpaceLeftOnDeviceKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day7.NoSpaceLeftOnDeviceTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"dirSmallerThan100000$advent_of_code_test","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day8.Day8",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day8.Day8Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day8.TreetopTreeHouse"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day8.TreetopTreeHouseKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day8.TreetopTreeHouseKt$columnIterator$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day8.TreetopTreeHouseKt$reverseIterator$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day8.TreetopTreeHouseKt$scanScore$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day8.TreetopTreeHouseKt$scanVisibility$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day9.Day9",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day9.Day9Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day9.RopeBridge"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day9.RopeBridge$follow$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2022.day9.RopeBridge$headPositions$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.AdventOfCode2023"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.AdventOfCode2023Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day1.Day1",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day1.Day1Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day1.Trebuchet"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day1.TrebuchetKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day1.TrebuchetTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day2.CubeConundrum"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day2.CubeConundrum$Game"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day2.CubeConundrum$Game$Color"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day2.CubeConundrum$Game$Color$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day2.CubeConundrum$Game$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day2.CubeConundrum$Game$Cubes"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day2.CubeConundrum$Game$RevealedCubes"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day2.CubeConundrum$Game$RevealedCubes$WhenMappings"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day2.CubeConundrumKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day2.CubeConundrumTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day2.Day2",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day2.Day2Kt"
+},
+{
+  "name":"io.mockk.proxy.jvm.JvmMockKAgentFactory",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"io.mockk.proxy.jvm.advice.ProxyAdviceId",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"io.mockk.proxy.jvm.advice.jvm.JvmMockKProxyAdvice",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"io.mockk.proxy.jvm.advice.jvm.JvmMockKProxyInterceptor",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"io.mockk.proxy.jvm.dispatcher.JvmMockKDispatcher"
+},
+{
+  "name":"io.mockk.proxy.jvm.dispatcher.JvmMockKWeakMap"
+},
+{
+  "name":"io.mockk.proxy.jvm.dispatcher.JvmMockKWeakMap$StrongKey"
+},
+{
+  "name":"io.mockk.proxy.jvm.dispatcher.JvmMockKWeakMap$WeakKey"
+},
+{
+  "name":"java.lang.Boolean"
+},
+{
+  "name":"java.lang.Class",
+  "methods":[{"name":"getAnnotatedInterfaces","parameterTypes":[] }, {"name":"getAnnotatedSuperclass","parameterTypes":[] }, {"name":"getDeclaredMethod","parameterTypes":["java.lang.String","java.lang.Class[]"] }, {"name":"getMethod","parameterTypes":["java.lang.String","java.lang.Class[]"] }, {"name":"getModule","parameterTypes":[] }, {"name":"getNestHost","parameterTypes":[] }, {"name":"getNestMembers","parameterTypes":[] }, {"name":"getPermittedSubclasses","parameterTypes":[] }, {"name":"getRecordComponents","parameterTypes":[] }, {"name":"isNestmateOf","parameterTypes":["java.lang.Class"] }, {"name":"isRecord","parameterTypes":[] }, {"name":"isSealed","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.ClassLoader",
+  "methods":[{"name":"getUnnamedModule","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.ClassValue"
+},
+{
+  "name":"java.lang.Enum"
+},
+{
+  "name":"java.lang.FunctionalInterface"
+},
+{
+  "name":"java.lang.Integer"
+},
+{
+  "name":"java.lang.Long"
+},
+{
+  "name":"java.lang.Module",
+  "methods":[{"name":"addExports","parameterTypes":["java.lang.String","java.lang.Module"] }, {"name":"canRead","parameterTypes":["java.lang.Module"] }, {"name":"isExported","parameterTypes":["java.lang.String"] }]
+},
+{
+  "name":"java.lang.Object",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"clone","parameterTypes":[] }, {"name":"equals","parameterTypes":["java.lang.Object"] }, {"name":"hashCode","parameterTypes":[] }, {"name":"toString","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.ProcessHandle",
+  "methods":[{"name":"current","parameterTypes":[] }, {"name":"pid","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.Runtime",
+  "methods":[{"name":"version","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.Runtime$Version",
+  "methods":[{"name":"feature","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.String"
+},
+{
+  "name":"java.lang.System",
+  "methods":[{"name":"getSecurityManager","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.Thread",
+  "fields":[{"name":"threadLocalRandomProbe"}]
+},
+{
+  "name":"java.lang.WeakPairMap"
+},
+{
+  "name":"java.lang.WeakPairMap$Pair"
+},
+{
+  "name":"java.lang.WeakPairMap$Pair$Lookup"
+},
+{
+  "name":"java.lang.WeakPairMap$Pair$Weak"
+},
+{
+  "name":"java.lang.WeakPairMap$Pair$Weak$1"
+},
+{
+  "name":"java.lang.WeakPairMap$WeakRefPeer"
+},
+{
+  "name":"java.lang.annotation.Documented",
+  "queryAllDeclaredMethods":true
+},
+{
+  "name":"java.lang.annotation.Retention",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"value","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.annotation.RetentionPolicy"
+},
+{
+  "name":"java.lang.annotation.Target",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"value","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.constant.ClassDesc",
+  "methods":[{"name":"descriptorString","parameterTypes":[] }, {"name":"ofDescriptor","parameterTypes":["java.lang.String"] }]
+},
+{
+  "name":"java.lang.constant.ConstantDesc"
+},
+{
+  "name":"java.lang.constant.DirectMethodHandleDesc",
+  "methods":[{"name":"lookupDescriptor","parameterTypes":[] }, {"name":"methodName","parameterTypes":[] }, {"name":"owner","parameterTypes":[] }, {"name":"refKind","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.constant.DirectMethodHandleDesc$Kind",
+  "methods":[{"name":"valueOf","parameterTypes":["int","boolean"] }]
+},
+{
+  "name":"java.lang.constant.DynamicConstantDesc",
+  "methods":[{"name":"bootstrapArgs","parameterTypes":[] }, {"name":"bootstrapMethod","parameterTypes":[] }, {"name":"constantName","parameterTypes":[] }, {"name":"constantType","parameterTypes":[] }, {"name":"ofCanonical","parameterTypes":["java.lang.constant.DirectMethodHandleDesc","java.lang.String","java.lang.constant.ClassDesc","java.lang.constant.ConstantDesc[]"] }]
+},
+{
+  "name":"java.lang.constant.MethodHandleDesc",
+  "methods":[{"name":"invocationType","parameterTypes":[] }, {"name":"of","parameterTypes":["java.lang.constant.DirectMethodHandleDesc$Kind","java.lang.constant.ClassDesc","java.lang.String","java.lang.String"] }]
+},
+{
+  "name":"java.lang.constant.MethodTypeDesc",
+  "methods":[{"name":"of","parameterTypes":["java.lang.constant.ClassDesc","java.lang.constant.ClassDesc[]"] }, {"name":"ofDescriptor","parameterTypes":["java.lang.String"] }, {"name":"parameterArray","parameterTypes":[] }, {"name":"returnType","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.invoke.MethodHandle"
+},
+{
+  "name":"java.lang.invoke.MethodHandles",
+  "methods":[{"name":"lookup","parameterTypes":[] }, {"name":"privateLookupIn","parameterTypes":["java.lang.Class","java.lang.invoke.MethodHandles$Lookup"] }]
+},
+{
+  "name":"java.lang.invoke.MethodHandles$Lookup",
+  "methods":[{"name":"defineClass","parameterTypes":["byte[]"] }, {"name":"lookupClass","parameterTypes":[] }, {"name":"lookupModes","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.AnnotatedArrayType",
+  "methods":[{"name":"getAnnotatedGenericComponentType","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.AnnotatedParameterizedType",
+  "methods":[{"name":"getAnnotatedActualTypeArguments","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.AnnotatedType",
+  "methods":[{"name":"getType","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.AnnotatedWildcardType",
+  "methods":[{"name":"getAnnotatedLowerBounds","parameterTypes":[] }, {"name":"getAnnotatedUpperBounds","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.Executable",
+  "methods":[{"name":"getAnnotatedExceptionTypes","parameterTypes":[] }, {"name":"getAnnotatedParameterTypes","parameterTypes":[] }, {"name":"getAnnotatedReceiverType","parameterTypes":[] }, {"name":"getParameterCount","parameterTypes":[] }, {"name":"getParameters","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.Field",
+  "methods":[{"name":"getAnnotatedType","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.Method",
+  "methods":[{"name":"getAnnotatedReturnType","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.Parameter",
+  "methods":[{"name":"getModifiers","parameterTypes":[] }, {"name":"getName","parameterTypes":[] }, {"name":"isNamePresent","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.reflect.TypeVariable",
+  "methods":[{"name":"getAnnotatedBounds","parameterTypes":[] }]
+},
+{
+  "name":"java.math.BigInteger"
+},
+{
+  "name":"java.security.AccessController",
+  "methods":[{"name":"doPrivileged","parameterTypes":["java.security.PrivilegedAction"] }, {"name":"doPrivileged","parameterTypes":["java.security.PrivilegedExceptionAction"] }]
+},
+{
+  "name":"java.security.SecureRandomParameters"
+},
+{
+  "name":"java.util.Deque"
+},
+{
+  "name":"java.util.HashSet"
+},
+{
+  "name":"java.util.Iterator",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"forEachRemaining","parameterTypes":["java.util.function.Consumer"] }, {"name":"remove","parameterTypes":[] }]
+},
+{
+  "name":"java.util.LinkedHashSet"
+},
+{
+  "name":"java.util.concurrent.ArrayBlockingQueue"
+},
+{
+  "name":"java.util.concurrent.ForkJoinTask",
+  "fields":[{"name":"aux"}, {"name":"status"}]
+},
+{
+  "name":"java.util.concurrent.atomic.AtomicBoolean",
+  "fields":[{"name":"value"}]
+},
+{
+  "name":"java.util.concurrent.atomic.AtomicReference",
+  "fields":[{"name":"value"}]
+},
+{
+  "name":"java.util.concurrent.atomic.Striped64",
+  "fields":[{"name":"base"}, {"name":"cellsBusy"}]
+},
+{
+  "name":"java.util.concurrent.locks.AbstractOwnableSynchronizer"
+},
+{
+  "name":"java.util.concurrent.locks.AbstractQueuedSynchronizer"
+},
+{
+  "name":"java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject"
+},
+{
+  "name":"java.util.concurrent.locks.ReentrantLock"
+},
+{
+  "name":"java.util.concurrent.locks.ReentrantLock$NonfairSync"
+},
+{
+  "name":"java.util.concurrent.locks.ReentrantLock$Sync"
+},
+{
+  "name":"java.util.function.Consumer",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"jdk.internal.misc.Unsafe"
+},
+{
+  "name":"kotlin.Any"
+},
+{
+  "name":"kotlin.Boolean"
+},
+{
+  "name":"kotlin.Int"
+},
+{
+  "name":"kotlin.Long"
+},
+{
+  "name":"kotlin.Metadata",
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"bv","parameterTypes":[] }, {"name":"d1","parameterTypes":[] }, {"name":"d2","parameterTypes":[] }, {"name":"k","parameterTypes":[] }, {"name":"mv","parameterTypes":[] }, {"name":"pn","parameterTypes":[] }, {"name":"xi","parameterTypes":[] }, {"name":"xs","parameterTypes":[] }]
+},
+{
+  "name":"kotlin.SafePublicationLazyImpl",
+  "fields":[{"name":"_value"}]
+},
+{
+  "name":"kotlin.String"
+},
+{
+  "name":"kotlin.Unit",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"kotlin.annotation.MustBeDocumented",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"kotlin.annotation.Retention",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"kotlin.annotation.Target",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"kotlin.collections.Iterable"
+},
+{
+  "name":"kotlin.collections.Iterator"
+},
+{
+  "name":"kotlin.collections.List"
+},
+{
+  "name":"kotlin.collections.MutableList"
+},
+{
+  "name":"kotlin.jvm.internal.DefaultConstructorMarker"
+},
+{
+  "name":"kotlin.jvm.internal.markers.KMappedMarker",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"kotlin.ranges.IntRange"
+},
+{
+  "name":"kotlin.ranges.LongRange"
+},
+{
+  "name":"kotlin.reflect.jvm.internal.ReflectionFactoryImpl",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"kotlin.reflect.jvm.internal.impl.resolve.scopes.DescriptorKindFilter",
+  "allPublicFields":true
+},
+{
+  "name":"net.bytebuddy.agent.Installer",
+  "methods":[{"name":"agentmain","parameterTypes":["java.lang.String","java.lang.instrument.Instrumentation"] }, {"name":"getInstrumentation","parameterTypes":[] }]
+},
+{
+  "name":"net.bytebuddy.asm.Advice$AllArguments",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"includeSelf","parameterTypes":[] }, {"name":"nullIfEmpty","parameterTypes":[] }, {"name":"readOnly","parameterTypes":[] }, {"name":"typing","parameterTypes":[] }]
+},
+{
+  "name":"net.bytebuddy.asm.Advice$Argument",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.asm.Advice$Enter",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"readOnly","parameterTypes":[] }, {"name":"typing","parameterTypes":[] }]
+},
+{
+  "name":"net.bytebuddy.asm.Advice$Exit",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.asm.Advice$FieldGetterHandle",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.asm.Advice$FieldSetterHandle",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.asm.Advice$Local",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.asm.Advice$OnMethodEnter",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"inline","parameterTypes":[] }, {"name":"prependLineNumber","parameterTypes":[] }, {"name":"skipOn","parameterTypes":[] }, {"name":"skipOnIndex","parameterTypes":[] }, {"name":"suppress","parameterTypes":[] }]
+},
+{
+  "name":"net.bytebuddy.asm.Advice$OnMethodExit",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"backupArguments","parameterTypes":[] }, {"name":"inline","parameterTypes":[] }, {"name":"onThrowable","parameterTypes":[] }, {"name":"repeatOn","parameterTypes":[] }, {"name":"repeatOnIndex","parameterTypes":[] }, {"name":"suppress","parameterTypes":[] }]
+},
+{
+  "name":"net.bytebuddy.asm.Advice$Origin",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.asm.Advice$Return",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"readOnly","parameterTypes":[] }, {"name":"typing","parameterTypes":[] }]
+},
+{
+  "name":"net.bytebuddy.asm.Advice$SelfCallHandle",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.asm.Advice$This",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"optional","parameterTypes":[] }, {"name":"readOnly","parameterTypes":[] }, {"name":"typing","parameterTypes":[] }]
+},
+{
+  "name":"net.bytebuddy.asm.Advice$Thrown",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.description.method.MethodDescription$InDefinedShape$AbstractBase$Executable",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.description.method.ParameterDescription$ForLoadedParameter$Parameter",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.description.method.ParameterList$ForLoadedExecutable$Executable",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.description.type.TypeDefinition$Sort$AnnotatedType",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.description.type.TypeDescription$ForLoadedType$Dispatcher",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.description.type.TypeDescription$Generic$AnnotationReader$Delegator$ForLoadedExecutableExceptionType$Dispatcher",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.description.type.TypeDescription$Generic$AnnotationReader$Delegator$ForLoadedExecutableParameterType$Dispatcher",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.description.type.TypeDescription$Generic$AnnotationReader$Delegator$ForLoadedField$Dispatcher",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.description.type.TypeDescription$Generic$AnnotationReader$Delegator$ForLoadedMethodReturnType$Dispatcher",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.description.type.TypeDescription$Generic$AnnotationReader$ForComponentType$AnnotatedParameterizedType",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.description.type.TypeDescription$Generic$AnnotationReader$ForTypeArgument$AnnotatedParameterizedType",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.description.type.TypeDescription$Generic$AnnotationReader$ForTypeVariableBoundType$OfFormalTypeVariable$FormalTypeVariable",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.description.type.TypeDescription$Generic$AnnotationReader$ForWildcardLowerBoundType$AnnotatedWildcardType",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.description.type.TypeDescription$Generic$AnnotationReader$ForWildcardUpperBoundType$AnnotatedWildcardType",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.dynamic.loading.ClassInjector$UsingLookup$MethodHandles",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.dynamic.loading.ClassInjector$UsingLookup$MethodHandles$Lookup",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.AllArguments",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"includeSelf","parameterTypes":[] }, {"name":"nullIfEmpty","parameterTypes":[] }, {"name":"value","parameterTypes":[] }]
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.Argument",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.BindingPriority",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"value","parameterTypes":[] }]
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.Default",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.DefaultCall",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.DefaultCallHandle",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.DefaultMethod",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.DefaultMethodHandle",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.FieldGetterHandle",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.FieldSetterHandle",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.FieldValue",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.Origin",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"cache","parameterTypes":[] }, {"name":"privileged","parameterTypes":[] }]
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.Super",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.SuperCall",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"fallbackToDefault","parameterTypes":[] }, {"name":"nullIfImpossible","parameterTypes":[] }, {"name":"serializableProxy","parameterTypes":[] }]
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.SuperCallHandle",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.SuperMethod",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.SuperMethodHandle",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.This",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"optional","parameterTypes":[] }]
+},
+{
+  "name":"net.bytebuddy.utility.Invoker",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.utility.Invoker$Dispatcher",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"net.bytebuddy.utility.JavaConstant$Simple$Dispatcher",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.utility.JavaConstant$Simple$Dispatcher$OfClassDesc",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.utility.JavaConstant$Simple$Dispatcher$OfDirectMethodHandleDesc",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.utility.JavaConstant$Simple$Dispatcher$OfDirectMethodHandleDesc$ForKind",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.utility.JavaConstant$Simple$Dispatcher$OfDynamicConstantDesc",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.utility.JavaConstant$Simple$Dispatcher$OfMethodHandleDesc",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"net.bytebuddy.utility.JavaConstant$Simple$Dispatcher$OfMethodTypeDesc",
+  "queryAllPublicMethods":true
+},
+{
+  "name":"sun.reflect.ReflectionFactory",
+  "methods":[{"name":"getReflectionFactory","parameterTypes":[] }, {"name":"newConstructorForSerialization","parameterTypes":["java.lang.Class","java.lang.reflect.Constructor"] }]
+},
+{
+  "name":"sun.security.provider.NativePRNG",
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"<init>","parameterTypes":["java.security.SecureRandomParameters"] }]
+},
+{
+  "name":"sun.security.provider.SHA",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+}
+]

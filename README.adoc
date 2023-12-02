@@ -15,7 +15,12 @@ A native image can be build with GraalVM
 
 [source,shell]
 ----
-./gradlew nativeImage
+./gradlew nativeCompile
 ----
 
-The native image wil be available at build/graal/advent-of-code
+The native image wil be available at build/native/nativeCompile/advent-of-code
+
+[source,shell]
+----
+./build/native/nativeCompile/advent-of-code -y2020 -d1
+----
