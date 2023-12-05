@@ -3072,6 +3072,34 @@
   "name":"fr.lidonis.adventofcode.y2023.day2.Day2Kt"
 },
 {
+  "name":"fr.lidonis.adventofcode.y2023.day4.Day4",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day4.Day4Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day4.Scratchcards"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day4.Scratchcards$Scratchcard"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day4.Scratchcards$Scratchcard$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day4.ScratchcardsTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
   "name":"io.mockk.proxy.jvm.JvmMockKAgentFactory",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
@@ -3700,6 +3728,15 @@
 {
   "name":"net.bytebuddy.utility.JavaConstant$Simple$Dispatcher$OfMethodTypeDesc",
   "queryAllPublicMethods":true
+},
+{
+  "name":"org.opentest4j.AssertionFailedError",
+  "queryAllDeclaredMethods":true,
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.String","java.lang.Object","java.lang.Object"] }, {"name":"getActual","parameterTypes":[] }, {"name":"getExpected","parameterTypes":[] }]
+},
+{
+  "name":"org.opentest4j.ValueWrapper",
+  "methods":[{"name":"getStringRepresentation","parameterTypes":[] }, {"name":"getValue","parameterTypes":[] }]
 },
 {
   "name":"sun.reflect.ReflectionFactory",

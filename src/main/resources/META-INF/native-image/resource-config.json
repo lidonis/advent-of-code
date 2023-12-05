@@ -187,6 +187,8 @@
   }, {
     "pattern":"\\Qinput/y2023/day2.txt\\E"
   }, {
+    "pattern":"\\Qinput/y2023/day4.txt\\E"
+  }, {
     "pattern":"\\Qio/mockk/proxy/jvm/advice/jvm/JvmMockKProxyAdvice.class\\E"
   }, {
     "pattern":"\\Qio/mockk/proxy/jvm/dispatcher/JvmMockKDispatcher.class\\E"
