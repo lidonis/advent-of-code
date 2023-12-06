@@ -3100,6 +3100,71 @@
   "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
 },
 {
+  "name":"fr.lidonis.adventofcode.y2023.day5.Day5",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day5.Day5Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day5.SeedFertilizer"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day5.SeedFertilizer$Convert"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day5.SeedFertilizer$calculateMinLocation$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day5.SeedFertilizer$part2$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day5.SeedFertilizer$part2$1$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day5.SeedFertilizerTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day6.Day6",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day6.Day6Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day6.WaitForIt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day6.WaitForIt$findNumbers$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day6.WaitForIt$part1$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day6.WaitForItKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day6.WaitForItTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
   "name":"io.mockk.proxy.jvm.JvmMockKAgentFactory",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
@@ -3728,15 +3793,6 @@
 {
   "name":"net.bytebuddy.utility.JavaConstant$Simple$Dispatcher$OfMethodTypeDesc",
   "queryAllPublicMethods":true
-},
-{
-  "name":"org.opentest4j.AssertionFailedError",
-  "queryAllDeclaredMethods":true,
-  "methods":[{"name":"<init>","parameterTypes":["java.lang.String","java.lang.Object","java.lang.Object"] }, {"name":"getActual","parameterTypes":[] }, {"name":"getExpected","parameterTypes":[] }]
-},
-{
-  "name":"org.opentest4j.ValueWrapper",
-  "methods":[{"name":"getStringRepresentation","parameterTypes":[] }, {"name":"getValue","parameterTypes":[] }]
 },
 {
   "name":"sun.reflect.ReflectionFactory",

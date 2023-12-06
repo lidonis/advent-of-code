@@ -30,3 +30,5 @@ fun <T> Collection<T>.combine(size: Int): List<List<T>> {
 fun Collection<Int>.multiply() = this.reduce(Int::times)
 
 fun Collection<Long>.multiply() = this.reduce(Long::times)
+
+fun Sequence<Int>.multiply() = this.reduce(Int::times)
