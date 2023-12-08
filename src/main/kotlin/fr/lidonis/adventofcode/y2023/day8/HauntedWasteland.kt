@@ -14,9 +14,7 @@ class HauntedWasteland(lines: List<String>) {
             start to (leftNode to rightNode)
         }
 
-    fun part1(): Int {
-        return navigateWasteland("AAA") { it == "ZZZ" }
-    }
+    fun part1() = navigateWasteland("AAA") { it == "ZZZ" }
 
     private fun navigateWasteland(startLocation: String, stopCondition: (String) -> Boolean): Int {
         var node = startLocation
@@ -36,11 +34,9 @@ class HauntedWasteland(lines: List<String>) {
         error("No path found for $startLocation")
     }
 
-    private fun String.infiniteLoop() = sequence {
-        while (true) {
-            this.yieldAll(this@infiniteLoop.toList())
-        }
-    }
+    private fun String.infiniteLoop() = toList().infiniteLoop()
+
+    private fun List<Char>.infiniteLoop() = generateSequence { this }.flatten()
 
     fun part2(): Long {
         return network.keys
