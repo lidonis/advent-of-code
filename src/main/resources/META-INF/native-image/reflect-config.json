@@ -31,7 +31,7 @@
   "name":"fr.lidonis.adventofcode.AdventOfCodeCommand"
 },
 {
-  "name":"fr.lidonis.adventofcode.AdventOfCodeMain"
+  "name":"fr.lidonis.adventofcode.AdventOfCodeMainKt"
 },
 {
   "name":"fr.lidonis.adventofcode.NonRegressionTest",
@@ -1224,9 +1224,6 @@
 },
 {
   "name":"fr.lidonis.adventofcode.y2020.day14.DockingDataV2"
-},
-{
-  "name":"fr.lidonis.adventofcode.y2020.day15.Day15Kt"
 },
 {
   "name":"fr.lidonis.adventofcode.y2020.day15.RambunctiousRecitation"
@@ -3116,7 +3113,7 @@
   "name":"fr.lidonis.adventofcode.y2023.day5.SeedFertilizer$Convert"
 },
 {
-  "name":"fr.lidonis.adventofcode.y2023.day5.SeedFertilizer$calculateMinLocation$1"
+  "name":"fr.lidonis.adventofcode.y2023.day5.SeedFertilizer$mapNumberAll$1"
 },
 {
   "name":"fr.lidonis.adventofcode.y2023.day5.SeedFertilizer$part2$1"
@@ -3157,6 +3154,161 @@
 },
 {
   "name":"fr.lidonis.adventofcode.y2023.day6.WaitForItTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.CamelCards"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.CamelCards$part1$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.CamelCards$part2$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.CamelCards$totalWinnings$$inlined$sortedBy$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.CamelCardsTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"part1","parameterTypes":[] }, {"name":"part1Other","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }, {"name":"part2Other","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.Day7",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.Day7Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.Hand"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.Hand$Value"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.Hand$Value$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.HandCommon"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.HandJoker"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.HandJoker$Value"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.HandJoker$Value$Companion"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.HandJokerProvider",
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.HandJokerTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"should compute hand type for joker hand","parameterTypes":["java.lang.String","fr.lidonis.adventofcode.y2023.day7.HandType"] }, {"name":"should compute hand type for no joker hand","parameterTypes":["java.lang.String","fr.lidonis.adventofcode.y2023.day7.HandType"] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.HandProvider",
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.HandTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"should compute hand type","parameterTypes":["java.lang.String","fr.lidonis.adventofcode.y2023.day7.HandType"] }, {"name":"should order by value for same type","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.HandType"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day7.HandTypeKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day8.Day8",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day8.Day8Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day8.HauntedWasteland"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day8.HauntedWasteland$infiniteLoop$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day8.HauntedWasteland$part1$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day8.HauntedWasteland$part2$2$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day8.HauntedWastelandKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day8.HauntedWastelandTest",
+  "allDeclaredFields":true,
+  "allDeclaredClasses":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllPublicMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"part1","parameterTypes":[] }, {"name":"part1Other","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day9.Day9",
+  "allDeclaredFields":true,
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"part1","parameterTypes":[] }, {"name":"part2","parameterTypes":[] }]
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day9.Day9Kt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day9.MirageMaintenance"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day9.MirageMaintenance$computeDifferences$1"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day9.MirageMaintenance$computeDifferences$2"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day9.MirageMaintenanceKt"
+},
+{
+  "name":"fr.lidonis.adventofcode.y2023.day9.MirageMaintenanceTest",
   "allDeclaredFields":true,
   "allDeclaredClasses":true,
   "queryAllDeclaredMethods":true,
