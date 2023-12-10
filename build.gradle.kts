@@ -18,12 +18,6 @@ repositories {
     }
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(libs.versions.jdk.get())
-    }
-}
-
 kotlin {
     jvmToolchain(libs.versions.jdk.get().toInt())
 }
@@ -31,13 +25,11 @@ kotlin {
 dependencies {
     implementation(libs.kotlinx.coroutines)
 
-    implementation(libs.picocli)
     implementation(libs.jansi)
+    implementation(libs.kotlinx.cli)
 
     implementation(libs.jackson)
     implementation(libs.kmath)
-
-    annotationProcessor(libs.picocli.codegen)
 
     jmhAnnotationProcessor(libs.jmh.generator)
 
@@ -50,7 +42,7 @@ dependencies {
 }
 
 application {
-    mainClass.set("fr.lidonis.adventofcode.AdventOfCodeMain")
+    mainClass.set("fr.lidonis.adventofcode.AdventOfCodeMainKt")
 }
 
 tasks.withType<KotlinCompile>().configureEach {

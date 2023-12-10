@@ -3,12 +3,10 @@ package fr.lidonis.adventofcode
 import org.fusesource.jansi.Ansi.Color.BLACK
 import org.fusesource.jansi.Ansi.Color.GREEN
 import org.fusesource.jansi.Ansi.ansi
-import kotlin.time.ExperimentalTime
 import kotlin.time.measureTimedValue
 
 class AdventOfCodeCommand(private val year: Int, private val day: Int) {
 
-    @ExperimentalTime
     fun call(): Int {
         val (adventOfCode, loadTime) = measureTimedValue {
             load(year, day)

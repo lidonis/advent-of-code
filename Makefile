@@ -30,12 +30,12 @@ build-native:
 .PHONY: run
 run:
 	@echo "Running project..."
-	@./gradlew run --args="-y=${YEAR} -d=${DAY}"
+	@./gradlew run --args="-y ${YEAR} -d ${DAY}"
 
 .PHONY: run-native
 run-native:
 	@echo "Running native project..."
-	@./build/native/nativeCompile/advent-of-code -y=${YEAR} -d=${DAY}
+	@./build/native/nativeCompile/advent-of-code -y ${YEAR} -d ${DAY}
 
 .PHONY: generate-year-files
 generate-year-files:
