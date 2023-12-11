@@ -6,7 +6,7 @@ enum class Direction(val letter: Char, val move: Position) {
     DOWN('D', Position(0, -1)),
     LEFT('L', Position(-1, 0));
 
-    operator fun plus(value: Int) = values()[Math.floorMod(ordinal + value, values().size)]
+    operator fun plus(value: Int) = entries[Math.floorMod(ordinal + value, entries.size)]
     operator fun minus(i: Int) = this + (-i)
     operator fun inc() = turnRight()
     operator fun dec() = turnLeft()
@@ -15,11 +15,8 @@ enum class Direction(val letter: Char, val move: Position) {
     fun turnLeft() = this - 1
 
     companion object {
-        private val letters by lazy { values().associateBy { it.letter } }
-        private val positions by lazy { values().associateBy { it.move } }
+        private val letters by lazy { entries.associateBy { it.letter } }
 
         fun fromChar(c: Char) = letters[c]
-
-        fun fromPosition(position: Position) = positions[position]
     }
 }
