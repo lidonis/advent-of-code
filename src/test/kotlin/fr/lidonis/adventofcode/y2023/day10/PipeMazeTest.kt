@@ -74,5 +74,4 @@ class PipeMazeTest {
         val result = pipeMaze.part2()
         assertThat(result).isEqualTo(8)
     }
-
 }

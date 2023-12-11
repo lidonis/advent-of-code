@@ -4,7 +4,6 @@ import kotlinx.cli.ArgParser
 import kotlinx.cli.ArgType
 import kotlinx.cli.required
 import kotlin.system.exitProcess
-import kotlin.time.ExperimentalTime
 
 fun main(args: Array<String>) {
     val parser = ArgParser("example")

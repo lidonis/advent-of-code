@@ -33,7 +33,6 @@ class CosmicExpansion(private val lines: List<String>) {
         }
     }
 
-
     fun part1() = sumShortestPath(PART_1_EXPANSION_RATE)
 
     fun sumShortestPath(expansionRate: Int): Long {
