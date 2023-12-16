@@ -2,7 +2,6 @@ plugins {
     id("gradle.kotlin-application-conventions")
     alias(libs.plugins.detekt)
     id("org.graalvm.buildtools.native") version "0.9.28"
-    alias(libs.plugins.jmh)
 }
 
 group = "fr.lidonis.adventofcode"
@@ -17,8 +16,6 @@ dependencies {
 
     implementation(libs.jansi)
     implementation(libs.kotlinx.cli)
-
-    jmhAnnotationProcessor(libs.jmh.generator)
 
     detektPlugins(libs.bundles.detekt)
 }
