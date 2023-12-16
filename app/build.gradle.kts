@@ -20,8 +20,6 @@ dependencies {
 
     jmhAnnotationProcessor(libs.jmh.generator)
 
-    testImplementation(libs.kotlin.reflect)
-
     detektPlugins(libs.bundles.detekt)
 }
 

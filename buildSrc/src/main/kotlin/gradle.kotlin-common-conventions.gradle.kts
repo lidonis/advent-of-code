@@ -24,6 +24,7 @@ dependencies {
     testImplementation(libs.bundles.junit)
     testImplementation(libs.assertj)
     testImplementation(libs.mockk)
+    testImplementation(libs.kotlin.reflect)
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
