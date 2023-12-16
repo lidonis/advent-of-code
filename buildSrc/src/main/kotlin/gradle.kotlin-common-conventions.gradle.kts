@@ -9,6 +9,9 @@ plugins {
 
 repositories {
     mavenCentral()
+    maven {
+        url = uri("https://repo.kotlin.link")
+    }
 }
 
 kotlin {
@@ -22,7 +25,6 @@ dependencies {
     testImplementation(libs.assertj)
     testImplementation(libs.mockk)
 
-    // Use JUnit Jupiter for testing.
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
@@ -33,6 +35,9 @@ tasks.withType<KotlinCompile>().configureEach {
 }
 
 tasks.named<Test>("test") {
-    // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+
+    systemProperty("junit.jupiter.execution.parallel.enabled", "true")
+    systemProperty("junit.jupiter.execution.parallel.config.dynamic.factor", "1.0")
+    systemProperty("junit.jupiter.execution.parallel.mode.default", "concurrent")
 }

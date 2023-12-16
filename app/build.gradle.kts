@@ -11,6 +11,10 @@ version = "1.0-SNAPSHOT"
 dependencies {
     implementation(project(":common"))
 
+    for(year in 2019..2023) {
+        implementation(project(":aoc$year"))
+    }
+
     implementation(libs.jansi)
     implementation(libs.kotlinx.cli)
 
