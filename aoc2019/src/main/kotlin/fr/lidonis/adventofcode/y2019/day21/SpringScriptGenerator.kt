@@ -6,6 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
+@Suppress("MagicNumber")
 object SpringScriptGenerator {
 
     private val commands = setOf("AND", "OR", "NOT")

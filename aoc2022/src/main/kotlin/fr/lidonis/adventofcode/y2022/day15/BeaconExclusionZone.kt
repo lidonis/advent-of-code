@@ -6,6 +6,7 @@ private const val INPUT_REGEX = """Sensor at x=(-?\d+), y=(-?\d+): closest beaco
 
 class BeaconExclusionZone(lines: List<String>) {
 
+    @Suppress("DestructuringDeclarationWithTooManyEntries")
     private val sensors = lines
         .asSequence()
         .mapNotNull { line ->

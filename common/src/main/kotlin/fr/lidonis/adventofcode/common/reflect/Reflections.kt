@@ -31,7 +31,7 @@ inline fun <reified T> getClasses(type: Class<T>): List<Class<out T>> {
     return classes
 }
 
-@Suppress("SwallowedException", "ReturnCount")
+@Suppress("SwallowedException", "ReturnCount", "MagicNumber")
 fun <T> findClasses(type: Class<T>, directory: File, packageName: String): List<Class<out T>> {
     val classes = mutableListOf<Class<out T>>()
 

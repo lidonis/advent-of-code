@@ -1,5 +1,6 @@
 package fr.lidonis.adventofcode.y2022.day2
 
+@Suppress("MagicNumber")
 class RockPaperScissors(private val lines: List<String>) {
 
     fun score() = lines.sumOf(::fightShape)

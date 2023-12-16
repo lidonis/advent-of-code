@@ -5,6 +5,7 @@ val libs = the<LibrariesForLibs>()
 
 plugins {
     id("org.jetbrains.kotlin.jvm")
+    id("io.gitlab.arturbosch.detekt")
 }
 
 repositories {
@@ -24,9 +25,10 @@ dependencies {
     testImplementation(libs.bundles.junit)
     testImplementation(libs.assertj)
     testImplementation(libs.mockk)
-    testImplementation(libs.kotlin.reflect)
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    detektPlugins(libs.bundles.detekt)
 }
 
 tasks.withType<KotlinCompile>().configureEach {
@@ -41,4 +43,15 @@ tasks.named<Test>("test") {
     systemProperty("junit.jupiter.execution.parallel.enabled", "true")
     systemProperty("junit.jupiter.execution.parallel.config.dynamic.factor", "1.0")
     systemProperty("junit.jupiter.execution.parallel.mode.default", "concurrent")
+}
+
+detekt {
+    buildUponDefaultConfig = true
+    allRules = false
+    autoCorrect = true
+    config.setFrom("${project.rootDir}/detekt.yml")
+    source.setFrom(
+        "src/main/kotlin",
+        "src/test/kotlin",
+    )
 }

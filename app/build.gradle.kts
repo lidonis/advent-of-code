@@ -1,6 +1,5 @@
 plugins {
     id("gradle.kotlin-application-conventions")
-    alias(libs.plugins.detekt)
     id("org.graalvm.buildtools.native") version "0.9.28"
 }
 
@@ -16,23 +15,10 @@ dependencies {
 
     implementation(libs.jansi)
     implementation(libs.kotlinx.cli)
-
-    detektPlugins(libs.bundles.detekt)
 }
 
 application {
     mainClass.set("fr.lidonis.adventofcode.AdventOfCodeMainKt")
-}
-
-detekt {
-    buildUponDefaultConfig = true
-    allRules = false
-    autoCorrect = true
-    config.setFrom("${project.rootDir}/detekt.yml")
-    source.setFrom(
-        "src/main/kotlin",
-        "src/test/kotlin",
-    )
 }
 
 graalvmNative {

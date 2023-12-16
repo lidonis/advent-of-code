@@ -7,6 +7,7 @@ private val LINE_REGEX = """(\d+),(\d+) -> (\d+),(\d+)""".toRegex()
 
 class HydrothermalVents(inputs: List<String>) {
 
+    @Suppress("DestructuringDeclarationWithTooManyEntries")
     private val lines = inputs.map { input ->
         val (x1, y1, x2, y2) = LINE_REGEX.find(input)?.destructured ?: error("wrong format")
         Line(Position(x1.toInt(), y1.toInt()), Position(x2.toInt(), y2.toInt()))

@@ -3,6 +3,7 @@ package fr.lidonis.adventofcode.y2019.day17
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
+@Suppress("DestructuringDeclarationWithTooManyEntries")
 internal class MovementRulesTest {
 
     @Test
