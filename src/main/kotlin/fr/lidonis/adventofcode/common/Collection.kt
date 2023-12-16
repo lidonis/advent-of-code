@@ -32,3 +32,12 @@ fun Collection<Int>.multiply() = this.reduce(Int::times)
 fun Collection<Long>.multiply() = this.reduce(Long::times)
 
 fun Sequence<Int>.multiply() = this.reduce(Int::times)
+
+fun <T> Sequence<T>.takeWhileInclusive(predicate: (T) -> Boolean): Sequence<T> {
+    var shouldContinue = true
+    return takeWhile {
+        val result = shouldContinue
+        shouldContinue = predicate(it)
+        result
+    }
+}
