@@ -50,17 +50,21 @@ class TheFloorWillBeLava(lines: List<String>) {
 
     fun part2() = (up() + down() + right() + left()).maxOf { countEnergized(it) }
 
-    private fun up() = (boundingBox.start.x..boundingBox.end.x)
-        .map { UP to Position(it, boundingBox.start.y - 1) }
+    private fun up() =
+        (boundingBox.start.x..boundingBox.end.x)
+            .map { UP to Position(it, boundingBox.start.y - 1) }
 
-    private fun down() = (boundingBox.start.x..boundingBox.end.x)
-        .map { DOWN to Position(it, boundingBox.end.y + 1) }
+    private fun down() =
+        (boundingBox.start.x..boundingBox.end.x)
+            .map { DOWN to Position(it, boundingBox.end.y + 1) }
 
-    private fun right() = (boundingBox.start.y..boundingBox.end.y)
-        .map { RIGHT to Position(boundingBox.start.x - 1, it) }
+    private fun right() =
+        (boundingBox.start.y..boundingBox.end.y)
+            .map { RIGHT to Position(boundingBox.start.x - 1, it) }
 
-    private fun left() = (boundingBox.start.y..boundingBox.end.y)
-        .map { LEFT to Position(boundingBox.end.x + 1, it) }
+    private fun left() =
+        (boundingBox.start.y..boundingBox.end.y)
+            .map { LEFT to Position(boundingBox.end.x + 1, it) }
 
     enum class Mirror(val value: Char) {
         VERTICAL('-') {
