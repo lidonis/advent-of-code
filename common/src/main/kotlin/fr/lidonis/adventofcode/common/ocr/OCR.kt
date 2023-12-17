@@ -1,25 +1,20 @@
 package fr.lidonis.adventofcode.common.ocr
 
-import fr.lidonis.adventofcode.common.InputReader
+import fr.lidonis.adventofcode.common.ResourceReader
 import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.common.geo.plane.PositionSet
-import java.io.File
 
 object OCR {
 
     private const val LETTER_WIDTH = 4
 
-    private val mappings = OCR::class.java.getResource("/ocr/")?.file?.run {
-        File(this).run {
-            val listFiles = listFiles()
-            listFiles?.associate { score(InputReader("/ocr/${it.name}")) to it.name[0] }
-                ?: error("OCR init failed $this $listFiles")
-        }
-    } ?: error("Directory not found")
+    private val mappings = ('A'..'Z').associateBy {
+        ResourceReader("/ocr/$it.txt")?.lines()?.let(::score)
+    }
 
-    private fun score(inputReader: InputReader) = PositionSet(
+    private fun score(lines: List<String>) = PositionSet(
         sequence {
-            for ((i, s) in inputReader.lines().withIndex()) {
+            for ((i, s) in lines.withIndex()) {
                 for ((j, c) in s.withIndex()) {
                     if (c == '█') yield(Position(j, i))
                 }

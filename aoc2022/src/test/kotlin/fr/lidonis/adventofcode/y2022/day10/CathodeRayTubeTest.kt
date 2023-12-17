@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2022.day10
 
-import fr.lidonis.adventofcode.common.InputReader
+import fr.lidonis.adventofcode.common.ResourceReader
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
@@ -21,18 +21,18 @@ internal class CathodeRayTubeTest {
 
     @Test
     fun `larger program`() {
-        val input = InputReader("/y2022/day10/larger-program.txt")
+        val input = ResourceReader("/y2022/day10/larger-program.txt")
 
-        val result = CathodeRayTube(input.lines()).signalStrengths()
+        val result = CathodeRayTube(input?.lines() ?: error("Resource not found")).signalStrengths()
 
         assertThat(result).containsExactly(420, 1140, 1800, 2940, 2880, 3960)
     }
 
     @Test
     fun `larger program print`() {
-        val input = InputReader("/y2022/day10/larger-program.txt")
+        val input = ResourceReader("/y2022/day10/larger-program.txt")
 
-        val result = CathodeRayTube(input.lines()).print()
+        val result = CathodeRayTube(input?.lines() ?: error("Resource not found")).print()
 
         assertThat(result).isEqualTo(
             """

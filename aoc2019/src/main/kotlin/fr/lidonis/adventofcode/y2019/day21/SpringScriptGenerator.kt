@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day21
 
-import fr.lidonis.adventofcode.common.InputReader
+import fr.lidonis.adventofcode.common.ResourceReader
 import fr.lidonis.adventofcode.common.math.pow
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -29,7 +29,7 @@ object SpringScriptGenerator {
     }
 
     private fun bruteForceDroid(sequence: Sequence<String>) {
-        val program = InputReader("input/y2019/day21.txt").text()
+        val program = ResourceReader("input/y2019/day21.txt")?.text() ?: error("Input not found")
         runBlocking {
             for (springScript in sequence) {
                 launch(Dispatchers.Default) {

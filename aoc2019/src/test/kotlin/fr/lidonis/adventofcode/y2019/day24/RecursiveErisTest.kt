@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day24
 
-import fr.lidonis.adventofcode.common.InputReader
+import fr.lidonis.adventofcode.common.ResourceReader
 import fr.lidonis.adventofcode.common.head
 import fr.lidonis.adventofcode.common.tail
 import org.assertj.core.api.Assertions
@@ -71,7 +71,7 @@ internal class RecursiveErisTest {
         )
     }
 
-    private val erisesPart2 = InputReader("/y2019/day24/part2.txt").text()
+    private val erisesPart2 = (ResourceReader("/y2019/day24/part2.txt")?.text() ?: error("Resource not found"))
         .split("\n\n")
 
     @Test

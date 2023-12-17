@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019
 
-import fr.lidonis.adventofcode.common.InputReader
+import fr.lidonis.adventofcode.common.ResourceReader
 import fr.lidonis.adventofcode.y2019.intcodecomputer.IntCodeComputerFactory
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ObsoleteCoroutinesApi
@@ -42,7 +42,7 @@ object NetworkInterfaceControllerActor {
     @ObsoleteCoroutinesApi
     private class Router(private val actor: ActorScope<NetworkMessage>) {
         private val scope = CoroutineScope(actor.coroutineContext)
-        private val program = InputReader("/input/y2019/day23.txt").text()
+        private val program = ResourceReader("/input/y2019/day23.txt")?.text() ?: error("Input not found")
         private var monitor: SendChannel<NetworkMessage> = scope.actor(capacity = Channel.UNLIMITED) {
             Monitor(this, actor.channel).watch()
         }

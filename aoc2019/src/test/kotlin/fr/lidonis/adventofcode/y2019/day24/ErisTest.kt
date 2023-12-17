@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019.day24
 
-import fr.lidonis.adventofcode.common.InputReader
+import fr.lidonis.adventofcode.common.ResourceReader
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
@@ -31,7 +31,7 @@ internal class ErisTest {
     companion object {
 
         @JvmStatic
-        fun evolve() = InputReader("/y2019/day24/part1.txt").text()
+        fun evolve() = (ResourceReader("/y2019/day24/part1.txt")?.text() ?: error("Resource not found"))
             .split("\n\n")
             .map { it.lines().drop(1).joinToString("\n") }
             .map(::Eris)

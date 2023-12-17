@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2022.day23
 
-import fr.lidonis.adventofcode.common.InputReader
+import fr.lidonis.adventofcode.common.ResourceReader
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -122,7 +122,7 @@ internal class UnstableDiffusionTest {
     companion object {
 
         private val largerExample by lazy {
-            InputReader("/y2022/day23/larger-example.txt").text()
+            (ResourceReader("/y2022/day23/larger-example.txt")?.text() ?: error("Resource not found"))
                 .split("\n\n")
                 .map { it.lines().drop(1).joinToString(System.lineSeparator()) }
                 .zip(

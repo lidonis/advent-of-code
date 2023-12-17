@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2022.day24
 
-import fr.lidonis.adventofcode.common.InputReader
+import fr.lidonis.adventofcode.common.ResourceReader
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
@@ -88,7 +88,7 @@ internal class BlizzardsTest {
     companion object {
 
         private val complexExample by lazy {
-            InputReader("/y2022/day24/complex-example.txt").text()
+            (ResourceReader("/y2022/day24/complex-example.txt")?.text() ?: error("Resource not found"))
                 .split("${System.lineSeparator()}${System.lineSeparator()}")
                 .map { it.lines().drop(1).joinToString(System.lineSeparator()) }
                 .map(Blizzards.Companion::parse)

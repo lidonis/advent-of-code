@@ -17,7 +17,9 @@ class BlizzardBasin(input: String) {
         Position(blizzards.column - 2, blizzards.row - 2)
     )
 
-    fun shortestPath(
+    val go by lazy { shortestPath() }
+
+    private fun shortestPath(
         start: Position = this.start,
         end: Position = this.end,
         step: Int = 0,
@@ -28,7 +30,6 @@ class BlizzardBasin(input: String) {
     } ?: error("end not found")
 
     fun shortestPathBackAndForth(): Any {
-        val go = shortestPath()
         val back = shortestPath(end, start, go)
         val forth = shortestPath(step = go + back)
         return go + back + forth

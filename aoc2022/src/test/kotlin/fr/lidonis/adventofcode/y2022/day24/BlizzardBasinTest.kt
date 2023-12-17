@@ -16,7 +16,7 @@ internal class BlizzardBasinTest {
     @Test
     fun `shortest path`() {
         val blizzardBasin = BlizzardBasin(lines)
-        val result = blizzardBasin.shortestPath()
+        val result = blizzardBasin.go
         assertThat(result).isEqualTo(18)
     }
 

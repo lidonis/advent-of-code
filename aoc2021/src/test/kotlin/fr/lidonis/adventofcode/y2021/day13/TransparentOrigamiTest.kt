@@ -1,7 +1,6 @@
 package fr.lidonis.adventofcode.y2021.day13
 
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 internal class TransparentOrigamiTest {
@@ -38,7 +37,6 @@ internal class TransparentOrigamiTest {
     }
 
     @Test
-    @Disabled
     internal fun display() {
         val transparentOrigami = TransparentOrigami(example.lines())
         val result = transparentOrigami.display()

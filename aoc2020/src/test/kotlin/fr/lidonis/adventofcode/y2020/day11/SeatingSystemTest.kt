@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2020.day11
 
-import fr.lidonis.adventofcode.common.InputReader
+import fr.lidonis.adventofcode.common.ResourceReader
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
@@ -41,7 +41,7 @@ internal class SeatingSystemTest {
         fun evolveFirst() = readLayout("/y2020/day11/part2.txt", ::FirstSeatingSystem).zipWithNext()
 
         private fun readLayout(fileName: String, constructor: (List<String>) -> SeatingSystem) =
-            InputReader(fileName).lines()
+            (ResourceReader(fileName)?.lines() ?: error("Resource not found"))
                 .asSequence()
                 .filter { it.isNotEmpty() }
                 .chunked(10)

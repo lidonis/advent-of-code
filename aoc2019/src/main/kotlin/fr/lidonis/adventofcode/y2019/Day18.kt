@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2019
 
-import fr.lidonis.adventofcode.common.InputReader
+import fr.lidonis.adventofcode.common.ResourceReader
 import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.common.graph.BreadthFirstSearch
 import fr.lidonis.adventofcode.y2019.Day18.Tile.Entrance
@@ -8,7 +8,7 @@ import fr.lidonis.adventofcode.y2019.Day18.Tile.Key
 import fr.lidonis.adventofcode.y2019.Day18.Tile.TileFactory
 
 fun main() {
-    val input = InputReader("/input/y2019/day18.txt").text()
+    val input = ResourceReader("/input/y2019/day18.txt")?.text() ?: error("Input not found")
     val vault = Day18(input)
     println(vault.shortestPathStepCount())
 }

@@ -11,7 +11,7 @@ object Day24 : AdventOfCode2022(DAY) {
     private val blizzardBasin = BlizzardBasin(input().text())
 
     @Answer("245")
-    override fun part1() = blizzardBasin.shortestPath()
+    override fun part1() = blizzardBasin.go
 
     @Answer("798")
     override fun part2() = blizzardBasin.shortestPathBackAndForth()
