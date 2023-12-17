@@ -8,11 +8,11 @@ private const val DAY = 13
 @Suppress("unused")
 object Day13 : AdventOfCode2019(DAY) {
 
-    private val arcadeCabinet = ArcadeCabinet(input().text())
+    private val program = input().text()
 
     @Answer("452")
-    override fun part1() = arcadeCabinet.countBlock()
+    override fun part1() = ArcadeCabinet(program).countBlock()
 
     @Answer("21415")
-    override fun part2() = arcadeCabinet.bot()
+    override fun part2() = ArcadeCabinet(program).bot()
 }
