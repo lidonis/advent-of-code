@@ -1,6 +1,6 @@
 package fr.lidonis.adventofcode.y2023.day17
 
-import fr.lidonis.adventofcode.common.geo.plane.Direction
+import fr.lidonis.adventofcode.common.geo.plane.DirectionUpNegative
 import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.common.geo.plane.PositionSet
 import fr.lidonis.adventofcode.common.graph.AStar
@@ -23,12 +23,12 @@ class ClumsyCrucible(lines: List<String>) {
         neighbourFunction: CruciblePath.() -> Iterable<CruciblePath>,
         minMoves: Int,
     ) =
-        listOf(Direction.RIGHT, Direction.UP).minOfOrNull {
+        listOf(DirectionUpNegative.RIGHT, DirectionUpNegative.DOWN).minOfOrNull {
             searchPath(it, neighbourFunction, minMoves).getScore()
         } ?: error("No path found")
 
     private fun searchPath(
-        direction: Direction,
+        direction: DirectionUpNegative,
         neighbourFunction: CruciblePath.() -> Iterable<CruciblePath>,
         minMoves: Int
     ) = AStar.search(
@@ -42,7 +42,7 @@ class ClumsyCrucible(lines: List<String>) {
 
     private fun String.parseLine(y: Int) = mapIndexed { x, c -> Position(x, y) to c.digitToInt() }
 
-    data class CruciblePath(val position: Position, val direction: Direction, val times: Int) {
+    data class CruciblePath(val position: Position, val direction: DirectionUpNegative, val times: Int) {
         fun neighbours() = buildList {
             if (times < MAX_BLOCKS) {
                 add(CruciblePath(position + direction, direction, times + 1))

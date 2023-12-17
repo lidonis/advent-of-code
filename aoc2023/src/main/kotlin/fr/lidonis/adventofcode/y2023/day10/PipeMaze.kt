@@ -1,6 +1,10 @@
 package fr.lidonis.adventofcode.y2023.day10
 
-import fr.lidonis.adventofcode.common.geo.plane.Direction
+import fr.lidonis.adventofcode.common.geo.plane.DirectionUpNegative
+import fr.lidonis.adventofcode.common.geo.plane.DirectionUpNegative.DOWN
+import fr.lidonis.adventofcode.common.geo.plane.DirectionUpNegative.LEFT
+import fr.lidonis.adventofcode.common.geo.plane.DirectionUpNegative.RIGHT
+import fr.lidonis.adventofcode.common.geo.plane.DirectionUpNegative.UP
 import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.common.geo.plane.PositionSet
 
@@ -27,7 +31,11 @@ class PipeMaze(lines: List<String>) {
     }
 
     private fun findConnectedNeighbours(startLocation: Position) =
-        Direction.entries.map { startLocation + it }.filter { getNeighbours(it).contains(startLocation) }.toSet()
+        DirectionUpNegative.entries.map { startLocation + it }.filter {
+            getNeighbours(
+                it
+            ).contains(startLocation)
+        }.toSet()
 
     private fun getNeighbours(position: Position) =
         map[position]?.connections?.map { position + it.move } ?: emptyList()
@@ -74,8 +82,8 @@ class PipeMaze(lines: List<String>) {
     private fun findBlockingPipes() =
         Pipe.entries.filter {
             when (it) {
-                Pipe.START -> getStartPipe().connections.contains(Direction.DOWN)
-                else -> it.connections.contains(Direction.DOWN)
+                Pipe.START -> getStartPipe().connections.contains(DOWN)
+                else -> it.connections.contains(DOWN)
             }
         }
 
@@ -86,13 +94,13 @@ class PipeMaze(lines: List<String>) {
                 .containsAll(startNeighbours)
         }
 
-    enum class Pipe(val char: Char, val connections: List<Direction>) {
-        HORIZONTAL('-', listOf(Direction.LEFT, Direction.RIGHT)),
-        VERTICAL('|', listOf(Direction.UP, Direction.DOWN)),
-        CORNER_NORTH_WEST('J', listOf(Direction.DOWN, Direction.LEFT)),
-        CORNER_NORTH_EAST('L', listOf(Direction.DOWN, Direction.RIGHT)),
-        CORNER_SOUTH_EAST('F', listOf(Direction.UP, Direction.RIGHT)),
-        CORNER_SOUTH_WEST('7', listOf(Direction.UP, Direction.LEFT)),
+    enum class Pipe(val char: Char, val connections: List<DirectionUpNegative>) {
+        HORIZONTAL('-', listOf(LEFT, RIGHT)),
+        VERTICAL('|', listOf(UP, DOWN)),
+        CORNER_NORTH_WEST('J', listOf(UP, LEFT)),
+        CORNER_NORTH_EAST('L', listOf(UP, RIGHT)),
+        CORNER_SOUTH_EAST('F', listOf(DOWN, RIGHT)),
+        CORNER_SOUTH_WEST('7', listOf(DOWN, LEFT)),
         START('S', emptyList());
 
         companion object {

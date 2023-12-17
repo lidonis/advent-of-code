@@ -20,6 +20,8 @@ data class Position(val x: Int, val y: Int) {
 
     operator fun plus(direction: Direction) = this + direction.move
 
+    operator fun plus(direction: DirectionUpNegative) = this + direction.move
+
     fun neighbours() = Direction.entries.map { this + it }
 
     fun manhattanDistance(other: Position) = abs(x - other.x) + abs(y - other.y)

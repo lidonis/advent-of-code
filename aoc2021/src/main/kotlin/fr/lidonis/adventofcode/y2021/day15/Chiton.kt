@@ -1,6 +1,8 @@
 package fr.lidonis.adventofcode.y2021.day15
 
-import fr.lidonis.adventofcode.common.geo.plane.Direction
+import fr.lidonis.adventofcode.common.geo.plane.DirectionUpNegative
+import fr.lidonis.adventofcode.common.geo.plane.DirectionUpNegative.RIGHT
+import fr.lidonis.adventofcode.common.geo.plane.DirectionUpNegative.UP
 import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.common.geo.plane.PositionSet
 import fr.lidonis.adventofcode.common.graph.AStar
@@ -16,7 +18,7 @@ class Chiton(lines: List<String>) {
 
     private fun searchPaths(map: Map<Position, Int>): Int {
         val boundingBox = PositionSet(map.keys).boundingBox
-        return listOf(Direction.RIGHT, Direction.UP).minOfOrNull {
+        return listOf(RIGHT, UP).minOfOrNull {
             searchPath(map, boundingBox, it).getScore()
         } ?: error("No path found")
     }
@@ -24,7 +26,7 @@ class Chiton(lines: List<String>) {
     private fun searchPath(
         map: Map<Position, Int>,
         boundingBox: PositionSet.BoundingBox,
-        direction: Direction,
+        direction: DirectionUpNegative,
     ) = AStar.search(
         SubmarinePath(boundingBox.start, direction),
         { (p, _) -> p == boundingBox.end },
@@ -55,7 +57,7 @@ class Chiton(lines: List<String>) {
 
     private fun String.parseLine(y: Int) = mapIndexed { x, c -> Position(x, y) to c.digitToInt() }
 
-    private data class SubmarinePath(val position: Position, val direction: Direction) {
+    private data class SubmarinePath(val position: Position, val direction: DirectionUpNegative) {
         fun neighbours() = buildList {
             add(SubmarinePath(position + direction, direction))
             add(SubmarinePath(position + direction.turnRight(), direction.turnRight()))

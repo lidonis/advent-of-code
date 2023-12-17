@@ -1,12 +1,13 @@
 package fr.lidonis.adventofcode.y2022.day24
 
+import fr.lidonis.adventofcode.common.geo.plane.DirectionUpNegative
 import fr.lidonis.adventofcode.common.geo.plane.Position
 
 private const val WALL = '#'
 private const val EMPTY = '.'
 
 class Blizzards(
-    val positions: List<Pair<Position, Direction>>,
+    val positions: List<Pair<Position, DirectionUpNegative>>,
     val row: Int,
     val column: Int,
 ) {
@@ -19,7 +20,7 @@ class Blizzards(
         column
     )
 
-    private fun Pair<Position, Direction>.evolve(): Pair<Position, Direction> {
+    private fun Pair<Position, DirectionUpNegative>.evolve(): Pair<Position, DirectionUpNegative> {
         val position = first + second.move
         return (
             when {
@@ -60,10 +61,10 @@ class Blizzards(
                         line.flatMapIndexed { column, c ->
                             buildList {
                                 val position = Position(column, row)
-                                Direction.fromSymbol(c)
+                                DirectionUpNegative.fromSymbol(c)
                                     ?.let { add(position to it) }
                                     ?: c.digitToIntOrNull()
-                                        ?.let { repeat(it) { add(position to Direction.UP) } }
+                                        ?.let { repeat(it) { add(position to DirectionUpNegative.UP) } }
                             }
                         }
                     },
