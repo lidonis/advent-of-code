@@ -13,7 +13,7 @@ class TractorBeam(private val program: String) {
 
     fun fit(size: Int) = BeamMap(program).let { beamMap ->
         beamMap.affected(MIN_SEARCH, MAX_SEARCH).first { beamMap.rightSize(it, size) }
-        .let { it.x * MULTIPLIER + it.y }
+            .let { it.x * MULTIPLIER + it.y }
     }
 
     class BeamMap(program: String) {
@@ -50,11 +50,6 @@ class TractorBeam(private val program: String) {
 
         fun rightSize(position: Position, size: Int) =
             this[Position(position.x + size - 1, position.y)] == 1L &&
-                    this[
-                        Position(
-                            position.x,
-                            position.y + size - 1
-                        )
-                    ] == 1L
+                this[Position(position.x, position.y + size - 1)] == 1L
     }
 }
