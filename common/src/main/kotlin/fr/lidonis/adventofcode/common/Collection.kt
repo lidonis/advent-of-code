@@ -27,9 +27,9 @@ fun <T> Collection<T>.combine(size: Int): List<List<T>> {
     }
 }
 
-fun Collection<Int>.multiply() = this.reduce(Int::times)
+fun Iterable<Int>.multiply() = this.reduce(Int::times)
 
-fun Collection<Long>.multiply() = this.reduce(Long::times)
+fun Iterable<Long>.multiply() = this.reduce(Long::times)
 
 fun Sequence<Int>.multiply() = this.reduce(Int::times)
 
@@ -40,4 +40,8 @@ fun <T> Sequence<T>.takeWhileInclusive(predicate: (T) -> Boolean): Sequence<T> {
         shouldContinue = predicate(it)
         result
     }
+}
+
+fun Iterable<String>.transposed() = first().indices.map {
+    buildString { for (line in this@transposed) append(line[it]) }
 }

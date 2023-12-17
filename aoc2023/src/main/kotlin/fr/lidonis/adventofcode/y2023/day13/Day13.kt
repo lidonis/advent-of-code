@@ -10,9 +10,9 @@ object Day13 : AdventOfCode2023(DAY) {
 
     private val pointOfIncidence = PointOfIncidence(input().text())
 
-    @Answer("")
+    @Answer("30158")
     override fun part1() = pointOfIncidence.part1()
 
-    @Answer("")
+    @Answer("36474")
     override fun part2() = pointOfIncidence.part2()
 }
