@@ -5,3 +5,5 @@ Detekt | *Fix all detekt issues*
 Main | *File as param*
 
 GraalVM | *Fix GraalVM support*
+
+Perf | kotlinx-benchmark
