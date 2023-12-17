@@ -7,3 +7,7 @@ Main | *File as param*
 GraalVM | *Fix GraalVM support*
 
 Perf | kotlinx-benchmark
+
+repo with input data and answers fort part 1 and 2
+
+use repo as input for main
