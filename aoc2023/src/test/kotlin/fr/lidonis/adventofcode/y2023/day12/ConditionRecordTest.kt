@@ -1,7 +1,6 @@
 package fr.lidonis.adventofcode.y2023.day12
 
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.extension.ExtensionContext
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
@@ -11,10 +10,9 @@ import java.util.stream.Stream
 
 class ConditionRecordTest {
 
-    @Disabled
     @ParameterizedTest
     @ArgumentsSource(ConditionRecordProvider::class)
-    fun `test count arrangements`(conditionRecord: ConditionRecord, expected: Int) {
+    fun `test count arrangements`(conditionRecord: ConditionRecord, expected: Long) {
         val result = conditionRecord.countArrangements()
         assertThat(result).isEqualTo(expected)
     }
