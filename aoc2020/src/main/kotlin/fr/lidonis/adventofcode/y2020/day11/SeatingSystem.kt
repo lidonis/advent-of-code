@@ -49,7 +49,7 @@ abstract class SeatingSystem(private val layout: MutableMap<Position, State>) {
         OCCUPIED_SEAT('#'), FLOOR('.'), EMPTY_SEAT('L');
 
         companion object {
-            fun valueOf(c: Char) = values().find { it.c == c }
+            fun valueOf(c: Char) = entries.find { it.c == c }
         }
     }
 
