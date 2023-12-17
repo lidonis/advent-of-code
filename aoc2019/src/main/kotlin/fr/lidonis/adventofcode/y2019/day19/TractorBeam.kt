@@ -7,38 +7,14 @@ private const val MULTIPLIER = 10000
 private const val MAX_SEARCH = 2000
 private const val MIN_SEARCH = 1800
 
-class TractorBeam(program: String) {
-    private val beamMap = BeamMap(program)
+class TractorBeam(private val program: String) {
 
-    fun countAffected(size: Int): Int {
-        return affected(0, size).count()
-    }
+    fun countAffected(size: Int) = BeamMap(program).affected(0, size).count()
 
-    private fun affected(min: Int, max: Int): MutableList<Position> {
-        val affected = mutableListOf<Position>()
-        for (i in min until max) {
-            for (j in i until max) {
-                val position = Position(i, j)
-                val output = beamMap[position]
-                if (output == 1L) {
-                    affected.add(position)
-                }
-            }
-        }
-        return affected
-    }
-
-    fun fit(size: Int) = affected(MIN_SEARCH, MAX_SEARCH).first { rightSize(it, size) }
+    fun fit(size: Int) = BeamMap(program).let { beamMap ->
+        beamMap.affected(MIN_SEARCH, MAX_SEARCH).first { beamMap.rightSize(it, size) }
         .let { it.x * MULTIPLIER + it.y }
-
-    private fun rightSize(position: Position, size: Int) =
-        beamMap[Position(position.x + size - 1, position.y)] == 1L &&
-            beamMap[
-                Position(
-                    position.x,
-                    position.y + size - 1
-                )
-            ] == 1L
+    }
 
     class BeamMap(program: String) {
 
@@ -57,5 +33,28 @@ class TractorBeam(program: String) {
                     nextOutput() ?: error { "Position not found $it" }
                 }
             }
+
+        fun affected(min: Int, max: Int): MutableList<Position> {
+            val affected = mutableListOf<Position>()
+            for (i in min until max) {
+                for (j in i until max) {
+                    val position = Position(i, j)
+                    val output = this[position]
+                    if (output == 1L) {
+                        affected.add(position)
+                    }
+                }
+            }
+            return affected
+        }
+
+        fun rightSize(position: Position, size: Int) =
+            this[Position(position.x + size - 1, position.y)] == 1L &&
+                    this[
+                        Position(
+                            position.x,
+                            position.y + size - 1
+                        )
+                    ] == 1L
     }
 }
