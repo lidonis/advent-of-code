@@ -35,17 +35,18 @@ internal class SeatingSystemTest {
     companion object {
 
         @JvmStatic
-        fun evolveAdjacent() = readLayout("/y2020/day11/part1.txt", ::AdjacentSeatingSystem).zipWithNext()
+        fun evolveAdjacent() = readLayout("/y2020/day11/part1.txt")
+            .zipWithNext { a, b -> AdjacentSeatingSystem(a) to AdjacentSeatingSystem(b) }
 
         @JvmStatic
-        fun evolveFirst() = readLayout("/y2020/day11/part2.txt", ::FirstSeatingSystem).zipWithNext()
+        fun evolveFirst() = readLayout("/y2020/day11/part2.txt")
+            .zipWithNext { a, b -> FirstSeatingSystem(a) to FirstSeatingSystem(b) }
 
-        private fun readLayout(fileName: String, constructor: (List<String>) -> SeatingSystem) =
+        private fun readLayout(fileName: String) =
             (ResourceReader(fileName)?.lines() ?: error("Resource not found"))
                 .asSequence()
                 .filter { it.isNotEmpty() }
                 .chunked(10)
-                .map(constructor)
                 .toList()
     }
 }
