@@ -11,22 +11,26 @@ object Day5 : AdventOfCode2019(DAY) {
 
     private const val DIAGNOSTIC_MODE = 5L
 
-    private val computer = IntCodeComputerFactory.buildIOComputer(input().text())
+    private val program = input().text()
 
     @Answer("13547311")
-    override fun part1(): Long = computer.run {
-        reset()
-        input(1)
-        run()
-        val diagnosticCode = outputs.pollLast()
-        check(outputs.all { it == 0L })
-        diagnosticCode
-    }
+    override fun part1(): Long =
+        IntCodeComputerFactory.buildIOComputer(program)
+            .run {
+                reset()
+                input(1)
+                run()
+                val diagnosticCode = outputs.pollLast()
+                check(outputs.all { it == 0L })
+                diagnosticCode
+            }
 
     @Answer("236453")
-    override fun part2() = computer.run {
-        reset()
-        input(DIAGNOSTIC_MODE)
-        nextOutput() ?: error("No diagnostic code")
-    }
+    override fun part2() =
+        IntCodeComputerFactory.buildIOComputer(program)
+            .run {
+                reset()
+                input(DIAGNOSTIC_MODE)
+                nextOutput() ?: error("No diagnostic code")
+            }
 }
