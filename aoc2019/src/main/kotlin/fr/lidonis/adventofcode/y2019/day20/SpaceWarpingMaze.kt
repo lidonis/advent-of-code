@@ -38,7 +38,7 @@ class SpaceWarpingMaze(input: String) {
 
     private fun searchPortals() =
         mazeMap.flatMap { entry ->
-            Direction.values().mapNotNull { direction ->
+            Direction.entries.mapNotNull { direction ->
                 val firstMove = entry.key + direction
                 val second = mazeMap.getOrDefault(firstMove, ' ')
                 val secondMove = firstMove + direction
