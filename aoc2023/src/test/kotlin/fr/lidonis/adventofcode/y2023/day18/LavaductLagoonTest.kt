@@ -33,6 +33,6 @@ class LavaductLagoonTest {
     fun part2() {
         val lavaductLagoon = LavaductLagoon(input.lines())
         val result = lavaductLagoon.part2()
-        assertThat(result).isEqualTo(0)
+        assertThat(result).isEqualTo(952408144115)
     }
 }

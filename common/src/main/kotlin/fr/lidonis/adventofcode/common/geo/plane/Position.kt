@@ -8,6 +8,7 @@ import kotlin.math.roundToInt
 import kotlin.math.sin
 import kotlin.math.sqrt
 
+@Suppress("TooManyFunctions")
 data class Position(val x: Int, val y: Int) {
 
     constructor(x: Double, y: Double) : this(x.roundToInt(), y.roundToInt())
@@ -35,6 +36,8 @@ data class Position(val x: Int, val y: Int) {
         x * cos(radian) + y * sin(radian),
         y * cos(radian) - x * sin(radian)
     )
+
+    fun toLong() = PositionLong(x.toLong(), y.toLong())
 
     companion object {
 

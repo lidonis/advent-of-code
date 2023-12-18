@@ -6,7 +6,11 @@ import kotlin.math.pow
 
 fun atan2(x: Int, y: Int) = atan2(x.toDouble(), y.toDouble())
 
+fun atan2(x: Long, y: Long) = atan2(x.toDouble(), y.toDouble())
+
 infix fun Int.pow(i: Int) = this.toDouble().pow(i).toInt()
+
+infix fun Long.pow(i: Int) = this.toDouble().pow(i).toLong()
 
 infix fun Long.modInverse(m: Long) = BigInteger.valueOf(this).modInverse(BigInteger.valueOf(m)).toLong()
 

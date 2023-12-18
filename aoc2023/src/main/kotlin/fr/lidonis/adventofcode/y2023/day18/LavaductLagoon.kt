@@ -1,87 +1,64 @@
 package fr.lidonis.adventofcode.y2023.day18
 
 import fr.lidonis.adventofcode.common.geo.plane.DirectionUpNegative
-import fr.lidonis.adventofcode.common.geo.plane.DirectionUpNegative.*
-import fr.lidonis.adventofcode.common.geo.plane.Position
-import fr.lidonis.adventofcode.common.geo.plane.PositionSet
+import fr.lidonis.adventofcode.common.geo.plane.PositionLong
+import fr.lidonis.adventofcode.common.geo.plane.perimeter
+import fr.lidonis.adventofcode.common.geo.plane.shoelaceFormula
 
-class LavaductLagoon(private val lines: List<String>) {
-    private val upPosition = mutableSetOf<Position>()
-    private val downPosition = mutableSetOf<Position>()
-    private val positions = buildMap {
-        var current = Position.ORIGIN
-        for (line in lines) {
-            val (d, l) = line.split(" ")
-            val direction = DirectionUpNegative.fromLetter(d.first()) ?: error("Invalid direction")
-            val distance = l.toInt()
-            for (i in 1..distance) {
-                current += direction
-                put(current, direction)
-                if (direction == UP) upPosition.add(current)
-                if (direction == DOWN) downPosition.add(current)
+private val INSTRUCTION_REGEX = """([RDLU]) (\d+) \(#([0-9a-fA-F]{6})\)""".toRegex()
+
+class LavaductLagoon(lines: List<String>) {
+
+    private val digPlan =
+        lines.map { line ->
+            val (d, l, color) = INSTRUCTION_REGEX.matchEntire(line)?.destructured ?: error("Invalid instruction $line")
+            Instruction.fromRegularInstruction(d, l) to Instruction.fromColorInstruction(color)
+        }
+
+    private val points by lazy {
+        buildSet {
+            var current = PositionLong.ORIGIN
+            for ((instruction) in digPlan) {
+                current += instruction.direction.move * instruction.distance
+                add(current)
             }
         }
     }
-    private val boundingBox = PositionSet(positions.keys).boundingBox
-    private val enclosed = mutableSetOf<Position>()
 
-    fun part1(): Int {
-        val countEnclosed = countEnclosed()
-        println(buildString())
-        return countEnclosed + positions.size
+    fun part1() = points.lagoonSize()
+
+    private fun Set<PositionLong>.lagoonSize(): Long {
+        val shoelace = shoelaceFormula().toLong()
+        val perimeter = perimeter()
+        return shoelace + perimeter + 1
     }
 
-    private fun buildString() = buildString {
-        for (j in (boundingBox.start.y)..boundingBox.end.y) {
-            for (i in (boundingBox.start.x)..boundingBox.end.x) {
-                when (val position = Position(i, j)) {
-                    in positions -> append(positions[position]?.letter)
-                    in enclosed -> append('O')
-                    else -> append('.')
-                }
-            }
-            appendLine()
-        }
-    }
-
-    private fun countEnclosed(): Int {
-        for (j in (boundingBox.start.y)..boundingBox.end.y) {
-            for (i in (boundingBox.start.x)..boundingBox.end.x) {
-                val position = Position(i, j)
-                if(isEnclosedRegions(position)){
-                  enclosed.add(position)
-                 }
+    private val pointsFromColor by lazy {
+        buildSet {
+            var current = PositionLong.ORIGIN
+            for ((_, instruction) in digPlan) {
+                current += instruction.direction.move * instruction.distance
+                add(current)
             }
         }
-        return enclosed.size
     }
 
-    private fun isEnclosedRegions(
-        position: Position,
-    ): Boolean {
-        if (position !in positions) {
-            var left: DirectionUpNegative? = null
-            for (i in position.x downTo boundingBox.start.x){
-                when(positions[Position(i, position.y)]){
-                    UP -> { left = UP; break}
-                    RIGHT -> { left = RIGHT; break}
-                    null -> continue
-                    else ->  { break }
-                }
-            }
-            var right: DirectionUpNegative? = null
-            for (i in position.x .. boundingBox.end.x){
-                when(positions[Position(i, position.y)]){
-                    DOWN -> { right = DOWN; break}
-                    LEFT -> { right = LEFT; break}
-                    null -> continue
-                    else ->  { }
-                }
-            }
-            return left != null && right != null
+    fun part2() = pointsFromColor.lagoonSize()
+
+    private data class Instruction(val direction: DirectionUpNegative, val distance: Int) {
+        companion object {
+            fun fromRegularInstruction(d: String, l: String) = Instruction(
+                direction = DirectionUpNegative.fromLetter(d.first())
+                    ?: error("Invalid direction $d"),
+                distance = l.toInt(),
+            )
+
+            @OptIn(ExperimentalStdlibApi::class)
+            fun fromColorInstruction(color: String) = Instruction(
+                direction = DirectionUpNegative.fromInt(color.last().digitToInt())
+                    ?: error("Invalid direction ${color.last()}"),
+                distance = color.dropLast(1).hexToInt(),
+            )
         }
-        return false
     }
-
-    fun part2() = lines.size
 }

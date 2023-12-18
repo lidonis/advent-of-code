@@ -10,9 +10,9 @@ object Day18 : AdventOfCode2023(DAY) {
 
     private val lavaductLagoon = LavaductLagoon(input().lines())
 
-    @Answer("")
+    @Answer("76387")
     override fun part1() = lavaductLagoon.part1()
 
-    @Answer("")
+    @Answer("250022188522074")
     override fun part2() = lavaductLagoon.part2()
 }

@@ -1,10 +1,10 @@
 package fr.lidonis.adventofcode.common.geo.plane
 
 enum class DirectionUpNegative(val letter: Char, val symbol: Char, val move: Position) {
-    UP('U', '^', Position(0, -1)),
     RIGHT('R', '>', Position(1, 0)),
     DOWN('D', 'v', Position(0, 1)),
-    LEFT('L', '<', Position(-1, 0));
+    LEFT('L', '<', Position(-1, 0)),
+    UP('U', '^', Position(0, -1));
 
     operator fun plus(value: Int) = entries[Math.floorMod(ordinal + value, Direction.entries.size)]
     operator fun minus(i: Int) = this + (-i)
@@ -20,5 +20,7 @@ enum class DirectionUpNegative(val letter: Char, val symbol: Char, val move: Pos
 
         fun fromSymbol(c: Char) = symbols[c]
         fun fromLetter(c: Char) = letters[c]
+
+        fun fromInt(i: Int) = entries.getOrNull(i)
     }
 }
