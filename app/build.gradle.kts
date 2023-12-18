@@ -1,5 +1,5 @@
 plugins {
-    id("gradle.kotlin-application-conventions")
+    id("gradle.kotlin-application-jvm-conventions")
     id("org.graalvm.buildtools.native") version "0.9.28"
 }
 
@@ -9,7 +9,7 @@ version = "1.0-SNAPSHOT"
 dependencies {
     implementation(project(":common"))
 
-    for(year in 2019..2023) {
+    for (year in 2019..2023) {
         implementation(project(":aoc$year"))
     }
 

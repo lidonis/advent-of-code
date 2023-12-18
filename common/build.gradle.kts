@@ -1,5 +1,5 @@
 plugins {
-    id("gradle.kotlin-library-conventions")
+    id("gradle.kotlin-library-jvm-conventions")
     `java-test-fixtures`
 }
 
