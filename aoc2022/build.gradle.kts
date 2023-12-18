@@ -1,6 +1,6 @@
 plugins {
     id("gradle.kotlin-library-conventions")
-    alias(libs.plugins.jmh)
+    //alias(libs.plugins.jmh)
 }
 
 dependencies {
@@ -10,5 +10,5 @@ dependencies {
     implementation(libs.jackson)
     implementation(libs.kmath)
 
-    jmhAnnotationProcessor(libs.jmh.generator)
+    //jmhAnnotationProcessor(libs.jmh.generator)
 }
