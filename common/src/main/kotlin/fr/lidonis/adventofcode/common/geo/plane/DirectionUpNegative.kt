@@ -15,7 +15,7 @@ enum class DirectionUpNegative(val letter: Char, val symbol: Char, val move: Pos
     fun turnLeft() = this - 1
 
     companion object {
-        private val letters by lazy { Direction.entries.associateBy { it.letter } }
+        private val letters by lazy { entries.associateBy { it.letter } }
         private val symbols by lazy { entries.associateBy { it.symbol } }
 
         fun fromSymbol(c: Char) = symbols[c]
