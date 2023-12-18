@@ -22,8 +22,8 @@ class LavaductLagoon(private val lines: List<String>) {
             }
         }
     }
-    val boundingBox = PositionSet(positions.keys).boundingBox
-    val enclosed = mutableSetOf<Position>()
+    private val boundingBox = PositionSet(positions.keys).boundingBox
+    private val enclosed = mutableSetOf<Position>()
 
     fun part1(): Int {
         val countEnclosed = countEnclosed()
