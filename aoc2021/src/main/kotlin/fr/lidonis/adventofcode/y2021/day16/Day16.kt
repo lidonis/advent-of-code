@@ -10,9 +10,9 @@ object Day16 : AdventOfCode2021(DAY) {
 
     private val packetDecoder = PacketDecoder(input().text())
 
-    @Answer("")
+    @Answer("1358")
     override fun part1() = packetDecoder.part1()
 
-    @Answer("")
+    @Answer("1358")
     override fun part2() = packetDecoder.part2()
 }
