@@ -11,3 +11,7 @@ Perf | kotlinx-benchmark
 repo with input data and answers fort part 1 and 2
 
 use repo as input for main
+
+Add support for Kotlin multiplatform
+
+Add Visualisation for each day
