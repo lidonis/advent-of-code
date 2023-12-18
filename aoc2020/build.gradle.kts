@@ -1,8 +1,13 @@
 plugins {
-    id("gradle.kotlin-library-jvm-conventions")
+    id("gradle.kotlin-common-multiplatform-conventions")
 }
 
-dependencies {
-    implementation(project(":common"))
-    implementation(testFixtures(project(":common")))
+kotlin {
+    jvm()
+
+    sourceSets {
+        jvmMain.dependencies {
+            implementation(project(":common"))
+        }
+    }
 }

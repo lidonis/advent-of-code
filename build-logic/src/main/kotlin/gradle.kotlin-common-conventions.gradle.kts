@@ -23,6 +23,10 @@ detekt {
     autoCorrect = true
     config.setFrom("${project.rootDir}/detekt.yml")
     source.setFrom(
+        "src/commonMain/kotlin",
+        "src/commonTest/kotlin",
+        "src/jvmMain/kotlin",
+        "src/jvmTest/kotlin",
         "src/main/kotlin",
         "src/test/kotlin",
     )

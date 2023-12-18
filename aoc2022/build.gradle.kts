@@ -1,14 +1,16 @@
 plugins {
-    id("gradle.kotlin-library-jvm-conventions")
-    //alias(libs.plugins.jmh)
+    id("gradle.kotlin-common-multiplatform-conventions")
 }
 
-dependencies {
-    implementation(project(":common"))
-    implementation(testFixtures(project(":common")))
+kotlin {
+    jvm()
 
-    implementation(libs.jackson)
-    implementation(libs.kmath)
+    sourceSets {
+        jvmMain.dependencies {
+            implementation(project(":common"))
 
-    //jmhAnnotationProcessor(libs.jmh.generator)
+            implementation(libs.jackson)
+            implementation(libs.kmath)
+        }
+    }
 }
