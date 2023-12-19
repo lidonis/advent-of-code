@@ -15,3 +15,5 @@ use repo as input for main
 Add support for Kotlin multiplatform
 
 Add Visualisation for each day
+
+use kotest (openrewrite?)
