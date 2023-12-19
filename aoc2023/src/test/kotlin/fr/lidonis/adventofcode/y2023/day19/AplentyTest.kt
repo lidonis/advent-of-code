@@ -1,6 +1,7 @@
 package fr.lidonis.adventofcode.y2023.day19
 
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
 class AplentyTest {
@@ -36,6 +37,63 @@ class AplentyTest {
     fun part2() {
         val aplenty = Aplenty(input)
         val result = aplenty.part2()
-        assertThat(result).isEqualTo(0)
+        assertThat(result).isEqualTo(167409079868000)
+    }
+
+    @Nested
+    inner class ConditionalStepTest {
+        @Test
+        fun `should return next rule for greater that`() {
+            val step = Aplenty.Step.fromString("x>2000:qkq")
+            val partRating = Aplenty.PartRatingRange.INITIAL
+            val result = step.next(partRating)
+            assertThat(result).isEqualTo(
+                Aplenty.Step.RangeStepResult(
+                    accepted = "qkq" to partRating.copy("x" to  2001..4000),
+                    rejected = partRating.copy("x" to 1..2000),
+                )
+            )
+        }
+
+        @Test
+        fun `should return next rule for less that`() {
+            val step = Aplenty.Step.fromString("x<2000:qkq")
+            val partRating = Aplenty.PartRatingRange.INITIAL
+            val result = step.next(partRating)
+            assertThat(result).isEqualTo(
+                Aplenty.Step.RangeStepResult(
+                    accepted = "qkq" to partRating.copy("x" to 1..1999),
+                    rejected = partRating.copy("x" to  2000..4000),
+                )
+            )
+        }
+
+        @Test
+        fun `should return next rule for fixed`() {
+            val step = Aplenty.Step.fromString("qkq")
+            val partRating = Aplenty.PartRatingRange.INITIAL
+            val result = step.next(partRating)
+            assertThat(result).isEqualTo(
+                Aplenty.Step.RangeStepResult(
+                    accepted = "qkq" to partRating,
+                    rejected = null
+                )
+            )
+        }
+    }
+
+    @Nested
+    inner class RuleTest {
+        @Test
+        fun `should return new ranges`() {
+            val rule = Aplenty.Rule.fromString("px{a<2006:qkq,m>2090:A,rfg}")
+            val partRatingRange = Aplenty.PartRatingRange.INITIAL
+            val result = rule.validate(partRatingRange)
+            assertThat(result).containsExactly(
+                "qkq" to partRatingRange.copy("a" to 1..2005),
+                "A" to partRatingRange.copy("a" to 2006..4000,"m" to 2091..4000),
+                "rfg" to partRatingRange.copy("a" to  2006..4000, "m" to 1..2090),
+            )
+        }
     }
 }
