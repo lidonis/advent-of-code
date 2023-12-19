@@ -49,7 +49,7 @@ class AplentyTest {
             val result = step.next(partRating)
             assertThat(result).isEqualTo(
                 Aplenty.Step.RangeStepResult(
-                    accepted = "qkq" to partRating.copy("x" to  2001..4000),
+                    accepted = "qkq" to partRating.copy("x" to 2001..4000),
                     rejected = partRating.copy("x" to 1..2000),
                 )
             )
@@ -63,7 +63,7 @@ class AplentyTest {
             assertThat(result).isEqualTo(
                 Aplenty.Step.RangeStepResult(
                     accepted = "qkq" to partRating.copy("x" to 1..1999),
-                    rejected = partRating.copy("x" to  2000..4000),
+                    rejected = partRating.copy("x" to 2000..4000),
                 )
             )
         }
@@ -91,8 +91,8 @@ class AplentyTest {
             val result = rule.validate(partRatingRange)
             assertThat(result).containsExactly(
                 "qkq" to partRatingRange.copy("a" to 1..2005),
-                "A" to partRatingRange.copy("a" to 2006..4000,"m" to 2091..4000),
-                "rfg" to partRatingRange.copy("a" to  2006..4000, "m" to 1..2090),
+                "A" to partRatingRange.copy("a" to 2006..4000, "m" to 2091..4000),
+                "rfg" to partRatingRange.copy("a" to 2006..4000, "m" to 1..2090),
             )
         }
     }

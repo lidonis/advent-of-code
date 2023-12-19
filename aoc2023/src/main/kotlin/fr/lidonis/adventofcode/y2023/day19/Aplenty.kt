@@ -84,7 +84,10 @@ class Aplenty(input: String) {
         fun next(partRatingRange: PartRatingRange): RangeStepResult
 
         data class ConditionalStep(
-            val category: String, val compare: Compare, val value: Int, val next: String
+            val category: String,
+            val compare: Compare,
+            val value: Int,
+            val next: String,
         ) : Step {
 
             override fun next(partRating: PartRating): String? {
@@ -104,7 +107,6 @@ class Aplenty(input: String) {
                         val (downRange, upRange) = range.split(value)
                         RangeStepResult(next, partRatingRange, category, upRange, downRange)
                     }
-
                 }
             }
 
@@ -185,7 +187,6 @@ class Aplenty(input: String) {
                 return PartRating(x.toInt(), m.toInt(), a.toInt(), s.toInt())
             }
         }
-
     }
 
     class PartRatingRange private constructor(val map: Map<String, IntRange>) {
@@ -205,7 +206,8 @@ class Aplenty(input: String) {
             buildMap {
                 putAll(map)
                 putAll(add.toMap())
-            })
+            }
+        )
 
         override fun toString(): String {
             return "PartRatingRange(x=$x, m=$m, a=$a, s=$s)"
@@ -230,6 +232,5 @@ class Aplenty(input: String) {
                 s = MIN_RATING..MAX_RATING
             )
         }
-
     }
 }
