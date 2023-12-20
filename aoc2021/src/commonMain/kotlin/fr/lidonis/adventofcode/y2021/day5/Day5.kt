@@ -8,7 +8,7 @@ private const val DAY = 5
 @Suppress("unused")
 object Day5 : AdventOfCode2021(DAY) {
 
-    private val hydrothermalVents = HydrothermalVents(input().readLines())
+    private val hydrothermalVents = HydrothermalVents(input().lines())
 
     @Answer("5280")
     override fun part1() = hydrothermalVents.countAtLeastTwoLinesOverlapWithHorizontalOrVertical()

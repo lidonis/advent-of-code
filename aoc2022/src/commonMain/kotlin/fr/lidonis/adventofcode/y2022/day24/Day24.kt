@@ -8,7 +8,7 @@ private const val DAY = 24
 @Suppress("unused")
 object Day24 : AdventOfCode2022(DAY) {
 
-    private val blizzardBasin = BlizzardBasin(input().readText())
+    private val blizzardBasin = BlizzardBasin(input())
 
     @Answer("245")
     override fun part1() = blizzardBasin.go

@@ -8,7 +8,7 @@ private const val DAY = 16
 @Suppress("unused")
 object Day16 : AdventOfCode2023(DAY) {
 
-    private val theFloorWillBeLava = TheFloorWillBeLava(input().readLines())
+    private val theFloorWillBeLava = TheFloorWillBeLava(input().lines())
 
     @Answer("8901")
     override fun part1() = theFloorWillBeLava.part1()

@@ -9,8 +9,8 @@ private const val DAY = 2
 object Day2 : AdventOfCode2022(DAY) {
 
     @Answer("11841")
-    override fun part1() = RockPaperScissors(input().readLines()).score()
+    override fun part1() = RockPaperScissors(input().lines()).score()
 
     @Answer("13022")
-    override fun part2() = RockPaperScissors(input().readLines()).scoreAgain()
+    override fun part2() = RockPaperScissors(input().lines()).scoreAgain()
 }

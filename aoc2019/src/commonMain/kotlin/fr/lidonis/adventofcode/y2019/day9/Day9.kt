@@ -10,7 +10,7 @@ private const val DAY = 9
 @Suppress("unused")
 object Day9 : AdventOfCode2019(DAY) {
 
-    private val input = input().readText()
+    private val input = input()
 
     @Answer("3601950151")
     override fun part1() =

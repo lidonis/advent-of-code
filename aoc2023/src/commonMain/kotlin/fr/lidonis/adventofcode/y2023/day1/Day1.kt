@@ -8,7 +8,7 @@ private const val DAY = 1
 @Suppress("unused")
 object Day1 : AdventOfCode2023(DAY) {
 
-    private val trebuchet = Trebuchet(input().readLines())
+    private val trebuchet = Trebuchet(input().lines())
 
     @Answer("54597")
     override fun part1() = trebuchet.part1()

@@ -8,7 +8,7 @@ private const val DAY = 18
 @Suppress("unused")
 object Day18 : AdventOfCode2023(DAY) {
 
-    private val lavaductLagoon = LavaductLagoon(input().readLines())
+    private val lavaductLagoon = LavaductLagoon(input().lines())
 
     @Answer("76387")
     override fun part1() = lavaductLagoon.part1()

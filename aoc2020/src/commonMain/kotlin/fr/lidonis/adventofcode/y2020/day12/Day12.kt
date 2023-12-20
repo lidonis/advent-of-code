@@ -8,7 +8,7 @@ private const val DAY = 12
 @Suppress("unused")
 object Day12 : AdventOfCode2020(DAY) {
 
-    private val navigationSystem = NavigationSystem(input().readLines())
+    private val navigationSystem = NavigationSystem(input().lines())
 
     @Answer("441")
     override fun part1() = navigationSystem.distanceDirection()

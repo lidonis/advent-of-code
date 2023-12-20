@@ -8,7 +8,7 @@ private const val DAY = 2
 @Suppress("unused")
 object Day2 : AdventOfCode2020(DAY) {
 
-    private val passwordDatabase = PasswordDatabase(input().readLines())
+    private val passwordDatabase = PasswordDatabase(input().lines())
 
     @Answer("528")
     override fun part1() = passwordDatabase.countValidPasswordSledRentalPolicy()

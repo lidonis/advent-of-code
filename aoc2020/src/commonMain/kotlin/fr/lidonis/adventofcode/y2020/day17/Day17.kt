@@ -10,7 +10,7 @@ object Day17 : AdventOfCode2020(DAY) {
 
     private const val BOOT_CYCLE_COUNT = 6
 
-    private val conwayCubes = ConwayCubes(input().readLines())
+    private val conwayCubes = ConwayCubes(input().lines())
 
     @Answer("310")
     override fun part1() = conwayCubes.cube(BOOT_CYCLE_COUNT)

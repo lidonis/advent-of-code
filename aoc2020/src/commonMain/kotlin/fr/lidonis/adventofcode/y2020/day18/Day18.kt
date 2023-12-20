@@ -8,7 +8,7 @@ private const val DAY = 18
 @Suppress("unused")
 object Day18 : AdventOfCode2020(DAY) {
 
-    private val operationOrder = OperationOrder(input().readLines())
+    private val operationOrder = OperationOrder(input().lines())
 
     @Answer("14208061823964")
     override fun part1() = operationOrder.sum1()

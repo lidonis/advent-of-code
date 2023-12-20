@@ -8,7 +8,7 @@ private const val DAY = 10
 @Suppress("unused")
 object Day10 : AdventOfCode2020(DAY) {
 
-    private val adapterArray = AdapterArray(input().readLines().map(String::toInt))
+    private val adapterArray = AdapterArray(input().lines().map(String::toInt))
 
     @Answer("1920")
     override fun part1() = adapterArray.differences()

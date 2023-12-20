@@ -11,7 +11,7 @@ private const val STEPS_PART_2 = 40
 @Suppress("unused")
 object Day14 : AdventOfCode2021(DAY) {
 
-    private val extendedPolymerization = ExtendedPolymerization(input().readLines())
+    private val extendedPolymerization = ExtendedPolymerization(input().lines())
 
     @Answer("2621")
     override fun part1() = extendedPolymerization.mostAndLeastCommonElements(STEPS_PART_1)

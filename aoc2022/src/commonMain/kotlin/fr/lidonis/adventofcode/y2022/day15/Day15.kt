@@ -11,7 +11,7 @@ private const val AREA_SIZE = 4_000_000L
 @Suppress("unused")
 object Day15 : AdventOfCode2022(DAY) {
 
-    private val beaconExclusionZone = BeaconExclusionZone(input().readLines())
+    private val beaconExclusionZone = BeaconExclusionZone(input().lines())
 
     @Answer("4737443")
     override fun part1() = beaconExclusionZone.countPositionsNoBeacon(NO_BEACON_ROW)

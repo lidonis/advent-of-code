@@ -10,7 +10,7 @@ private const val NB_ROUND_PART_1 = 10
 @Suppress("unused")
 object Day23 : AdventOfCode2022(DAY) {
 
-    private val unstableDiffusion = UnstableDiffusion.parse(input().readText())
+    private val unstableDiffusion = UnstableDiffusion.parse(input())
 
     @Answer("4025")
     override fun part1() = unstableDiffusion.evolve(NB_ROUND_PART_1).countEmptyTile()

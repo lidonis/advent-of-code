@@ -8,7 +8,7 @@ private const val DAY = 7
 @Suppress("unused")
 object Day7 : AdventOfCode2023(DAY) {
 
-    private val camelCards = CamelCards(input().readLines())
+    private val camelCards = CamelCards(input().lines())
 
     @Answer("256448566")
     override fun part1() = camelCards.part1()

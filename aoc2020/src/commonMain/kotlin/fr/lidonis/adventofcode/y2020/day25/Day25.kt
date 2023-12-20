@@ -17,7 +17,7 @@ object Day25 : AdventOfCode2020(DAY) {
     override fun part2() = PART_2
 
     private fun encryptionKey(): Long {
-        val (cardPublicKey, doorPublicKey) = input().readLines().map(kotlin.String::toLong)
+        val (cardPublicKey, doorPublicKey) = input().lines().map(kotlin.String::toLong)
         val cardLoopSize = ComboBreaker().findLoopSize(cardPublicKey)
         return ComboBreaker(doorPublicKey).computeEncryptionKey(cardLoopSize)
     }

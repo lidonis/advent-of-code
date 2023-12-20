@@ -16,7 +16,7 @@ object Day2 : AdventOfCode2019(DAY) {
     private const val SEARCHED_OUTPUT = 19690720L
     private const val MULTIPLIER = 100
 
-    private val input = input().readText()
+    private val input = input()
 
     @Answer("4138658")
     override fun part1() = IntCodeComputerFactory.buildBasicComputer(input).runNounVerb(NOUN, VERB)

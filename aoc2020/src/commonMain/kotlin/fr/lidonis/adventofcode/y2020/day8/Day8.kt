@@ -11,7 +11,7 @@ object Day8 : AdventOfCode2020(DAY) {
 
     @Answer("1384")
     override fun part1(): Int {
-        HandheldGameConsole(input().readLines()).run().fold(
+        HandheldGameConsole(input().lines()).run().fold(
             onSuccess = { error("No infinite loop found") },
             onFailure = {
                 return if (it is InfiniteLoopException) {
@@ -24,6 +24,6 @@ object Day8 : AdventOfCode2020(DAY) {
     }
 
     @Answer("761")
-    override fun part2() = CorruptionChecker(input().readLines()).run()
+    override fun part2() = CorruptionChecker(input().lines()).run()
         ?: error("No corruption found")
 }

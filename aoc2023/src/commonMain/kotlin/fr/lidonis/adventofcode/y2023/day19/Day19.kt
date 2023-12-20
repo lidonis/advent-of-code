@@ -8,7 +8,7 @@ private const val DAY = 19
 @Suppress("unused")
 object Day19 : AdventOfCode2023(DAY) {
 
-    private val aplenty = Aplenty(input().readText())
+    private val aplenty = Aplenty(input())
 
     @Answer("575412")
     override fun part1() = aplenty.part1()

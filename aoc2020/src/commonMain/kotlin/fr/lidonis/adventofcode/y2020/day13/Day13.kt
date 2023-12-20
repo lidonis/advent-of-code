@@ -8,7 +8,7 @@ private const val DAY = 13
 @Suppress("unused")
 object Day13 : AdventOfCode2020(DAY) {
 
-    private val shuttleSearch = ShuttleSearch(input().readLines())
+    private val shuttleSearch = ShuttleSearch(input().lines())
 
     @Answer("2935")
     override fun part1() =

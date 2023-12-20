@@ -8,7 +8,7 @@ private const val DAY = 9
 @Suppress("unused")
 object Day9 : AdventOfCode2023(DAY) {
 
-    private val mirageMaintenance = MirageMaintenance(input().readLines())
+    private val mirageMaintenance = MirageMaintenance(input().lines())
 
     @Answer("1806615041")
     override fun part1() = mirageMaintenance.part1()

@@ -8,7 +8,7 @@ private const val DAY = 13
 @Suppress("unused")
 object Day13 : AdventOfCode2022(DAY) {
 
-    private val distressSignal = DistressSignal(input().readLines())
+    private val distressSignal = DistressSignal(input().lines())
 
     @Answer("5675")
     override fun part1() = distressSignal.countOrdered()

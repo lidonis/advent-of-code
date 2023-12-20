@@ -11,7 +11,7 @@ private const val NB_DAYS_PART_2 = 256
 @Suppress("unused")
 object Day6 : AdventOfCode2021(DAY) {
 
-    private val lanternfish = Lanternfish(input().readText())
+    private val lanternfish = Lanternfish(input())
 
     @Answer("356190")
     override fun part1() = lanternfish.reproduce(NB_DAYS_PART_1)

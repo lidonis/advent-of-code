@@ -8,7 +8,7 @@ private const val DAY = 11
 @Suppress("unused")
 object Day11 : AdventOfCode2023(DAY) {
 
-    private val cosmicExpansion = CosmicExpansion(input().readLines())
+    private val cosmicExpansion = CosmicExpansion(input().lines())
 
     @Answer("9918828")
     override fun part1() = cosmicExpansion.part1()

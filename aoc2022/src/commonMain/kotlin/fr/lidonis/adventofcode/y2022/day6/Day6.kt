@@ -11,7 +11,7 @@ private const val PART2_SIZE = 14
 @Suppress("unused")
 object Day6 : AdventOfCode2022(DAY) {
 
-    private val tuningTrouble = TuningTrouble(input().readText())
+    private val tuningTrouble = TuningTrouble(input())
 
     @Answer("1896")
     override fun part1() = tuningTrouble.startOfMessage(PART1_SIZE)

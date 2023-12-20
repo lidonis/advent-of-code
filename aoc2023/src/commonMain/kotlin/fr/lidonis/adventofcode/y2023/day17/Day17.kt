@@ -8,7 +8,7 @@ private const val DAY = 17
 @Suppress("unused")
 object Day17 : AdventOfCode2023(DAY) {
 
-    private val clumsyCrucible = ClumsyCrucible(input().readLines())
+    private val clumsyCrucible = ClumsyCrucible(input().lines())
 
     @Answer("942")
     override fun part1() = clumsyCrucible.part1()

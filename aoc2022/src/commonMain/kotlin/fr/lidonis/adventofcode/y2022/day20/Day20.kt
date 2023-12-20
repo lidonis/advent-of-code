@@ -8,7 +8,7 @@ private const val DAY = 20
 @Suppress("unused")
 object Day20 : AdventOfCode2022(DAY) {
 
-    private val grovePositioningSystem = GrovePositioningSystem(input().readLines())
+    private val grovePositioningSystem = GrovePositioningSystem(input().lines())
 
     @Answer("19559")
     override fun part1() = grovePositioningSystem.sum()

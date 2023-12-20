@@ -8,7 +8,7 @@ private const val DAY = 15
 @Suppress("unused")
 object Day15 : AdventOfCode2023(DAY) {
 
-    private val lensLibrary = LensLibrary(input().readText())
+    private val lensLibrary = LensLibrary(input())
 
     @Answer("503487")
     override fun part1() = lensLibrary.part1()

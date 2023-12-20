@@ -8,7 +8,7 @@ private const val DAY = 12
 @Suppress("unused")
 object Day12 : AdventOfCode2023(DAY) {
 
-    private val hotSprings = HotSprings(input().readLines())
+    private val hotSprings = HotSprings(input().lines())
 
     @Answer("7490")
     override fun part1() = hotSprings.part1()

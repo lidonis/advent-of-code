@@ -8,7 +8,7 @@ private const val DAY = 16
 @Suppress("unused")
 object Day16 : AdventOfCode2021(DAY) {
 
-    private val packetDecoder = PacketDecoder(input().readText())
+    private val packetDecoder = PacketDecoder(input())
 
     @Answer("1358")
     override fun part1() = packetDecoder.part1()

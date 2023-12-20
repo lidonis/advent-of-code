@@ -8,7 +8,7 @@ private const val DAY = 13
 @Suppress("unused")
 object Day13 : AdventOfCode2023(DAY) {
 
-    private val pointOfIncidence = PointOfIncidence(input().readText())
+    private val pointOfIncidence = PointOfIncidence(input())
 
     @Answer("30158")
     override fun part1() = pointOfIncidence.part1()

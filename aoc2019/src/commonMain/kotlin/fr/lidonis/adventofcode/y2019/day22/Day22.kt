@@ -14,7 +14,7 @@ object Day22 : AdventOfCode2019(DAY) {
     private const val CARD_INDEX = 2020L
     private const val NB_SHUFFLES = 101741582076661
 
-    private val instructions = input().readText()
+    private val instructions = input()
 
     @Answer("7171")
     override fun part1() = SpaceCardMathShuffler(PART_1_DECK_SIZE)

@@ -8,7 +8,7 @@ private const val DAY = 7
 @Suppress("unused")
 object Day7 : AdventOfCode2020(DAY) {
 
-    private val luggageProcessing = LuggageProcessing(input().readLines())
+    private val luggageProcessing = LuggageProcessing(input().lines())
 
     @Answer("121")
     override fun part1() = luggageProcessing.countCanContain("shiny gold")

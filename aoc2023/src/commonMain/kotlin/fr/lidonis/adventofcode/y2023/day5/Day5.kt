@@ -8,7 +8,7 @@ private const val DAY = 5
 @Suppress("unused")
 object Day5 : AdventOfCode2023(DAY) {
 
-    private val seedFertilizer = SeedFertilizer(input().readText())
+    private val seedFertilizer = SeedFertilizer(input())
 
     @Answer("510109797")
     override fun part1() = seedFertilizer.part1()

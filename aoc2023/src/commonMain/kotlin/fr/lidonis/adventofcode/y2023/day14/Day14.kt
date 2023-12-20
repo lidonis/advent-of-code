@@ -8,7 +8,7 @@ private const val DAY = 14
 @Suppress("unused")
 object Day14 : AdventOfCode2023(DAY) {
 
-    private val parabolicReflectorDish = ParabolicReflectorDish(input().readLines())
+    private val parabolicReflectorDish = ParabolicReflectorDish(input().lines())
 
     @Answer("109385")
     override fun part1() = parabolicReflectorDish.part1()

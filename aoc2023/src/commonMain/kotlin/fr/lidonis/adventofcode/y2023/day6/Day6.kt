@@ -8,7 +8,7 @@ private const val DAY = 6
 @Suppress("unused")
 object Day6 : AdventOfCode2023(DAY) {
 
-    private val waitForIt = WaitForIt(input().readLines())
+    private val waitForIt = WaitForIt(input().lines())
 
     @Answer("771628")
     override fun part1() = waitForIt.part1()

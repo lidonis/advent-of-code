@@ -8,7 +8,7 @@ private const val DAY = 20
 @Suppress("unused")
 object Day20 : AdventOfCode2019(DAY) {
 
-    private val maze = SpaceWarpingMaze(input().readText())
+    private val maze = SpaceWarpingMaze(input())
 
     @Answer("620")
     override fun part1() = maze.shortestPathDonut() ?: error("Can't find path")

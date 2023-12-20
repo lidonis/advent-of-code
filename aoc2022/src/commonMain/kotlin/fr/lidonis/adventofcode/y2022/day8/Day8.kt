@@ -8,7 +8,7 @@ private const val DAY = 8
 @Suppress("unused")
 object Day8 : AdventOfCode2022(DAY) {
 
-    private val treetopTreeHouse = TreetopTreeHouse(input().readLines())
+    private val treetopTreeHouse = TreetopTreeHouse(input().lines())
 
     @Answer("1717")
     override fun part1() = treetopTreeHouse.visibleTrees()

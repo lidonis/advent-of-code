@@ -8,7 +8,7 @@ private const val DAY = 12
 @Suppress("unused")
 object Day12 : AdventOfCode2022(DAY) {
 
-    private val hillClimbingAlgorithm = HillClimbingAlgorithm(input().readLines())
+    private val hillClimbingAlgorithm = HillClimbingAlgorithm(input().lines())
 
     @Answer("490")
     override fun part1() = hillClimbingAlgorithm.fewestStepsFromStart() ?: error("no path")

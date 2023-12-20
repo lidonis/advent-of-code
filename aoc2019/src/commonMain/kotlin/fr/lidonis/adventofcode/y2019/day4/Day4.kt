@@ -8,7 +8,7 @@ private const val DAY = 4
 @Suppress("unused")
 object Day4 : AdventOfCode2019(DAY) {
 
-    private val inputRange = input().readText()
+    private val inputRange = input()
         .split("-")
         .map(String::toInt)
         .let { (start, end) -> start..end }

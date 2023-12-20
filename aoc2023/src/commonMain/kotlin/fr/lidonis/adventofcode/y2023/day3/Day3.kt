@@ -8,7 +8,7 @@ private const val DAY = 3
 @Suppress("unused")
 object Day3 : AdventOfCode2023(DAY) {
 
-    private val gearRatios = GearRatios(input().readLines())
+    private val gearRatios = GearRatios(input().lines())
 
     @Answer("527369")
     override fun part1() = gearRatios.part1()
