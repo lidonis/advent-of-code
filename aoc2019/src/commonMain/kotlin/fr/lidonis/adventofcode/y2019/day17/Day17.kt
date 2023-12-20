@@ -8,7 +8,7 @@ private const val DAY = 17
 @Suppress("unused")
 object Day17 : AdventOfCode2019(DAY) {
 
-    private val ascii = AftScaffoldingControlAndInformationInterface(input().text())
+    private val ascii = AftScaffoldingControlAndInformationInterface(input().readText())
 
     @Answer("5788")
     override fun part1() = ascii.sumOfTheAlignmentParameters()

@@ -11,7 +11,7 @@ private const val NB_TAILS_PART2 = 9
 @Suppress("unused")
 object Day9 : AdventOfCode2022(DAY) {
 
-    private val ropeBridge = RopeBridge(input().lines())
+    private val ropeBridge = RopeBridge(input().readLines())
 
     @Answer("5902")
     override fun part1() = ropeBridge.move(NB_TAILS_PART1).size

@@ -9,7 +9,7 @@ private const val DAY = 16
 @Suppress("unused")
 object Day16 : AdventOfCode2020(DAY) {
 
-    private val ticketTranslation = TicketTranslation(input().lines())
+    private val ticketTranslation = TicketTranslation(input().readLines())
 
     @Answer("19060")
     override fun part1() = ticketTranslation.scanningErrorRate()

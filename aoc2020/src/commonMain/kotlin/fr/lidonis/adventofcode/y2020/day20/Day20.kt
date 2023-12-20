@@ -8,7 +8,7 @@ private const val DAY = 20
 @Suppress("unused")
 object Day20 : AdventOfCode2020(DAY) {
 
-    private val jurassicJigsaw = JurassicJigsaw(input().text())
+    private val jurassicJigsaw = JurassicJigsaw(input().readText())
 
     @Answer("32287787075651")
     override fun part1() = multiplyCornerTiles()

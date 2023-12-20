@@ -8,7 +8,7 @@ private const val DAY = 7
 @Suppress("unused")
 object Day7 : AdventOfCode2021(DAY) {
 
-    private val crabSubmarines = CrabSubmarines(input().text())
+    private val crabSubmarines = CrabSubmarines(input().readText())
 
     @Answer("336701")
     override fun part1() = crabSubmarines.fuelToAlignConstantBurn()

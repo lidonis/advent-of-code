@@ -9,8 +9,8 @@ private const val DAY = 14
 object Day14 : AdventOfCode2020(DAY) {
 
     @Answer("9879607673316")
-    override fun part1() = DockingDataV1(input().lines()).runProgram()
+    override fun part1() = DockingDataV1(input().readLines()).runProgram()
 
     @Answer("3435342392262")
-    override fun part2() = DockingDataV2(input().lines()).runProgram()
+    override fun part2() = DockingDataV2(input().readLines()).runProgram()
 }

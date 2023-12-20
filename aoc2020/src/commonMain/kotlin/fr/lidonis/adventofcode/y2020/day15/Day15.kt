@@ -10,7 +10,7 @@ private const val TURN_PART_2 = 30000000
 @Suppress("unused")
 object Day15 : AdventOfCode2020(DAY) {
 
-    private val text = input().text()
+    private val text = input().readText()
 
     @Answer("517")
     override fun part1() = RambunctiousRecitation(text).lastSpoken(TURN_PART_1)

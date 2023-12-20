@@ -13,7 +13,7 @@ object Day1 : AdventOfCode2020(DAY) {
     private const val PART_1_SIZE = 2
     private const val PART_2_SIZE = 3
 
-    private val expenseReport = ExpenseReport(input().lines().map(String::toInt))
+    private val expenseReport = ExpenseReport(input().readLines().map(String::toInt))
 
     @Answer("703131")
     override fun part1() = report(PART_1_SIZE)

@@ -8,7 +8,7 @@ private const val DAY = 6
 @Suppress("unused")
 object Day6 : AdventOfCode2020(DAY) {
 
-    private val customsForms = CustomsForms(input().text())
+    private val customsForms = CustomsForms(input().readText())
 
     @Answer("6885")
     override fun part1() = customsForms.sumOfYesAnyone()

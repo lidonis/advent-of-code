@@ -8,7 +8,7 @@ private const val DAY = 21
 @Suppress("unused")
 object Day21 : AdventOfCode2019(DAY) {
 
-    private val input = input().text()
+    private val input = input().readText()
 
     @Answer("19357507")
     override fun part1() = SpringDroid(input).walk() ?: error("Can't find hull damage")

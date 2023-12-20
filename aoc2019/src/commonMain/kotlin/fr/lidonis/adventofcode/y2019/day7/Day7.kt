@@ -14,7 +14,7 @@ object Day7 : AdventOfCode2019(DAY) {
     private const val PART_2_RANGE_START = 5L
     private const val PART_2_RANGE_END = 9L
 
-    private val program = input().text()
+    private val program = input().readText()
 
     @Answer("199988")
     override fun part1() = largestSignal(PART_1_RANGE_START..PART_1_RANGE_END) ?: error("No signal ...")

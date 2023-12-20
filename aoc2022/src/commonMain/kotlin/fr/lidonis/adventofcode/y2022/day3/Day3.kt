@@ -8,7 +8,7 @@ private const val DAY = 3
 @Suppress("unused")
 object Day3 : AdventOfCode2022(DAY) {
 
-    private val rucksackReorganization = RucksackReorganization(input().lines())
+    private val rucksackReorganization = RucksackReorganization(input().readLines())
 
     @Answer("7811")
     override fun part1() = rucksackReorganization.rucksack()

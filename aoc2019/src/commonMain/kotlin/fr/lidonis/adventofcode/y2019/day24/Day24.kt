@@ -10,7 +10,7 @@ object Day24 : AdventOfCode2019(DAY) {
 
     private const val EVOLVE_COUNT = 200
 
-    private val scan = input().text()
+    private val scan = input().readText()
 
     @Answer("18370591")
     override fun part1(): Int {

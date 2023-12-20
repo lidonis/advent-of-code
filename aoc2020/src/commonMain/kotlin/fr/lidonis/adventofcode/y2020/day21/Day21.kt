@@ -8,7 +8,7 @@ private const val DAY = 21
 @Suppress("unused")
 object Day21 : AdventOfCode2020(DAY) {
 
-    private val allergenAssessment = AllergenAssessment(input().lines())
+    private val allergenAssessment = AllergenAssessment(input().readLines())
 
     @Answer("2786")
     override fun part1() = allergenAssessment.safeIngredient.sumOf { safe ->

@@ -8,7 +8,7 @@ private const val DAY = 19
 @Suppress("unused")
 object Day19 : AdventOfCode2020(DAY) {
 
-    private val monsterMessages = MonsterMessages(input().lines())
+    private val monsterMessages = MonsterMessages(input().readLines())
 
     @Answer("182")
     override fun part1() = monsterMessages.countValidMessages()

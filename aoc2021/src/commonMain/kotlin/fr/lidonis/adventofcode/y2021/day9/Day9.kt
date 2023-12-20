@@ -9,7 +9,7 @@ private const val DAY = 9
 @Suppress("unused")
 object Day9 : AdventOfCode2021(DAY) {
 
-    private val smokeBasin = SmokeBasin(input().lines())
+    private val smokeBasin = SmokeBasin(input().readLines())
 
     @Answer("468")
     override fun part1() = smokeBasin.sumRiskLowestPoints()

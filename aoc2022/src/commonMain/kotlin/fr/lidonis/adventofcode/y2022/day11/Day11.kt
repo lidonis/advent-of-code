@@ -9,8 +9,8 @@ private const val DAY = 11
 object Day11 : AdventOfCode2022(DAY) {
 
     @Answer("50830")
-    override fun part1() = MonkeyInTheMiddle(input().lines()).monkeyBusiness()
+    override fun part1() = MonkeyInTheMiddle(input().readLines()).monkeyBusiness()
 
     @Answer("14399640002")
-    override fun part2() = MonkeyInTheMiddle(input().lines()).monkeyBusinessNoWorries()
+    override fun part2() = MonkeyInTheMiddle(input().readLines()).monkeyBusinessNoWorries()
 }

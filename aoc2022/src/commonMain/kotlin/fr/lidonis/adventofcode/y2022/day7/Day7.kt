@@ -10,7 +10,7 @@ private const val SIZE_PART1 = 100_000
 @Suppress("unused")
 object Day7 : AdventOfCode2022(DAY) {
 
-    private val noSpaceLeftOnDevice = NoSpaceLeftOnDevice(input().lines())
+    private val noSpaceLeftOnDevice = NoSpaceLeftOnDevice(input().readLines())
 
     @Answer("1770595")
     override fun part1() = noSpaceLeftOnDevice.smallerThan(SIZE_PART1).sum()

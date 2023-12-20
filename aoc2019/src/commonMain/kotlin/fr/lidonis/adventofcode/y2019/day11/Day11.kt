@@ -15,7 +15,7 @@ private const val DAY = 11
 object Day11 : AdventOfCode2019(DAY) {
 
     private fun robot(startingPanelColor: Color) =
-        EmergencyHullPaintingRobot(IntCodeComputerFactory.buildIOComputer(input().text()), startingPanelColor)
+        EmergencyHullPaintingRobot(IntCodeComputerFactory.buildIOComputer(input().readText()), startingPanelColor)
 
     @Answer("1876")
     override fun part1() = robot(BLACK).run {

@@ -17,7 +17,7 @@ object Day3 : AdventOfCode2020(DAY) {
     private const val MIN_DOWN_SLOPE = 1
     private const val FASTER_DOWN_SLOPE = 2
 
-    private val tobogganMap = TobogganMap(input().lines())
+    private val tobogganMap = TobogganMap(input().readLines())
 
     @Answer("299")
     override fun part1() = tobogganMap.treeEncounter(Slope(FIRST_RIGHT_SLOPE, MIN_DOWN_SLOPE))

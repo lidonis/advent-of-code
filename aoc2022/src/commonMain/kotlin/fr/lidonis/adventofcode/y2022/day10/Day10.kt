@@ -8,7 +8,7 @@ private const val DAY = 10
 @Suppress("unused")
 object Day10 : AdventOfCode2022(DAY) {
 
-    private val cathodeRayTube = CathodeRayTube(input().lines())
+    private val cathodeRayTube = CathodeRayTube(input().readLines())
 
     @Answer("14420")
     override fun part1() = cathodeRayTube.signalStrengths().sum()

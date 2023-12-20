@@ -8,7 +8,7 @@ private const val DAY = 2
 @Suppress("unused")
 object Day2 : AdventOfCode2021(DAY) {
 
-    private val submarineCourse = SubmarineCourse(input().lines())
+    private val submarineCourse = SubmarineCourse(input().readLines())
 
     @Answer("1815044")
     override fun part1() = submarineCourse.plannedCourse().let { it.x * it.y }

@@ -14,7 +14,7 @@ object Day8 : AdventOfCode2019(DAY) {
     private const val IMAGE_WIDTH = 25
     private const val IMAGE_HEIGHT = 6
 
-    private val decoder = ImageDecoder(input().text(), IMAGE_WIDTH, IMAGE_HEIGHT)
+    private val decoder = ImageDecoder(input().readText(), IMAGE_WIDTH, IMAGE_HEIGHT)
 
     @Answer("1224")
     override fun part1() = decoder.checksum()

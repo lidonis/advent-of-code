@@ -13,7 +13,7 @@ object Day16 : AdventOfCode2019(DAY) {
 
     private val fft =
         FlawedFrequencyTransmission(
-            input().text().map {
+            input().readText().map {
                 Character.digit(it, RADIX)
             }
         )

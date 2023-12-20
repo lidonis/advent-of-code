@@ -8,7 +8,7 @@ private const val DAY = 15
 @Suppress("unused")
 object Day15 : AdventOfCode2021(DAY) {
 
-    private val chiton = Chiton(input().lines())
+    private val chiton = Chiton(input().readLines())
 
     @Answer("748")
     override fun part1() = chiton.part1()

@@ -8,7 +8,7 @@ private const val DAY = 1
 @Suppress("unused")
 object Day1 : AdventOfCode2019(DAY) {
 
-    private val spacecraft = Spacecraft(input().lines().map(String::toInt))
+    private val spacecraft = Spacecraft(input().readLines().map(String::toInt))
 
     @Answer("3305301")
     override fun part1(): Int = spacecraft.fuelRequirements()

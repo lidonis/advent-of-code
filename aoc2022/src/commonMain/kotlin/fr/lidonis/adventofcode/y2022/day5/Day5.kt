@@ -8,7 +8,7 @@ private const val DAY = 5
 @Suppress("unused")
 object Day5 : AdventOfCode2022(DAY) {
 
-    private val supplyStacks = SupplyStacks(input().lines())
+    private val supplyStacks = SupplyStacks(input().readLines())
 
     @Answer("SBPQRSCDF")
     override fun part1() = supplyStacks.move()

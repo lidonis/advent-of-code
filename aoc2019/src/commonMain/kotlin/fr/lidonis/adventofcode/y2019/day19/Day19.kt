@@ -11,7 +11,7 @@ object Day19 : AdventOfCode2019(DAY) {
     private const val AREA_SIZE = 50
     private const val RECTANGLE_SIZE = 100
 
-    private val tractorBeam = TractorBeam(input().text())
+    private val tractorBeam = TractorBeam(input().readText())
 
     @Answer("112")
     override fun part1() = tractorBeam.countAffected(AREA_SIZE)

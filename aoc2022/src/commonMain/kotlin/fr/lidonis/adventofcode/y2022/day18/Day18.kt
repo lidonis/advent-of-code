@@ -8,7 +8,7 @@ private const val DAY = 18
 @Suppress("unused")
 object Day18 : AdventOfCode2022(DAY) {
 
-    private val boilingBoulders = BoilingBoulders(input().lines())
+    private val boilingBoulders = BoilingBoulders(input().readLines())
 
     @Answer("3448")
     override fun part1() = boilingBoulders.surfaceArea()

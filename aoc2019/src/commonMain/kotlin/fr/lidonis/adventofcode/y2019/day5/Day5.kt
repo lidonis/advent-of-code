@@ -11,7 +11,7 @@ object Day5 : AdventOfCode2019(DAY) {
 
     private const val DIAGNOSTIC_MODE = 5L
 
-    private val program = input().text()
+    private val program = input().readText()
 
     @Answer("13547311")
     override fun part1(): Long =

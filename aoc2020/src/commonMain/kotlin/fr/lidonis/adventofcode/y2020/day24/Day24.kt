@@ -10,7 +10,7 @@ private const val NB_EVOLUTION = 100
 @Suppress("unused")
 object Day24 : AdventOfCode2020(DAY) {
 
-    private val lobbyLayout = LobbyLayout.fromLines(input().lines())
+    private val lobbyLayout = LobbyLayout.fromLines(input().readLines())
 
     @Answer("495")
     override fun part1() = lobbyLayout.countBlackTiles()

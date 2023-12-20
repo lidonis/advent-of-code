@@ -1,14 +1,11 @@
 package fr.lidonis.adventofcode
 
-import fr.lidonis.adventofcode.common.ResourceReader
+import java.io.File
 
-abstract class AdventOfCode(val year: Int) {
+abstract class AdventOfCode(private val year: Int) {
 
     abstract val day: Int
-    protected fun input() =
-        "/input/y$year/day$day.txt".let { inputPath ->
-            ResourceReader(inputPath) ?: error("Input Resource not found: $inputPath")
-        }
+    protected fun input() = File("../input/y$year/day$day.txt")
 
     abstract fun part1(): Any
     abstract fun part2(): Any

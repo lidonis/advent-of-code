@@ -8,7 +8,7 @@ private const val DAY = 1
 @Suppress("unused")
 object Day1 : AdventOfCode2021(DAY) {
 
-    private val sweepReport: SweepReport = SweepReport(input().lines().map(String::toInt))
+    private val sweepReport: SweepReport = SweepReport(input().readLines().map(String::toInt))
 
     @Answer("1393")
     override fun part1() = sweepReport.countIncrease()

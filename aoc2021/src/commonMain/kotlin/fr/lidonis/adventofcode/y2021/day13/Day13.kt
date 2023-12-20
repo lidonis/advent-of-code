@@ -8,7 +8,7 @@ private const val DAY = 13
 @Suppress("unused")
 object Day13 : AdventOfCode2021(DAY) {
 
-    private val transparentOrigami = TransparentOrigami(input().lines())
+    private val transparentOrigami = TransparentOrigami(input().readLines())
 
     @Answer("802")
     override fun part1() = transparentOrigami.countVisibleDotsAfter1Fold()

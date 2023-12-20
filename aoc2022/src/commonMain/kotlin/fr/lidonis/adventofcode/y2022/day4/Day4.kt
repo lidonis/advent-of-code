@@ -8,7 +8,7 @@ private const val DAY = 4
 @Suppress("unused")
 object Day4 : AdventOfCode2022(DAY) {
 
-    private val campCleanup = CampCleanup(input().lines())
+    private val campCleanup = CampCleanup(input().readLines())
 
     @Answer("569")
     override fun part1() = campCleanup.contains()

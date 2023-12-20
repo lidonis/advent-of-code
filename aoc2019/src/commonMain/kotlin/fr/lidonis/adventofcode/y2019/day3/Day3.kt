@@ -8,7 +8,7 @@ private const val DAY = 3
 @Suppress("unused")
 object Day3 : AdventOfCode2019(DAY) {
 
-    private val wires = input().lines().map { line -> line.split(",") }.run {
+    private val wires = input().readLines().map { line -> line.split(",") }.run {
         CrossedWires(this[0], this[1])
     }
 

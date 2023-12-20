@@ -8,7 +8,7 @@ private const val DAY = 21
 @Suppress("unused")
 object Day21 : AdventOfCode2022(DAY) {
 
-    private val monkeyMath = MonkeyMath(input().lines())
+    private val monkeyMath = MonkeyMath(input().readLines())
 
     @Answer("51928383302238")
     override fun part1() = monkeyMath.root()

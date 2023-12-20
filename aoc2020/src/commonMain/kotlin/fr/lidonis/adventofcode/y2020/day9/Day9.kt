@@ -15,5 +15,5 @@ object Day9 : AdventOfCode2020(DAY) {
     override fun part2() = additionSystem.findWeakness() ?: error("No weakness found")
 
     private const val PREAMBLE_SIZE = 25
-    private val additionSystem = ExchangeMaskingAdditionSystem(input().lines().map(String::toLong), PREAMBLE_SIZE)
+    private val additionSystem = ExchangeMaskingAdditionSystem(input().readLines().map(String::toLong), PREAMBLE_SIZE)
 }

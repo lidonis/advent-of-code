@@ -11,7 +11,7 @@ object Day10 : AdventOfCode2019(DAY) {
     private const val MULTIPLIER = 100
     private const val NTH_ASTEROID_TO_VAPORIZE = 200
 
-    private val map = AsteroidMap(input().text())
+    private val map = AsteroidMap(input().readText())
 
     @Answer("274")
     override fun part1() = map.bestStation()?.second ?: error("No best station found")

@@ -10,7 +10,7 @@ private const val PART_2 = "Start the Blender"
 @Suppress("unused")
 object Day25 : AdventOfCode2022(DAY) {
 
-    private val fullOfHotAir = FullOfHotAir(input().lines())
+    private val fullOfHotAir = FullOfHotAir(input().readLines())
 
     @Answer("2-212-2---=00-1--102")
     override fun part1() = fullOfHotAir.sum()

@@ -8,7 +8,7 @@ private const val DAY = 5
 @Suppress("unused")
 object Day5 : AdventOfCode2020(DAY) {
 
-    private val binaryBoardingScanner = BinaryBoardingScanner(input().lines())
+    private val binaryBoardingScanner = BinaryBoardingScanner(input().readLines())
 
     @Answer("813")
     override fun part1() = binaryBoardingScanner.highestSeatID()
