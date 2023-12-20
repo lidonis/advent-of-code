@@ -18,4 +18,4 @@ Add Visualisation for each day
 
 use kotest (openrewrite?)
 
-reactive detekt
+reactive non-regression tests
