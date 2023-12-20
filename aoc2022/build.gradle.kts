@@ -6,11 +6,13 @@ kotlin {
     jvm()
 
     sourceSets {
+        commonMain.dependencies {
+            implementation(libs.kotlinx.serialization)
+            implementation(libs.kmath)
+        }
+
         jvmMain.dependencies {
             implementation(project(":common"))
-
-            implementation(libs.jackson)
-            implementation(libs.kmath)
         }
     }
 }

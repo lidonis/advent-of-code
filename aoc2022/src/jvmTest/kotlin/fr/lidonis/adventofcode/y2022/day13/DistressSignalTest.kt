@@ -135,6 +135,17 @@ internal class DistressSignalTest {
     }
 
     @Test
+    fun `example 9`() {
+        val input = """
+            [9]
+            [[1],[2,3,4]]
+        """.trimIndent()
+        val result = DistressSignal(input.lines()).countOrdered()
+
+        assertThat(result).isEqualTo(0)
+    }
+
+    @Test
     fun `decoder key`() {
         val result = DistressSignal(fullExample.lines()).decoderKey()
 
