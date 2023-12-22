@@ -45,19 +45,10 @@ class StepCounter(lines: List<String>) {
     }
 
     fun part2() {
-        val elves = next().elementAt(128)
+        val elves = next().elementAt(1)
         val boundingBox1 = PositionSet(elves).boundingBox
         println(boundingBox1)
         println(buildString(boundingBox1, gardenPlots, elves))
-    }
-
-    private fun me() {
-        val take = next()
-            .mapIndexed { index, positions ->
-                "$index ${(index and (index - 1)) == 0} ${positions.size}"
-            }
-            .take(0 + 1)
-        take.toList().forEach(::println)
     }
 
 }
