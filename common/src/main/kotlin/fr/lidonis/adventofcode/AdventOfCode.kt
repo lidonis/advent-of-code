@@ -6,7 +6,7 @@ abstract class AdventOfCode(private val year: Int) {
 
     abstract val day: Int
     protected fun input() =
-        File("../input/input/y$year/day$day/input.txt")
+        File("../input/y$year/day$day/input.txt")
             .readText()
             .trimIndent()
 
