@@ -51,7 +51,8 @@ class PulsePropagation(private val lines: List<String>) {
 
     fun part2(): Long {
         val modules = initModules()
-        val moduleInput = modules.findInputs(PART2_MODULE_NAME).singleOrNull() as? Module.Conjunction ?: error("Conjunction module found")
+        val moduleInput = modules.findInputs(PART2_MODULE_NAME).singleOrNull() as? Module.Conjunction
+            ?: error("Conjunction module found")
         return countButtonPressToGetHighPulse(moduleInput.inputs.keys)
             .also { println(it) }
             .values.reduce(::lcm)
@@ -62,11 +63,11 @@ class PulsePropagation(private val lines: List<String>) {
         val pulses = mutableListOf<Pulse>()
         val modulePulses = mutableMapOf<String, Long>()
         var i = 1L
-        while(modulePulses.size < moduleNames.size) {
+        while (modulePulses.size < moduleNames.size) {
             pulses.add(Pulse("button", "broadcaster", false))
             while (pulses.isNotEmpty()) {
                 val pulse = pulses.removeFirst()
-                if(pulse.to in moduleNames && !pulse.high) {
+                if (pulse.to in moduleNames && !pulse.high) {
                     modulePulses[pulse.to] = i
                 }
                 val module = modules[pulse.to]

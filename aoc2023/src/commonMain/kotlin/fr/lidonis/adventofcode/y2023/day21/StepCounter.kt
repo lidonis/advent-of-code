@@ -25,8 +25,8 @@ class StepCounter(lines: List<String>) {
             for (j in (boundingBox.start.y)..boundingBox.end.y) {
                 for (i in (boundingBox.start.x)..boundingBox.end.x) {
                     when {
-                        Position(i, j) in starts-> append("O")
-                        gardenPlots.containsMod(Position(i, j), boundingBox)-> append(".")
+                        Position(i, j) in starts -> append("O")
+                        gardenPlots.containsMod(Position(i, j), boundingBox) -> append(".")
                         else -> append("#")
                     }
                 }
@@ -50,7 +50,6 @@ class StepCounter(lines: List<String>) {
         println(boundingBox1)
         println(buildString(boundingBox1, gardenPlots, elves))
     }
-
 }
 
 fun Set<Position>.containsMod(position: Position, boundingBox: PositionSet.BoundingBox) =

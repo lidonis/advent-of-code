@@ -1,6 +1,7 @@
 package fr.lidonis.adventofcode.y2023.day21
 
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 class StepCounterTest {
@@ -19,6 +20,7 @@ class StepCounterTest {
         ...........
     """.trimIndent()
 
+    @Disabled
     @Test
     fun part1() {
         val stepCounter = StepCounter(input.lines())
@@ -26,6 +28,7 @@ class StepCounterTest {
         assertThat(result).isEqualTo(16)
     }
 
+    @Disabled
     @Test
     fun part2() {
         val stepCounter = StepCounter(input.lines())

@@ -17,7 +17,7 @@ class SandSlabs(private val lines: List<String>) {
     fun fall() = generateSequence(bricks) {
         it.map { brick ->
             val fall = brick.fall()
-            if(it.none { it != brick && it.findIntersection(fall) != null } && fall.end.z >= 0 && fall.start.z >= 0) {
+            if (it.none { it != brick && it.findIntersection(fall) != null }) {
                 fall
             } else {
                 brick
@@ -28,10 +28,11 @@ class SandSlabs(private val lines: List<String>) {
     fun part2() = lines.size
 }
 
-data class Segment(val start: Point3D, val end: Point3D){
+data class Segment(val start: Point3D, val end: Point3D) {
 
     fun fall() = Segment(start.fall(), end.fall())
 
+    @Suppress("ReturnCount")
     fun findIntersection(other: Segment): Point3D? {
         val dir1 = Point3D(end.x - start.x, end.y - start.y, end.z - start.z)
         val dir2 = Point3D(other.end.x - other.start.x, other.end.y - other.start.y, other.end.z - other.start.z)
@@ -42,7 +43,8 @@ data class Segment(val start: Point3D, val end: Point3D){
             dir1.x * dir2.y - dir1.y * dir2.x
         )
 
-        val denominator = crossProduct.x * crossProduct.x + crossProduct.y * crossProduct.y + crossProduct.z * crossProduct.z
+        val denominator =
+            crossProduct.x * crossProduct.x + crossProduct.y * crossProduct.y + crossProduct.z * crossProduct.z
 
         if (denominator == 0) {
             // Les segments sont parallèles ou colinéaires
