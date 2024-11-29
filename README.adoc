@@ -6,7 +6,7 @@ Code for _advent of code_ in Kotlin
 
 [source,shell]
 ----
- ./gradlew run --args="-y2020 -d1"
+ ./gradlew run --args="-y 2020 -d 1"
 ----
 
 == Native Image
