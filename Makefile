@@ -53,7 +53,6 @@ generate-year-files:
 
 generate-day-files:
 	@echo "Generating day files..."
-	@mkdir -p src/main/${DAY_PACKAGE_DIR}
 	@mkdir -p aoc$(YEAR)/src/commonMain/${DAY_PACKAGE_DIR}
 	@cp template/day/DayX.kt.mustache $(DAY_FILE)
 	@echo "Generating ${NAME}.kt"
