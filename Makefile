@@ -6,7 +6,6 @@ NAME:= Template
 LOWERCASE_NAME := $(shell echo $(NAME) | awk '{print tolower(substr($$0,1,1)) substr($$0,2)}')
 YEAR_PACKAGE_DIR := /kotlin/fr/lidonis/adventofcode/y$(YEAR)
 YEAR_FILE := aoc$(YEAR)/src/commonMain/${YEAR_PACKAGE_DIR}/AdventOfCode$(YEAR).kt
-NON_REGRESSION_TEST_FILE := aoc$(YEAR)/src/test/${YEAR_PACKAGE_DIR}/NonRegressionTest$(YEAR).kt
 DAY_PACKAGE_DIR := $(YEAR_PACKAGE_DIR)/day$(DAY)
 DAY_FILE := aoc$(YEAR)/src/commonMain${DAY_PACKAGE_DIR}/Day$(DAY).kt
 TEMPLATE_FILE := aoc$(YEAR)/src/commonMain${DAY_PACKAGE_DIR}/${NAME}.kt
@@ -48,11 +47,8 @@ generate-year-files:
 	@echo "Generating Year$(YEAR).kt"
 	@mkdir -p aoc$(YEAR)/src/commonMain/${YEAR_PACKAGE_DIR}
 	@cp template/year/AdventOfCodeX.kt.mustache $(YEAR_FILE)
-	@echo "Generating NonRegressionTest.kt"
-	@mkdir -p aoc$(YEAR)/src/jvmTest/${YEAR_PACKAGE_DIR}
-	@cp template/year/NonRegressionTest.kt.mustache $(NON_REGRESSION_TEST_FILE)
 	@echo "Replacing variables in files"
-	@sed -i '' "s|{{year}}|${YEAR}|g" ${YEAR_FILE} ${NON_REGRESSION_TEST_FILE}
+	@sed -i '' "s|{{year}}|${YEAR}|g" ${YEAR_FILE}
 	@echo "Done generating year files."
 
 generate-day-files:
