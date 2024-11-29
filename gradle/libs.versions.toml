@@ -1,6 +1,6 @@
 [versions]
 jdk = "21"
-kotlin = "1.9.21"
+kotlin = "1.9.22"
 detekt = "1.23.4"
 graalvm = "22.3.3"
 junit = "5.10.1"
