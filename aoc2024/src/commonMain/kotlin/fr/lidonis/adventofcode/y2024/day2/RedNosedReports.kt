@@ -2,6 +2,9 @@ package fr.lidonis.adventofcode.y2024.day2
 
 import kotlin.math.absoluteValue
 
+private const val MIN_SAFE_DIFFERENCE = 1
+private const val MAX_SAFE_DIFFERENCE = 3
+
 class RedNosedReports(lines: List<String>) {
 
     val reports = lines.map { it.split(" ").map { it.toInt() } }
@@ -30,7 +33,7 @@ class RedNosedReports(lines: List<String>) {
     }
 
     private fun List<Pair<Int, Int>>.hasValidDifferences() =
-        all { (a, b) -> (a - b).absoluteValue in 1..3 }
+        all { (a, b) -> (a - b).absoluteValue in MIN_SAFE_DIFFERENCE..MAX_SAFE_DIFFERENCE }
 
     private fun List<Int>.removeAtIndex(index: Int): List<Int> =
         toMutableList().apply { this@apply.removeAt(index) }
