@@ -36,5 +36,5 @@ class RedNosedReports(lines: List<String>) {
         all { (a, b) -> (a - b).absoluteValue in MIN_SAFE_DIFFERENCE..MAX_SAFE_DIFFERENCE }
 
     private fun List<Int>.removeAtIndex(index: Int): List<Int> =
-        toMutableList().apply { this@apply.removeAt(index) }
+        subList(0, index) + subList(index + 1, size)
 }
