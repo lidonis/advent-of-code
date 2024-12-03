@@ -1,5 +1,4 @@
 import org.gradle.accessors.dm.LibrariesForLibs
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val libs = the<LibrariesForLibs>()
 
@@ -20,12 +19,6 @@ dependencies {
     testImplementation(libs.mockk)
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-}
-
-tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions {
-        freeCompilerArgs += "-Xcontext-receivers"
-    }
 }
 
 tasks.named<Test>("test") {
