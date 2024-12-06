@@ -3,11 +3,14 @@ import fr.lidonis.adventofcode.common.geo.plane.Direction
 import fr.lidonis.adventofcode.common.geo.plane.Position
 import fr.lidonis.adventofcode.common.geo.plane.PositionSet
 
+typealias State = Pair<Position, Direction>
+
 class GuardGallivant(private val lines: List<String>) {
 
     private companion object {
         const val OBSTACLE_CHAR = '#'
         const val GUARD_CHAR = '^'
+
         // build map is reversed from example
         val INITIAL_DIRECTION = Direction.DOWN
     }
@@ -26,9 +29,9 @@ class GuardGallivant(private val lines: List<String>) {
         causesLoop(PositionSet(obstaclePositions + newObstacle))
     }
 
-    private fun performGuardMovement(obstacles: PositionSet): Pair<Set<Pair<Position, Direction>>, Pair<Position, Direction>> {
+    private fun performGuardMovement(obstacles: PositionSet): Pair<Set<State>, State> {
         var currentGuardState = guardStartState
-        val visitedStates = mutableSetOf<Pair<Position, Direction>>()
+        val visitedStates = mutableSetOf<State>()
 
         while (currentGuardState.first in obstacles.boundingBox && visitedStates.add(currentGuardState)) {
             currentGuardState = nextGuardMove(currentGuardState, obstacles)
@@ -36,7 +39,7 @@ class GuardGallivant(private val lines: List<String>) {
         return visitedStates to currentGuardState
     }
 
-    private fun nextGuardMove(guardState: Pair<Position, Direction>, obstacles: PositionSet): Pair<Position, Direction> {
+    private fun nextGuardMove(guardState: State, obstacles: PositionSet): State {
         val nextPosition = guardState.first + guardState.second
         return if (nextPosition in obstacles) {
             guardState.first to nextDirectionOnObstacle(guardState.second)
