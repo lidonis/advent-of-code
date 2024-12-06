@@ -25,9 +25,9 @@ class GuardGallivant(private val lines: List<String>) {
         return visitedStates.map { it.first }.toSet()
     }
 
-    fun part2() = traceGuardPath().asSequence().count { newObstacle ->
+    fun part2() = traceGuardPath().parallelStream().filter { newObstacle ->
         causesLoop(PositionSet(obstaclePositions + newObstacle))
-    }
+    }.count()
 
     private fun performGuardMovement(obstacles: PositionSet): Pair<Set<State>, State> {
         var currentGuardState = guardStartState
