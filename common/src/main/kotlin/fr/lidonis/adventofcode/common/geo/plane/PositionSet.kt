@@ -31,7 +31,7 @@ data class PositionSet(val positions: Set<Position>) : Set<Position> by position
         println(buildString(displays))
     }
 
-    fun buildString(displays : Set<Position>) = buildString {
+    fun buildString(displays: Set<Position> = emptySet()) = buildString {
         for (j in (boundingBox.start.y)..boundingBox.end.y) {
             for (i in (boundingBox.start.x)..boundingBox.end.x) {
                 when {
