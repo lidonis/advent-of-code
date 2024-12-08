@@ -1,0 +1,36 @@
+package fr.lidonis.adventofcode.y2024.day8
+
+import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.Test
+
+class ResonantCollinearityTest {
+
+    private val input = """
+        ............
+        ........0...
+        .....0......
+        .......0....
+        ....0.......
+        ......A.....
+        ............
+        ............
+        ........A...
+        .........A..
+        ............
+        ............
+    """.trimIndent()
+
+    @Test
+    fun part1() {
+        val resonantCollinearity = ResonantCollinearity(input.lines())
+        val result = resonantCollinearity.part1()
+        assertThat(result).isEqualTo(14)
+    }
+
+    @Test
+    fun part2() {
+        val resonantCollinearity = ResonantCollinearity(input.lines())
+        val result = resonantCollinearity.part2()
+        assertThat(result).isEqualTo(34)
+    }
+}

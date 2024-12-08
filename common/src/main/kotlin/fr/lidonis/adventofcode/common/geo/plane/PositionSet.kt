@@ -47,5 +47,13 @@ data class PositionSet(val positions: Set<Position>) : Set<Position> by position
     data class BoundingBox(val start: Position, var end: Position) {
         operator fun contains(position: Position) =
             position.x in start.x..end.x && position.y in start.y..end.y
+
+        fun positions() = sequence {
+            for (i in start.x..end.x) {
+                for (j in start.y..end.y) {
+                    yield(Position(i, j))
+                }
+            }
+        }
     }
 }
