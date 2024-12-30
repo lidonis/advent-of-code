@@ -24,7 +24,7 @@ junit = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
 junit-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junit" }
 junit-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
 assertj = "org.assertj:assertj-core:3.26.3"
-mockk = "io.mockk:mockk:1.13.13"
+mockk = "io.mockk:mockk:1.13.14"
 
 ### Detekt
 detekt-cli = { module = "io.gitlab.arturbosch.detekt:detekt-cli", version.ref = "detekt" }
