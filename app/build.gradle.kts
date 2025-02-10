@@ -1,6 +1,6 @@
 plugins {
     id("gradle.kotlin-application-jvm-conventions")
-    id("org.graalvm.buildtools.native") version "0.10.4"
+    id("org.graalvm.buildtools.native") version "0.10.5"
 }
 
 group = "fr.lidonis.adventofcode"
