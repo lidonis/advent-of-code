@@ -31,3 +31,10 @@ detekt {
         "src/test/kotlin",
     )
 }
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    jvmTarget = "22"
+}
+tasks.withType<io.gitlab.arturbosch.detekt.DetektCreateBaselineTask>().configureEach {
+    jvmTarget = "22"
+}
