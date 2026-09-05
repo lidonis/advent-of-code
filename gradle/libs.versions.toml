@@ -3,7 +3,7 @@ jdk = "21"
 kotlin = "2.1.21"
 detekt = "1.23.8"
 graalvm = "22.3.3"
-junit = "5.12.2"
+junit = "6.0.2"
 
 [plugins]
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
